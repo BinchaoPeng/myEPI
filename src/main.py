@@ -70,7 +70,7 @@ if __name__ == '__main__':
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
-        auc, aupr = testModel(start, len_testSet, epoch, testLoader, module)
+        auc, aupr = testModel(testLoader, module)
         print(f"============================[{time_since(start)}]test: EPOCH {epoch} is over!================")
         test_auc_list.append(auc)
         test_aupr_list.append(aupr)
