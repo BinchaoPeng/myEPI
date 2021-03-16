@@ -1,7 +1,7 @@
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import numpy as np
 
 embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))
 MAX_LEN_en = 3000  # seq_lens

@@ -1,7 +1,7 @@
-from sklearn.metrics import roc_auc_score, average_precision_score
-import numpy as np
-import torch
 import itertools
+
+import torch
+from sklearn.metrics import roc_auc_score, average_precision_score
 
 
 def testModel(testLoader, module):
