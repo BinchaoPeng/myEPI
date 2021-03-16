@@ -9,8 +9,9 @@ import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 
 from EPIDataset import EPIDataset
-from model.modelBase import EPINet
-
+import model.modelBase as modelBase
+import model.model_gru3 as model_gru3
+import model.model_transformer as model_transformer
 """
 Hyper parameter
 """
@@ -34,7 +35,16 @@ testSet = EPIDataset(name, is_train_set=False)
 len_testSet = len(testSet)
 testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, num_workers=num_works, drop_last=True)
 
-module = EPINet()
+"""
+base
+"""
+module = modelBase.EPINet()
+
+# module = model_gru3.EPINet()
+#
+# module = model_transformer.EPINet()
+
+
 # print(module.parameters())
 """
 loss and optimizer

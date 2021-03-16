@@ -11,7 +11,7 @@ EMBEDDING_DIM = 100
 
 
 class EPINet(nn.Module):
-    def __init__(self, num_layers=1, bidirectional=True):
+    def __init__(self, num_layers=2, bidirectional=True):
         super(EPINet, self).__init__()
 
         self.n_directions = 2 if bidirectional else 1
