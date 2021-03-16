@@ -1,14 +1,8 @@
 import torch
-import time, math
-import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score
 import itertools,sys
+from utils import time_since
 
-def time_since(start):
-    s = time.time() - start
-    m = math.floor(s / 60)
-    s -= m * 60
-    return '%dm %ds' % (m, s)
 
 
 def trainModel(start, len_trainSet, epoch, trainLoader, module, criterion, optimal):

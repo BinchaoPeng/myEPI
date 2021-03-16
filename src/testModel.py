@@ -1,6 +1,7 @@
 from sklearn.metrics import roc_auc_score, average_precision_score
 import numpy as np
 import torch
+import itertools
 
 
 def testModel(testLoader, module):
@@ -9,17 +10,11 @@ def testModel(testLoader, module):
     with torch.no_grad():
         for i, (x, y) in enumerate(testLoader, 1):
             pred = module(x)
-            # correct += (pred.ge(0.5) == y).sum().item()
-            # print("pred shape:", pred.shape)
-            # print("pred:", pred)
-            for item_pred, item_test in zip(pred.numpy(), y.numpy()):
-                y_pred.append(item_pred)
-                y_test.append(item_test)
-        # percent = '%.2f' % (100 * correct / total)
-        # print(f'Test set: Accuracy {correct}/{total} {percent}%')
 
-        y_test = np.array(y_test).reshape(-1)
-        y_pred = np.array(y_pred).reshape(-1)
+            y_pred.append(pred.tolist())
+            y_test.append(y.tolist())
+        y_test = list(itertools.chain.from_iterable(y_test))
+        y_pred = list(itertools.chain.from_iterable(y_pred))
 
         # print(type(y_pred))
         # print(type(y_test))

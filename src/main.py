@@ -31,6 +31,7 @@ trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, 
 print("trainLoader len:", len(trainLoader))
 
 testSet = EPIDataset(name, is_train_set=False)
+len_testSet = len(testSet)
 testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, num_workers=num_works, drop_last=True)
 
 module = EPINet()
@@ -59,7 +60,7 @@ if __name__ == '__main__':
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
-        auc, aupr = testModel(testLoader, module)
+        auc, aupr = testModel(start, len_testSet, epoch, testLoader, module)
         print(f"============================[{time_since(start)}]test: EPOCH {epoch} is over!================")
         test_auc_list.append(auc)
         test_aupr_list.append(aupr)
