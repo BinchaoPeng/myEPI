@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 
 from EPIDataset import EPIDataset
-from modelBase import EPINet
+from model.modelBase import EPINet
 
 """
 Hyper parameter

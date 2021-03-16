@@ -14,12 +14,12 @@ from torch.utils.data import Dataset, DataLoader
 """
 Hyper parameter
 """
-N_EPOCHS = 5
+N_EPOCHS = 2
 batch_size = 8
 num_works = 8
 lr = 0.001
 
-embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))
+embedding_matrix = torch.as_tensor(np.load("../embedding_matrix.npy"))
 MAX_LEN_en = 3000  # seq_lens
 MAX_LEN_pr = 2000  # seq_lens
 NB_WORDS = 4097  # one-hot dim
@@ -56,8 +56,10 @@ np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行�
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
 
 trainSet = EPIDataset()
-# print("trainSet data len:", len(trainSet))
-trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works, drop_last=True)
+print("trainSet data len:", len(trainSet))
+trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
+print("trainLoader len:", len(trainLoader))
+
 testSet = EPIDataset(is_train_set=False)
 testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, num_workers=num_works, drop_last=True)
 
@@ -119,6 +121,8 @@ class EPINet(nn.Module):
 
         # self.fc = nn.Linear(hidden_size * self.n_directions,  # if bi_direction, there are 2 hidden
         #                     output_size)
+
+        self.transformer = nn.Transformer()
 
         self.fc = nn.Linear(100, 1)
 
@@ -217,12 +221,15 @@ class EPINet(nn.Module):
         # print("gru_output:", output.shape)
         # print("gru_hidden:", hidden.shape)
 
-        if self.n_directions == 2:
-            hidden_cat = torch.cat([hidden[-1], hidden[-2]], dim=1)
-        else:
-            hidden_cat = hidden[-1]
-
+        # if self.n_directions == 2:
+        #     hidden_cat = torch.cat([hidden[-1], hidden[-2]], dim=1)
+        # else:
+        #     hidden_cat = hidden[-1]
         # print("gru:", hidden_cat.shape)
+
+        hidden_cat = self.transformer(output)
+        print("transformer:", hidden_cat.shape)
+
         fc_output = self.fc(hidden_cat)
         # print("fc:", fc_output.shape)
 
@@ -297,7 +304,6 @@ def trainModel(epoch):
     y_pred = np.array(y_pred).reshape(-1)
     auc = roc_auc_score(y_test, y_pred)
     aupr = average_precision_score(y_test, y_pred)
-    # del y_test, y_pred
 
     print("train AUC : ", auc)
     print("train AUPR : ", aupr)
