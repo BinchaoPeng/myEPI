@@ -39,7 +39,7 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 """
 base
 """
-module = modelBase.EPINet()
+module = model_transformer.EPINet()
 
 # module = model_gru3.EPINet()
 #

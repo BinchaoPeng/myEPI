@@ -48,14 +48,6 @@ class EPINet(nn.Module):
         self.bn = nn.BatchNorm1d(num_features=64)
         self.dt = nn.Dropout(p=0.5)
 
-        # l_gru = Bidirectional(GRU(50, return_sequences=True))(dt)
-        # l_att = AttLayer(50)(l_gru)
-
-        # self.gru = nn.GRU(64,  # input
-        #                   50,  # output
-        #                   1,
-        #                   bidirectional=True)
-
         self.gru = nn.GRU(input_size=64,
                           hidden_size=50,
                           num_layers=num_layers,
@@ -65,8 +57,6 @@ class EPINet(nn.Module):
         #                     output_size)
 
         self.fc = nn.Linear(100, 1)
-
-        # preds = Dense(1, activation='sigmoid')(l_att)
 
     def forward(self, x):
 

@@ -22,6 +22,10 @@ class EPINet(nn.Module):
         self.promoter_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
         # print("net:", self.promoter_embedding.weight.shape)
 
+        encoder_layer = nn.TransformerEncoderLayer(nhead=10, d_model=EMBEDDING_DIM)
+        self.enhancer_encoder = nn.TransformerEncoder(encoder_layer=encoder_layer, num_layers=6)
+        self.promoter_encoder = nn.TransformerEncoder(encoder_layer=encoder_layer, num_layers=6)
+
         self.enhancer_conv_layer = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
         # print("net:", self.enhancer_conv_layer.weight.shape)
         self.enhancer_max_pool_layer = nn.MaxPool1d(kernel_size=20, stride=20)
@@ -34,14 +38,6 @@ class EPINet(nn.Module):
 
         self.bn = nn.BatchNorm1d(num_features=64)
         self.dt = nn.Dropout(p=0.5)
-
-        # l_gru = Bidirectional(GRU(50, return_sequences=True))(dt)
-        # l_att = AttLayer(50)(l_gru)
-
-        # self.gru = nn.GRU(64,  # input
-        #                   50,  # output
-        #                   1,
-        #                   bidirectional=True)
 
         self.gru = nn.GRU(input_size=64,
                           hidden_size=50,
@@ -95,6 +91,10 @@ class EPINet(nn.Module):
         data: torch.Size([64, 3000, 100])
         data: torch.Size([64, 2000, 100])
         """
+        x_en = self.enhancer_encoder(x_en.type(torch.float32))
+        print("encoder(x_en):", x_en.shape)
+        x_pr = self.promoter_encoder(x_pr.type(torch.float32))
+        print("encoder(x_pr):", x_pr.shape)
 
         x_en = x_en.permute(0, 2, 1)
         # print("x_en.permute:", x_en.shape)
