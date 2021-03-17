@@ -17,11 +17,11 @@ import model.model_transformer as model_transformer
 Hyper parameter
 """
 N_EPOCHS = 15
-batch_size = 128
+batch_size = 8
 num_works = 0
 lr = 0.001
 names = ['PBC', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-name = names[4]
+name = names[0]
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽

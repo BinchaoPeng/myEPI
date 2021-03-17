@@ -92,9 +92,9 @@ class EPINet(nn.Module):
         data: torch.Size([64, 2000, 100])
         """
         x_en = self.enhancer_encoder(x_en.type(torch.float32))
-        print("encoder(x_en):", x_en.shape)
+        # print("encoder(x_en):", x_en.shape)
         x_pr = self.promoter_encoder(x_pr.type(torch.float32))
-        print("encoder(x_pr):", x_pr.shape)
+        # print("encoder(x_pr):", x_pr.shape)
 
         x_en = x_en.permute(0, 2, 1)
         # print("x_en.permute:", x_en.shape)
