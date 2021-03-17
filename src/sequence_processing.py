@@ -58,12 +58,12 @@ def get_data(enhancers, promoters):
 # In[]:
 
 
-names = ['GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
-name = names[4]
-train_dir = 'data/%s/train/' % name
-imbltrain = 'data/%s/imbltrain/' % name
-test_dir = 'data/%s/test/' % name
-Data_dir = 'data/%s/' % name
+names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
+name = names[0]
+train_dir = '../data/epivan/%s/train/' % name
+imbltrain = '../data/epivan/%s/imbltrain/' % name
+test_dir = '../data/epivan/%s/test/' % name
+Data_dir = '../data/epivan/%s/' % name
 print('Experiment on %s dataset' % name)
 
 print('Loading seq data...')
