@@ -17,12 +17,12 @@ import model.model_transformer_1 as model_transformer_1
 """
 Hyper parameter
 """
-N_EPOCHS = 15
+N_EPOCHS = 40
 batch_size = 4
 num_works = 0
 lr = 0.001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-name = names[0]
+name = names[1]
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
@@ -80,7 +80,7 @@ if __name__ == '__main__':
         torch.save(module, r'../model/model-%s.pkl' % (str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
-    x = range(1, N_EPOCHS + 1)
+    x = range(1, N_EPOCHS + 2)
     plt.plot(x, test_auc_list, 'b-o', label="test_auc")
     plt.plot(x, train_auc_list, 'r-o', label="train_auc")
     plt.ylabel("auc")
@@ -90,5 +90,13 @@ if __name__ == '__main__':
     plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
     plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
     plt.ylabel("aupr")
+    plt.xlabel("epoch")
+    plt.show()
+
+    plt.plot(x, test_auc_list, 'b:o', label="test_auc")
+    plt.plot(x, train_auc_list, 'r:o', label="train_auc")
+    plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
+    plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
+    plt.ylabel("auc & aupr")
     plt.xlabel("epoch")
     plt.show()

@@ -1,8 +1,7 @@
 import torch
 from sklearn.metrics import roc_auc_score, average_precision_score
-import itertools,sys
+import itertools, sys
 from utils import time_since
-
 
 
 def trainModel(start, len_trainSet, epoch, trainLoader, module, criterion, optimal):
@@ -33,7 +32,7 @@ def trainModel(start, len_trainSet, epoch, trainLoader, module, criterion, optim
             print(f'[{i * len(x[0])}/{len_trainSet}]', end='')
             print(f'loss = {total_loss / (i * len(x[0]))}')
 
-    print(str(sys.getsizeof(y_pred)/1000), "KB")
+    # print(str(sys.getsizeof(y_pred) / 1000), "KB")
     y_test = list(itertools.chain.from_iterable(y_test))
     y_pred = list(itertools.chain.from_iterable(y_pred))
     auc = roc_auc_score(y_test, y_pred)
@@ -43,8 +42,6 @@ def trainModel(start, len_trainSet, epoch, trainLoader, module, criterion, optim
     print("train AUC : ", auc)
     print("train AUPR : ", aupr)
     return auc, aupr
-
-
 
 # def getScore(y_pred_list=[], y_test_list=[]):
 #

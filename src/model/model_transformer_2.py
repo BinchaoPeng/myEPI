@@ -3,7 +3,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))
+# embedding_matrix = torch.as_tensor(np.load("../embedding_matrix.npy"))     # used here
+embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))   # used in main  4097 x 100
+# print(embedding_matrix.shape)
 MAX_LEN_en = 3000  # seq_lens
 MAX_LEN_pr = 2000  # seq_lens
 NB_WORDS = 4097  # one-hot dim
@@ -22,10 +24,6 @@ class EPINet(nn.Module):
         self.promoter_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
         # print("net:", self.promoter_embedding.weight.shape)
 
-        # encoder_layer = nn.TransformerEncoderLayer(nhead=10, d_model=EMBEDDING_DIM)
-        # self.enhancer_encoder = nn.TransformerEncoder(encoder_layer=encoder_layer, num_layers=6)
-        # self.promoter_encoder = nn.TransformerEncoder(encoder_layer=encoder_layer, num_layers=6)
-
         self.enhancer_conv_layer = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
         # print("net:", self.enhancer_conv_layer.weight.shape)
         self.enhancer_max_pool_layer = nn.MaxPool1d(kernel_size=20, stride=20)
@@ -40,24 +38,17 @@ class EPINet(nn.Module):
         self.dt = nn.Dropout(p=0.5)
 
         self.gru = nn.GRU(input_size=64,
-                          hidden_size=256,
+                          hidden_size=50,
                           num_layers=num_layers,
                           bidirectional=bidirectional)
-        self.gru_1 = nn.GRU(input_size=512,
-                            hidden_size=50,
-                            num_layers=num_layers,
-                            bidirectional=bidirectional)
+
         # self.fc = nn.Linear(hidden_size * self.n_directions,  # if bi_direction, there are 2 hidden
         #                     output_size)
 
-        encoder_layer = nn.TransformerEncoderLayer(nhead=8, d_model=512)
-        self.encoder = nn.TransformerEncoder(encoder_layer=encoder_layer, num_layers=6)
-
         self.fc = nn.Linear(100, 1)
 
-        # preds = Dense(1, activation='sigmoid')(l_att)
-
     def forward(self, x):
+
         x_en = torch.as_tensor(x[0], dtype=torch.long)
         # print("x_en:", x_en.shape)  #(Batch_size,3000)
         # print("x_en:", x_en)
@@ -96,10 +87,6 @@ class EPINet(nn.Module):
         data: torch.Size([64, 3000, 100])
         data: torch.Size([64, 2000, 100])
         """
-        # x_en = self.enhancer_encoder(x_en.type(torch.float32))
-        # # print("encoder(x_en):", x_en.shape)
-        # x_pr = self.promoter_encoder(x_pr.type(torch.float32))
-        # # print("encoder(x_pr):", x_pr.shape)
 
         x_en = x_en.permute(0, 2, 1)
         # print("x_en.permute:", x_en.shape)
@@ -140,7 +127,7 @@ class EPINet(nn.Module):
         X = X.permute(2, 0, 1)
         # print("dt:", X.shape)
         batch_size = X.size(1)
-        hidden = self._init_hidden(batch_size, 256)
+        hidden = self._init_hidden(batch_size, 50)
 
         # sql_length = torch.LongTensor([batch_size for i in range(0, batch_size)])
         # gru_input = pack_padded_sequence(X, sql_length, batch_first=True)
@@ -148,26 +135,10 @@ class EPINet(nn.Module):
         # output: [h1,h2,h3,...,hn]  (seqSize,batch,hidden_size)   seqSize: dim of input
         # hidden: hN (numLayers,batch,hidden_size)
         output, hidden = self.gru(X,  # seq (seqSize,batch,input_size)
-                                  )  # h0 (numLayers,batch,hidden_size)
+                                  hidden)  # h0 (numLayers,batch,hidden_size)
 
         # print("gru_output:", output.shape)
         # print("gru_hidden:", hidden.shape)
-
-        # if self.n_directions == 2:
-        #     hidden_cat = torch.cat([hidden[-1], hidden[-2]], dim=1)
-        # else:
-        #     hidden_cat = hidden[-1]
-
-        # print("gru:", hidden_cat.shape)
-
-        X = self.encoder(output)
-        # print("encoder(output):", X.shape)
-
-        output, hidden = self.gru_1(X,  # seq (seqSize,batch,input_size)
-                                    )  # h0 (numLayers,batch,hidden_size)
-
-        # print("gru1_output:", output.shape)
-        # print("gru1_hidden:", hidden.shape)
 
         if self.n_directions == 2:
             hidden_cat = torch.cat([hidden[-1], hidden[-2]], dim=1)
@@ -175,7 +146,6 @@ class EPINet(nn.Module):
             hidden_cat = hidden[-1]
 
         # print("gru:", hidden_cat.shape)
-
         fc_output = self.fc(hidden_cat)
         # print("fc:", fc_output.shape)
 

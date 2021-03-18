@@ -16,34 +16,21 @@ class EPINet(nn.Module):
 
         self.n_directions = 2 if bidirectional else 1
         self.num_layers = num_layers
-        # enhancers = Input(shape=(MAX_LEN_en,))
-        # promoters = Input(shape=(MAX_LEN_pr,))
-        # emb_en = Embedding(NB_WORDS, EMBEDDING_DIM, weights=[embedding_matrix], trainable=True)(enhancers)
-        # emb_pr = Embedding(NB_WORDS, EMBEDDING_DIM, weights=[embedding_matrix], trainable=True)(promoters)
 
         self.enhancer_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
         # print("net:", self.enhancer_embedding.weight.shape)
         self.promoter_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
         # print("net:", self.promoter_embedding.weight.shape)
-        # enhancer_conv_layer = Conv1D(filters=64, kernel_size=40, padding="valid", activation='relu')(emb_en)
-        # enhancer_max_pool_layer = MaxPooling1D(pool_size=20, strides=20)(enhancer_conv_layer)
 
         self.enhancer_conv_layer = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
         # print("net:", self.enhancer_conv_layer.weight.shape)
         self.enhancer_max_pool_layer = nn.MaxPool1d(kernel_size=20, stride=20)
         # print("net:", self.enhancer_conv_layer.weight.shape)
 
-        # promoter_conv_layer = Conv1D(filters=64, kernel_size=40, padding="valid", activation='relu')(emb_pr)
-        # promoter_max_pool_layer = MaxPooling1D(pool_size=20, strides=20)(promoter_conv_layer)
-
         self.promoter_conv_layer = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
         # print("net:", self.promoter_conv_layer.weight.shape)
         self.promoter_max_pool_layer = nn.MaxPool1d(kernel_size=20, stride=20)
         # print("net:", self.enhancer_conv_layer.weight.shape)
-
-        # merge_layer = Concatenate(axis=1)([enhancer_max_pool_layer, promoter_max_pool_layer])
-        # bn = BatchNormalization()(merge_layer)
-        # dt = Dropout(0.5)(bn)
 
         self.bn = nn.BatchNorm1d(num_features=64)
         self.dt = nn.Dropout(p=0.5)
