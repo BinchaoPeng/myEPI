@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 # embedding_matrix = torch.as_tensor(np.load("../embedding_matrix.npy"))     # used here
-embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))   # used in main  4097 x 100
+embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))  # used in main  4097 x 100
 # print(embedding_matrix.shape)
 MAX_LEN_en = 3000  # seq_lens
 MAX_LEN_pr = 2000  # seq_lens
@@ -36,6 +36,11 @@ class EPINet(nn.Module):
 
         self.bn = nn.BatchNorm1d(num_features=64)
         self.dt = nn.Dropout(p=0.5)
+
+        self.fc_1 = nn.Linear(64, 512)
+        encoder_layer = nn.TransformerEncoderLayer(nhead=8, d_model=512)
+        self.encoder = nn.TransformerEncoder(encoder_layer=encoder_layer, num_layers=6)
+        self.fc_2 = nn.Linear(512, 64)
 
         self.gru = nn.GRU(input_size=64,
                           hidden_size=50,
@@ -125,7 +130,13 @@ class EPINet(nn.Module):
         # print("dt:", X.shape)
 
         X = X.permute(2, 0, 1)
-        # print("dt:", X.shape)
+        # print("dt:", X.shape)     (S B I) [246,B,64]
+
+        # transformer
+        X = self.fc_1(X)
+        X = self.encoder(X)
+        X = self.fc_2(X)
+
         batch_size = X.size(1)
         hidden = self._init_hidden(batch_size, 50)
 
