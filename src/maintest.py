@@ -19,7 +19,7 @@ import model.model_transformer_2 as model_transformer_2
 Hyper parameter
 """
 N_EPOCHS = 40
-batch_size = 4
+batch_size = 8
 num_works = 0
 lr = 0.001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     train_auc_list = []
     train_aupr_list = []
     for epoch in range(1, N_EPOCHS + 1):
-        auc, aupr = trainModel(start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        auc, aupr = trainModel(20, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")

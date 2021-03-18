@@ -4,7 +4,7 @@ import itertools, sys
 from utils import time_since
 
 
-def trainModel(start, len_trainSet, epoch, trainLoader, module, criterion, optimal):
+def trainModel(num_iter,start, len_trainSet, epoch, trainLoader, module, criterion, optimal):
     total_loss = 0
     y_pred = []
     y_test = []
@@ -25,7 +25,7 @@ def trainModel(start, len_trainSet, epoch, trainLoader, module, criterion, optim
         total_loss += loss.item()
         y_pred.append(pred.tolist())
         y_test.append(y.tolist())
-        if i % 5 == 0:
+        if i % num_iter == 0:
             # print("len(trainLoader):", len(trainLoader))
             # print("len(x)", len(x))
             print(f'[{time_since(start)}] Epoch {epoch} ', end='')
