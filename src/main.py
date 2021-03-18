@@ -12,6 +12,8 @@ from EPIDataset import EPIDataset
 import model.modelBase as modelBase
 import model.model_gru3 as model_gru3
 import model.model_transformer as model_transformer
+import model.model_transformer_1 as model_transformer_1
+import model.model_transformer_2 as model_transformer_2
 
 """
 Hyper parameter
@@ -19,7 +21,7 @@ Hyper parameter
 N_EPOCHS = 15
 batch_size = 128
 num_works = 0
-lr = 0.001
+lr = 0.0001
 names = ['PBC', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 name = names[4]
 
@@ -39,10 +41,10 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 """
 base
 """
-module = model_transformer.EPINet()
-
+module = model_transformer_2.EPINet()
+# module = model_transformer_1.EPINet()
+# module = model_transformer.EPINet()
 # module = model_gru3.EPINet()
-#
 # module = model_transformer.EPINet()
 
 
@@ -80,7 +82,7 @@ if __name__ == '__main__':
         torch.save(module, r'../model/model-%s.pkl' % (str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
-    x = range(1, N_EPOCHS + 1)
+    x = range(1, N_EPOCHS + 2)
     plt.plot(x, test_auc_list, 'b-o', label="test_auc")
     plt.plot(x, train_auc_list, 'r-o', label="train_auc")
     plt.ylabel("auc")
