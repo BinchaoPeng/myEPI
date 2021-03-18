@@ -13,6 +13,7 @@ import model.modelBase as modelBase
 import model.model_gru3 as model_gru3
 import model.model_transformer as model_transformer
 import model.model_transformer_1 as model_transformer_1
+import model.model_transformer_2 as model_transformer_2
 
 """
 Hyper parameter
@@ -40,7 +41,8 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 """
 base
 """
-module = model_transformer_1.EPINet()
+module = model_transformer_2.EPINet()
+# module = model_transformer_1.EPINet()
 # module = model_transformer.EPINet()
 # module = model_gru3.EPINet()
 # module = model_transformer.EPINet()
