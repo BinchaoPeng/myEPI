@@ -14,6 +14,8 @@ import model.model_gru3 as model_gru3
 import model.model_transformer as model_transformer
 import model.model_transformer_1 as model_transformer_1
 import model.model_transformer_2 as model_transformer_2
+import model.model_pseknc_1 as model_pseknc_1
+import model.modelBase as modelBase
 
 """
 Hyper parameter
@@ -21,7 +23,7 @@ Hyper parameter
 N_EPOCHS = 40
 batch_size = 8
 num_works = 0
-lr = 0.001
+lr = 0.00001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 name = names[1]
 
@@ -41,7 +43,9 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 """
 base
 """
-module = model_transformer_2.EPINet()
+module = modelBase.EPINet()
+# module = model_pseknc_1.EPINet()
+# module = model_transformer_2.EPINet()
 # module = model_transformer_1.EPINet()
 # module = model_transformer.EPINet()
 # module = model_gru3.EPINet()
