@@ -18,12 +18,12 @@ import model.model_transformer_2 as model_transformer_2
 """
 Hyper parameter
 """
-N_EPOCHS = 15
-batch_size = 128
+N_EPOCHS = 40
+batch_size = 32
 num_works = 0
-lr = 0.0001
-names = ['PBC', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-name = names[4]
+lr = 0.00003
+names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
+name = names[0]
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     train_auc_list = []
     train_aupr_list = []
     for epoch in range(1, N_EPOCHS + 1):
-        auc, aupr = trainModel(10, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        auc, aupr = trainModel(40, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
@@ -82,7 +82,7 @@ if __name__ == '__main__':
         torch.save(module, r'../model/model-%s.pkl' % (str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
-    x = range(1, N_EPOCHS + 2)
+    x = range(1, N_EPOCHS + 1)
     plt.plot(x, test_auc_list, 'b-o', label="test_auc")
     plt.plot(x, train_auc_list, 'r-o', label="train_auc")
     plt.ylabel("auc")
@@ -92,5 +92,13 @@ if __name__ == '__main__':
     plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
     plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
     plt.ylabel("aupr")
+    plt.xlabel("epoch")
+    plt.show()
+
+    plt.plot(x, test_auc_list, 'b:o', label="test_auc")
+    plt.plot(x, train_auc_list, 'r:o', label="train_auc")
+    plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
+    plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
+    plt.ylabel("auc & aupr")
     plt.xlabel("epoch")
     plt.show()
