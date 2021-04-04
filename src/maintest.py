@@ -23,14 +23,14 @@ Hyper parameter
 N_EPOCHS = 40
 batch_size = 8
 num_works = 0
-lr = 0.00001
+lr = 0.0003
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 name = names[1]
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
 
-trainSet = EPIDataset(name, feature_name="")
+trainSet = EPIDataset(name, feature_name="pseknc")
 len_trainSet = len(trainSet)
 print("trainSet data len:", len(trainSet))
 trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
@@ -43,8 +43,8 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 """
 base
 """
-module = modelBase.EPINet()
-# module = model_pseknc_1.EPINet()
+# module = modelBase.EPINet()
+module = model_pseknc_1.EPINet()
 # module = model_transformer_2.EPINet()
 # module = model_transformer_1.EPINet()
 # module = model_transformer.EPINet()
@@ -86,7 +86,7 @@ if __name__ == '__main__':
         torch.save(module, r'../model/model-%s.pkl' % (str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
-    x = range(1, N_EPOCHS + 2)
+    x = range(1, N_EPOCHS + 1)
     plt.plot(x, test_auc_list, 'b-o', label="test_auc")
     plt.plot(x, train_auc_list, 'r-o', label="train_auc")
     plt.ylabel("auc")

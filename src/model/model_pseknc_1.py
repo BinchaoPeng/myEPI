@@ -17,9 +17,14 @@ class EPINet(nn.Module):
         self.n_directions = 2 if bidirectional else 1
         self.num_layers = num_layers
 
-        self.enhancer_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
+        # self.enhancer_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
+        # # print("net:", self.enhancer_embedding.weight.shape)
+        # self.promoter_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
+        # # print("net:", self.promoter_embedding.weight.shape)
+
+        self.enhancer_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM)
         # print("net:", self.enhancer_embedding.weight.shape)
-        self.promoter_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
+        self.promoter_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM)
         # print("net:", self.promoter_embedding.weight.shape)
 
         self.enhancer_conv_layer = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
