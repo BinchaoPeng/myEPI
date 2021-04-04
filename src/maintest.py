@@ -15,6 +15,7 @@ import model.model_transformer as model_transformer
 import model.model_transformer_1 as model_transformer_1
 import model.model_transformer_2 as model_transformer_2
 import model.model_pseknc_1 as model_pseknc_1
+import model.model_pseknc_2 as model_pseknc_2
 import model.modelBase as modelBase
 
 """
@@ -23,7 +24,7 @@ Hyper parameter
 N_EPOCHS = 40
 batch_size = 8
 num_works = 0
-lr = 0.0003
+lr = 0.001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 name = names[1]
 
@@ -36,7 +37,7 @@ print("trainSet data len:", len(trainSet))
 trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
 print("trainLoader len:", len(trainLoader))
 
-testSet = EPIDataset(name, is_train_set=False)
+testSet = EPIDataset(name, feature_name="pseknc", is_train_set=False)
 len_testSet = len(testSet)
 testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, num_workers=num_works, drop_last=True)
 
@@ -44,7 +45,8 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 base
 """
 # module = modelBase.EPINet()
-module = model_pseknc_1.EPINet()
+module = model_pseknc_2.EPINet()
+# module = model_pseknc_1.EPINet()
 # module = model_transformer_2.EPINet()
 # module = model_transformer_1.EPINet()
 # module = model_transformer.EPINet()
@@ -73,17 +75,23 @@ if __name__ == '__main__':
     train_auc_list = []
     train_aupr_list = []
     for epoch in range(1, N_EPOCHS + 1):
-        auc, aupr = trainModel(20, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        # train
+        module.train()
+        auc, aupr = trainModel(40, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
+
+        # test
+        module.eval()
         auc, aupr = testModel(testLoader, module)
-        print(f"============================[{time_since(start)}]test: EPOCH {epoch} is over!================")
         test_auc_list.append(auc)
         test_aupr_list.append(aupr)
+        print(f"============================[{time_since(start)}]test: EPOCH {epoch} is over!================")
+
         # print("============================test: ACC is", acc, "=======================================")
         # torch.save(module, r'..\model\%sModule-%s.pkl' % (name, str(epoch)))
-        torch.save(module, r'../model/model-%s.pkl' % (str(epoch)))  # must use /
+        torch.save(module, r'../model/model-%s-%s.pkl' % (name, str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
     x = range(1, N_EPOCHS + 1)

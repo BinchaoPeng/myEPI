@@ -69,14 +69,20 @@ if __name__ == '__main__':
     train_auc_list = []
     train_aupr_list = []
     for epoch in range(1, N_EPOCHS + 1):
+        # train
+        module.train()
         auc, aupr = trainModel(40, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
+
+        # test
+        module.eval()
         auc, aupr = testModel(testLoader, module)
-        print(f"============================[{time_since(start)}]test: EPOCH {epoch} is over!================")
         test_auc_list.append(auc)
         test_aupr_list.append(aupr)
+        print(f"============================[{time_since(start)}]test: EPOCH {epoch} is over!================")
+
         # print("============================test: ACC is", acc, "=======================================")
         # torch.save(module, r'..\model\%sModule-%s.pkl' % (name, str(epoch)))
         torch.save(module, r'../model/model-%s.pkl' % (str(epoch)))  # must use /
