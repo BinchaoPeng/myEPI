@@ -30,7 +30,7 @@ name = names[1]
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
 
-trainSet = EPIDataset(name)
+trainSet = EPIDataset(name, feature_name="")
 len_trainSet = len(trainSet)
 print("trainSet data len:", len(trainSet))
 trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
