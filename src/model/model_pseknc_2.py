@@ -38,7 +38,7 @@ class EPINet(nn.Module):
         X = torch.cat([x_en, x_pr], 1)
         # print("cat:", X.shape)
         batch_size = X.size(0)
-        X = X.reshape((batch_size,286,2))
+        X = X.reshape((batch_size, 286, 2))
         # print("reshape:", X.shape)
 
         # batch_size = X.size(1)

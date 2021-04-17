@@ -18,8 +18,8 @@ def testModel(testLoader, module):
 
         # print(type(y_pred))
         # print(type(y_test))
-        # print("y_pred:", y_pred)
-        # print("y_test:", y_test)
+        print("y_pred:", y_pred)
+        print("y_test:", y_test)
         auc = roc_auc_score(y_test, y_pred)
         aupr = average_precision_score(y_test, y_pred)
 

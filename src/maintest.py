@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import time
+import time, sys
 import numpy as np
 from testModel import testModel
 from trainModel import trainModel, time_since
@@ -16,28 +16,30 @@ import model.model_transformer_1 as model_transformer_1
 import model.model_transformer_2 as model_transformer_2
 import model.model_pseknc_1 as model_pseknc_1
 import model.model_pseknc_2 as model_pseknc_2
+import model.model_pseknc_3 as model_pseknc_3
 import model.modelBase as modelBase
 
 """
 Hyper parameter
 """
 N_EPOCHS = 40
-batch_size = 8
+batch_size = 32
 num_works = 0
-lr = 0.001
+lr = 0.000001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-name = names[1]
+cell_name = names[1]
+feature_name = "pseknc"
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
 
-trainSet = EPIDataset(name, feature_name="pseknc")
+trainSet = EPIDataset(cell_name, feature_name=feature_name)
 len_trainSet = len(trainSet)
 print("trainSet data len:", len(trainSet))
 trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
 print("trainLoader len:", len(trainLoader))
 
-testSet = EPIDataset(name, feature_name="pseknc", is_train_set=False)
+testSet = EPIDataset(cell_name, feature_name=feature_name, is_train_set=False)
 len_testSet = len(testSet)
 testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, num_workers=num_works, drop_last=True)
 
@@ -45,14 +47,15 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 base
 """
 # module = modelBase.EPINet()
-module = model_pseknc_2.EPINet()
+module = model_pseknc_3.EPINet()
+# module = model_pseknc_2.EPINet()
 # module = model_pseknc_1.EPINet()
 # module = model_transformer_2.EPINet()
 # module = model_transformer_1.EPINet()
 # module = model_transformer.EPINet()
 # module = model_gru3.EPINet()
 # module = model_transformer.EPINet()
-
+model_name = module.__class__.__module__
 
 # print(module.parameters())
 """
@@ -62,6 +65,8 @@ criterion = nn.BCELoss(reduction='sum')
 optimal = optim.Adam(module.parameters(), lr=lr)
 
 if __name__ == '__main__':
+
+    print("[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]\n\n")
 
     # if USE_GPU:
     #     device = torch.device("cuda:0")
@@ -91,8 +96,10 @@ if __name__ == '__main__':
 
         # print("============================test: ACC is", acc, "=======================================")
         # torch.save(module, r'..\model\%sModule-%s.pkl' % (name, str(epoch)))
-        torch.save(module, r'../model/model-%s-%s.pkl' % (name, str(epoch)))  # must use /
+        torch.save(module, r'../model/model-%s-%s.pkl' % (cell_name, str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
+
+    print("\n\n[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]")
     # polt
     x = range(1, N_EPOCHS + 1)
     plt.plot(x, test_auc_list, 'b-o', label="test_auc")
