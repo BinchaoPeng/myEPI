@@ -18,10 +18,13 @@ class EPIDataset(Dataset):
         testPath = r'../data/epivan/%s/%s/%s_test.npz' % (name, feature_name, name)
         filename = trainPath if is_train_set else testPath
         data = np.load(filename)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
-        self.X_en = data[data.files[0]]
-        self.X_pr = data[data.files[1]]
-        self.X = [item for item in zip(self.X_en, self.X_pr)]
-        # print(type(self.X))
+        if feature_name.find("longformer"):
+            self.X = data[data.files[0]]
+        else:
+            self.X_en = data[data.files[0]]
+            self.X_pr = data[data.files[1]]
+            self.X = [item for item in zip(self.X_en, self.X_pr)]
+            # print(type(self.X))
         self.y = data[data.files[2]]
         self.len = len(self.y)
 

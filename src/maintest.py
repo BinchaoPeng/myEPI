@@ -28,6 +28,7 @@ num_works = 0
 lr = 0.000001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[1]
+feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug-base-4096']
 feature_name = "pseknc"
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
@@ -47,6 +48,7 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 base
 """
 # module = modelBase.EPINet()
+
 module = model_pseknc_3.EPINet()
 # module = model_pseknc_2.EPINet()
 # module = model_pseknc_1.EPINet()
