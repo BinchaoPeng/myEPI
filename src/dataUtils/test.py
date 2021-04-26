@@ -33,3 +33,22 @@ print(ran.shape)
 print(ran)
 output = m(input)
 print(output.shape)
+
+# In[ ]:
+import numpy as np
+
+"""
+write 3-dim np_arr to csv
+"""
+l = [[[1, 1, 1],
+      [1, 1, 1]],
+     [[2, 2, 2],
+      [2, 2, 2]]]
+
+arr = np.array(l)
+with open(r"src/dataUtils/dtest.csv", 'ab') as f:
+
+    for item in arr:
+        print(item)
+        np.savetxt(f, item, delimiter=',')
+f.close()

@@ -2,13 +2,14 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+from transformers import LongformerModel, LongformerTokenizer, LongformerConfig
 
 embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))
 MAX_LEN_en = 3000  # seq_lens
 MAX_LEN_pr = 2000  # seq_lens
 NB_WORDS = 4097  # one-hot dim
-EMBEDDING_DIM = 100
+EMBEDDING_DIM = 768
+max_value = 2651
 
 
 class EPINet(nn.Module):
@@ -18,19 +19,19 @@ class EPINet(nn.Module):
         self.n_directions = 2 if bidirectional else 1
         self.num_layers = num_layers
 
-        self.enhancer_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
-        # print("net:", self.enhancer_embedding.weight.shape)
-        self.promoter_embedding = nn.Embedding(NB_WORDS, EMBEDDING_DIM, _weight=embedding_matrix)
-        # print("net:", self.promoter_embedding.weight.shape)
+        model_name = 'pre-model/' + 'longformer-base-4096'
+        config = LongformerConfig.from_pretrained(model_name)
+        self.tokenizer = LongformerTokenizer.from_pretrained(model_name)
+        self.longformer = LongformerModel.from_pretrained(model_name, config=config)  # (B,2653,768)
 
-        self.enhancer_conv_layer = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
+        self.conv1 = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
         # print("net:", self.enhancer_conv_layer.weight.shape)
-        self.enhancer_max_pool_layer = nn.MaxPool1d(kernel_size=20, stride=20)
+        self.max_pool_1 = nn.MaxPool1d(kernel_size=20, stride=20)
         # print("net:", self.enhancer_conv_layer.weight.shape)
 
-        self.promoter_conv_layer = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
+        self.conv2 = nn.Conv1d(in_channels=64, out_channels=64, kernel_size=40)
         # print("net:", self.promoter_conv_layer.weight.shape)
-        self.promoter_max_pool_layer = nn.MaxPool1d(kernel_size=20, stride=20)
+        self.max_pool_2 = nn.MaxPool1d(kernel_size=20, stride=20)
         # print("net:", self.enhancer_conv_layer.weight.shape)
 
         self.bn = nn.BatchNorm1d(num_features=64)
@@ -47,93 +48,47 @@ class EPINet(nn.Module):
         self.fc = nn.Linear(100, 1)
 
     def forward(self, x):
-
-        x_en = torch.as_tensor(x[0], dtype=torch.long)
-        # print("x_en:", x_en.shape)  #(Batch_size,3000)
-        # print("x_en:", x_en)
         """
-        x_en: torch.Size([64, 3000])
-        x_en: tensor([  [   0,    0,    0,  ...,  306, 1224,  798],
-                        [   0,    0,    0,  ...,  612, 2448, 1598],
-                        [   0,    0,    0,  ...,  635, 2539, 1961],
-                         ...,
-                        [   0,    0,    0,  ..., 1983, 3833, 3043],
-                        [   0,    0,    0,  ..., 2080,  126,  503],
-                        [   0,    0,    0,  ...,    1,    4,   15]])
+        x: en+</s>+pr
         """
 
-        x_pr = torch.as_tensor(x[1], dtype=torch.long)
-        # print("x_pr:", x_pr.shape) #(Batch_size,2000)
-        # print("x_pr:", x_pr)
-        """
-        x_pr: torch.Size([64, 2000])
-        x_pr: tensor([[   0,    0,    0,  ..., 2827, 3113,  161],
-                [   0,    0,    0,  ..., 3967, 3579, 2027],
-                [   0,    0,    0,  ..., 1386, 1446, 1687],
-                ...,
-                [   0,    0,    0,  ...,  291, 1161,  546],
-                [   0,    0,    0,  ..., 2985, 3747, 2699],
-                [   0,    0,    0,  ..., 2654, 2421, 1491]])
-        """
-        # x_en = x_en.t()
-        # x_pr = x_pr.t()
+        encoded_inputs = self.tokenizer(x, max_length=max_value, return_tensors='pt', padding=True)
+        X_enpr_tensor = self.longformer(**encoded_inputs)[0]
+        print("X_enpr_tensor:", X_enpr_tensor.shape)  # (Batch_size,2653,768)
+        print("X_enpr_tensor:", X_enpr_tensor)
 
-        x_en = self.enhancer_embedding(x_en)
-        # print("embedding(x_en):", x_en.shape)
-        x_pr = self.promoter_embedding(x_pr)
-        # print("embedding(x_pr):", x_pr.shape)
-        """
-        data: torch.Size([64, 3000, 100])
-        data: torch.Size([64, 2000, 100])
-        """
+        x_enpr = self.conv1(X_enpr_tensor)
+        print("conv1(X_enpr_tensor):", x_enpr.shape)
+        x_enpr = F.relu(x_enpr)
+        print("conv1_relu(x_enpr):", x_enpr.shape)
+        x_enpr = self.enhancer_max_pool_layer(x_enpr)
+        print("conv1_max_pool_layer(x_enpr):", x_enpr.shape)
 
-        x_en = x_en.permute(0, 2, 1)
-        # print("x_en.permute:", x_en.shape)
-        x_pr = x_pr.permute(0, 2, 1)
-        # print("x_en.permute:", x_pr.shape)
+        x_enpr = self.conv2(x_enpr)
+        print("conv2(x_enpr):", x_enpr.shape)
+        x_enpr = F.relu(x_enpr)
+        print("conv2_relu(x_enpr):", x_enpr.shape)
+        x_enpr = self.promoter_max_pool_layer(x_enpr)
+        print("conv2_max_pool_layer(x_enpr):", x_enpr.shape)
 
-        x_en = x_en.type(torch.float32)
-        # print(x_en.dtype)
-        x_en = self.enhancer_conv_layer(x_en)
-        # print("enhancer_conv_layer(x_en):", x_en.shape)
-        x_pr = self.promoter_conv_layer(x_pr.type(torch.float32))
-        # print("promoter_conv_layer(x_pr):", x_pr.shape)
+        x_enpr = self.bn(x_enpr)
+        print("bn:", x_enpr.shape)
 
-        x_en = F.relu(x_en)
-        # print("relu(x_en):", x_en.shape)
-        x_pr = F.relu(x_pr)
-        # print("relu(x_pr):", x_pr.shape)
+        x_enpr = self.dt(x_enpr)
+        print("dt:", x_enpr.shape)
 
-        x_en = self.enhancer_max_pool_layer(x_en)
-        # print("max_pool_layer(x_en):", x_en.shape)
-        x_pr = self.promoter_max_pool_layer(x_pr)
-        # print("max_pool_layer(x_pr):", x_pr.shape)
+        x_enpr = x_enpr.permute(2, 0, 1)
+        print("dt:", x_enpr.shape)
 
-        # x_en = x_en.permute(0, 2, 1)
-        # print("data:", x_en.shape)
-        # x_pr = x_pr.permute(0, 2, 1)
-        # print("data:", x_pr.shape)
-
-        X = torch.cat([x_en, x_pr], 2)
-        # print("cat:", X.shape)
-
-        X = self.bn(X)
-        # print("bn:", X.shape)
-
-        X = self.dt(X)
-        # print("dt:", X.shape)
-
-        X = X.permute(2, 0, 1)
-        # print("dt:", X.shape)
-        batch_size = X.size(1)
+        batch_size = x_enpr.size(1)
         hidden = self._init_hidden(batch_size, 50)
 
         # sql_length = torch.LongTensor([batch_size for i in range(0, batch_size)])
-        # gru_input = pack_padded_sequence(X, sql_length, batch_first=True)
+        # gru_input = pack_padded_sequence(x_enpr, sql_length, batch_first=True)
 
         # output: [h1,h2,h3,...,hn]  (seqSize,batch,hidden_size)   seqSize: dim of input
         # hidden: hN (numLayers,batch,hidden_size)
-        output, hidden = self.gru(X,  # seq (seqSize,batch,input_size)
+        output, hidden = self.gru(x_enpr,  # seq (seqSize,batch,input_size)
                                   hidden)  # h0 (numLayers,batch,hidden_size)
 
         # print("gru_output:", output.shape)

@@ -17,19 +17,19 @@ import model.model_transformer_2 as model_transformer_2
 import model.model_pseknc_1 as model_pseknc_1
 import model.model_pseknc_2 as model_pseknc_2
 import model.model_pseknc_3 as model_pseknc_3
-import model.modelBase as modelBase
+import model.model_longformer_1 as model_longformer_1
 
 """
 Hyper parameter
 """
 N_EPOCHS = 40
-batch_size = 32
+batch_size = 4
 num_works = 0
 lr = 0.000001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[1]
-feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug-base-4096']
-feature_name = "pseknc"
+feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug']
+feature_name = feature_names[2]
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
@@ -49,7 +49,7 @@ base
 """
 # module = modelBase.EPINet()
 
-module = model_pseknc_3.EPINet()
+module = model_longformer_1.EPINet()
 # module = model_pseknc_2.EPINet()
 # module = model_pseknc_1.EPINet()
 # module = model_transformer_2.EPINet()
