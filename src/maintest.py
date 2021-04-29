@@ -25,7 +25,7 @@ Hyper parameter
 N_EPOCHS = 40
 batch_size = 4
 num_works = 0
-lr = 0.000001
+lr = 0.00005
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[1]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug']
@@ -59,16 +59,20 @@ module = model_longformer_1.EPINet()
 # module = model_transformer.EPINet()
 model_name = module.__class__.__module__
 
+# 这里是一般情况，共享层往往不止一层，所以做一个for循环
+for para in module.longformer.parameters():
+    para.requires_grad = False
 # print(module.parameters())
 """
 loss and optimizer
 """
 criterion = nn.BCELoss(reduction='sum')
-optimal = optim.Adam(module.parameters(), lr=lr)
+# optimal = optim.Adam(module.parameters(), lr=lr)
+optimal = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
 
 if __name__ == '__main__':
 
-    print("[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]\n\n")
+    print("===CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "===\n\n")
 
     # if USE_GPU:
     #     device = torch.device("cuda:0")
@@ -84,7 +88,7 @@ if __name__ == '__main__':
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
-        auc, aupr = trainModel(40, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        auc, aupr = trainModel(20, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")

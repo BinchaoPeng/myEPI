@@ -4,12 +4,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import LongformerModel, LongformerTokenizer, LongformerConfig
 
-embedding_matrix = torch.as_tensor(np.load("embedding_matrix.npy"))
-MAX_LEN_en = 3000  # seq_lens
-MAX_LEN_pr = 2000  # seq_lens
-NB_WORDS = 4097  # one-hot dim
 EMBEDDING_DIM = 768
-max_value = 2651
+max_value = 2703
 
 
 class EPINet(nn.Module):
@@ -23,21 +19,23 @@ class EPINet(nn.Module):
         config = LongformerConfig.from_pretrained(model_name)
         self.tokenizer = LongformerTokenizer.from_pretrained(model_name)
         self.longformer = LongformerModel.from_pretrained(model_name, config=config)  # (B,2653,768)
+        # for param in self.longformer.base_model.parameters():
+        #     param.requires_grad = False
 
         self.conv1 = nn.Conv1d(in_channels=EMBEDDING_DIM, out_channels=64, kernel_size=40)
         # print("net:", self.enhancer_conv_layer.weight.shape)
         self.max_pool_1 = nn.MaxPool1d(kernel_size=20, stride=20)
         # print("net:", self.enhancer_conv_layer.weight.shape)
 
-        self.conv2 = nn.Conv1d(in_channels=64, out_channels=64, kernel_size=40)
+        self.conv2 = nn.Conv1d(in_channels=64, out_channels=32, kernel_size=20)
         # print("net:", self.promoter_conv_layer.weight.shape)
-        self.max_pool_2 = nn.MaxPool1d(kernel_size=20, stride=20)
+        self.max_pool_2 = nn.MaxPool1d(kernel_size=10, stride=3)
         # print("net:", self.enhancer_conv_layer.weight.shape)
 
-        self.bn = nn.BatchNorm1d(num_features=64)
+        self.bn = nn.BatchNorm1d(num_features=32)  # input_size / embedding_dim
         self.dt = nn.Dropout(p=0.5)
 
-        self.gru = nn.GRU(input_size=64,
+        self.gru = nn.GRU(input_size=32,
                           hidden_size=50,
                           num_layers=num_layers,
                           bidirectional=bidirectional)
@@ -52,33 +50,36 @@ class EPINet(nn.Module):
         x: en+</s>+pr
         """
 
-        encoded_inputs = self.tokenizer(x, max_length=max_value, return_tensors='pt', padding=True)
+        encoded_inputs = self.tokenizer(x, padding='max_length', max_length=max_value, return_tensors='pt')
         X_enpr_tensor = self.longformer(**encoded_inputs)[0]
-        print("X_enpr_tensor:", X_enpr_tensor.shape)  # (Batch_size,2653,768)
-        print("X_enpr_tensor:", X_enpr_tensor)
+        # print("X_enpr_tensor:", X_enpr_tensor.shape)  # (Batch_size,2651,768) (B,S,I)
+        # print("X_enpr_tensor:", X_enpr_tensor)
+
+        X_enpr_tensor = X_enpr_tensor.permute(0, 2, 1)
+        # print("X_enpr_tensor,permute(0,2,1):", X_enpr_tensor.shape)  # (B,768,2651)
 
         x_enpr = self.conv1(X_enpr_tensor)
-        print("conv1(X_enpr_tensor):", x_enpr.shape)
+        # print("conv1(X_enpr_tensor):", x_enpr.shape)
         x_enpr = F.relu(x_enpr)
-        print("conv1_relu(x_enpr):", x_enpr.shape)
-        x_enpr = self.enhancer_max_pool_layer(x_enpr)
-        print("conv1_max_pool_layer(x_enpr):", x_enpr.shape)
+        # print("conv1_relu(x_enpr):", x_enpr.shape)
+        x_enpr = self.max_pool_1(x_enpr)
+        # print("max_pool_1(x_enpr):", x_enpr.shape)
 
         x_enpr = self.conv2(x_enpr)
-        print("conv2(x_enpr):", x_enpr.shape)
+        # print("conv2(x_enpr):", x_enpr.shape)
         x_enpr = F.relu(x_enpr)
-        print("conv2_relu(x_enpr):", x_enpr.shape)
-        x_enpr = self.promoter_max_pool_layer(x_enpr)
-        print("conv2_max_pool_layer(x_enpr):", x_enpr.shape)
+        # print("conv2_relu(x_enpr):", x_enpr.shape)
+        x_enpr = self.max_pool_2(x_enpr)
+        # print("max_pool_2(x_enpr):", x_enpr.shape)
 
         x_enpr = self.bn(x_enpr)
-        print("bn:", x_enpr.shape)
+        # print("bn:", x_enpr.shape)
 
         x_enpr = self.dt(x_enpr)
-        print("dt:", x_enpr.shape)
+        # print("dt:", x_enpr.shape)
 
         x_enpr = x_enpr.permute(2, 0, 1)
-        print("dt:", x_enpr.shape)
+        # print("dt:", x_enpr.shape)
 
         batch_size = x_enpr.size(1)
         hidden = self._init_hidden(batch_size, 50)

@@ -29,8 +29,10 @@ def trainModel(num_iter, start, len_trainSet, epoch, trainLoader, module, criter
             # print("len(trainLoader):", len(trainLoader))
             # print("len(x)", len(x))
             print(f'[{time_since(start)}] Epoch {epoch} ', end='')
-            print(f'[{i * len(x[0])}/{len_trainSet}]', end='')
-            print(f'loss = {total_loss / (i * len(x[0]))}')
+            # print(f'[{i * len(x[0])}/{len_trainSet}]', end='')
+            # print(f'loss = {total_loss / (i * len(x[0]))}')
+            print(f'[{i * len(y)}/{len_trainSet}]', end='')
+            print(f'loss = {total_loss / (i * len(y))}')
 
     # print(str(sys.getsizeof(y_pred) / 1000), "KB")
     y_test = list(itertools.chain.from_iterable(y_test))
