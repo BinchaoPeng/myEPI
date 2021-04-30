@@ -112,12 +112,14 @@ if __name__ == '__main__':
     plt.plot(x, train_auc_list, 'r-o', label="train_auc")
     plt.ylabel("auc")
     plt.xlabel("epoch")
+    plt.savefig("../model/%s_%s_%s_epoch_auc" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
     plt.show()
 
     plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
     plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
     plt.ylabel("aupr")
     plt.xlabel("epoch")
+    plt.savefig("../model/%s_%s_%s_epoch_aupr" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
     plt.show()
 
     plt.plot(x, test_auc_list, 'b:o', label="test_auc")
@@ -126,4 +128,5 @@ if __name__ == '__main__':
     plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
     plt.ylabel("auc & aupr")
     plt.xlabel("epoch")
+    plt.savefig("../model/%s_%s_%s_epoch_auc&aupr" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
     plt.show()
