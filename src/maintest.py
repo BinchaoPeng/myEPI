@@ -23,9 +23,9 @@ import model.model_longformer_1 as model_longformer_1
 Hyper parameter
 """
 N_EPOCHS = 40
-batch_size = 4
+batch_size = 8
 num_works = 0
-lr = 0.00005
+lr = 0.00001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[1]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug']
