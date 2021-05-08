@@ -71,7 +71,7 @@ if __name__ == '__main__':
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
-        auc, aupr = trainModel(40, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        auc, aupr = trainModel(6, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
         # print("============================test: ACC is", acc, "=======================================")
         # torch.save(module, r'..\model\%sModule-%s.pkl' % (name, str(epoch)))
-        torch.save(module, r'../model/model-%s.pkl' % (str(epoch)))  # must use /
+        torch.save(module, r'../model/model-%s-%s.pkl' % (name, str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
     x = range(1, N_EPOCHS + 1)

@@ -80,8 +80,9 @@ def save_data(enhancers, promoters, tokenizer, model, max_length, file):
 
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
-name = names[0]
+name = names[4]
 feature_name = "longformer-hug"
+
 train_dir = '../../data/epivan/%s/train/' % name
 imbltrain = '../../data/epivan/%s/imbltrain/' % name
 test_dir = '../../data/epivan/%s/test/' % name
@@ -140,9 +141,9 @@ b = get_data_max_length_by_enpr(X_enpr_tes)
 c = get_data_max_length_by_enpr(X_enpr_imtra)
 print(max(a, b, c) + 2)
 
-# np.savez(Data_dir + '%s_train.npz' % name, X_enpr_tra=X_enpr_tra, y_tra=y_tra)
-# print("save over!")
-# np.savez(Data_dir + 'im_%s_train.npz' % name, X_enpr_tra=X_enpr_imtra, y_tra=y_imtra)
-# print("save over!")
-# np.savez(Data_dir + '%s_test.npz' % name, X_enpr_tes=X_enpr_tes, y_tes=y_tes)
-# print("save over!")
+np.savez(Data_dir + '%s_train.npz' % name, X_enpr_tra=X_enpr_tra, y_tra=y_tra)
+print("save over!")
+np.savez(Data_dir + 'im_%s_train.npz' % name, X_enpr_tra=X_enpr_imtra, y_tra=y_imtra)
+print("save over!")
+np.savez(Data_dir + '%s_test.npz' % name, X_enpr_tes=X_enpr_tes, y_tes=y_tes)
+print("save over!")

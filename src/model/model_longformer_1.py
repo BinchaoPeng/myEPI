@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from transformers import LongformerModel, LongformerTokenizer, LongformerConfig
 
 EMBEDDING_DIM = 768
-max_value = 2703
+max_value = 2708
 
 
 class EPINet(nn.Module):
