@@ -4,11 +4,22 @@ import itertools, sys
 from utils import time_since
 
 
-def trainModel(num_iter, start, len_trainSet, epoch, trainLoader, module, criterion, optimal):
+def create_tensor(tensor, USE_GPU=False):
+    if USE_GPU:
+        device = torch.device("cuda:0")
+        tensor = tensor.to(device)
+    return tensor
+
+
+def trainModel(num_iter, start_time, USE_GPU, len_trainSet, epoch, trainLoader, module, criterion, optimal):
     total_loss = 0
     y_pred = []
     y_test = []
     for i, (x, y) in enumerate(trainLoader, 1):
+        # if USE_GPU:
+        #     device = torch.device("cuda:0")
+        #     x.to(device)
+        #     y.to(device)
         # print(trainLoader)
         # print(len(trainLoader))
         # print("train_x", x)
@@ -16,8 +27,12 @@ def trainModel(num_iter, start, len_trainSet, epoch, trainLoader, module, criter
         # print("train_y", y)
         pred = module(x)
         # print(y_pred, y)
-
-        loss = criterion(pred.type(torch.float), y.type(torch.float))
+        # print(type(y))
+        # print(type(pred))
+        # loss = criterion(pred.type(torch.cuda.float), y.type(torch.float))
+        loss = criterion(pred.cpu().type(torch.float), y.cpu().type(torch.float))
+        # loss = criterion(torch.FloatTensor(pred.cpu()), torch.FloatTensor(y.cpu()))
+        # loss = criterion(pred, y)
         optimal.zero_grad()
         loss.backward()
         optimal.step()
@@ -28,7 +43,7 @@ def trainModel(num_iter, start, len_trainSet, epoch, trainLoader, module, criter
         if i % num_iter == 0:
             # print("len(trainLoader):", len(trainLoader))
             # print("len(x)", len(x))
-            print(f'[{time_since(start)}] Epoch {epoch} ', end='')
+            print(f'[{time_since(start_time)}] Epoch {epoch} ', end='')
             # print(f'[{i * len(x[0])}/{len_trainSet}]', end='')
             # print(f'loss = {total_loss / (i * len(x[0]))}')
             print(f'[{i * len(y)}/{len_trainSet}]', end='')

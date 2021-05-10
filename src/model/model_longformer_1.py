@@ -51,6 +51,7 @@ class EPINet(nn.Module):
         """
 
         encoded_inputs = self.tokenizer(x, padding='max_length', max_length=max_value, return_tensors='pt')
+        encoded_inputs.to("cuda:0")
         X_enpr_tensor = self.longformer(**encoded_inputs)[0]
         # print("X_enpr_tensor:", X_enpr_tensor.shape)  # (Batch_size,2651,768) (B,S,I)
         # print("X_enpr_tensor:", X_enpr_tensor)
@@ -82,16 +83,17 @@ class EPINet(nn.Module):
         # print("dt:", x_enpr.shape)
 
         batch_size = x_enpr.size(1)
-        hidden = self._init_hidden(batch_size, 50)
-
+        # hidden = self._init_hidden(batch_size, 50)
+        # hidden.to("cuda:0")
         # sql_length = torch.LongTensor([batch_size for i in range(0, batch_size)])
         # gru_input = pack_padded_sequence(x_enpr, sql_length, batch_first=True)
 
         # output: [h1,h2,h3,...,hn]  (seqSize,batch,hidden_size)   seqSize: dim of input
         # hidden: hN (numLayers,batch,hidden_size)
+        # output, hidden = self.gru(x_enpr,  # seq (seqSize,batch,input_size)
+        #                           hidden)  # h0 (numLayers,batch,hidden_size)
         output, hidden = self.gru(x_enpr,  # seq (seqSize,batch,input_size)
-                                  hidden)  # h0 (numLayers,batch,hidden_size)
-
+                                  )  # h
         # print("gru_output:", output.shape)
         # print("gru_hidden:", hidden.shape)
 

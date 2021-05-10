@@ -4,11 +4,15 @@ import torch
 from sklearn.metrics import roc_auc_score, average_precision_score
 
 
-def testModel(testLoader, module):
+def testModel(USE_GPU, testLoader, module):
     y_pred = []
     y_test = []
     with torch.no_grad():
         for i, (x, y) in enumerate(testLoader, 1):
+            # if USE_GPU:
+            #     device = torch.device("cuda:0")
+            #     x.to(device)
+            #     y.to(device)
             pred = module(x)
 
             y_pred.append(pred.tolist())

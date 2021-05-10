@@ -19,12 +19,17 @@ import model.model_pseknc_2 as model_pseknc_2
 import model.model_pseknc_3 as model_pseknc_3
 import model.model_longformer_1 as model_longformer_1
 
+
+def get_device():
+    return 'cuda' if torch.cuda.is_available() else 'cpu'
+
+
 """
 Hyper parameter
 """
-USE_GPU = True
+USE_GPU = True if get_device() in 'cuda' else False
 N_EPOCHS = 40
-batch_size = 64
+batch_size = 16
 num_works = 0
 lr = 0.00001
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
@@ -49,7 +54,6 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 base
 """
 # module = modelBase.EPINet()
-
 module = model_longformer_1.EPINet()
 # module = model_pseknc_2.EPINet()
 # module = model_pseknc_1.EPINet()
@@ -59,6 +63,9 @@ module = model_longformer_1.EPINet()
 # module = model_gru3.EPINet()
 # module = model_transformer.EPINet()
 model_name = module.__class__.__module__
+if USE_GPU:
+    device = torch.device("cuda:0")
+    module.to(device)
 
 # 这里是一般情况，共享层往往不止一层，所以做一个for循环
 for para in module.longformer.parameters():
@@ -71,15 +78,22 @@ criterion = nn.BCELoss(reduction='sum')
 # optimal = optim.Adam(module.parameters(), lr=lr)
 optimal = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
 
+"""
+total info
+"""
+print("==" * 20)
+print("==CELL_NAME:", cell_name)
+print("==FEATURE_NAME:", feature_name)
+print("==MODEL_NAME:", model_name)
+print("==USE_GPU:", USE_GPU)
+print("==N_EPOCHS:", N_EPOCHS)
+print("==batch_size:", batch_size)
+print("==lr:", lr)
+print("==" * 20)
+
 if __name__ == '__main__':
 
-    print("===CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "===\n\n")
-
-    if USE_GPU:
-        device = torch.device("cuda:0")
-        module.to(device)
-
-    start = time.time()
+    start_time = time.time()
     acc_list = []
     test_auc_list = []
     test_aupr_list = []
@@ -89,17 +103,17 @@ if __name__ == '__main__':
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
-        auc, aupr = trainModel(20, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        auc, aupr = trainModel(100, start_time, USE_GPU, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
-        print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
+        print(f"============================[{time_since(start_time)}]train: EPOCH {epoch} is over!================")
 
         # test
         module.eval()
-        auc, aupr = testModel(testLoader, module)
+        auc, aupr = testModel(USE_GPU, testLoader, module)
         test_auc_list.append(auc)
         test_aupr_list.append(aupr)
-        print(f"============================[{time_since(start)}]test: EPOCH {epoch} is over!================")
+        print(f"============================[{time_since(start_time)}]test: EPOCH {epoch} is over!================")
 
         # print("============================test: ACC is", acc, "=======================================")
         # torch.save(module, r'..\model\%sModule-%s.pkl' % (name, str(epoch)))
