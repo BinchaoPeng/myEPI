@@ -77,6 +77,7 @@ loss and optimizer
 criterion = nn.BCELoss(reduction='sum')
 # optimal = optim.Adam(module.parameters(), lr=lr)
 optimal = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
+scheduler = torch.optim.lr_scheduler.StepLR(optimal, step_size=20, gamma=0.1, last_epoch=-1)
 
 """
 total info
@@ -103,7 +104,7 @@ if __name__ == '__main__':
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
-        auc, aupr = trainModel(100, start_time, USE_GPU, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        auc, aupr = trainModel(120, start_time, USE_GPU, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start_time)}]train: EPOCH {epoch} is over!================")
