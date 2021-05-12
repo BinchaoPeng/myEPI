@@ -28,7 +28,7 @@ def get_device():
 Hyper parameter
 """
 USE_GPU = True if get_device() in 'cuda' else False
-N_EPOCHS = 40
+N_EPOCHS = 50
 batch_size = 16
 num_works = 0
 lr = 0.00001
@@ -77,7 +77,7 @@ loss and optimizer
 criterion = nn.BCELoss(reduction='sum')
 # optimal = optim.Adam(module.parameters(), lr=lr)
 optimal = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
-scheduler = torch.optim.lr_scheduler.StepLR(optimal, step_size=20, gamma=0.1, last_epoch=-1)
+scheduler = torch.optim.lr_scheduler.StepLR(optimal, step_size=25, gamma=0.1, last_epoch=-1)
 
 """
 total info
@@ -89,7 +89,7 @@ print("==MODEL_NAME:", model_name)
 print("==USE_GPU:", USE_GPU)
 print("==N_EPOCHS:", N_EPOCHS)
 print("==batch_size:", batch_size)
-print("==lr:", lr)
+print("==lr:", lr,)
 print("==" * 20)
 
 if __name__ == '__main__':
@@ -105,6 +105,7 @@ if __name__ == '__main__':
         # train
         module.train()
         auc, aupr = trainModel(120, start_time, USE_GPU, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        scheduler.step()
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start_time)}]train: EPOCH {epoch} is over!================")
@@ -128,14 +129,14 @@ if __name__ == '__main__':
     plt.plot(x, train_auc_list, 'r-o', label="train_auc")
     plt.ylabel("auc")
     plt.xlabel("epoch")
-    plt.savefig("../model/%s_%s_%s_epoch_auc" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
+    plt.savefig("../model/%s_%s_%s_epoch_auc.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
     plt.show()
 
     plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
     plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
     plt.ylabel("aupr")
     plt.xlabel("epoch")
-    plt.savefig("../model/%s_%s_%s_epoch_aupr" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
+    plt.savefig("../model/%s_%s_%s_epoch_aupr.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
     plt.show()
 
     plt.plot(x, test_auc_list, 'b:o', label="test_auc")
@@ -144,5 +145,5 @@ if __name__ == '__main__':
     plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
     plt.ylabel("auc & aupr")
     plt.xlabel("epoch")
-    plt.savefig("../model/%s_%s_%s_epoch_auc&aupr" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
+    plt.savefig("../model/%s_%s_%s_epoch_auc&aupr.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
     plt.show()
