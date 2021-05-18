@@ -7,6 +7,7 @@ from testModel import testModel
 from trainModel import trainModel, time_since
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
+from draw_metrics import drawMetrics
 
 from EPIDataset import EPIDataset
 import model.modelBase as modelBase
@@ -89,7 +90,7 @@ print("==MODEL_NAME:", model_name)
 print("==USE_GPU:", USE_GPU)
 print("==N_EPOCHS:", N_EPOCHS)
 print("==batch_size:", batch_size)
-print("==lr:", lr,)
+print("==lr:", lr, )
 print("==" * 20)
 
 if __name__ == '__main__':
@@ -124,26 +125,5 @@ if __name__ == '__main__':
 
     print("\n\n[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]")
     # polt
-    x = range(1, N_EPOCHS + 1)
-    plt.plot(x, test_auc_list, 'b-o', label="test_auc")
-    plt.plot(x, train_auc_list, 'r-o', label="train_auc")
-    plt.ylabel("auc")
-    plt.xlabel("epoch")
-    plt.savefig("../model/%s_%s_%s_epoch_auc.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
-    plt.show()
-
-    plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
-    plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
-    plt.ylabel("aupr")
-    plt.xlabel("epoch")
-    plt.savefig("../model/%s_%s_%s_epoch_aupr.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
-    plt.show()
-
-    plt.plot(x, test_auc_list, 'b:o', label="test_auc")
-    plt.plot(x, train_auc_list, 'r:o', label="train_auc")
-    plt.plot(x, test_aupr_list, 'b-o', label="test_aupr")
-    plt.plot(x, train_aupr_list, 'r-o', label="train_aupr")
-    plt.ylabel("auc & aupr")
-    plt.xlabel("epoch")
-    plt.savefig("../model/%s_%s_%s_epoch_auc&aupr.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
-    plt.show()
+    drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
+                cell_name, feature_name, model_name)
