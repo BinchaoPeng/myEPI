@@ -1,11 +1,12 @@
-import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from transformers import LongformerModel, LongformerTokenizer, LongformerConfig
+from utils import use_gpu_first
 
 EMBEDDING_DIM = 768
 max_value = 2708
+device, USE_GPU = use_gpu_first()
 
 
 class EPINet(nn.Module):
@@ -51,7 +52,7 @@ class EPINet(nn.Module):
         """
 
         encoded_inputs = self.tokenizer(x, padding='max_length', max_length=max_value, return_tensors='pt')
-        encoded_inputs.to("cuda:0")
+        encoded_inputs.to(device)
         X_enpr_tensor = self.longformer(**encoded_inputs)[0]
         # print("X_enpr_tensor:", X_enpr_tensor.shape)  # (Batch_size,2651,768) (B,S,I)
         # print("X_enpr_tensor:", X_enpr_tensor)
@@ -92,8 +93,8 @@ class EPINet(nn.Module):
         # hidden: hN (numLayers,batch,hidden_size)
         # output, hidden = self.gru(x_enpr,  # seq (seqSize,batch,input_size)
         #                           hidden)  # h0 (numLayers,batch,hidden_size)
-        output, hidden = self.gru(x_enpr,  # seq (seqSize,batch,input_size)
-                                  )  # h
+        output, hidden = self.gru(x_enpr)  # seq (seqSize,batch,input_size)
+
         # print("gru_output:", output.shape)
         # print("gru_hidden:", hidden.shape)
 

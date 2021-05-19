@@ -1,7 +1,9 @@
 import torch
 from sklearn.metrics import roc_auc_score, average_precision_score
-import itertools, sys
-from utils import time_since
+import itertools
+from utils import time_since, use_gpu_first
+
+device, USE_GPU = use_gpu_first()
 
 
 def create_tensor(tensor, USE_GPU=False):
@@ -11,28 +13,27 @@ def create_tensor(tensor, USE_GPU=False):
     return tensor
 
 
-def trainModel(num_iter, start_time, USE_GPU, len_trainSet, epoch, trainLoader, module, criterion, optimal):
+def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, criterion, optimal):
     total_loss = 0
     y_pred = []
     y_test = []
     for i, (x, y) in enumerate(trainLoader, 1):
-        # if USE_GPU:
-        #     device = torch.device("cuda:0")
-        #     x.to(device)
-        #     y.to(device)
+        y = y.to(device=device, dtype=torch.float32)
         # print(trainLoader)
         # print(len(trainLoader))
         # print("train_x", x)
         # print("train_x", len(x[0]))
         # print("train_y", y)
-        pred = module(x)
+        pred = model(x)
         # print(y_pred, y)
         # print(type(y))
         # print(type(pred))
-        # loss = criterion(pred.type(torch.cuda.float), y.type(torch.float))
-        loss = criterion(pred.cpu().type(torch.float), y.cpu().type(torch.float))
-        # loss = criterion(torch.FloatTensor(pred.cpu()), torch.FloatTensor(y.cpu()))
-        # loss = criterion(pred, y)
+        # print(y.device)
+        # print(pred.device)
+        # print(y.dtype)
+        # print(pred.dtype)
+        # loss = criterion(pred.cpu().type(torch.float), y.cpu().type(torch.float))
+        loss = criterion(pred, y)
         optimal.zero_grad()
         loss.backward()
         optimal.step()

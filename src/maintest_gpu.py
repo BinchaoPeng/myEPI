@@ -4,8 +4,8 @@ import torch.optim as optim
 import time, sys
 import numpy as np
 from testModel import testModel
-from trainModel import trainModel, time_since
-import matplotlib.pyplot as plt
+from trainModel import trainModel
+from utils import time_since, use_gpu_first
 from torch.utils.data import DataLoader
 from draw_metrics import drawMetrics
 
@@ -25,14 +25,19 @@ def get_device():
     return 'cuda' if torch.cuda.is_available() else 'cpu'
 
 
+device, USE_GPU = use_gpu_first()
+print("device:", device)
+
 """
 Hyper parameter
 """
-USE_GPU = True if get_device() in 'cuda' else False
-N_EPOCHS = 50
-batch_size = 16
+N_EPOCHS = 30
+batch_size = 1
 num_works = 0
 lr = 0.00001
+"""
+cell and feature choose
+"""
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[5]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug']
@@ -64,30 +69,31 @@ module = model_longformer_1.EPINet()
 # module = model_gru3.EPINet()
 # module = model_transformer.EPINet()
 model_name = module.__class__.__module__
-if USE_GPU:
-    device = torch.device("cuda:0")
-    module.to(device)
+module.to(device)
 
 # 这里是一般情况，共享层往往不止一层，所以做一个for循环
-for para in module.longformer.parameters():
-    para.requires_grad = False
+# for para in module.longformer.parameters():
+#     para.requires_grad = False
 # print(module.parameters())
 """
 loss and optimizer
 """
 criterion = nn.BCELoss(reduction='sum')
-# optimal = optim.Adam(module.parameters(), lr=lr)
-optimal = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
-scheduler = torch.optim.lr_scheduler.StepLR(optimal, step_size=25, gamma=0.1, last_epoch=-1)
+optimal = optim.Adam(module.parameters(), lr=lr)
+# optimal = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
+scheduler = torch.optim.lr_scheduler.StepLR(optimal, step_size=12, gamma=0.1, last_epoch=-1)
 
 """
 total info
 """
 print("==" * 20)
+print("==USE_GPU:", USE_GPU)
+print("==DEVICE:", device)
+
 print("==CELL_NAME:", cell_name)
 print("==FEATURE_NAME:", feature_name)
 print("==MODEL_NAME:", model_name)
-print("==USE_GPU:", USE_GPU)
+
 print("==N_EPOCHS:", N_EPOCHS)
 print("==batch_size:", batch_size)
 print("==lr:", lr, )
@@ -105,15 +111,16 @@ if __name__ == '__main__':
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
-        auc, aupr = trainModel(120, start_time, USE_GPU, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        auc, aupr = trainModel(120, start_time, len_trainSet, epoch, trainLoader, module, criterion, optimal)
         scheduler.step()
+        print("==lr:", str(scheduler.get_lr()[0]))
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
         print(f"============================[{time_since(start_time)}]train: EPOCH {epoch} is over!================")
 
         # test
         module.eval()
-        auc, aupr = testModel(USE_GPU, testLoader, module)
+        auc, aupr = testModel(testLoader, module)
         test_auc_list.append(auc)
         test_aupr_list.append(aupr)
         print(f"============================[{time_since(start_time)}]test: EPOCH {epoch} is over!================")
