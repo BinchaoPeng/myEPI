@@ -13,12 +13,11 @@ def create_tensor(tensor, USE_GPU=False):
     return tensor
 
 
-def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, criterion, optimal):
+def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, criterion, optimal, scheduler=None):
     total_loss = 0
     y_pred = []
     y_test = []
     for i, (x, y) in enumerate(trainLoader, 1):
-        y = y.to(device=device, dtype=torch.float32)
         # print(trainLoader)
         # print(len(trainLoader))
         # print("train_x", x)
@@ -33,6 +32,7 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
         # print(y.dtype)
         # print(pred.dtype)
         # loss = criterion(pred.cpu().type(torch.float), y.cpu().type(torch.float))
+        y = y.to(device=device, dtype=torch.float32)
         loss = criterion(pred, y)
         optimal.zero_grad()
         loss.backward()
@@ -42,6 +42,9 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
         y_pred.append(pred.tolist())
         y_test.append(y.tolist())
         if i % num_iter == 0:
+            # # update lr
+            # scheduler.step(total_loss)
+
             # print("len(trainLoader):", len(trainLoader))
             # print("len(x)", len(x))
             print(f'[{time_since(start_time)}] Epoch {epoch} ', end='')
