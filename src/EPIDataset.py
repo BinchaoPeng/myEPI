@@ -19,7 +19,7 @@ class EPIDataset(Dataset):
         testPath = r'../data/epivan/%s/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
         filename = trainPath if is_train_set else testPath
         data = np.load(filename)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
-        if feature_name.find("longformer") >= 0:
+        if feature_name.find("longformer") >= 0 or feature_name.find("elmo") >= 0:
             print("use longformer")
             self.X = data[data.files[0]]
             self.y = data[data.files[1]]

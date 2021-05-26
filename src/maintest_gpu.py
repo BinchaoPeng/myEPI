@@ -41,8 +41,8 @@ cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[5]
-feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug']
-feature_name = feature_names[2]
+feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
+feature_name = feature_names[3]
 
 np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
 np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
