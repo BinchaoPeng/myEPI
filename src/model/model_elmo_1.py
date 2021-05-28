@@ -53,7 +53,7 @@ class EPINet(nn.Module):
 
     def forward(self, x):
         """
-        x: en+</s>+pr
+        x: en pr
         """
 
         character_ids = batch_to_ids(x)

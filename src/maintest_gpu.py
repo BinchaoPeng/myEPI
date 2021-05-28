@@ -20,10 +20,8 @@ import model.model_pseknc_2 as model_pseknc_2
 import model.model_pseknc_3 as model_pseknc_3
 # import model.model_longformer_gru as model_longformer_gru
 import model.model_longformer_lstm as model_longformer_lstm
-
-
-def get_device():
-    return 'cuda' if torch.cuda.is_available() else 'cpu'
+import model.model_elmo_1 as model_elmo_1
+import model.model_elmo_2 as model_elmo_2
 
 
 device, USE_GPU = use_gpu_first()
@@ -33,7 +31,7 @@ print("device:", device)
 Hyper parameter
 """
 N_EPOCHS = 40
-batch_size = 16
+batch_size = 1
 num_works = 0
 lr = 0.00001
 """
@@ -61,7 +59,9 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 base
 """
 # module = modelBase.EPINet()
-module = model_longformer_lstm.EPINet()
+# module = model_elmo_1.EPINet()
+module = model_elmo_2.EPINet()
+# module = model_longformer_lstm.EPINet()
 # module = model_longformer_gru.EPINet()
 # module = model_pseknc_2.EPINet()
 # module = model_pseknc_1.EPINet()
@@ -74,9 +74,9 @@ model_name = module.__class__.__module__
 module.to(device)
 
 # 这里是一般情况，共享层往往不止一层，所以做一个for循环
-for para in module.longformer.parameters():
-    para.requires_grad = False
-# print(module.parameters())
+# for para in module.longformer.parameters():
+#     para.requires_grad = False
+# # print(module.parameters())
 """
 loss and optimizer
 """
