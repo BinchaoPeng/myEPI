@@ -11,6 +11,7 @@ def drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_a
     plt.xlabel("epoch")
     plt.legend()
     plt.savefig("../model/%s_%s_%s_epoch_auc.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
+    plt.close()
     # plt.show()
 
     plt.plot(x, test_aupr_list, 'c-', label="test_aupr")
@@ -19,6 +20,7 @@ def drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_a
     plt.xlabel("epoch")
     plt.legend()
     plt.savefig("../model/%s_%s_%s_epoch_aupr.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
+    plt.close()
     # plt.show()
 
     plt.plot(x, test_auc_list, 'g-', label="test_auc")
@@ -29,4 +31,5 @@ def drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_a
     plt.xlabel("epoch")
     plt.legend()
     plt.savefig("../model/%s_%s_%s_epoch_auc&aupr.png" % (cell_name, feature_name, model_name.split()[-1]), dpi=300)
+    plt.close()
     # plt.show()

@@ -19,5 +19,14 @@ def use_gpu_first():
     return device, use_gpu
 
 
+def end_train(max_aupr, max_auc, aupr, auc, count):
+    if max_aupr < aupr:
+        max_aupr = aupr
+    if max_auc < auc:
+        max_auc = auc
+
+        max_aupr, max_auc = 0
+
+
 if __name__ == '__main__':
     print(time_since(2))

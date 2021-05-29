@@ -5,7 +5,7 @@ import time, sys
 import numpy as np
 from testModel import testModel
 from trainModel import trainModel
-from utils import time_since, use_gpu_first
+from utils import time_since, use_gpu_first, end_train
 from torch.utils.data import DataLoader
 from draw_metrics import drawMetrics
 
@@ -23,7 +23,6 @@ import model.model_longformer_lstm as model_longformer_lstm
 import model.model_elmo_1 as model_elmo_1
 import model.model_elmo_2 as model_elmo_2
 
-
 device, USE_GPU = use_gpu_first()
 print("device:", device)
 
@@ -31,7 +30,7 @@ print("device:", device)
 Hyper parameter
 """
 N_EPOCHS = 40
-batch_size = 1
+batch_size = 8
 num_works = 0
 lr = 0.00001
 """
@@ -49,7 +48,8 @@ trainSet = EPIDataset(cell_name, feature_name=feature_name)
 len_trainSet = len(trainSet)
 print("trainSet data len:", len(trainSet))
 trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
-print("trainLoader len:", len(trainLoader))
+len_trainLoader = len(trainLoader)
+print("trainLoader len:", len_trainLoader)
 
 testSet = EPIDataset(cell_name, feature_name=feature_name, is_train_set=False)
 len_testSet = len(testSet)
@@ -112,10 +112,13 @@ if __name__ == '__main__':
 
     train_auc_list = []
     train_aupr_list = []
+
+    # end_train_count = 0
+    # max_aupr, max_auc = 0, 0
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
-        auc, aupr = trainModel(120, start_time, len_trainSet, epoch, trainLoader,
+        auc, aupr = trainModel(len_trainLoader // 20, start_time, len_trainSet, epoch, trainLoader,
                                module, criterion, optimizer, scheduler=None)
         scheduler.step()
         train_auc_list.append(auc)
