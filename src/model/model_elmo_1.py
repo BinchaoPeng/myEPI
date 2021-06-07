@@ -5,7 +5,7 @@ from allennlp.modules.elmo import Elmo, batch_to_ids
 
 from utils import use_gpu_first
 
-EMBEDDING_DIM = 1024
+EMBEDDING_DIM = 256
 device, USE_GPU = use_gpu_first()
 
 
@@ -17,12 +17,12 @@ class EPINet(nn.Module):
         self.num_layers = num_layers
 
         # [3, 3000, 256]
-        # options_file = "pre-model/elmo_model/elmo_2x1024_128_2048cnn_1xhighway_options.json"
-        # weight_file = "pre-model/elmo_model/elmo_2x1024_128_2048cnn_1xhighway_weights.hdf5"
+        options_file = "pre-model/elmo_model/elmo_2x1024_128_2048cnn_1xhighway_options.json"
+        weight_file = "pre-model/elmo_model/elmo_2x1024_128_2048cnn_1xhighway_weights.hdf5"
 
         # [3, 3000, 1024]
-        options_file = "pre-model/elmo_model/elmo_2x4096_512_2048cnn_2xhighway_options.json"
-        weight_file = "pre-model/elmo_model/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5"
+        # options_file = "pre-model/elmo_model/elmo_2x4096_512_2048cnn_2xhighway_options.json"
+        # weight_file = "pre-model/elmo_model/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5"
 
         self.elmo = Elmo(options_file, weight_file, num_output_representations=1, requires_grad=False, dropout=0.5)
         # for param in self.longformer.base_model.parameters():
@@ -57,8 +57,8 @@ class EPINet(nn.Module):
         """
 
         character_ids = batch_to_ids(x)
-        print(character_ids.shape)
-
+        # print(character_ids.shape)
+        character_ids = character_ids.to(device)
         X_enpr_tensor = self.elmo(character_ids)['elmo_representations'][0]
 
         # print("X_enpr_tensor:", X_enpr_tensor.shape)  # (Batch_size,2651,768) (B,S,I)

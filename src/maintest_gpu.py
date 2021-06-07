@@ -8,6 +8,7 @@ from trainModel import trainModel
 from utils import time_since, use_gpu_first, end_train
 from torch.utils.data import DataLoader
 from draw_metrics import drawMetrics
+from pytorchtools import e
 
 from EPIDataset import EPIDataset
 import model.modelBase as modelBase
@@ -25,11 +26,16 @@ import model.model_elmo_2 as model_elmo_2
 
 device, USE_GPU = use_gpu_first()
 print("device:", device)
+"""
+EarlyStopping parameter
+"""
+# 初始化 early_stopping 对象
+patience = 4  # 当验证集损失在连续20次训练周期中都没有得到降低时，停止模型训练，以防止模型过拟合
 
 """
 Hyper parameter
 """
-N_EPOCHS = 40
+N_EPOCHS = 30
 batch_size = 8
 num_works = 0
 lr = 0.00001
@@ -83,7 +89,7 @@ loss and optimizer
 criterion = nn.BCELoss(reduction='sum')
 # optimizer = optim.Adam(module.parameters(), lr=lr)
 optimizer = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.1, last_epoch=-1)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=15, gamma=0.1, last_epoch=-1)
 # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, verbose=True,
 #                                                        threshold=0.0001, threshold_mode='rel', cooldown=0, min_lr=0,
 #                                                        eps=1e-08)
@@ -113,8 +119,9 @@ if __name__ == '__main__':
     train_auc_list = []
     train_aupr_list = []
 
-    # end_train_count = 0
-    # max_aupr, max_auc = 0, 0
+    # init earlyStopping
+    best_acc = 0
+    es_count = 0
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
@@ -136,7 +143,17 @@ if __name__ == '__main__':
         # torch.save(module, r'..\model\%sModule-%s.pkl' % (name, str(epoch)))
         torch.save(module, r'../model/model-%s-%s.pkl' % (cell_name, str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
-
+        # early_stopping
+        val_acc = auc
+        if val_acc > best_acc:
+            best_acc = val_acc
+            es_count = 0
+        else:
+            es_count += 1
+            print("===\nEarly stopping counter {} of {}!!\n".format(es_count, patience))
+            if es_count > (patience - 1):
+                print("\n===Early stopping!!\n")
+                break
     print("\n\n[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]")
     # polt
     drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
