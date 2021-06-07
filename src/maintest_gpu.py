@@ -120,7 +120,7 @@ if __name__ == '__main__':
     train_aupr_list = []
 
     # init earlyStopping
-    best_acc = 0
+    best_acc = 0.5
     es_count = 0
     for epoch in range(1, N_EPOCHS + 1):
         # train
