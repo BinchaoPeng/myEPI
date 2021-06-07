@@ -19,7 +19,7 @@ import model.model_transformer_2 as model_transformer_2
 import model.model_pseknc_1 as model_pseknc_1
 import model.model_pseknc_2 as model_pseknc_2
 import model.model_pseknc_3 as model_pseknc_3
-# import model.model_longformer_gru as model_longformer_gru
+import model.model_longformer_gru as model_longformer_gru
 import model.model_longformer_lstm as model_longformer_lstm
 import model.model_elmo_1 as model_elmo_1
 import model.model_elmo_2 as model_elmo_2
@@ -37,7 +37,8 @@ Hyper parameter
 """
 N_EPOCHS = 30
 batch_size = 8
-num_works = 0
+# 加载数据（batch）的线程数目
+num_works = 8
 lr = 0.00001
 """
 cell and feature choose
