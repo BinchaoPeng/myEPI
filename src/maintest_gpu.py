@@ -5,10 +5,10 @@ import time, sys
 import numpy as np
 from testModel import testModel
 from trainModel import trainModel
-from utils import time_since, use_gpu_first, end_train
+from utils import time_since, use_gpu_first
 from torch.utils.data import DataLoader
 from draw_metrics import drawMetrics
-from pytorchtools import e
+
 
 from EPIDataset import EPIDataset
 import model.modelBase as modelBase
