@@ -17,6 +17,7 @@ class EPINet(nn.Module):
         self.num_layers = num_layers
 
         model_name = 'pre-model/' + 'longformer-base-4096'
+        # model_name = 'pre-model/' + 'longformer-encdec-base-16384'
         config = LongformerConfig.from_pretrained(model_name)
         self.tokenizer = LongformerTokenizer.from_pretrained(model_name)
         self.longformer = LongformerModel.from_pretrained(model_name, config=config)  # (B,2653,768)

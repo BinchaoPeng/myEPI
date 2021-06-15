@@ -26,19 +26,21 @@ import model.model_elmo_2 as model_elmo_2
 
 device, USE_GPU = use_gpu_first()
 print("device:", device)
+
 """
 EarlyStopping parameter
 """
 # 初始化 early_stopping 对象
-patience = 4  # 当验证集损失在连续20次训练周期中都没有得到降低时，停止模型训练，以防止模型过拟合
+patience = 5  # 当验证集损失在连续patience次训练周期中都没有得到降低时，停止模型训练，以防止模型过拟合
 
 """
 Hyper parameter
 """
 N_EPOCHS = 30
-batch_size = 8
+batch_size = 16
 # 加载数据（batch）的线程数目
-num_works = 8
+# if time of loading data is more than the time of training,we add num_works to reduce loading time
+num_works = 0
 lr = 0.00001
 """
 cell and feature choose
@@ -67,8 +69,8 @@ base
 """
 # module = modelBase.EPINet()
 # module = model_elmo_1.EPINet()
-module = model_elmo_2.EPINet()
-# module = model_longformer_lstm.EPINet()
+# module = model_elmo_2.EPINet()
+module = model_longformer_lstm.EPINet()
 # module = model_longformer_gru.EPINet()
 # module = model_pseknc_2.EPINet()
 # module = model_pseknc_1.EPINet()
@@ -81,9 +83,9 @@ model_name = module.__class__.__module__
 module.to(device)
 
 # 这里是一般情况，共享层往往不止一层，所以做一个for循环
-# for para in module.longformer.parameters():
-#     para.requires_grad = False
-# # print(module.parameters())
+for para in module.longformer.parameters():
+    para.requires_grad = False
+# print(module.parameters())
 """
 loss and optimizer
 """
@@ -100,12 +102,13 @@ total info
 print("==" * 20)
 print("==USE_GPU:", USE_GPU)
 print("==DEVICE:", device)
-
+print("==")
 print("==CELL_NAME:", cell_name)
 print("==FEATURE_NAME:", feature_name)
 print("==MODEL_NAME:", model_name)
-
+print("==")
 print("==N_EPOCHS:", N_EPOCHS)
+print("==num_workers:", num_works)
 print("==batch_size:", batch_size)
 print("==lr:", lr, )
 print("==" * 20)
@@ -124,6 +127,7 @@ if __name__ == '__main__':
     best_acc = 0.5
     es_count = 0
     for epoch in range(1, N_EPOCHS + 1):
+
         # train
         module.train()
         auc, aupr = trainModel(len_trainLoader // 20, start_time, len_trainSet, epoch, trainLoader,
@@ -131,19 +135,19 @@ if __name__ == '__main__':
         scheduler.step()
         train_auc_list.append(auc)
         train_aupr_list.append(aupr)
-        print(f"============================[{time_since(start_time)}]train: EPOCH {epoch} is over!================")
         print("第%d个epoch的学习率：%f" % (epoch, optimizer.param_groups[0]['lr']))
+        print(f"==================[{time_since(start_time)}]train: EPOCH {epoch} is over!==================")
         # test
         module.eval()
         auc, aupr = testModel(testLoader, module)
         test_auc_list.append(auc)
         test_aupr_list.append(aupr)
-        print(f"============================[{time_since(start_time)}]test: EPOCH {epoch} is over!================")
+        print(f"==================[{time_since(start_time)}]test: EPOCH {epoch} is over!==================")
 
         # print("============================test: ACC is", acc, "=======================================")
         # torch.save(module, r'..\model\%sModule-%s.pkl' % (name, str(epoch)))
         torch.save(module, r'../model/model-%s-%s.pkl' % (cell_name, str(epoch)))  # must use /
-        print("============================saved model !", "=======================================")
+        print("==================saved model !", "==================")
         # early_stopping
         val_acc = auc
         if val_acc > best_acc:
@@ -151,11 +155,11 @@ if __name__ == '__main__':
             es_count = 0
         else:
             es_count += 1
-            print("===\nEarly stopping counter {} of {}!!\n".format(es_count, patience))
+            print("===\nEarly stopping counter {} of {}!!\n===".format(es_count, patience))
             if es_count > (patience - 1):
-                print("\n===Early stopping!!\n")
+                print("\n===Early stopping!!===\n")
                 break
     print("\n\n[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]")
     # polt
-    drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
+    drawMetrics(train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
                 cell_name, feature_name, model_name)

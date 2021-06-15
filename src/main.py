@@ -105,5 +105,5 @@ if __name__ == '__main__':
         torch.save(module, r'../model/model-%s-%s.pkl' % (cell_name, str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
-    drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
+    drawMetrics(train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
                 cell_name, feature_name, model_name)

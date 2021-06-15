@@ -114,5 +114,5 @@ if __name__ == '__main__':
 
     print("\n\n[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]")
     # polt
-    drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
+    drawMetrics(train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
                 cell_name, feature_name, model_name)

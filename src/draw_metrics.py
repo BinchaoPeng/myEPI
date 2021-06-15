@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 
 
-def drawMetrics(N_EPOCHS, train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
+def drawMetrics(train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
                 cell_name, feature_name, model_name):
     # polt
-    x = range(1, N_EPOCHS + 1)
+    x = range(1, len(train_auc_list) + 1)
     plt.plot(x, test_auc_list, 'g-', label="test_auc")
     plt.plot(x, train_auc_list, 'r:', label="train_auc")
     plt.ylabel("auc")
