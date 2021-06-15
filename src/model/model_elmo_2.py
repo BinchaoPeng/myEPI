@@ -138,7 +138,7 @@ class EPINet(nn.Module):
         fc_output = self.fc(hidden_cat)
         # print("fc:", fc_output.shape)
 
-        fc_output = torch.sigmoid(fc_output)
+        # fc_output = torch.sigmoid(fc_output)
         # print("fc_sigmoid:", fc_output.shape)
         # print("fc:", fc_output)
 

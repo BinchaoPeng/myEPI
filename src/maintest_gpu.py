@@ -36,10 +36,10 @@ patience = 5  # 当验证集损失在连续patience次训练周期中都没有�
 Hyper parameter
 """
 N_EPOCHS = 30
-batch_size = 4
+batch_size = 12
 # 加载数据（batch）的线程数目
 # if time of loading data is more than the time of training,we add num_works to reduce loading time
-num_works = 0
+num_works = 16
 lr = 0.00001
 """
 cell and feature choose
@@ -55,7 +55,7 @@ np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
 trainSet = EPIDataset(cell_name, feature_name=feature_name)
 len_trainSet = len(trainSet)
 print("trainSet data len:", len(trainSet))
-trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works, pin_memory=True)
+trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
 len_trainLoader = len(trainLoader)
 print("trainLoader len:", len_trainLoader)
 
@@ -90,7 +90,8 @@ if hasattr(module, 'longformer'):
 """
 loss and optimizer
 """
-criterion = nn.BCELoss(reduction='sum')
+# criterion = nn.BCELoss(reduction='sum')
+criterion = nn.BCEWithLogitsLoss(reduction='sum')
 # optimizer = optim.Adam(module.parameters(), lr=lr)
 optimizer = optim.Adam(filter(lambda p: p.requires_grad, module.parameters()), lr=lr)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=15, gamma=0.1, last_epoch=-1)
