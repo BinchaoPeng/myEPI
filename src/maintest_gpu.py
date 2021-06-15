@@ -9,7 +9,6 @@ from utils import time_since, use_gpu_first
 from torch.utils.data import DataLoader
 from draw_metrics import drawMetrics
 
-
 from EPIDataset import EPIDataset
 import model.modelBase as modelBase
 import model.model_gru3 as model_gru3
@@ -37,7 +36,7 @@ patience = 5  # 当验证集损失在连续patience次训练周期中都没有�
 Hyper parameter
 """
 N_EPOCHS = 30
-batch_size = 16
+batch_size = 4
 # 加载数据（batch）的线程数目
 # if time of loading data is more than the time of training,we add num_works to reduce loading time
 num_works = 0
@@ -56,7 +55,7 @@ np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
 trainSet = EPIDataset(cell_name, feature_name=feature_name)
 len_trainSet = len(trainSet)
 print("trainSet data len:", len(trainSet))
-trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
+trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works, pin_memory=True)
 len_trainLoader = len(trainLoader)
 print("trainLoader len:", len_trainLoader)
 
@@ -68,9 +67,9 @@ testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, n
 base
 """
 # module = modelBase.EPINet()
-# module = model_elmo_1.EPINet()
+module = model_elmo_1.EPINet()
 # module = model_elmo_2.EPINet()
-module = model_longformer_lstm.EPINet()
+# module = model_longformer_lstm.EPINet()
 # module = model_longformer_gru.EPINet()
 # module = model_pseknc_2.EPINet()
 # module = model_pseknc_1.EPINet()
@@ -83,9 +82,11 @@ model_name = module.__class__.__module__
 module.to(device)
 
 # 这里是一般情况，共享层往往不止一层，所以做一个for循环
-for para in module.longformer.parameters():
-    para.requires_grad = False
-# print(module.parameters())
+if hasattr(module, 'longformer'):
+    for para in module.longformer.parameters():
+        para.requires_grad = False
+    # print(module.parameters())
+
 """
 loss and optimizer
 """
