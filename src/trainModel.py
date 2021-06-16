@@ -19,7 +19,7 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
     total_loss = 0
     y_pred = []
     y_test = []
-    time0 = time.time()
+    # time0 = time.time()
     for i, (x, y) in enumerate(trainLoader, 1):
         y = y.to(device=device, dtype=torch.float32)
 
@@ -31,9 +31,9 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
         optimal.zero_grad()
 
         with torch.cuda.amp.autocast():  # 混合精度加速训练
-            time1 = time.time()
+            # time1 = time.time()
             pred = model(x)
-            print("=model(x) time:", time.time() - time1)
+            # print("=model(x) time:", time.time() - time1)
         # print(y_pred, y)
         # print(type(y))
         # print(type(pred))
@@ -42,7 +42,7 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
         # print(y.dtype)
         # print(pred.dtype)
         # loss = criterion(pred.cpu().type(torch.float), y.cpu().type(torch.float))
-            time2 = time.time()
+        #     time2 = time.time()
             loss = criterion(pred, y)
         # loss.backward()
         # optimal.step()
@@ -50,7 +50,7 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
         scaler.scale(loss).backward()
         scaler.step(optimal)
         scaler.update()
-        print("=loss and optimal time:", time.time() - time2, "\n")
+        # print("=loss and optimal time:", time.time() - time2, "\n")
         total_loss += loss.item()
         y_pred.append(pred.tolist())
         y_test.append(y.tolist())
@@ -66,18 +66,18 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
             print(f'[{i * len(y)}/{len_trainSet}]', end='')
             print(f'loss = {total_loss / (i * len(y))}')
 
-    print("===train a epoch time:", time.time() - time0)
+    # print("===train a epoch time:", time.time() - time0)
 
-    time4 = time.time()
+    # time4 = time.time()
     # print(str(sys.getsizeof(y_pred) / 1000), "KB")
-    y_test = list(itertools.chain.from_iterable(y_test))
-    y_pred = list(itertools.chain.from_iterable(y_pred))
-    auc = roc_auc_score(y_test, y_pred)
-    aupr = average_precision_score(y_test, y_pred)
+    # y_test = list(itertools.chain.from_iterable(y_test))
+    # y_pred = list(itertools.chain.from_iterable(y_pred))
+    # auc = roc_auc_score(y_test, y_pred)
+    # aupr = average_precision_score(y_test, y_pred)
     # del y_test, y_pred
 
-    print("train AUC : ", auc)
-    print("train AUPR : ", aupr)
-    print("train an epoch's metrics time:", time.time() - time4)
+    # print("train AUC : ", auc)
+    # print("train AUPR : ", aupr)
+    # print("train an epoch's metrics time:", time.time() - time4)
     return auc, aupr
 
