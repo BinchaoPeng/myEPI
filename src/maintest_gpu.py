@@ -112,18 +112,18 @@ print("==")
 print("==N_EPOCHS:", N_EPOCHS)
 print("==num_workers:", num_works)
 print("==batch_size:", batch_size)
-print("==lr:", lr, )
+print("==lr:", lr)
 print("==" * 20)
 
 if __name__ == '__main__':
 
     start_time = time.time()
-    acc_list = []
+    loss_list = []
     test_auc_list = []
     test_aupr_list = []
 
-    train_auc_list = []
-    train_aupr_list = []
+    # train_auc_list = []
+    # train_aupr_list = []
 
     # init earlyStopping
     best_acc = 0.5
@@ -132,11 +132,12 @@ if __name__ == '__main__':
 
         # train
         module.train()
-        auc, aupr = trainModel(len_trainLoader // 20, start_time, len_trainSet, epoch, trainLoader,
+        loss = trainModel(len_trainLoader // 20, start_time, len_trainSet, epoch, trainLoader,
                                module, criterion, optimizer, scheduler=None)
         scheduler.step()
-        train_auc_list.append(auc)
-        train_aupr_list.append(aupr)
+        # train_auc_list.append(auc)
+        # train_aupr_list.append(aupr)
+        loss_list.append(loss)
         print("第%d个epoch的学习率：%f" % (epoch, optimizer.param_groups[0]['lr']))
         print(f"==================[{time_since(start_time)}]train: EPOCH {epoch} is over!==================")
         # test
@@ -163,4 +164,4 @@ if __name__ == '__main__':
                 break
     print("\n\n[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]")
     # polt
-    drawMetrics(test_auc_list, test_aupr_list, cell_name, feature_name, model_name)
+    drawMetrics(loss,test_auc_list, test_aupr_list, cell_name, feature_name, model_name)

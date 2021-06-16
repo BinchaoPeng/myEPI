@@ -74,23 +74,19 @@ print("==" * 20)
 
 if __name__ == '__main__':
 
-    # if USE_GPU:
-    #     device = torch.device("cuda:0")
-    #     module.to(device)
-
     start = time.time()
     acc_list = []
     test_auc_list = []
     test_aupr_list = []
 
-    train_auc_list = []
-    train_aupr_list = []
+    # train_auc_list = []
+    # train_aupr_list = []
     for epoch in range(1, N_EPOCHS + 1):
         # train
         module.train()
-        auc, aupr = trainModel(6, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
-        train_auc_list.append(auc)
-        train_aupr_list.append(aupr)
+        loss = trainModel(6, start, len_trainSet, epoch, trainLoader, module, criterion, optimal)
+        # train_auc_list.append(auc)
+        # train_aupr_list.append(aupr)
         print(f"============================[{time_since(start)}]train: EPOCH {epoch} is over!================")
 
         # test
@@ -105,5 +101,5 @@ if __name__ == '__main__':
         torch.save(module, r'../model/model-%s-%s.pkl' % (cell_name, str(epoch)))  # must use /
         print("============================saved model !", "=======================================")
     # polt
-    drawMetrics(train_auc_list, test_auc_list, train_aupr_list, test_aupr_list,
+    drawMetrics(test_auc_list,test_aupr_list,
                 cell_name, feature_name, model_name)

@@ -17,12 +17,10 @@ def create_tensor(tensor, USE_GPU=False):
 def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, criterion, optimal, scheduler=None):
     scaler = torch.cuda.amp.GradScaler() # 混合精度加速训练
     total_loss = 0
-    y_pred = []
-    y_test = []
+
     # time0 = time.time()
     for i, (x, y) in enumerate(trainLoader, 1):
         y = y.to(device=device, dtype=torch.float32)
-
         # print(trainLoader)
         # print(len(trainLoader))
         # print("train_x", x)
@@ -52,8 +50,8 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
         scaler.update()
         # print("=loss and optimal time:", time.time() - time2, "\n")
         total_loss += loss.item()
-        y_pred.append(pred.tolist())
-        y_test.append(y.tolist())
+        # y_pred.append(pred.tolist())
+        # y_test.append(y.tolist())
         if i % num_iter == 0:
             # # update lr
             # scheduler.step(total_loss)
@@ -79,5 +77,5 @@ def trainModel(num_iter, start_time, len_trainSet, epoch, trainLoader, model, cr
     # print("train AUC : ", auc)
     # print("train AUPR : ", aupr)
     # print("train an epoch's metrics time:", time.time() - time4)
-    return auc, aupr
+    return total_loss / (i * len(y))
 
