@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-def drawMetrics(loss, test_auc_list, test_aupr_list, cell_name, feature_name, model_name):
+def drawMetrics(loss_list, test_auc_list, test_aupr_list, cell_name, feature_name, model_name):
     # polt
     x = range(1, len(test_auc_list) + 1)
     plt.plot(x, test_auc_list, 'g-', label="test_auc")
@@ -13,7 +13,7 @@ def drawMetrics(loss, test_auc_list, test_aupr_list, cell_name, feature_name, mo
     plt.close()
     # plt.show()
 
-    plt.plot(x, loss, 'c-', label="train_loss")
+    plt.plot(x, loss_list, 'c-', label="train_loss")
     # plt.plot(x, train_aupr_list, 'm:', label="train_aupr")
     plt.ylabel("aupr")
     plt.xlabel("epoch")

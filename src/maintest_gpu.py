@@ -39,7 +39,7 @@ N_EPOCHS = 30
 batch_size = 12
 # 加载数据（batch）的线程数目
 # if time of loading data is more than the time of training,we add num_works to reduce loading time
-num_works = 16
+num_works = 0
 lr = 0.00001
 """
 cell and feature choose
@@ -133,7 +133,7 @@ if __name__ == '__main__':
         # train
         module.train()
         loss = trainModel(len_trainLoader // 20, start_time, len_trainSet, epoch, trainLoader,
-                               module, criterion, optimizer, scheduler=None)
+                          module, criterion, optimizer, scheduler=None)
         scheduler.step()
         # train_auc_list.append(auc)
         # train_aupr_list.append(aupr)
@@ -164,4 +164,4 @@ if __name__ == '__main__':
                 break
     print("\n\n[CELL_NAME:", cell_name, "FEATURE_NAME:", feature_name, "MODEL_NAME:", model_name, "]")
     # polt
-    drawMetrics(loss,test_auc_list, test_aupr_list, cell_name, feature_name, model_name)
+    drawMetrics(loss_list, test_auc_list, test_aupr_list, cell_name, feature_name, model_name)
