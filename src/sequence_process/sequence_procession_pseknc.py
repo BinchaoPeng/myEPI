@@ -1,5 +1,6 @@
 import numpy as np
 from dataUtils.pseknc.PseKNC_II import PseKNC
+import os
 
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
@@ -10,6 +11,13 @@ train_dir = '../../data/epivan/%s/train/' % cell_name
 imbltrain = '../../data/epivan/%s/imbltrain/' % cell_name
 test_dir = '../../data/epivan/%s/test/' % cell_name
 Data_dir = '../../data/epivan/%s/%s/' % (cell_name, feature_name)
+
+if os.path.exists(Data_dir):
+    print("path exits!")
+else:
+    os.mkdir(Data_dir)
+    print("path created!")
+
 print('Experiment on %s dataset' % cell_name)
 
 print('Loading seq data...')
@@ -56,6 +64,17 @@ X_en_tra, X_pr_tra, _, _ = get_data(enhancers_tra, promoters_tra)
 X_en_imtra, X_pr_imtra, _, _ = get_data(im_enhancers_tra, im_promoters_tra)
 X_en_tes, X_pr_tes, _, _ = get_data(enhancers_tes, promoters_tes)
 
+"""
+a npz file has 3 np array
+
+read step:
+0. data = np.load(npz_file)
+1. data.files return an array key list
+2. use data[key] or data[data.files[index]] to get np array
+
+npz save:
+np.savez(file_path,key1=np_array1,key2=np_array2,)
+"""
 np.savez(Data_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
 np.savez(Data_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
 np.savez(Data_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)

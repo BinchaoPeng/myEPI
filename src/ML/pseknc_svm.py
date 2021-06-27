@@ -1,13 +1,6 @@
-import torch
-import torch.nn as nn
 import numpy as np
-import torch.nn.functional as F
-from EPIDataset import EPIDataset
-from torch.utils.data import DataLoader
-
-
+from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.svm import SVC
-import numpy as np
 
 """
 SVC参数解释
@@ -30,6 +23,33 @@ SVC参数解释
  ★fit()方法：用于训练SVM，具体参数已经在定义SVC对象的时候给出了，这时候只需要给出数据集X和X对应的标签y即可。
  ★predict()方法：基于以上的训练，对预测样本T进行类别预测，因此只需要接收一个测试集T，该函数返回一个数组表示个测试样本的类别。
 """
+
+"""
+cell and feature choose
+"""
+names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
+cell_name = names[5]
+feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
+feature_name = feature_names[0]
+
+trainPath = r'../../data/epivan/%s/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
+train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
+X_en = train_data[train_data.files[0]]
+X_pr = train_data[train_data.files[1]]
+train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+# print(type(self.X))
+train_y = train_data[train_data.files[2]]
+
+testPath = r'../../data/epivan/%s/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
+test_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
+X_en = train_data[test_data.files[0]]
+X_pr = train_data[test_data.files[1]]
+test_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+# print(type(self.X))
+test_y = train_data[test_data.files[2]]
+
+"""
+read X,y
 X = [[2, 3, 7, 8],
      [4, 6, 8, 9],
      [7, 6, 4, 2]
@@ -47,42 +67,21 @@ test_labels = [
     [1],
     [0]
 ]
-
-
-
-
 """
-cell and feature choose
-"""
-names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[5]
-feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[3]
 
-np.set_printoptions(threshold=10000)  # 这个参数填的是你想要多少行显示
-np.set_printoptions(linewidth=100)  # 这个参数填的是横向多宽
+clf = SVC(kernel='rbf', probablity=True)  # 调参
+clf.fit(train_X, train_y)  # 训练
+print(clf.fit(train_X, train_y))  # 输出参数设置
 
-trainSet = EPIDataset(cell_name, feature_name=feature_name)
-len_trainSet = len(trainSet)
-print("trainSet data len:", len(trainSet))
-trainLoader = DataLoader(dataset=trainSet, batch_size=batch_size, shuffle=True, num_workers=num_works)
-len_trainLoader = len(trainLoader)
-print("trainLoader len:", len_trainLoader)
+y_pred = clf.predict(test_X)
+auc = roc_auc_score(test_y, y_pred)
+aupr = average_precision_score(test_y, y_pred)
+print("AUC : ", auc)
+print("AUPR : ", aupr)
 
-testSet = EPIDataset(cell_name, feature_name=feature_name, is_train_set=False)
-len_testSet = len(testSet)
-testLoader = DataLoader(dataset=testSet, batch_size=batch_size, shuffle=False, num_workers=num_works, drop_last=True)
-
-for i, (x, y) in enumerate(trainLoader, 1):
-    clf = SVC(kernel='rbf')  # 调参
-    clf.fit(X, y)  # 训练
-    print(clf.fit(X, y))  # 输出参数设置
-    p = 0  # 正确分类的个数
-    for i in range(len(test_dataset)):  # 循环检测测试数据分类成功的个数
-
-        print(clf.predict(np.array([test_dataset[i]])))
-        if clf.predict(np.array([test_dataset[i]])) == test_labels[i][0]:
-            p += 1
-
-    print(len(test_labels))
-    print(p / len(test_labels))  # 输出测试集准确率
+p = 0  # 正确分类的个数
+for i in range(len(test_y)):  # 循环检测测试数据分类成功的个数
+    if y_pred[i] >= 0.5:
+        p += 1
+print(len(test_y))
+print(p / len(test_y))  # 输出测试集准确率
