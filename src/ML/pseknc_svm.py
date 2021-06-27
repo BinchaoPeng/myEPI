@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.svm import SVC
+from sklearn.model_selection import GridSearchCV
 import time
 
 """
@@ -71,8 +72,17 @@ test_labels = [
     [0]
 ]
 """
+parameters = {'C': [0.001,  0.006, 0.009, 0.01, 0.04, 0.08, 0.1],
+              'kernel': ('linear', 'rbf',),
+              'gamma': [0.001, 0.005, 0.1,  0.20,  0.27],
+              'decision_function_shape': ['ovo', 'ovr'],
+              'class_weight': [{1: 7, 2: 1.83, 3: 3.17}],
+              }
 
-clf = SVC(kernel='rbf', probability=True)  # 调参
+# GridSearchCV，sklearn的自动调优函数
+svr = SVC(probability=True)  # 调参
+clf = GridSearchCV(svr, parameters)
+
 # t0 = time.time()
 # clf.fit(train_X, train_y)  # 训练
 t1 = time.time()
