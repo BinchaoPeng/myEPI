@@ -72,14 +72,12 @@ test_labels = [
     [0]
 ]
 """
-# 'linear', 'poly', 'rbf', 'sigmoid',
-# 'kernel': ('linear', 'rbf',),
 parameters = {'C': [0.001, 0.003, 0.006, 0.009, 0.01, 0.04, 0.08, 0.1],
               'gamma': [0.001, 0.005, 0.1, 0.15, 0.20, 0.23, 0.27],
               }
 
 # GridSearchCV，sklearn的自动调优函数
-svr = SVC(kernel='rbf', probability=True)  # 调参
+svr = SVC(kernel='poly', probability=True)  # 调参
 clf = GridSearchCV(svr, parameters)
 
 # t0 = time.time()
