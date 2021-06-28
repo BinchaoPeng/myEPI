@@ -76,37 +76,39 @@ parameters = {'C': [0.001, 0.003, 0.006, 0.009, 0.01, 0.04, 0.08, 0.1],
               'gamma': [0.001, 0.005, 0.1, 0.15, 0.20, 0.23, 0.27],
               }
 
-# GridSearchCV，sklearn的自动调优函数
-svr = SVC(kernel='poly', probability=True)  # 调参
-clf = GridSearchCV(svr, parameters)
+C_list = [0.001, 0.003, 0.006, 0.009, 0.01, 0.04, 0.08, 0.1]
+gamma_list = [0.001, 0.005, 0.1, 0.15, 0.20, 0.23, 0.27]
 
-# t0 = time.time()
-# clf.fit(train_X, train_y)  # 训练
-t1 = time.time()
-print(clf.fit(train_X, train_y))  # 训练,输出参数设置
-t2 = time.time()
-# print("time trian:", t1 - t0)
-print("time param:", t2 - t1)
+for C in C_list:
+    for gamma in gamma_list:
 
-y_pred = clf.predict(test_X)
-y_pred_prob_temp = clf.predict_proba(test_X)
-y_pred_prob = y_pred_prob_temp[:, 1]
+        clf = SVC(kernel='poly', probability=True, C=C, gamma=gamma)  # 调参
 
-auc = roc_auc_score(test_y, y_pred_prob)
-aupr = average_precision_score(test_y, y_pred_prob)
-print("AUC : ", auc)
-print("AUPR : ", aupr)
+        t1 = time.time()
+        print("======= ", clf.fit(train_X, train_y))  # 训练,输出参数设置
+        t2 = time.time()
 
-p = 0  # 正确分类的个数
-for i in range(len(test_y)):  # 循环检测测试数据分类成功的个数
-    if y_pred_prob[i] >= 0.5 and test_y[i] == 1:
-        p += 1
-    elif y_pred_prob[i] < 0.5 and test_y[i] == 0:
-        p += 1
+        print("time param: ", t2 - t1)
 
-print("p:", p)
-print(p / len(test_y))  # 输出测试集准确率
+        y_pred = clf.predict(test_X)
+        y_pred_prob_temp = clf.predict_proba(test_X)
+        y_pred_prob = y_pred_prob_temp[:, 1]
 
-count = (y_pred == test_y).sum()
-print("count:", count)
-print(count / len(test_y))  # 输出测试集准确率
+        auc = roc_auc_score(test_y, y_pred_prob)
+        aupr = average_precision_score(test_y, y_pred_prob)
+        print("AUC : ", auc)
+        print("AUPR : ", aupr)
+
+        p = 0  # 正确分类的个数
+        for i in range(len(test_y)):  # 循环检测测试数据分类成功的个数
+            if y_pred_prob[i] >= 0.5 and test_y[i] == 1:
+                p += 1
+            elif y_pred_prob[i] < 0.5 and test_y[i] == 0:
+                p += 1
+
+        print("p: ", p)
+        print("acc: ", p / len(test_y))  # 输出测试集准确率
+
+        count = (y_pred == test_y).sum()
+        print("count: ", count)
+        print("acc: ", count / len(test_y))  # 输出测试集准确率
