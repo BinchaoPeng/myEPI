@@ -15,8 +15,8 @@ class EPIDataset(Dataset):
     """
 
     def __init__(self, cell_name, feature_name="", is_train_set=True):
-        trainPath = r'../data/epivan/%s/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
-        testPath = r'../data/epivan/%s/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
+        trainPath = r'../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
+        testPath = r'../data/epivan/%s/features/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
         filename = trainPath if is_train_set else testPath
         data = np.load(filename)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
         if feature_name.find("longformer") >= 0 or feature_name.find("elmo") >= 0:

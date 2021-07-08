@@ -34,7 +34,7 @@ cell_name = names[5]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 
-trainPath = r'../../data/epivan/%s/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
+trainPath = r'../../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
 train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
 X_en = train_data[train_data.files[0]]
 X_pr = train_data[train_data.files[1]]
@@ -43,7 +43,7 @@ train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
 train_y = train_data[train_data.files[2]]
 print("trainSet len:", len(train_y))
 
-testPath = r'../../data/epivan/%s/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
+testPath = r'../../data/epivan/%s/features/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
 test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
 X_en = test_data[test_data.files[0]]
 X_pr = test_data[test_data.files[1]]

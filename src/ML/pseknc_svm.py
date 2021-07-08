@@ -30,11 +30,11 @@ SVC参数解释
 cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[5]
+cell_name = names[2]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 
-trainPath = r'../../data/epivan/%s/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
+trainPath = r'../../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
 train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
 X_en = train_data[train_data.files[0]]
 X_pr = train_data[train_data.files[1]]
@@ -43,7 +43,7 @@ train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
 train_y = train_data[train_data.files[2]]
 print("trainSet len:", len(train_y))
 
-testPath = r'../../data/epivan/%s/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
+testPath = r'../../data/epivan/%s/features/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
 test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
 X_en = test_data[test_data.files[0]]
 X_pr = test_data[test_data.files[1]]
@@ -75,19 +75,23 @@ test_labels = [
 
 parameters = [
     {
-        'C': [math.pow(2, i) for i in range(-5, 5)],
-        'gamma': [math.pow(2, i) for i in range(-5, 5)],
+        'C': [math.pow(2, i) for i in range(-10, 10)],
+        'gamma': [math.pow(2, i) for i in range(-10, 10)],
         'kernel': ['rbf']
     },
     {
-        'C': [math.pow(2, i) for i in range(-5, 5)],
-        'kernel': ['linear', 'poly', 'sigmoid']
+        'C': [math.pow(2, i) for i in range(-10, 10)],
+        'kernel': ['linear', 'sigmoid']
+    },
+    {
+        'degree': [2, 3, 4, 5, 6],
+        'kernel': ['poly']
     }
 ]
 
 svc = SVC(probability=True, )  # 调参
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
-clf = GridSearchCV(svc, parameters, cv=10, n_jobs=10, scoring=met_grid, refit=True, verbose=3)
+clf = GridSearchCV(svc, parameters, cv=5, n_jobs=10, scoring=met_grid, refit=True, verbose=3)
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
 print("found the BEST param!!!")

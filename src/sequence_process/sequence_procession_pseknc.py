@@ -10,7 +10,7 @@ feature_name = "pseknc"
 train_dir = '../../data/epivan/%s/train/' % cell_name
 imbltrain = '../../data/epivan/%s/imbltrain/' % cell_name
 test_dir = '../../data/epivan/%s/test/' % cell_name
-Data_dir = '../../data/epivan/%s/%s/' % (cell_name, feature_name)
+Data_dir = '../../data/epivan/%s/features/%s/' % (cell_name, feature_name)
 
 if os.path.exists(Data_dir):
     print("path exits!")
@@ -78,3 +78,5 @@ np.savez(file_path,key1=np_array1,key2=np_array2,)
 np.savez(Data_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
 np.savez(Data_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
 np.savez(Data_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)
+
+print("save over!")
