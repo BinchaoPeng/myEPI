@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
+from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV, RepeatedKFold
 import time
@@ -85,7 +85,7 @@ for train_index, test_index in rkf.split(train_X):
 
     clf = SVC(kernel='poly', probability=True, C=16)  # 调参
     t1 = time.time()
-    print(f"===[{i}]==== ", clf.fit(X_train, y_train))  # 训练,输出参数设置
+    print("===[i]==== ", clf.fit(X_train, y_train))  # 训练,输出参数设置
     t2 = time.time()
     print("time param: ", t2 - t1)
 
@@ -94,13 +94,10 @@ for train_index, test_index in rkf.split(train_X):
     y_pred_prob_temp = clf.predict_proba(X_test)
     y_pred_prob = y_pred_prob_temp[:, 1]
 
-    print("Performance evaluation!!!")
-    auc = roc_auc_score(test_y, y_pred_prob)
-    aupr = average_precision_score(test_y, y_pred_prob)
-    acc = accuracy_score(test_y, y_pred_prob)
+    auc = roc_auc_score(y_test, y_pred_prob)
+    aupr = average_precision_score(y_test, y_pred_prob)
     print("AUC : ", auc)
     print("AUPR : ", aupr)
-    print("acc:", acc)
 
     p = 0  # 正确分类的个数
     TP, FP, TN, FN = 0, 0, 0, 0
@@ -133,13 +130,10 @@ for train_index, test_index in rkf.split(train_X):
     y_pred_prob_temp = clf.predict_proba(test_X)
     y_pred_prob = y_pred_prob_temp[:, 1]
 
-    print("Performance evaluation!!!")
     auc = roc_auc_score(test_y, y_pred_prob)
     aupr = average_precision_score(test_y, y_pred_prob)
-    acc = accuracy_score(test_y, y_pred_prob)
     print("AUC : ", auc)
     print("AUPR : ", aupr)
-    print("acc:", acc)
 
     p = 0  # 正确分类的个数
     TP, FP, TN, FN = 0, 0, 0, 0

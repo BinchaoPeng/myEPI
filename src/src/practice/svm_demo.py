@@ -51,7 +51,7 @@ grid search
 """
 svc = SVC(probability=True, )  # 调参
 met_grid = ['f1', 'roc_auc']
-clf = GridSearchCV(svc, parameters, cv=2, n_jobs=1, scoring=met_grid, refit='roc_auc', verbose=4)
+clf = GridSearchCV(svc, parameters, cv=3, n_jobs=12, scoring=met_grid, refit='roc_auc', verbose=4)
 grid_result = clf.fit(X, y)
 print("have found the BEST param!!!")
 

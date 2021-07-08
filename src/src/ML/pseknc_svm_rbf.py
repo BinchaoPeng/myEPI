@@ -1,8 +1,8 @@
 import numpy as np
-from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
+from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
-import math
+import time
 
 """
 SVC参数解释
@@ -72,69 +72,55 @@ test_labels = [
     [0]
 ]
 """
+# kernel: 'linear', 'poly', 'rbf', 'sigmoid',
+# gamma : {'scale', 'auto'} or float
 
-parameters = [
-    {
-        'C': [math.pow(2, i) for i in range(-5, 5)],
-        'gamma': [math.pow(2, i) for i in range(-5, 5)],
-        'kernel': ['rbf']
-    },
-    {
-        'C': [math.pow(2, i) for i in range(-5, 5)],
-        'kernel': ['linear', 'poly', 'sigmoid']
-    }
-]
+C_list = [0.001, 0.003, 0.006, 0.009, 0.01, 0.04, 0.08, 0.1]
+gamma_list = ['scale', 'auto', 0.001, 0.005, 0.1, 0.15, 0.20, 0.23, 0.27]
 
-svc = SVC(probability=True, )  # 调参
-met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
-clf = GridSearchCV(svc, parameters, cv=10, n_jobs=10, scoring=met_grid, refit=True, verbose=3)
-print("Start Fit!!!")
-clf.fit(train_X, train_y)
-print("found the BEST param!!!")
-"""
-grid.scores：给出不同参数组合下的评价结果
-grid.best_params_：最佳结果的参数组合
-grid.best_score_：最佳评价得分
-grid.best_estimator_：最佳模型
-"""
-print("best_params:", clf.best_params_)
-best_model = clf.best_estimator_
+for C in C_list:
+    for gamma in gamma_list:
 
-print("Start prediction!!!")
-y_pred = best_model.predict(test_X)
-y_pred_prob_temp = best_model.predict_proba(test_X)
-y_pred_prob = y_pred_prob_temp[:, 1]
+        clf = SVC(kernel='rbf', probability=True, C=C, gamma=gamma)  # 调参
+        t1 = time.time()
+        print("======= ", clf.fit(train_X, train_y))  # 训练,输出参数设置
+        t2 = time.time()
+        # print("time trian:", t1 - t0)
+        print("time param: ", t2 - t1)
 
-print("Performance evaluation!!!")
-auc = roc_auc_score(test_y, y_pred_prob)
-aupr = average_precision_score(test_y, y_pred_prob)
-acc = accuracy_score(test_y, y_pred_prob)
-print("AUC : ", auc)
-print("AUPR : ", aupr)
-print("acc:", acc)
+        y_pred = clf.predict(test_X)
+        y_pred_prob_temp = clf.predict_proba(test_X)
+        y_pred_prob = y_pred_prob_temp[:, 1]
 
-p = 0  # 正确分类的个数
-TP, FP, TN, FN = 0, 0, 0, 0
-for i in range(len(test_y)):  # 循环检测测试数据分类成功的个数
-    if y_pred_prob[i] >= 0.5 and test_y[i] == 1:
-        p += 1
-        TP += 1
-    elif y_pred_prob[i] < 0.5 and test_y[i] == 0:
-        p += 1
-        TN += 1
-    elif y_pred_prob[i] < 0.5 and test_y[i] == 1:
-        FN += 1
-    elif y_pred_prob[i] >= 0.5 and test_y[i] == 0:
-        FP += 1
+        auc = roc_auc_score(test_y, y_pred_prob)
+        aupr = average_precision_score(test_y, y_pred_prob)
+        print("AUC : ", auc)
+        print("AUPR : ", aupr)
 
-precision = TP / (TP + FP)
-recall = TP / (TP + FN)
-print("total:", len(test_y), "\tacc num:", p, "\tTP:", TP, "\tTN:", TN, "\tFP:", FP, "\tFN:", FN)
-print("acc: ", p / len(test_y))  # 输出测试集准确率
-print("precision:", precision)
-print("recall:", recall)
-print("F1-score:", (2 * precision * recall) / (precision + recall))
+        p = 0  # 正确分类的个数
+        TP, FP, TN, FN = 0, 0, 0, 0
+        for i in range(len(test_y)):  # 循环检测测试数据分类成功的个数
+            if y_pred_prob[i] >= 0.5 and test_y[i] == 1:
+                p += 1
+                TP += 1
+            elif y_pred_prob[i] < 0.5 and test_y[i] == 0:
+                p += 1
+                TN += 1
+            elif y_pred_prob[i] < 0.5 and test_y[i] == 1:
+                p += 1
+                FN += 1
+            elif y_pred_prob[i] >= 0.5 and test_y[i] == 0:
+                p += 1
+                FP += 1
 
-count = (y_pred == test_y).sum()
-print("count: ", count)
-print("acc: ", count / len(test_y))  # 输出测试集准确率
+        precision = TP / (TP + FP)
+        recall = TP / (TP + FN)
+        print("total:", len(test_y), "\tacc num:", p, "\tTP:", TP, "\tTN:", TN, "\tFP:", FP, "\tFN:", FN)
+        print("acc: ", p / len(test_y))  # 输出测试集准确率
+        print("precision:", precision)
+        print("recall:", recall)
+        print("F1-score:", (2 * precision * recall) / (precision + recall))
+
+        count = (y_pred == test_y).sum()
+        print("count: ", count)
+        print("acc: ", count / len(test_y))  # 输出测试集准确率

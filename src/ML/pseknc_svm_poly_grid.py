@@ -1,8 +1,8 @@
 import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
 from sklearn.svm import SVC
-from sklearn.model_selection import GridSearchCV, RepeatedKFold
-import time
+from sklearn.model_selection import GridSearchCV
+import math
 
 """
 SVC参数解释
@@ -72,65 +72,35 @@ test_labels = [
     [0]
 ]
 """
-train_X = np.array(train_X)
-train_y = np.array(train_y)
-test_X = np.array(test_X)
-test_y = np.array(test_y)
-rkf = RepeatedKFold(n_splits=10, n_repeats=10)
-i = 0
-for train_index, test_index in rkf.split(train_X):
-    i += 1
-    X_train, X_test = train_X[train_index], train_X[test_index]
-    y_train, y_test = train_y[train_index], train_y[test_index]
 
-    clf = SVC(kernel='poly', probability=True, C=16)  # 调参
-    t1 = time.time()
-    print(f"===[{i}]==== ", clf.fit(X_train, y_train))  # 训练,输出参数设置
-    t2 = time.time()
-    print("time param: ", t2 - t1)
+parameters = [
 
-    print("DEV========================================")
-    y_pred = clf.predict(X_test)
-    y_pred_prob_temp = clf.predict_proba(X_test)
-    y_pred_prob = y_pred_prob_temp[:, 1]
+    {
+        'C': [math.pow(2, 4)],
+        'kernel': ['poly']
+    }
+]
 
-    print("Performance evaluation!!!")
-    auc = roc_auc_score(test_y, y_pred_prob)
-    aupr = average_precision_score(test_y, y_pred_prob)
-    acc = accuracy_score(test_y, y_pred_prob)
-    print("AUC : ", auc)
-    print("AUPR : ", aupr)
-    print("acc:", acc)
+for i in range(0, 10):
+    print(f"[{i}/10]=====================================")
+    svc = SVC(probability=True, )  # 调参
+    met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
+    clf = GridSearchCV(svc, parameters, cv=10, n_jobs=10, scoring=met_grid, refit=True, verbose=3)
+    print("Start Fit!!!")
+    clf.fit(train_X, train_y)
+    print("found the BEST param!!!")
+    """
+    grid.scores：给出不同参数组合下的评价结果
+    grid.best_params_：最佳结果的参数组合
+    grid.best_score_：最佳评价得分
+    grid.best_estimator_：最佳模型
+    """
+    print("best_params:", clf.best_params_)
+    best_model = clf.best_estimator_
 
-    p = 0  # 正确分类的个数
-    TP, FP, TN, FN = 0, 0, 0, 0
-    for i in range(len(y_test)):  # 循环检测测试数据分类成功的个数
-        if y_pred_prob[i] > 0.5 and y_test[i] == 1:
-            p += 1
-            TP += 1
-        elif y_pred_prob[i] <= 0.5 and y_test[i] == 0:
-            p += 1
-            TN += 1
-        elif y_pred_prob[i] <= 0.5 and y_test[i] == 1:
-            FN += 1
-        elif y_pred_prob[i] > 0.5 and y_test[i] == 0:
-            FP += 1
-
-    precision = TP / (TP + FP)
-    recall = TP / (TP + FN)
-    print("total:", len(y_test), "\tacc num:", p, "\tTP:", TP, "\tTN:", TN, "\tFP:", FP, "\tFN:", FN)
-    print("acc: ", p / len(y_test))  # 输出测试集准确率
-    print("precision:", precision)
-    print("recall:", recall)
-    print("F1-score:", (2 * precision * recall) / (precision + recall))
-
-    count = (y_pred == y_test).sum()
-    print("count: ", count)
-    print("acc: ", count / len(y_test))  # 输出测试集准确率
-
-    print("TEST===============================")
-    y_pred = clf.predict(test_X)
-    y_pred_prob_temp = clf.predict_proba(test_X)
+    print("Start prediction!!!")
+    y_pred = best_model.predict(test_X)
+    y_pred_prob_temp = best_model.predict_proba(test_X)
     y_pred_prob = y_pred_prob_temp[:, 1]
 
     print("Performance evaluation!!!")
@@ -166,5 +136,3 @@ for train_index, test_index in rkf.split(train_X):
     count = (y_pred == test_y).sum()
     print("count: ", count)
     print("acc: ", count / len(test_y))  # 输出测试集准确率
-
-

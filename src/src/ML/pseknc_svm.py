@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
+from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 import math
@@ -86,8 +86,8 @@ parameters = [
 ]
 
 svc = SVC(probability=True, )  # 调参
-met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
-clf = GridSearchCV(svc, parameters, cv=10, n_jobs=10, scoring=met_grid, refit=True, verbose=3)
+met_grid = ['f1', 'roc_auc', 'average_precision']
+clf = GridSearchCV(svc, parameters, cv=10, n_jobs=10, scoring='roc_auc', refit=True, verbose=3)
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
 print("found the BEST param!!!")
@@ -108,10 +108,8 @@ y_pred_prob = y_pred_prob_temp[:, 1]
 print("Performance evaluation!!!")
 auc = roc_auc_score(test_y, y_pred_prob)
 aupr = average_precision_score(test_y, y_pred_prob)
-acc = accuracy_score(test_y, y_pred_prob)
 print("AUC : ", auc)
 print("AUPR : ", aupr)
-print("acc:", acc)
 
 p = 0  # 正确分类的个数
 TP, FP, TN, FN = 0, 0, 0, 0
