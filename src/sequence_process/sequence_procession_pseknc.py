@@ -4,7 +4,7 @@ import os
 
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
-cell_name = names[2]
+cell_name = names[4]
 feature_name = "pseknc"
 
 train_dir = '../../data/epivan/%s/train/' % cell_name
