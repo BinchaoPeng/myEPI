@@ -3,7 +3,8 @@ from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_sco
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 import math
-
+from sklearnex import patch_sklearn
+patch_sklearn()
 """
 SVC参数解释
 （1）C: 目标函数的惩罚系数C，用来平衡分类间隔margin和错分样本的，default C = 1.0；

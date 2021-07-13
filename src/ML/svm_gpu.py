@@ -1,8 +1,11 @@
 import numpy as np
-from sklearn.metrics import roc_auc_score, average_precision_score
-from sklearn.svm import SVC
+from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
+# from sklearn.svm import SVC
+from thundersvm import SVC
 from sklearn.model_selection import GridSearchCV
 import math
+from sklearnex import patch_sklearn
+patch_sklearn()
 
 """
 SVC参数解释
@@ -30,11 +33,11 @@ SVC参数解释
 cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[5]
+cell_name = names[6]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
-
-trainPath = r'../../data/epivan/%s/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
+print("experiment:", cell_name)
+trainPath = r'../../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
 train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
 X_en = train_data[train_data.files[0]]
 X_pr = train_data[train_data.files[1]]
@@ -43,7 +46,7 @@ train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
 train_y = train_data[train_data.files[2]]
 print("trainSet len:", len(train_y))
 
-testPath = r'../../data/epivan/%s/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
+testPath = r'../../data/epivan/%s/features/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
 test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
 X_en = test_data[test_data.files[0]]
 X_pr = test_data[test_data.files[1]]
@@ -75,22 +78,27 @@ test_labels = [
 
 parameters = [
     {
-        'C': [math.pow(2, i) for i in range(-5, 5)],
-        'gamma': [math.pow(2, i) for i in range(-5, 5)],
+        'C': [math.pow(2, i) for i in range(-10, 15)],
+        'gamma': [math.pow(2, i) for i in range(-10, 15)],
         'kernel': ['rbf']
     },
     {
-        'C': [math.pow(2, i) for i in range(-5, 5)],
+        'C': [math.pow(2, i) for i in range(-10, 15)],
         'kernel': ['linear', 'poly', 'sigmoid']
+    },
+    {
+        'C': [16],
+        'degree': [2, 4, 5, 6],
+        'kernel': ['poly']
     }
 ]
 
-svc = SVC(probability=True, )  # 调参
-met_grid = ['f1', 'roc_auc', 'average_precision']
-clf = GridSearchCV(svc, parameters, cv=10, n_jobs=10, scoring='roc_auc', refit=True, verbose=3)
+svc = SVC(probability=True, n_jobs=1)  # 调参
+met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
+clf = GridSearchCV(svc, parameters, cv=5, n_jobs=1, scoring=met_grid, refit='roc_auc', verbose=3)
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
-print("found the BEST param!!!")
+print("Found the BEST param!!!")
 """
 grid.scores：给出不同参数组合下的评价结果
 grid.best_params_：最佳结果的参数组合
@@ -108,8 +116,10 @@ y_pred_prob = y_pred_prob_temp[:, 1]
 print("Performance evaluation!!!")
 auc = roc_auc_score(test_y, y_pred_prob)
 aupr = average_precision_score(test_y, y_pred_prob)
+acc = accuracy_score(test_y, y_pred_prob)
 print("AUC : ", auc)
 print("AUPR : ", aupr)
+print("acc:", acc)
 
 p = 0  # 正确分类的个数
 TP, FP, TN, FN = 0, 0, 0, 0

@@ -3,7 +3,8 @@ from sklearn.metrics import roc_auc_score, average_precision_score
 import numpy as np
 import time, math
 from sklearn.model_selection import GridSearchCV
-
+from sklearnex import patch_sklearn
+patch_sklearn()
 """
 step_1
 dataset
