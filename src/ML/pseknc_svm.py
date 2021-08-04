@@ -4,6 +4,7 @@ from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 import math
 from sklearnex import patch_sklearn
+
 patch_sklearn()
 """
 SVC参数解释
@@ -96,6 +97,7 @@ met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
 clf = GridSearchCV(svc, parameters, cv=3, n_jobs=15, scoring=met_grid, refit='roc_auc', verbose=3)
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
+
 print("Found the BEST param!!!")
 """
 grid.scores：给出不同参数组合下的评价结果

@@ -4,6 +4,8 @@ import numpy as np
 import time, math
 from sklearn.model_selection import GridSearchCV
 from sklearnex import patch_sklearn
+import csv
+
 patch_sklearn()
 """
 step_1
@@ -36,12 +38,12 @@ hyper params
 """
 parameters = [
     {
-        'C': [math.pow(2, i) for i in range(-10, 10)],
-        'gamma': [math.pow(2, i) for i in range(-10, 10)],
+        'C': [math.pow(2, i) for i in range(2, 4)],
+        'gamma': [math.pow(2, i) for i in range(1, 2)],
         'kernel': ['rbf']
     },
     {
-        'C': [math.pow(2, i) for i in range(-10, 10)],
+        'C': [math.pow(2, i) for i in range(0, 1)],
         'kernel': ['linear', 'poly', 'sigmoid']
     }
 ]
@@ -55,6 +57,34 @@ met_grid = ['f1', 'roc_auc']
 clf = GridSearchCV(svc, parameters, cv=2, n_jobs=1, scoring=met_grid, refit='roc_auc', verbose=4)
 grid_result = clf.fit(X, y)
 print("have found the BEST param!!!")
+
+print("write rank test to csv!!!")
+csv_rows_list = []
+header = []
+for m in met_grid:
+    rank_test_score = 'rank_test_' + m
+    mean_test_score = 'mean_test_' + m
+    std_test_score = 'std_test_' + m
+    header.append(rank_test_score)
+    header.append(mean_test_score)
+    header.append(std_test_score)
+    csv_rows_list.append(clf.cv_results_[rank_test_score])
+    csv_rows_list.append(clf.cv_results_[mean_test_score])
+    csv_rows_list.append(clf.cv_results_[std_test_score])
+csv_rows_list.append(clf.cv_results_['params'])
+header.append('params')
+
+results = list(zip(*csv_rows_list))
+
+file_name = r'./%s_%s_svm_rank.csv' % ("cell_name", "feature_name")
+with open(file_name, 'wt', newline='')as f:
+    f_csv = csv.writer(f, delimiter=",")
+    f_csv.writerow(header)
+    f_csv.writerows(results)
+    f.close()
+
+print("Test Rank!!!")
+cv_results = zip(csv_rows_list)
 
 # 总结结果
 print("Best: %f using %s" % (grid_result.best_score_, grid_result.best_params_))

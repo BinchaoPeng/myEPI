@@ -5,7 +5,9 @@ from thundersvm import SVC
 from sklearn.model_selection import GridSearchCV
 import math
 from sklearnex import patch_sklearn
+
 patch_sklearn()
+import csv
 
 """
 SVC参数解释
@@ -33,7 +35,7 @@ SVC参数解释
 cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[6]
+cell_name = names[2]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 print("experiment:", cell_name)
@@ -77,38 +79,62 @@ test_labels = [
 """
 
 parameters = [
+    # {
+    #     'C': [math.pow(2, i) for i in range(-10, 15)],
+    #     'gamma': [math.pow(2, i) for i in range(-10, 15)],
+    #     'kernel': ['rbf']
+    # },
     {
         'C': [math.pow(2, i) for i in range(-10, 15)],
-        'gamma': [math.pow(2, i) for i in range(-10, 15)],
-        'kernel': ['rbf']
-    },
-    {
-        'C': [math.pow(2, i) for i in range(-10, 15)],
-        'kernel': ['linear', 'poly', 'sigmoid']
+        'kernel': ['linear', 'polynomial', 'sigmoid']
     },
     {
         'C': [16],
         'degree': [2, 4, 5, 6],
-        'kernel': ['poly']
+        'kernel': ['polynomial']
     }
 ]
 
-svc = SVC(probability=True, n_jobs=1)  # 调参
+svc = SVC(probability=True, n_jobs=6)  # 调参
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
 clf = GridSearchCV(svc, parameters, cv=5, n_jobs=1, scoring=met_grid, refit='roc_auc', verbose=3)
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
 print("Found the BEST param!!!")
+print("best_params:", clf.best_params_)
 """
 grid.scores：给出不同参数组合下的评价结果
 grid.best_params_：最佳结果的参数组合
 grid.best_score_：最佳评价得分
 grid.best_estimator_：最佳模型
 """
-print("best_params:", clf.best_params_)
-best_model = clf.best_estimator_
+
+print("write rank test to csv!!!")
+csv_rows_list = []
+header = []
+for m in met_grid:
+    rank_test_score = 'rank_test_' + m
+    mean_test_score = 'mean_test_' + m
+    std_test_score = 'std_test_' + m
+    header.append(rank_test_score)
+    header.append(mean_test_score)
+    header.append(std_test_score)
+    csv_rows_list.append(clf.cv_results_[rank_test_score])
+    csv_rows_list.append(clf.cv_results_[mean_test_score])
+    csv_rows_list.append(clf.cv_results_[std_test_score])
+csv_rows_list.append(clf.cv_results_['params'])
+header.append('params')
+results = list(zip(*csv_rows_list))
+
+file_name = r'./%s_%s_svm_rank.csv' % (cell_name, feature_name)
+with open(file_name, 'wt', newline='')as f:
+    f_csv = csv.writer(f, delimiter=",")
+    f_csv.writerow(header)
+    f_csv.writerows(results)
+    f.close()
 
 print("Start prediction!!!")
+best_model = clf.best_estimator_
 y_pred = best_model.predict(test_X)
 y_pred_prob_temp = best_model.predict_proba(test_X)
 y_pred_prob = y_pred_prob_temp[:, 1]

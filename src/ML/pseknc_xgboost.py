@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
 from sklearn.model_selection import GridSearchCV
-import math, time
+import math, time,csv
 from xgboost import XGBClassifier
 
 """
@@ -49,19 +49,17 @@ xgboost = XGBClassifier(learning_rate=0.01,
 
 parameters = [
     {
-        'C': [math.pow(2, i) for i in range(-10, 10)],
-        'gamma': [math.pow(2, i) for i in range(-10, 10)],
-        'kernel': ['rbf']
+        # XGBoost分类器基于多个参数,包括迭代次数(NI)、学习率(LR)、最大深度(MD)
+        # 和正则化参数(ε)。使用网格搜索方法对这些超参数进行了优化,搜索范围如下：
+        # NI∈{40~500,间隔[with an interval of]20}
+        # LR∈{0.0001,0.001,0.01,0.05, 0.1,0.2,0.25,0.3,0.5,1.0}
+        # ε∈{0.0001,0.001,0.002,0.01,0.02,0.05,1.0}
+        # MD∈{2,4,6,8,10,12,14}
+        'num_iter':[num for num in range(40,500,20)],
+        'lr':[0.0001,0.001,0.01,0.05, 0.1,0.2,0.25,0.3,0.5,1.0],
+        'ε':[0.0001,0.001,0.002,0.01,0.02,0.05,1.0],
+         'max_deepth':[2,4,6,8,10,12,14]
     },
-    {
-        'C': [math.pow(2, i) for i in range(-10, 10)],
-        'kernel': ['linear', 'poly', 'sigmoid']
-    },
-    {
-        'C': [16],
-        'degree': [2, 3, 4, 5, 6],
-        'kernel': ['poly']
-    }
 ]
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
@@ -69,16 +67,40 @@ clf = GridSearchCV(xgboost, parameters, cv=5, n_jobs=10, scoring=met_grid, refit
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
 print("Found the BEST param!!!")
+print("best_params:", clf.best_params_)
 """
 grid.scores：给出不同参数组合下的评价结果
 grid.best_params_：最佳结果的参数组合
 grid.best_score_：最佳评价得分
 grid.best_estimator_：最佳模型
 """
-print("best_params:", clf.best_params_)
-best_model = clf.best_estimator_
+
+print("write rank test to csv!!!")
+csv_rows_list = []
+header = []
+for m in met_grid:
+    rank_test_score = 'rank_test_' + m
+    mean_test_score = 'mean_test_' + m
+    std_test_score = 'std_test_' + m
+    header.append(rank_test_score)
+    header.append(mean_test_score)
+    header.append(std_test_score)
+    csv_rows_list.append(clf.cv_results_[rank_test_score])
+    csv_rows_list.append(clf.cv_results_[mean_test_score])
+    csv_rows_list.append(clf.cv_results_[std_test_score])
+csv_rows_list.append(clf.cv_results_['params'])
+header.append('params')
+results = list(zip(*csv_rows_list))
+
+file_name = r'./%s_%s_svm_rank.csv' % (cell_name, feature_name)
+with open(file_name, 'wt', newline='')as f:
+    f_csv = csv.writer(f, delimiter=",")
+    f_csv.writerow(header)
+    f_csv.writerows(results)
+    f.close()
 
 print("Start prediction!!!")
+best_model = clf.best_estimator_
 y_pred = best_model.predict(test_X)
 y_pred_prob_temp = best_model.predict_proba(test_X)
 y_pred_prob = y_pred_prob_temp[:, 1]
