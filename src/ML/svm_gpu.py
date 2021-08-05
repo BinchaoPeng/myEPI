@@ -146,7 +146,11 @@ print("Start prediction!!!")
 best_model = clf.best_estimator_
 y_pred = best_model.predict(test_X)
 y_pred_prob_temp = best_model.predict_proba(test_X)
-y_pred_prob = y_pred_prob_temp[:, 0]
+y_pred_prob = []
+if (y_pred[0] == 1 and y_pred_prob_temp[0][0] >= 0.5) or (y_pred[0] == 0 and y_pred_prob_temp[0][0] < 0.5):
+    y_pred_prob = y_pred_prob_temp[:, 0]
+else:
+    y_pred_prob = y_pred_prob_temp[:, 1]
 
 print("Performance evaluation!!!")
 auc = roc_auc_score(test_y, y_pred_prob)

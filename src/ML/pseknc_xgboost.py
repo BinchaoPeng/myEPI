@@ -27,6 +27,7 @@ test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes'
 X_en = test_data[test_data.files[0]]
 X_pr = test_data[test_data.files[1]]
 test_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+test_X = np.array(test_X)
 # print(type(self.X))
 test_y = test_data[test_data.files[2]]
 print("testSet len:", len(test_y))
@@ -119,12 +120,16 @@ print("Start prediction!!!")
 best_model = clf.best_estimator_
 y_pred = best_model.predict(test_X)
 y_pred_prob_temp = best_model.predict_proba(test_X)
-y_pred_prob = y_pred_prob_temp[:, 1]
+y_pred_prob = []
+if (y_pred[0] == 1 and y_pred_prob_temp[0][0] >= 0.5) or (y_pred[0] == 0 and y_pred_prob_temp[0][0] < 0.5):
+    y_pred_prob = y_pred_prob_temp[:, 0]
+else:
+    y_pred_prob = y_pred_prob_temp[:, 1]
 
 print("Performance evaluation!!!")
 auc = roc_auc_score(test_y, y_pred_prob)
 aupr = average_precision_score(test_y, y_pred_prob)
-acc = accuracy_score(test_y, y_pred_prob)
+acc = accuracy_score(test_y, y_pred)
 print("AUC : ", auc)
 print("AUPR : ", aupr)
 print("acc:", acc)
