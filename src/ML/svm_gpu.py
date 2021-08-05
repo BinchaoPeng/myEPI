@@ -1,13 +1,13 @@
 import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
-# from sklearn.svm import SVC
 from thundersvm import SVC
 from sklearn.model_selection import GridSearchCV
 import math
 from sklearnex import patch_sklearn
+import csv
 
 patch_sklearn()
-import csv
+
 
 """
 SVC参数解释
@@ -35,7 +35,7 @@ SVC参数解释
 cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[2]
+cell_name = names[3]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 print("experiment:", cell_name)
@@ -53,6 +53,7 @@ test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes'
 X_en = test_data[test_data.files[0]]
 X_pr = test_data[test_data.files[1]]
 test_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+test_X = np.array(test_X)
 # print(type(self.X))
 test_y = test_data[test_data.files[2]]
 print("testSet len:", len(test_y))
@@ -86,22 +87,22 @@ parameters = [
     },
     {
         'C': [math.pow(2, i) for i in range(-10, 15)],
-        'kernel': ['linear', 'polynomial', 'sigmoid']
+        'kernel': ['linear', 'polynomial', 'sigmoid', 'precomputed']
     },
     {
-        'C': [16],
-        'degree': [2, 4, 5, 6],
+        'C': [math.pow(2, i) for i in range(-10, 15)],
+        'degree': [2, 3, 4, 5, 6],
         'kernel': ['polynomial']
     }
 ]
 
-parameters = [
-
-    {
-        'C': [16],
-        'kernel': ['polynomial']
-    }
-]
+# parameters = [
+#
+#     {
+#         'C': [16, 32],
+#         'kernel': ['polynomial']
+#     }
+# ]
 
 svc = SVC(probability=True, n_jobs=6)  # 调参
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
@@ -145,12 +146,12 @@ print("Start prediction!!!")
 best_model = clf.best_estimator_
 y_pred = best_model.predict(test_X)
 y_pred_prob_temp = best_model.predict_proba(test_X)
-y_pred_prob = y_pred_prob_temp[:, 1]
+y_pred_prob = y_pred_prob_temp[:, 0]
 
 print("Performance evaluation!!!")
 auc = roc_auc_score(test_y, y_pred_prob)
 aupr = average_precision_score(test_y, y_pred_prob)
-acc = accuracy_score(test_y, y_pred_prob)
+acc = accuracy_score(test_y, y_pred)
 print("AUC : ", auc)
 print("AUPR : ", aupr)
 print("acc:", acc)

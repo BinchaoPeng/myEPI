@@ -1,14 +1,15 @@
 import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score
 from sklearn.model_selection import GridSearchCV
-import math, time,csv
-from xgboost import XGBClassifier
+import math, time, csv
+from xgboost import XGBClassifier, plot_tree, plot_importance
+import matplotlib.pyplot as plt
 
 """
 cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[5]
+cell_name = names[3]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 
@@ -45,6 +46,7 @@ xgboost = XGBClassifier(learning_rate=0.01,
                         scale_pos_weight=1,  # 解决样本个数不平衡的问题
                         random_state=27,  # 随机数
                         slient=0,
+                        tree_method='gpu_hist'
                         )
 """
 XGBoost分类器基于多个参数,包括迭代次数(NI)、学习率(LR)、最大深度(MD)
@@ -57,9 +59,9 @@ MD∈{2,4,6,8,10,12,14}
 parameters = [
     {
         'num_iter': [num for num in range(40, 500, 20)],
-        'lr':[0.0001, 0.001, 0.01, 0.05, 0.1, 0.2, 0.25, 0.3, 0.5, 1.0],
-        'ε':[0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
-        'max_depth':[2, 4, 6, 8, 10, 12, 14]
+        'lr': [0.0001, 0.001, 0.01, 0.05, 0.1, 0.2, 0.25, 0.3, 0.5, 1.0],
+        'ε': [0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+        'max_depth': [2, 4, 6, 8, 10, 12, 14]
     },
 ]
 
@@ -100,6 +102,18 @@ with open(file_name, 'wt', newline='')as f:
     f_csv.writerow(header)
     f_csv.writerows(results)
     f.close()
+
+"""
+plot feature importance
+"""
+image_name = r'./%s_%s_xgboost_feature_importance.png' % (cell_name, feature_name)
+fig, ax = plt.subplots(figsize=(15, 15))
+plot_importance(clf,
+                height=0.5,
+                ax=ax,
+                max_num_features=64)
+plt.savefig(image_name, dpi=600)
+plt.close()
 
 print("Start prediction!!!")
 best_model = clf.best_estimator_

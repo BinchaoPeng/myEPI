@@ -86,8 +86,8 @@ parameters = [
         'kernel': ['linear', 'poly', 'sigmoid']
     },
     {
-        'C': [16],
-        'degree': [2, 4, 5, 6],
+        'C': [math.pow(2, i) for i in range(-5, 5)],
+        'degree': [2, 3, 4, 5, 6],
         'kernel': ['poly']
     }
 ]
