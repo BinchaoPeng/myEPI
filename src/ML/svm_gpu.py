@@ -79,11 +79,11 @@ test_labels = [
 """
 
 parameters = [
-    # {
-    #     'C': [math.pow(2, i) for i in range(-10, 15)],
-    #     'gamma': [math.pow(2, i) for i in range(-10, 15)],
-    #     'kernel': ['rbf']
-    # },
+    {
+        'C': [math.pow(2, i) for i in range(-10, 15)],
+        'gamma': [math.pow(2, i) for i in range(-10, 15)],
+        'kernel': ['rbf']
+    },
     {
         'C': [math.pow(2, i) for i in range(-10, 15)],
         'kernel': ['linear', 'polynomial', 'sigmoid']
@@ -91,6 +91,14 @@ parameters = [
     {
         'C': [16],
         'degree': [2, 4, 5, 6],
+        'kernel': ['polynomial']
+    }
+]
+
+parameters = [
+
+    {
+        'C': [16],
         'kernel': ['polynomial']
     }
 ]

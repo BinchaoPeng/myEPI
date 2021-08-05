@@ -46,19 +46,20 @@ xgboost = XGBClassifier(learning_rate=0.01,
                         random_state=27,  # 随机数
                         slient=0,
                         )
-
+"""
+XGBoost分类器基于多个参数,包括迭代次数(NI)、学习率(LR)、最大深度(MD)
+和正则化参数(ε)。使用网格搜索方法对这些超参数进行了优化,搜索范围如下：
+NI∈{40~500,间隔[with an interval of]20}
+LR∈{0.0001,0.001,0.01,0.05, 0.1,0.2,0.25,0.3,0.5,1.0}
+ε∈{0.0001,0.001,0.002,0.01,0.02,0.05,1.0}
+MD∈{2,4,6,8,10,12,14}
+"""
 parameters = [
     {
-        # XGBoost分类器基于多个参数,包括迭代次数(NI)、学习率(LR)、最大深度(MD)
-        # 和正则化参数(ε)。使用网格搜索方法对这些超参数进行了优化,搜索范围如下：
-        # NI∈{40~500,间隔[with an interval of]20}
-        # LR∈{0.0001,0.001,0.01,0.05, 0.1,0.2,0.25,0.3,0.5,1.0}
-        # ε∈{0.0001,0.001,0.002,0.01,0.02,0.05,1.0}
-        # MD∈{2,4,6,8,10,12,14}
-        'num_iter':[num for num in range(40,500,20)],
-        'lr':[0.0001,0.001,0.01,0.05, 0.1,0.2,0.25,0.3,0.5,1.0],
-        'ε':[0.0001,0.001,0.002,0.01,0.02,0.05,1.0],
-         'max_deepth':[2,4,6,8,10,12,14]
+        'num_iter': [num for num in range(40, 500, 20)],
+        'lr':[0.0001, 0.001, 0.01, 0.05, 0.1, 0.2, 0.25, 0.3, 0.5, 1.0],
+        'ε':[0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+        'max_depth':[2, 4, 6, 8, 10, 12, 14]
     },
 ]
 
@@ -91,8 +92,9 @@ for m in met_grid:
 csv_rows_list.append(clf.cv_results_['params'])
 header.append('params')
 results = list(zip(*csv_rows_list))
+print("write over!!!")
 
-file_name = r'./%s_%s_svm_rank.csv' % (cell_name, feature_name)
+file_name = r'./%s_%s_xgboost_rank.csv' % (cell_name, feature_name)
 with open(file_name, 'wt', newline='')as f:
     f_csv = csv.writer(f, delimiter=",")
     f_csv.writerow(header)
