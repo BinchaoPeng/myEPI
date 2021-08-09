@@ -27,7 +27,7 @@ test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes'
 X_en = test_data[test_data.files[0]]
 X_pr = test_data[test_data.files[1]]
 test_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
-test_X = np.array(test_X)
+
 # print(type(self.X))
 test_y = test_data[test_data.files[2]]
 print("testSet len:", len(test_y))
@@ -37,18 +37,20 @@ train_y = np.array(train_y)
 test_X = np.array(test_X)
 test_y = np.array(test_y)
 
-xgboost = XGBClassifier(learning_rate=0.01,
-                        n_estimators=10,  # 树的个数-10棵树建立xgboost
-                        max_depth=4,  # 树的深度
-                        min_child_weight=1,  # 叶子节点最小权重
-                        gamma=0.,  # 惩罚项中叶子结点个数前的参数
-                        subsample=1,  # 所有样本建立决策树
-                        colsample_btree=1,  # 所有特征建立决策树
-                        scale_pos_weight=1,  # 解决样本个数不平衡的问题
-                        random_state=27,  # 随机数
-                        slient=0,
-                        tree_method='gpu_hist'
-                        )
+xgboost = XGBClassifier(
+    use_label_encoder=False,
+    learning_rate=0.01,
+    n_estimators=10,  # 树的个数-10棵树建立xgboost
+    max_depth=4,  # 树的深度
+    min_child_weight=1,  # 叶子节点最小权重
+    gamma=0.,  # 惩罚项中叶子结点个数前的参数
+    subsample=1,  # 所有样本建立决策树
+    colsample_btree=1,  # 所有特征建立决策树
+    scale_pos_weight=1,  # 解决样本个数不平衡的问题
+    random_state=27,  # 随机数
+    slient=0,
+    tree_method='gpu_hist'
+)
 """
 XGBoost分类器基于多个参数,包括迭代次数(NI)、学习率(LR)、最大深度(MD)
 和正则化参数(ε)。使用网格搜索方法对这些超参数进行了优化,搜索范围如下：
