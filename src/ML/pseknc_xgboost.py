@@ -4,12 +4,16 @@ from sklearn.model_selection import GridSearchCV
 import math, time, csv
 from xgboost import XGBClassifier, plot_tree, plot_importance
 import matplotlib.pyplot as plt
+import pandas as pd
+import warnings
+
+warnings.filterwarnings(module="xgboost*", action='ignore', category=DeprecationWarning)
 
 """
 cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[3]
+cell_name = names[6]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 
@@ -37,20 +41,22 @@ train_y = np.array(train_y)
 test_X = np.array(test_X)
 test_y = np.array(test_y)
 
-xgboost = XGBClassifier(
-    use_label_encoder=False,
-    learning_rate=0.01,
-    n_estimators=10,  # 树的个数-10棵树建立xgboost
-    max_depth=4,  # 树的深度
-    min_child_weight=1,  # 叶子节点最小权重
-    gamma=0.,  # 惩罚项中叶子结点个数前的参数
-    subsample=1,  # 所有样本建立决策树
-    colsample_btree=1,  # 所有特征建立决策树
-    scale_pos_weight=1,  # 解决样本个数不平衡的问题
-    random_state=27,  # 随机数
-    slient=0,
-    tree_method='gpu_hist'
-)
+# xgboost = XGBClassifier(
+#     use_label_encoder=False,
+#     learning_rate=0.01,
+#     n_estimators=10,  # 树的个数-10棵树建立xgboost
+#     max_depth=4,  # 树的深度
+#     min_child_weight=1,  # 叶子节点最小权重
+#     gamma=0.,  # 惩罚项中叶子结点个数前的参数
+#     subsample=1,  # 所有样本建立决策树
+#     colsample_btree=1,  # 所有特征建立决策树
+#     scale_pos_weight=1,  # 解决样本个数不平衡的问题
+#     random_state=27,  # 随机数
+#     slient=0,
+#     tree_method='gpu_hist'
+# )
+# xgboost = XGBClassifier(use_label_encoder=False, eval_metric="error", use_rmm=True, verbosity=0, nthread=1)
+xgboost = XGBClassifier(use_label_encoder=False, eval_metric="error", use_rmm=True, verbosity=0)
 """
 XGBoost分类器基于多个参数,包括迭代次数(NI)、学习率(LR)、最大深度(MD)
 和正则化参数(ε)。使用网格搜索方法对这些超参数进行了优化,搜索范围如下：
@@ -58,18 +64,65 @@ NI∈{40~500,间隔[with an interval of]20}
 LR∈{0.0001,0.001,0.01,0.05, 0.1,0.2,0.25,0.3,0.5,1.0}
 ε∈{0.0001,0.001,0.002,0.01,0.02,0.05,1.0}
 MD∈{2,4,6,8,10,12,14}
+
+booster: string
+        Specify which booster to use: gbtree, gblinear or dart.
+gamma : float
+        Minimum loss reduction required to make a further partition on a leaf
+        node of the tree.
+reg_alpha : float (xgb's alpha)
+        L1 regularization term on weights
+reg_lambda : float (xgb's lambda)
+    L2 regularization term on weights
+scale_pos_weight : float
+    Balancing of positive and negative weights.       
+
 """
 parameters = [
     {
-        'num_iter': [num for num in range(40, 500, 20)],
-        'lr': [0.0001, 0.001, 0.01, 0.05, 0.1, 0.2, 0.25, 0.3, 0.5, 1.0],
-        'ε': [0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
-        'max_depth': [2, 4, 6, 8, 10, 12, 14]
+        'booster': ["gbtree"],
+        'n_estimators': [num for num in range(40, 500, 40)],
+        'gamma': [i / 10.0 for i in range(0, 5)],
+        'learning_rate': [0.0001, 0.001, 0.01, 0.05, 0.1, 0.2, 0.25, 0.3, 0.5, 1.0],
+        # 'reg_alpha': [0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+        'reg_alpha': [0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+        # 'reg_lambda': [0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+        'reg_lambda': [0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+        # 'max_depth': [2, 4, 6, 8, 10, 12, 14],
+        'max_depth': [4, 6, 8, 10, 12, 14],
+        'tree_method': ['gpu_hist'],
     },
+    # {
+    #     'booster': ["dart"],
+    #     'gamma': [i / 10.0 for i in range(0, 5)],
+    #     'learning_rate': [0.0001, 0.001, 0.01, 0.05, 0.1, 0.2, 0.25, 0.3, 0.5, 1.0],
+    #     'max_depth': [2, 4, 6, 8, 10, 12, 14],
+    #     'n_estimators': [num for num in range(40, 500, 20)],
+    #     'reg_lambda': [0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+    #     'tree_method': ['gpu_hist'],
+    #     'feature_selector': ['greedy', 'thrifty'],
+    #     'top_k': [0, 50, 100, 200]
+    # },
+    # {
+    #     'booster': ["gblinear"],
+    #     'n_estimators': [num for num in range(40, 500, 20)],
+    #     'learning_rate': [0.0001, 0.001, 0.01, 0.05, 0.1, 0.2, 0.25, 0.3, 0.5, 1.0],
+    #     'reg_lambda': [0.0001, 0.001, 0.002, 0.01, 0.02, 0.05, 1.0],
+    #     'max_depth': [2, 4, 6, 8, 10, 12, 14],
+    # }
 ]
-
+# parameters = [
+#     {
+#         'booster': ["gbtree", "dart"],
+#         'gamma': [i / 10.0 for i in range(0, 2)],
+#         'tree_method': ['gpu_hist'],
+#     },
+#     {
+#         'booster': ["gblinear"],
+#     }
+# ]
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
-clf = GridSearchCV(xgboost, parameters, cv=5, n_jobs=10, scoring=met_grid, refit='roc_auc', verbose=3)
+clf = GridSearchCV(xgboost, parameters, cv=5, n_jobs=1, scoring=met_grid, refit='roc_auc', verbose=3)
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
 print("Found the BEST param!!!")
@@ -99,7 +152,8 @@ header.append('params')
 results = list(zip(*csv_rows_list))
 print("write over!!!")
 
-file_name = r'./%s_%s_xgboost_rank.csv' % (cell_name, feature_name)
+ex_dir_name = 'pseknc_xgboost_5flod_grid'
+file_name = r'../../ex/%s/%s_%s_xgboost_rank.csv' % (ex_dir_name, cell_name, feature_name)
 with open(file_name, 'wt', newline='')as f:
     f_csv = csv.writer(f, delimiter=",")
     f_csv.writerow(header)
@@ -109,14 +163,21 @@ with open(file_name, 'wt', newline='')as f:
 """
 plot feature importance
 """
-image_name = r'./%s_%s_xgboost_feature_importance.png' % (cell_name, feature_name)
-fig, ax = plt.subplots(figsize=(15, 15))
-plot_importance(clf,
-                height=0.5,
-                ax=ax,
-                max_num_features=64)
-plt.savefig(image_name, dpi=600)
-plt.close()
+# print("plot feature importance!!!")
+# ex_dir_name = 'pseknc_xgboost_5flod_grid'
+# image_name = r' ../../ex/%s/%s_%s_xgboost_feature_importance.png' % (ex_dir_name, cell_name, feature_name)
+# fig, ax = plt.subplots(figsize=(15, 15))
+# plot_importance(xgboost,
+#                 height=0.5,
+#                 ax=ax,
+#                 max_num_features=64)
+# plt.savefig(image_name, dpi=600)
+# plt.close()
+#
+# feat_imp = pd.Series(clf.booster().get_fscore()).sort_values(ascending=False)
+# feat_imp.plot(kind='bar', title='Feature Importances')
+# plt.ylabel('Feature Importance Score')
+
 
 print("Start prediction!!!")
 best_model = clf.best_estimator_

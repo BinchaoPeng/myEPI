@@ -135,7 +135,8 @@ csv_rows_list.append(clf.cv_results_['params'])
 header.append('params')
 results = list(zip(*csv_rows_list))
 
-file_name = r'./%s_%s_svm_rank.csv' % (cell_name, feature_name)
+ex_dir_name = 'pseknc_xgboost_5flod_grid'
+file_name = r'../../ex/%s/%s_%s_xgboost_rank.csv' % (ex_dir_name, cell_name, feature_name)
 with open(file_name, 'wt', newline='')as f:
     f_csv = csv.writer(f, delimiter=",")
     f_csv.writerow(header)
