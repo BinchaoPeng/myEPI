@@ -1,0 +1,1041 @@
+nohup: ignoring input
+experiment: NHEK pseknc_xgboost
+trainSet len: 46280
+testSet len: 2689
+Fitting 5 folds for each of 20 candidates, totalling 100 fits
+参数的最佳取值：{'n_estimators': 1000}
+最佳模型得分:0.9984638049967728
+write rank test to csv!!!
+write over!!!
+Start prediction!!!
+Performance evaluation!!!
+AUC :  0.9797783430232558
+AUPR :  0.897979490761176
+acc: 0.9836370397917441
+total: 2689 	acc num: 2645 	TP: 104 	TN: 2541 	FP: 19 	FN: 25
+acc:  0.9836370397917441
+precision: 0.8455284552845529
+recall: 0.8062015503875969
+F1-score: 0.8253968253968255
+count:  2645
+acc:  0.9836370397917441
+Fitting 5 folds for each of 54 candidates, totalling 270 fits
+[CV 2/5] END n_estimators=50; accuracy: (test=0.899) average_precision: (test=0.954) f1: (test=0.899) roc_auc: (test=0.961) total time=   2.2s
+[CV 4/5] END n_estimators=50; accuracy: (test=0.906) average_precision: (test=0.954) f1: (test=0.906) roc_auc: (test=0.962) total time=   2.0s
+[CV 2/5] END n_estimators=100; accuracy: (test=0.945) average_precision: (test=0.977) f1: (test=0.946) roc_auc: (test=0.982) total time=   3.3s
+[CV 5/5] END n_estimators=100; accuracy: (test=0.862) average_precision: (test=0.936) f1: (test=0.851) roc_auc: (test=0.950) total time=   3.1s
+[CV 3/5] END n_estimators=150; accuracy: (test=0.955) average_precision: (test=0.989) f1: (test=0.955) roc_auc: (test=0.991) total time=   4.8s
+[CV 1/5] END n_estimators=200; accuracy: (test=0.892) average_precision: (test=0.965) f1: (test=0.885) roc_auc: (test=0.976) total time=   6.4s
+[CV 4/5] END n_estimators=200; accuracy: (test=0.975) average_precision: (test=0.991) f1: (test=0.975) roc_auc: (test=0.994) total time=   6.5s
+[CV 2/5] END n_estimators=250; accuracy: (test=0.979) average_precision: (test=0.995) f1: (test=0.979) roc_auc: (test=0.996) total time=   8.1s
+[CV 5/5] END n_estimators=250; accuracy: (test=0.909) average_precision: (test=0.978) f1: (test=0.904) roc_auc: (test=0.983) total time=   8.0s
+[CV 3/5] END n_estimators=300; accuracy: (test=0.975) average_precision: (test=0.995) f1: (test=0.975) roc_auc: (test=0.997) total time=   9.6s
+[CV 1/5] END n_estimators=350; accuracy: (test=0.918) average_precision: (test=0.983) f1: (test=0.913) roc_auc: (test=0.988) total time=  11.4s
+[CV 4/5] END n_estimators=350; accuracy: (test=0.988) average_precision: (test=0.997) f1: (test=0.988) roc_auc: (test=0.998) total time=  11.4s
+[CV 2/5] END n_estimators=400; accuracy: (test=0.986) average_precision: (test=0.998) f1: (test=0.987) roc_auc: (test=0.999) total time=  13.0s
+[CV 5/5] END n_estimators=400; accuracy: (test=0.932) average_precision: (test=0.989) f1: (test=0.929) roc_auc: (test=0.992) total time=  12.7s
+[CV 3/5] END n_estimators=450; accuracy: (test=0.976) average_precision: (test=0.997) f1: (test=0.976) roc_auc: (test=0.998) total time=  14.6s
+[CV 1/5] END n_estimators=500; accuracy: (test=0.937) average_precision: (test=0.990) f1: (test=0.934) roc_auc: (test=0.993) total time=  16.3s
+[CV 4/5] END n_estimators=500; accuracy: (test=0.992) average_precision: (test=0.999) f1: (test=0.992) roc_auc: (test=0.999) total time=  16.3s
+[CV 2/5] END n_estimators=550; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  17.8s
+[CV 5/5] END n_estimators=550; accuracy: (test=0.946) average_precision: (test=0.994) f1: (test=0.944) roc_auc: (test=0.995) total time=  17.8s
+[CV 3/5] END n_estimators=600; accuracy: (test=0.977) average_precision: (test=0.998) f1: (test=0.977) roc_auc: (test=0.999) total time=  19.4s
+[CV 1/5] END n_estimators=650; accuracy: (test=0.946) average_precision: (test=0.993) f1: (test=0.944) roc_auc: (test=0.995) total time=  21.1s
+[CV 4/5] END n_estimators=650; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  21.3s
+[CV 2/5] END n_estimators=700; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  22.8s
+[CV 5/5] END n_estimators=700; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time=  22.7s
+[CV 3/5] END n_estimators=750; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  24.1s
+[CV 1/5] END n_estimators=800; accuracy: (test=0.951) average_precision: (test=0.994) f1: (test=0.949) roc_auc: (test=0.996) total time=  25.8s
+[CV 4/5] END n_estimators=800; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  26.0s
+[CV 2/5] END n_estimators=850; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  27.4s
+[CV 5/5] END n_estimators=850; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time=  27.4s
+[CV 3/5] END n_estimators=900; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  28.8s
+[CV 1/5] END n_estimators=950; accuracy: (test=0.955) average_precision: (test=0.995) f1: (test=0.954) roc_auc: (test=0.996) total time=  30.5s
+[CV 4/5] END n_estimators=950; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  30.8s
+[CV 2/5] END n_estimators=1000; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  32.2s
+[CV 5/5] END n_estimators=1000; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.997) total time=  20.7s
+[CV 3/5] END max_depth=3, min_child_weight=1; accuracy: (test=0.974) average_precision: (test=0.994) f1: (test=0.974) roc_auc: (test=0.996) total time=  15.6s
+[CV 4/5] END max_depth=3, min_child_weight=1; accuracy: (test=0.982) average_precision: (test=0.996) f1: (test=0.982) roc_auc: (test=0.997) total time=  15.3s
+[CV 2/5] END max_depth=3, min_child_weight=2; accuracy: (test=0.980) average_precision: (test=0.995) f1: (test=0.980) roc_auc: (test=0.996) total time=  14.6s
+[CV 5/5] END max_depth=3, min_child_weight=2; accuracy: (test=0.915) average_precision: (test=0.979) f1: (test=0.910) roc_auc: (test=0.983) total time=  14.6s
+[CV 3/5] END max_depth=3, min_child_weight=3; accuracy: (test=0.972) average_precision: (test=0.995) f1: (test=0.972) roc_auc: (test=0.996) total time=  15.1s
+[CV 1/5] END max_depth=3, min_child_weight=4; accuracy: (test=0.907) average_precision: (test=0.975) f1: (test=0.901) roc_auc: (test=0.982) total time=  15.0s
+[CV 4/5] END max_depth=3, min_child_weight=4; accuracy: (test=0.980) average_precision: (test=0.995) f1: (test=0.981) roc_auc: (test=0.996) total time=  15.1s
+[CV 2/5] END max_depth=3, min_child_weight=5; accuracy: (test=0.980) average_precision: (test=0.995) f1: (test=0.980) roc_auc: (test=0.996) total time=  15.1s
+[CV 5/5] END max_depth=3, min_child_weight=5; accuracy: (test=0.915) average_precision: (test=0.979) f1: (test=0.910) roc_auc: (test=0.983) total time=  15.0s
+[CV 3/5] END max_depth=3, min_child_weight=6; accuracy: (test=0.972) average_precision: (test=0.994) f1: (test=0.972) roc_auc: (test=0.995) total time=  15.1s
+[CV 1/5] END max_depth=4, min_child_weight=1; accuracy: (test=0.942) average_precision: (test=0.992) f1: (test=0.940) roc_auc: (test=0.993) total time=  21.6s
+[CV 4/5] END max_depth=4, min_child_weight=1; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  21.8s
+[CV 2/5] END max_depth=4, min_child_weight=2; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  21.6s
+[CV 5/5] END max_depth=4, min_child_weight=2; accuracy: (test=0.947) average_precision: (test=0.993) f1: (test=0.945) roc_auc: (test=0.994) total time=  21.5s
+[CV 3/5] END max_depth=4, min_child_weight=3; accuracy: (test=0.978) average_precision: (test=0.998) f1: (test=0.978) roc_auc: (test=0.999) total time=  21.4s
+[CV 1/5] END max_depth=4, min_child_weight=4; accuracy: (test=0.938) average_precision: (test=0.990) f1: (test=0.935) roc_auc: (test=0.993) total time=  21.2s
+[CV 4/5] END max_depth=4, min_child_weight=4; accuracy: (test=0.991) average_precision: (test=0.999) f1: (test=0.991) roc_auc: (test=0.999) total time=  21.3s
+[CV 2/5] END max_depth=4, min_child_weight=5; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  21.3s
+[CV 5/5] END max_depth=4, min_child_weight=5; accuracy: (test=0.944) average_precision: (test=0.992) f1: (test=0.942) roc_auc: (test=0.994) total time=  20.9s
+[CV 3/5] END max_depth=4, min_child_weight=6; accuracy: (test=0.980) average_precision: (test=0.998) f1: (test=0.979) roc_auc: (test=0.999) total time=  21.3s
+[CV 1/5] END max_depth=5, min_child_weight=1; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time=  32.5s[CV 3/5] END n_estimators=50; accuracy: (test=0.905) average_precision: (test=0.963) f1: (test=0.904) roc_auc: (test=0.967) total time=   2.3s
+[CV 1/5] END n_estimators=100; accuracy: (test=0.861) average_precision: (test=0.935) f1: (test=0.849) roc_auc: (test=0.956) total time=   3.5s
+[CV 4/5] END n_estimators=100; accuracy: (test=0.948) average_precision: (test=0.978) f1: (test=0.948) roc_auc: (test=0.984) total time=   3.4s
+[CV 2/5] END n_estimators=150; accuracy: (test=0.962) average_precision: (test=0.986) f1: (test=0.963) roc_auc: (test=0.989) total time=   4.8s
+[CV 5/5] END n_estimators=150; accuracy: (test=0.885) average_precision: (test=0.957) f1: (test=0.877) roc_auc: (test=0.967) total time=   4.7s
+[CV 3/5] END n_estimators=200; accuracy: (test=0.968) average_precision: (test=0.992) f1: (test=0.968) roc_auc: (test=0.995) total time=   6.4s
+[CV 1/5] END n_estimators=250; accuracy: (test=0.900) average_precision: (test=0.973) f1: (test=0.893) roc_auc: (test=0.981) total time=   8.0s
+[CV 4/5] END n_estimators=250; accuracy: (test=0.982) average_precision: (test=0.995) f1: (test=0.982) roc_auc: (test=0.996) total time=   8.1s
+[CV 2/5] END n_estimators=300; accuracy: (test=0.983) average_precision: (test=0.996) f1: (test=0.983) roc_auc: (test=0.997) total time=   9.6s
+[CV 5/5] END n_estimators=300; accuracy: (test=0.919) average_precision: (test=0.983) f1: (test=0.914) roc_auc: (test=0.987) total time=   9.8s
+[CV 3/5] END n_estimators=350; accuracy: (test=0.976) average_precision: (test=0.996) f1: (test=0.976) roc_auc: (test=0.998) total time=  11.3s
+[CV 1/5] END n_estimators=400; accuracy: (test=0.924) average_precision: (test=0.986) f1: (test=0.920) roc_auc: (test=0.990) total time=  13.1s
+[CV 4/5] END n_estimators=400; accuracy: (test=0.990) average_precision: (test=0.998) f1: (test=0.990) roc_auc: (test=0.999) total time=  13.4s
+[CV 2/5] END n_estimators=450; accuracy: (test=0.988) average_precision: (test=0.999) f1: (test=0.988) roc_auc: (test=0.999) total time=  14.6s
+[CV 5/5] END n_estimators=450; accuracy: (test=0.939) average_precision: (test=0.992) f1: (test=0.936) roc_auc: (test=0.993) total time=  14.6s
+[CV 3/5] END n_estimators=500; accuracy: (test=0.977) average_precision: (test=0.998) f1: (test=0.977) roc_auc: (test=0.999) total time=  16.1s
+[CV 1/5] END n_estimators=550; accuracy: (test=0.941) average_precision: (test=0.992) f1: (test=0.939) roc_auc: (test=0.994) total time=  17.8s
+[CV 4/5] END n_estimators=550; accuracy: (test=0.992) average_precision: (test=0.999) f1: (test=0.992) roc_auc: (test=1.000) total time=  17.9s
+[CV 2/5] END n_estimators=600; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  19.6s
+[CV 5/5] END n_estimators=600; accuracy: (test=0.950) average_precision: (test=0.994) f1: (test=0.949) roc_auc: (test=0.995) total time=  19.5s
+[CV 3/5] END n_estimators=650; accuracy: (test=0.976) average_precision: (test=0.998) f1: (test=0.976) roc_auc: (test=0.999) total time=  21.1s
+[CV 1/5] END n_estimators=700; accuracy: (test=0.948) average_precision: (test=0.994) f1: (test=0.947) roc_auc: (test=0.995) total time=  22.7s
+[CV 4/5] END n_estimators=700; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  22.9s
+[CV 2/5] END n_estimators=750; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  24.5s
+[CV 5/5] END n_estimators=750; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.996) total time=  24.2s
+[CV 3/5] END n_estimators=800; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  25.7s
+[CV 1/5] END n_estimators=850; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time=  27.4s
+[CV 4/5] END n_estimators=850; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  27.6s
+[CV 2/5] END n_estimators=900; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  29.0s
+[CV 5/5] END n_estimators=900; accuracy: (test=0.963) average_precision: (test=0.996) f1: (test=0.962) roc_auc: (test=0.997) total time=  28.9s
+[CV 3/5] END n_estimators=950; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  30.3s
+[CV 1/5] END n_estimators=1000; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time=  32.0s
+[CV 4/5] END n_estimators=1000; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  28.7s
+[CV 2/5] END max_depth=3, min_child_weight=1; accuracy: (test=0.979) average_precision: (test=0.995) f1: (test=0.980) roc_auc: (test=0.996) total time=  15.6s
+[CV 5/5] END max_depth=3, min_child_weight=1; accuracy: (test=0.913) average_precision: (test=0.979) f1: (test=0.908) roc_auc: (test=0.983) total time=  15.6s
+[CV 3/5] END max_depth=3, min_child_weight=2; accuracy: (test=0.972) average_precision: (test=0.994) f1: (test=0.972) roc_auc: (test=0.996) total time=  15.4s
+[CV 1/5] END max_depth=3, min_child_weight=3; accuracy: (test=0.913) average_precision: (test=0.977) f1: (test=0.909) roc_auc: (test=0.983) total time=  15.1s
+[CV 4/5] END max_depth=3, min_child_weight=3; accuracy: (test=0.980) average_precision: (test=0.996) f1: (test=0.980) roc_auc: (test=0.996) total time=  14.8s
+[CV 2/5] END max_depth=3, min_child_weight=4; accuracy: (test=0.978) average_precision: (test=0.994) f1: (test=0.978) roc_auc: (test=0.996) total time=  15.1s
+[CV 5/5] END max_depth=3, min_child_weight=4; accuracy: (test=0.915) average_precision: (test=0.979) f1: (test=0.910) roc_auc: (test=0.983) total time=  15.0s
+[CV 3/5] END max_depth=3, min_child_weight=5; accuracy: (test=0.973) average_precision: (test=0.994) f1: (test=0.973) roc_auc: (test=0.995) total time=  15.2s
+[CV 1/5] END max_depth=3, min_child_weight=6; accuracy: (test=0.907) average_precision: (test=0.973) f1: (test=0.902) roc_auc: (test=0.981) total time=  15.0s
+[CV 4/5] END max_depth=3, min_child_weight=6; accuracy: (test=0.980) average_precision: (test=0.996) f1: (test=0.980) roc_auc: (test=0.996) total time=  15.1s
+[CV 2/5] END max_depth=4, min_child_weight=1; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  21.9s
+[CV 5/5] END max_depth=4, min_child_weight=1; accuracy: (test=0.949) average_precision: (test=0.993) f1: (test=0.948) roc_auc: (test=0.995) total time=  21.7s
+[CV 3/5] END max_depth=4, min_child_weight=2; accuracy: (test=0.976) average_precision: (test=0.998) f1: (test=0.976) roc_auc: (test=0.999) total time=  21.5s
+[CV 1/5] END max_depth=4, min_child_weight=3; accuracy: (test=0.942) average_precision: (test=0.991) f1: (test=0.940) roc_auc: (test=0.993) total time=  21.2s
+[CV 4/5] END max_depth=4, min_child_weight=3; accuracy: (test=0.992) average_precision: (test=0.999) f1: (test=0.992) roc_auc: (test=1.000) total time=  21.4s
+[CV 2/5] END max_depth=4, min_child_weight=4; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  21.3s
+[CV 5/5] END max_depth=4, min_child_weight=4; accuracy: (test=0.945) average_precision: (test=0.992) f1: (test=0.943) roc_auc: (test=0.994) total time=  21.2s
+[CV 3/5] END max_depth=4, min_child_weight=5; accuracy: (test=0.979) average_precision: (test=0.998) f1: (test=0.979) roc_auc: (test=0.999) total time=  21.1s
+[CV 1/5] END max_depth=4, min_child_weight=6; accuracy: (test=0.940) average_precision: (test=0.990) f1: (test=0.938) roc_auc: (test=0.993) total time=  21.0s
+[CV 4/5] END max_depth=4, min_child_weight=6; accuracy: (test=0.993) average_precision: (test=0.999) f1: (test=0.993) roc_auc: (test=0.999) total time=  21.1s
+[CV 2/5] END max_depth=5, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  32.3s
+[CV 5/5] END max_depth=5, min_child_weight=1; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.997) total time=  32.1s[CV 1/5] END n_estimators=50; accuracy: (test=0.816) average_precision: (test=0.897) f1: (test=0.796) roc_auc: (test=0.923) total time=   2.3s
+[CV 5/5] END n_estimators=50; accuracy: (test=0.818) average_precision: (test=0.893) f1: (test=0.802) roc_auc: (test=0.907) total time=   2.1s
+[CV 3/5] END n_estimators=100; accuracy: (test=0.939) average_precision: (test=0.981) f1: (test=0.939) roc_auc: (test=0.984) total time=   3.3s
+[CV 1/5] END n_estimators=150; accuracy: (test=0.874) average_precision: (test=0.952) f1: (test=0.864) roc_auc: (test=0.968) total time=   4.9s
+[CV 4/5] END n_estimators=150; accuracy: (test=0.965) average_precision: (test=0.987) f1: (test=0.966) roc_auc: (test=0.991) total time=   5.0s
+[CV 2/5] END n_estimators=200; accuracy: (test=0.972) average_precision: (test=0.992) f1: (test=0.973) roc_auc: (test=0.994) total time=   6.5s
+[CV 5/5] END n_estimators=200; accuracy: (test=0.898) average_precision: (test=0.969) f1: (test=0.891) roc_auc: (test=0.977) total time=   6.4s
+[CV 3/5] END n_estimators=250; accuracy: (test=0.972) average_precision: (test=0.994) f1: (test=0.972) roc_auc: (test=0.996) total time=   8.0s
+[CV 1/5] END n_estimators=300; accuracy: (test=0.912) average_precision: (test=0.979) f1: (test=0.907) roc_auc: (test=0.985) total time=   9.7s
+[CV 4/5] END n_estimators=300; accuracy: (test=0.985) average_precision: (test=0.996) f1: (test=0.985) roc_auc: (test=0.997) total time=   9.7s
+[CV 2/5] END n_estimators=350; accuracy: (test=0.985) average_precision: (test=0.998) f1: (test=0.986) roc_auc: (test=0.998) total time=  11.4s
+[CV 5/5] END n_estimators=350; accuracy: (test=0.927) average_precision: (test=0.987) f1: (test=0.923) roc_auc: (test=0.990) total time=  11.3s
+[CV 3/5] END n_estimators=400; accuracy: (test=0.977) average_precision: (test=0.997) f1: (test=0.977) roc_auc: (test=0.998) total time=  12.9s
+[CV 1/5] END n_estimators=450; accuracy: (test=0.930) average_precision: (test=0.989) f1: (test=0.927) roc_auc: (test=0.991) total time=  14.6s
+[CV 4/5] END n_estimators=450; accuracy: (test=0.991) average_precision: (test=0.999) f1: (test=0.991) roc_auc: (test=0.999) total time=  14.7s
+[CV 2/5] END n_estimators=500; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  16.1s
+[CV 5/5] END n_estimators=500; accuracy: (test=0.943) average_precision: (test=0.992) f1: (test=0.940) roc_auc: (test=0.994) total time=  16.1s
+[CV 3/5] END n_estimators=550; accuracy: (test=0.977) average_precision: (test=0.998) f1: (test=0.976) roc_auc: (test=0.999) total time=  17.6s
+[CV 1/5] END n_estimators=600; accuracy: (test=0.943) average_precision: (test=0.993) f1: (test=0.941) roc_auc: (test=0.994) total time=  19.5s
+[CV 4/5] END n_estimators=600; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  19.7s
+[CV 2/5] END n_estimators=650; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  21.1s
+[CV 5/5] END n_estimators=650; accuracy: (test=0.953) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time=  21.2s
+[CV 3/5] END n_estimators=700; accuracy: (test=0.978) average_precision: (test=0.998) f1: (test=0.977) roc_auc: (test=0.999) total time=  22.6s
+[CV 1/5] END n_estimators=750; accuracy: (test=0.949) average_precision: (test=0.994) f1: (test=0.948) roc_auc: (test=0.995) total time=  24.0s
+[CV 4/5] END n_estimators=750; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  24.5s
+[CV 2/5] END n_estimators=800; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  25.9s
+[CV 5/5] END n_estimators=800; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time=  25.8s
+[CV 3/5] END n_estimators=850; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  27.3s
+[CV 1/5] END n_estimators=900; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time=  29.0s
+[CV 4/5] END n_estimators=900; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  29.2s
+[CV 2/5] END n_estimators=950; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  30.6s
+[CV 5/5] END n_estimators=950; accuracy: (test=0.964) average_precision: (test=0.996) f1: (test=0.963) roc_auc: (test=0.997) total time=  30.5s
+[CV 3/5] END n_estimators=1000; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  31.8s
+[CV 1/5] END max_depth=3, min_child_weight=1; accuracy: (test=0.907) average_precision: (test=0.974) f1: (test=0.902) roc_auc: (test=0.982) total time=  15.7s
+[CV 1/5] END max_depth=3, min_child_weight=2; accuracy: (test=0.909) average_precision: (test=0.975) f1: (test=0.904) roc_auc: (test=0.982) total time=  15.6s
+[CV 4/5] END max_depth=3, min_child_weight=2; accuracy: (test=0.981) average_precision: (test=0.995) f1: (test=0.981) roc_auc: (test=0.996) total time=  15.5s
+[CV 2/5] END max_depth=3, min_child_weight=3; accuracy: (test=0.981) average_precision: (test=0.995) f1: (test=0.981) roc_auc: (test=0.996) total time=  15.2s
+[CV 5/5] END max_depth=3, min_child_weight=3; accuracy: (test=0.909) average_precision: (test=0.978) f1: (test=0.904) roc_auc: (test=0.982) total time=  15.4s
+[CV 3/5] END max_depth=3, min_child_weight=4; accuracy: (test=0.971) average_precision: (test=0.994) f1: (test=0.971) roc_auc: (test=0.995) total time=  15.2s
+[CV 1/5] END max_depth=3, min_child_weight=5; accuracy: (test=0.909) average_precision: (test=0.972) f1: (test=0.904) roc_auc: (test=0.981) total time=  15.1s
+[CV 4/5] END max_depth=3, min_child_weight=5; accuracy: (test=0.981) average_precision: (test=0.995) f1: (test=0.982) roc_auc: (test=0.996) total time=  15.1s
+[CV 2/5] END max_depth=3, min_child_weight=6; accuracy: (test=0.979) average_precision: (test=0.994) f1: (test=0.979) roc_auc: (test=0.995) total time=  15.2s
+[CV 5/5] END max_depth=3, min_child_weight=6; accuracy: (test=0.915) average_precision: (test=0.979) f1: (test=0.910) roc_auc: (test=0.984) total time=  15.2s
+[CV 3/5] END max_depth=4, min_child_weight=1; accuracy: (test=0.976) average_precision: (test=0.998) f1: (test=0.975) roc_auc: (test=0.999) total time=  21.9s
+[CV 1/5] END max_depth=4, min_child_weight=2; accuracy: (test=0.941) average_precision: (test=0.992) f1: (test=0.939) roc_auc: (test=0.993) total time=  21.6s
+[CV 4/5] END max_depth=4, min_child_weight=2; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  21.7s
+[CV 2/5] END max_depth=4, min_child_weight=3; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.991) roc_auc: (test=0.999) total time=  21.5s
+[CV 5/5] END max_depth=4, min_child_weight=3; accuracy: (test=0.948) average_precision: (test=0.993) f1: (test=0.946) roc_auc: (test=0.995) total time=  21.5s
+[CV 3/5] END max_depth=4, min_child_weight=4; accuracy: (test=0.979) average_precision: (test=0.998) f1: (test=0.979) roc_auc: (test=0.999) total time=  21.2s
+[CV 1/5] END max_depth=4, min_child_weight=5; accuracy: (test=0.934) average_precision: (test=0.989) f1: (test=0.931) roc_auc: (test=0.992) total time=  21.1s
+[CV 4/5] END max_depth=4, min_child_weight=5; accuracy: (test=0.992) average_precision: (test=0.999) f1: (test=0.992) roc_auc: (test=0.999) total time=  21.2s
+[CV 2/5] END max_depth=4, min_child_weight=6; accuracy: (test=0.991) average_precision: (test=0.999) f1: (test=0.991) roc_auc: (test=0.999) total time=  21.3s
+[CV 5/5] END max_depth=4, min_child_weight=6; accuracy: (test=0.949) average_precision: (test=0.993) f1: (test=0.948) roc_auc: (test=0.994) total time=  21.2s
+[CV 3/5] END max_depth=5, min_child_weight=1; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  32.1s
+[CV 1/5] END max_depth=5, min_child_weight=2; accuracy: (test=0.952) average_precision: (test=0.994) f1: (test=0.951) roc_auc: (test=0.995) total time=  31.1s
+[CV 4/5] END max_depth=5, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  32.6s
+[CV 2/5] END max_depth=5, min_child_weight=2; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  31.1s
+[CV 5/5] END max_depth=5, min_child_weight=2; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time=  30.8s
+[CV 4/5] END max_depth=5, min_child_weight=3; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  30.7s
+[CV 3/5] END max_depth=5, min_child_weight=4; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  29.8s
+[CV 5/5] END max_depth=5, min_child_weight=4; accuracy: (test=0.963) average_precision: (test=0.996) f1: (test=0.962) roc_auc: (test=0.997) total time=  29.5s
+[CV 3/5] END max_depth=5, min_child_weight=5; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  29.2s
+[CV 1/5] END max_depth=5, min_child_weight=6; accuracy: (test=0.953) average_precision: (test=0.994) f1: (test=0.951) roc_auc: (test=0.995) total time=  28.7s
+[CV 4/5] END max_depth=5, min_child_weight=6; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  29.2s
+[CV 2/5] END max_depth=6, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  44.8s
+[CV 1/5] END max_depth=6, min_child_weight=2; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.996) total time=  41.7s
+[CV 2/5] END max_depth=6, min_child_weight=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  41.4s
+[CV 1/5] END max_depth=6, min_child_weight=3; accuracy: (test=0.957) average_precision: (test=0.995) f1: (test=0.956) roc_auc: (test=0.996) total time=  39.0s
+[CV 3/5] END max_depth=6, min_child_weight=3; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time=  38.7s
+[CV 1/5] END max_depth=6, min_child_weight=4; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time=  37.9s
+[CV 4/5] END max_depth=6, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  37.8s
+[CV 2/5] END max_depth=6, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  37.2s
+[CV 5/5] END max_depth=6, min_child_weight=5; accuracy: (test=0.964) average_precision: (test=0.996) f1: (test=0.963) roc_auc: (test=0.997) total time=  37.0s
+[CV 3/5] END max_depth=6, min_child_weight=6; accuracy: (test=0.980) average_precision: (test=0.998) f1: (test=0.980) roc_auc: (test=0.999) total time=  35.9s
+[CV 1/5] END max_depth=7, min_child_weight=1; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time=  54.0s
+[CV 4/5] END max_depth=7, min_child_weight=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  55.2s
+[CV 3/5] END max_depth=7, min_child_weight=2; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  48.5s
+[CV 1/5] END max_depth=7, min_child_weight=3; accuracy: (test=0.958) average_precision: (test=0.995) f1: (test=0.957) roc_auc: (test=0.996) total time=  46.3s
+[CV 3/5] END max_depth=7, min_child_weight=3; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  45.7s
+[CV 1/5] END max_depth=7, min_child_weight=4; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time=  44.0s
+[CV 4/5] END max_depth=7, min_child_weight=4; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  45.3s
+[CV 2/5] END max_depth=7, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  43.8s
+[CV 5/5] END max_depth=7, min_child_weight=5; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time=  43.0s
+[CV 3/5] END max_depth=7, min_child_weight=6; accuracy: (test=0.980) average_precision: (test=0.998) f1: (test=0.980) roc_auc: (test=0.999) total time=  41.6s
+[CV 1/5] END max_depth=8, min_child_weight=1; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END max_depth=8, min_child_weight=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 3/5] END max_depth=8, min_child_weight=2; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time=  55.6s
+[CV 1/5] END max_depth=8, min_child_weight=3; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.997) total time=  52.9s
+[CV 3/5] END max_depth=8, min_child_weight=3; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  52.0s
+[CV 1/5] END max_depth=8, min_child_weight=4; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time=  50.1s
+[CV 4/5] END max_depth=8, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  52.2s
+[CV 2/5] END max_depth=8, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  49.9s
+[CV 5/5] END max_depth=8, min_child_weight=5; accuracy: (test=0.964) average_precision: (test=0.996) f1: (test=0.963) roc_auc: (test=0.997) total time=  48.5s
+[CV 3/5] END max_depth=8, min_child_weight=6; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  47.3s
+[CV 1/5] END max_depth=9, min_child_weight=1; accuracy: (test=0.954) average_precision: (test=0.996) f1: (test=0.953) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END max_depth=9, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 3/5] END max_depth=9, min_child_weight=2; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  59.7s
+[CV 1/5] END max_depth=9, min_child_weight=3; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time=  56.6s
+[CV 3/5] END max_depth=9, min_child_weight=3; accuracy: (test=0.975) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  55.7s
+[CV 1/5] END max_depth=9, min_child_weight=4; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time=  53.8s
+[CV 4/5] END max_depth=9, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  55.6s
+[CV 2/5] END max_depth=9, min_child_weight=5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  53.9s
+[CV 5/5] END max_depth=9, min_child_weight=5; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  52.2s
+[CV 3/5] END max_depth=9, min_child_weight=6; accuracy: (test=0.975) average_precision: (test=0.998) f1: (test=0.974) roc_auc: (test=0.999) total time=  49.8s
+[CV 1/5] END max_depth=10, min_child_weight=1; accuracy: (test=0.951) average_precision: (test=0.996) f1: (test=0.949) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END max_depth=10, min_child_weight=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 3/5] END max_depth=10, min_child_weight=2; accuracy: (test=0.970) average_precision: (test=0.998) f1: (test=0.969) roc_auc: (test=0.999) total time= 1.1min
+[CV 4/5] END max_depth=5, min_child_weight=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  31.0s
+[CV 2/5] END max_depth=5, min_child_weight=3; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  30.2s
+[CV 5/5] END max_depth=5, min_child_weight=3; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time=  30.2s
+[CV 2/5] END max_depth=5, min_child_weight=4; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  30.2s
+[CV 1/5] END max_depth=5, min_child_weight=5; accuracy: (test=0.955) average_precision: (test=0.994) f1: (test=0.954) roc_auc: (test=0.996) total time=  29.3s
+[CV 4/5] END max_depth=5, min_child_weight=5; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  29.6s
+[CV 2/5] END max_depth=5, min_child_weight=6; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  28.9s
+[CV 5/5] END max_depth=5, min_child_weight=6; accuracy: (test=0.960) average_precision: (test=0.995) f1: (test=0.959) roc_auc: (test=0.996) total time=  28.9s
+[CV 3/5] END max_depth=6, min_child_weight=1; accuracy: (test=0.975) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  44.1s
+[CV 5/5] END max_depth=6, min_child_weight=1; accuracy: (test=0.969) average_precision: (test=0.997) f1: (test=0.968) roc_auc: (test=0.998) total time=  43.9s
+[CV 4/5] END max_depth=6, min_child_weight=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  41.2s
+[CV 2/5] END max_depth=6, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  39.6s
+[CV 5/5] END max_depth=6, min_child_weight=3; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time=  39.1s
+[CV 3/5] END max_depth=6, min_child_weight=4; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time=  37.8s
+[CV 1/5] END max_depth=6, min_child_weight=5; accuracy: (test=0.955) average_precision: (test=0.995) f1: (test=0.954) roc_auc: (test=0.996) total time=  37.2s
+[CV 3/5] END max_depth=6, min_child_weight=5; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  36.7s
+[CV 1/5] END max_depth=6, min_child_weight=6; accuracy: (test=0.952) average_precision: (test=0.994) f1: (test=0.951) roc_auc: (test=0.996) total time=  36.3s
+[CV 4/5] END max_depth=6, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  36.8s
+[CV 2/5] END max_depth=7, min_child_weight=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  55.3s
+[CV 1/5] END max_depth=7, min_child_weight=2; accuracy: (test=0.960) average_precision: (test=0.995) f1: (test=0.959) roc_auc: (test=0.996) total time=  49.7s
+[CV 2/5] END max_depth=7, min_child_weight=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  50.4s
+[CV 5/5] END max_depth=7, min_child_weight=2; accuracy: (test=0.968) average_precision: (test=0.997) f1: (test=0.968) roc_auc: (test=0.998) total time=  48.4s
+[CV 4/5] END max_depth=7, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  47.5s
+[CV 2/5] END max_depth=7, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  45.4s
+[CV 1/5] END max_depth=7, min_child_weight=5; accuracy: (test=0.952) average_precision: (test=0.994) f1: (test=0.951) roc_auc: (test=0.996) total time=  43.2s
+[CV 3/5] END max_depth=7, min_child_weight=5; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  42.8s
+[CV 1/5] END max_depth=7, min_child_weight=6; accuracy: (test=0.958) average_precision: (test=0.995) f1: (test=0.957) roc_auc: (test=0.996) total time=  42.3s
+[CV 4/5] END max_depth=7, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  43.7s
+[CV 2/5] END max_depth=8, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 1/5] END max_depth=8, min_child_weight=2; accuracy: (test=0.955) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time=  56.6s
+[CV 2/5] END max_depth=8, min_child_weight=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.0s
+[CV 5/5] END max_depth=8, min_child_weight=2; accuracy: (test=0.962) average_precision: (test=0.997) f1: (test=0.961) roc_auc: (test=0.997) total time=  56.1s
+[CV 4/5] END max_depth=8, min_child_weight=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  54.9s
+[CV 2/5] END max_depth=8, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  51.9s
+[CV 1/5] END max_depth=8, min_child_weight=5; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time=  49.1s
+[CV 3/5] END max_depth=8, min_child_weight=5; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time=  48.7s
+[CV 1/5] END max_depth=8, min_child_weight=6; accuracy: (test=0.950) average_precision: (test=0.994) f1: (test=0.949) roc_auc: (test=0.996) total time=  47.7s
+[CV 4/5] END max_depth=8, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  49.2s
+[CV 2/5] END max_depth=9, min_child_weight=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 1/5] END max_depth=9, min_child_weight=2; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time= 1.0min
+[CV 2/5] END max_depth=9, min_child_weight=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END max_depth=9, min_child_weight=2; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END max_depth=9, min_child_weight=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.7s
+[CV 2/5] END max_depth=9, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  55.7s
+[CV 5/5] END max_depth=9, min_child_weight=4; accuracy: (test=0.957) average_precision: (test=0.997) f1: (test=0.956) roc_auc: (test=0.997) total time=  54.0s
+[CV 4/5] END max_depth=9, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  53.8s
+[CV 2/5] END max_depth=9, min_child_weight=6; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  52.1s
+[CV 5/5] END max_depth=9, min_child_weight=6; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.953) roc_auc: (test=0.997) total time=  50.7s
+[CV 3/5] END max_depth=10, min_child_weight=1; accuracy: (test=0.968) average_precision: (test=0.999) f1: (test=0.967) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END max_depth=10, min_child_weight=2; accuracy: (test=0.948) average_precision: (test=0.995) f1: (test=0.946) roc_auc: (test=0.996) total time= 1.1min
+[CV 2/5] END max_depth=10, min_child_weight=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END max_depth=10, min_child_weight=2; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END max_depth=5, min_child_weight=2; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time=  30.8s
+[CV 1/5] END max_depth=5, min_child_weight=3; accuracy: (test=0.955) average_precision: (test=0.994) f1: (test=0.953) roc_auc: (test=0.996) total time=  30.3s
+[CV 3/5] END max_depth=5, min_child_weight=3; accuracy: (test=0.978) average_precision: (test=0.998) f1: (test=0.978) roc_auc: (test=0.999) total time=  30.0s
+[CV 1/5] END max_depth=5, min_child_weight=4; accuracy: (test=0.954) average_precision: (test=0.994) f1: (test=0.953) roc_auc: (test=0.996) total time=  29.3s
+[CV 4/5] END max_depth=5, min_child_weight=4; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  29.8s
+[CV 2/5] END max_depth=5, min_child_weight=5; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  29.3s
+[CV 5/5] END max_depth=5, min_child_weight=5; accuracy: (test=0.960) average_precision: (test=0.995) f1: (test=0.959) roc_auc: (test=0.996) total time=  29.1s
+[CV 3/5] END max_depth=5, min_child_weight=6; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time=  28.7s
+[CV 1/5] END max_depth=6, min_child_weight=1; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time=  44.1s
+[CV 4/5] END max_depth=6, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  43.8s
+[CV 3/5] END max_depth=6, min_child_weight=2; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time=  40.6s
+[CV 5/5] END max_depth=6, min_child_weight=2; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.997) total time=  40.6s
+[CV 4/5] END max_depth=6, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  39.6s
+[CV 2/5] END max_depth=6, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  38.2s
+[CV 5/5] END max_depth=6, min_child_weight=4; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.997) total time=  38.0s
+[CV 4/5] END max_depth=6, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  37.5s
+[CV 2/5] END max_depth=6, min_child_weight=6; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  36.8s
+[CV 5/5] END max_depth=6, min_child_weight=6; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time=  36.0s
+[CV 3/5] END max_depth=7, min_child_weight=1; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time=  53.4s
+[CV 5/5] END max_depth=7, min_child_weight=1; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.998) total time=  53.7s
+[CV 4/5] END max_depth=7, min_child_weight=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  50.0s
+[CV 2/5] END max_depth=7, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  47.3s
+[CV 5/5] END max_depth=7, min_child_weight=3; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time=  46.2s
+[CV 3/5] END max_depth=7, min_child_weight=4; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  44.3s
+[CV 5/5] END max_depth=7, min_child_weight=4; accuracy: (test=0.963) average_precision: (test=0.996) f1: (test=0.962) roc_auc: (test=0.997) total time=  44.1s
+[CV 4/5] END max_depth=7, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  44.2s
+[CV 2/5] END max_depth=7, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  43.1s
+[CV 5/5] END max_depth=7, min_child_weight=6; accuracy: (test=0.963) average_precision: (test=0.996) f1: (test=0.963) roc_auc: (test=0.997) total time=  42.3s
+[CV 3/5] END max_depth=8, min_child_weight=1; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time= 1.0min
+[CV 5/5] END max_depth=8, min_child_weight=1; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.0min
+[CV 4/5] END max_depth=8, min_child_weight=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  58.0s
+[CV 2/5] END max_depth=8, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  54.8s
+[CV 5/5] END max_depth=8, min_child_weight=3; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time=  53.1s
+[CV 3/5] END max_depth=8, min_child_weight=4; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time=  50.1s
+[CV 5/5] END max_depth=8, min_child_weight=4; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time=  50.5s
+[CV 4/5] END max_depth=8, min_child_weight=5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  50.8s
+[CV 2/5] END max_depth=8, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  49.4s
+[CV 5/5] END max_depth=8, min_child_weight=6; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time=  47.7s
+[CV 3/5] END max_depth=9, min_child_weight=1; accuracy: (test=0.971) average_precision: (test=0.999) f1: (test=0.970) roc_auc: (test=0.999) total time= 1.1min
+[CV 5/5] END max_depth=9, min_child_weight=1; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.998) total time= 1.1min
+[CV 4/5] END max_depth=9, min_child_weight=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END max_depth=9, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  58.6s
+[CV 5/5] END max_depth=9, min_child_weight=3; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time=  56.6s
+[CV 3/5] END max_depth=9, min_child_weight=4; accuracy: (test=0.975) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  53.2s
+[CV 1/5] END max_depth=9, min_child_weight=5; accuracy: (test=0.951) average_precision: (test=0.995) f1: (test=0.949) roc_auc: (test=0.996) total time=  52.1s
+[CV 3/5] END max_depth=9, min_child_weight=5; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.972) roc_auc: (test=0.999) total time=  51.2s
+[CV 1/5] END max_depth=9, min_child_weight=6; accuracy: (test=0.949) average_precision: (test=0.995) f1: (test=0.948) roc_auc: (test=0.996) total time=  50.4s
+[CV 4/5] END max_depth=9, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  52.7s
+[CV 2/5] END max_depth=10, min_child_weight=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END max_depth=10, min_child_weight=1; accuracy: (test=0.958) average_precision: (test=0.997) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END max_depth=10, min_child_weight=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END max_depth=10, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min参数的最佳取值：{'max_depth': 8, 'min_child_weight': 1}
+最佳模型得分:0.9987492286855757
+write rank test to csv!!!
+write over!!!
+Start prediction!!!
+Performance evaluation!!!
+AUC :  0.9832697432170543
+AUPR :  0.907037615246214
+acc: 0.9851245816288583
+total: 2689 	acc num: 2649 	TP: 101 	TN: 2548 	FP: 12 	FN: 28
+acc:  0.9851245816288583
+precision: 0.8938053097345132
+recall: 0.7829457364341085
+F1-score: 0.8347107438016528
+count:  2649
+acc:  0.9851245816288583
+Fitting 5 folds for each of 7 candidates, totalling 35 fits
+参数的最佳取值：{'gamma': 0}
+最佳模型得分:0.9987492286855757
+write rank test to csv!!!
+write over!!!
+Start prediction!!!
+Performance evaluation!!!
+AUC :  0.9832697432170543
+AUPR :  0.907037615246214
+acc: 0.9851245816288583
+total: 2689 	acc num: 2649 	TP: 101 	TN: 2548 	FP: 12 	FN: 28
+acc:  0.9851245816288583
+precision: 0.8938053097345132
+recall: 0.7829457364341085
+F1-score: 0.8347107438016528
+count:  2649
+acc:  0.9851245816288583
+Fitting 5 folds for each of 16 candidates, totalling 80 fits
+
+[CV 5/5] END max_depth=10, min_child_weight=3; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time=  59.4s
+[CV 3/5] END max_depth=10, min_child_weight=4; accuracy: (test=0.972) average_precision: (test=0.999) f1: (test=0.972) roc_auc: (test=0.999) total time=  55.9s
+[CV 5/5] END max_depth=10, min_child_weight=4; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time=  56.7s
+[CV 4/5] END max_depth=10, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  57.0s
+[CV 2/5] END max_depth=10, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  54.7s
+[CV 5/5] END max_depth=10, min_child_weight=6; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time=  53.0s
+[CV 3/5] END max_depth=12, min_child_weight=1; accuracy: (test=0.957) average_precision: (test=0.999) f1: (test=0.955) roc_auc: (test=0.999) total time= 1.3min
+[CV 5/5] END max_depth=12, min_child_weight=1; accuracy: (test=0.954) average_precision: (test=0.996) f1: (test=0.952) roc_auc: (test=0.997) total time= 1.3min
+[CV 4/5] END max_depth=12, min_child_weight=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END max_depth=12, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END max_depth=12, min_child_weight=3; accuracy: (test=0.951) average_precision: (test=0.996) f1: (test=0.950) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END max_depth=12, min_child_weight=4; accuracy: (test=0.966) average_precision: (test=0.999) f1: (test=0.965) roc_auc: (test=0.999) total time= 1.0min
+[CV 5/5] END max_depth=12, min_child_weight=4; accuracy: (test=0.951) average_precision: (test=0.996) f1: (test=0.949) roc_auc: (test=0.996) total time= 1.0min
+[CV 4/5] END max_depth=12, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END max_depth=12, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  58.2s
+[CV 5/5] END max_depth=12, min_child_weight=6; accuracy: (test=0.953) average_precision: (test=0.996) f1: (test=0.951) roc_auc: (test=0.997) total time=  54.4s
+[CV 3/5] END gamma=0; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time= 1.0min
+[CV 4/5] END gamma=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 4/5] END gamma=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  46.5s
+[CV 2/5] END gamma=0.2; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  41.0s
+[CV 5/5] END gamma=0.2; accuracy: (test=0.953) average_precision: (test=0.995) f1: (test=0.951) roc_auc: (test=0.996) total time=  39.8s
+[CV 3/5] END gamma=0.3; accuracy: (test=0.967) average_precision: (test=0.999) f1: (test=0.967) roc_auc: (test=0.999) total time=  36.0s
+[CV 1/5] END gamma=0.4; accuracy: (test=0.936) average_precision: (test=0.993) f1: (test=0.933) roc_auc: (test=0.994) total time=  35.1s
+[CV 3/5] END gamma=0.4; accuracy: (test=0.969) average_precision: (test=0.999) f1: (test=0.968) roc_auc: (test=0.999) total time=  34.1s
+[CV 1/5] END gamma=0.5; accuracy: (test=0.938) average_precision: (test=0.993) f1: (test=0.935) roc_auc: (test=0.994) total time=  33.7s
+[CV 4/5] END gamma=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  35.3s
+[CV 2/5] END gamma=0.6; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  33.4s
+[CV 5/5] END gamma=0.6; accuracy: (test=0.941) average_precision: (test=0.993) f1: (test=0.938) roc_auc: (test=0.995) total time=  19.7s
+[CV 3/5] END colsample_bytree=0.6, subsample=0.6; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time=  56.2s
+[CV 4/5] END colsample_bytree=0.6, subsample=0.6; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.1s
+[CV 3/5] END colsample_bytree=0.6, subsample=0.7; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time=  56.0s
+[CV 5/5] END colsample_bytree=0.6, subsample=0.7; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time=  56.7s
+[CV 3/5] END colsample_bytree=0.6, subsample=0.8; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.972) roc_auc: (test=0.999) total time=  56.8s
+[CV 1/5] END colsample_bytree=0.6, subsample=0.9; accuracy: (test=0.955) average_precision: (test=0.995) f1: (test=0.954) roc_auc: (test=0.996) total time=  58.3s
+[CV 4/5] END colsample_bytree=0.6, subsample=0.9; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END colsample_bytree=0.7, subsample=0.6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END colsample_bytree=0.7, subsample=0.6; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.998) total time=  58.3s
+[CV 3/5] END colsample_bytree=0.7, subsample=0.7; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  58.8s
+[CV 1/5] END colsample_bytree=0.7, subsample=0.8; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END colsample_bytree=0.7, subsample=0.8; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END colsample_bytree=0.7, subsample=0.9; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END colsample_bytree=0.7, subsample=0.9; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.966) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END colsample_bytree=0.8, subsample=0.6; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END colsample_bytree=0.8, subsample=0.7; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END colsample_bytree=0.8, subsample=0.7; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END colsample_bytree=0.8, subsample=0.8; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.8, subsample=0.8; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.0min
+[CV 3/5] END colsample_bytree=0.8, subsample=0.9; accuracy: (test=0.968) average_precision: (test=0.999) f1: (test=0.967) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END colsample_bytree=0.9, subsample=0.6; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END colsample_bytree=0.9, subsample=0.6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END colsample_bytree=0.9, subsample=0.7; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.9, subsample=0.7; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END colsample_bytree=0.9, subsample=0.8; accuracy: (test=0.972) average_precision: (test=0.999) f1: (test=0.972) roc_auc: (test=0.999) total time= 1.1min
+[CV 4/5] END max_depth=10, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END max_depth=10, min_child_weight=4; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.7s
+[CV 1/5] END max_depth=10, min_child_weight=5; accuracy: (test=0.950) average_precision: (test=0.995) f1: (test=0.948) roc_auc: (test=0.996) total time=  54.8s
+[CV 3/5] END max_depth=10, min_child_weight=5; accuracy: (test=0.975) average_precision: (test=0.998) f1: (test=0.975) roc_auc: (test=0.999) total time=  53.9s
+[CV 1/5] END max_depth=10, min_child_weight=6; accuracy: (test=0.950) average_precision: (test=0.994) f1: (test=0.948) roc_auc: (test=0.996) total time=  52.6s
+[CV 4/5] END max_depth=10, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  55.2s
+[CV 2/5] END max_depth=12, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.4min
+[CV 1/5] END max_depth=12, min_child_weight=2; accuracy: (test=0.946) average_precision: (test=0.995) f1: (test=0.943) roc_auc: (test=0.996) total time= 1.2min
+[CV 2/5] END max_depth=12, min_child_weight=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END max_depth=12, min_child_weight=2; accuracy: (test=0.953) average_precision: (test=0.996) f1: (test=0.951) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END max_depth=12, min_child_weight=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END max_depth=12, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 1/5] END max_depth=12, min_child_weight=5; accuracy: (test=0.950) average_precision: (test=0.994) f1: (test=0.948) roc_auc: (test=0.996) total time=  59.0s
+[CV 3/5] END max_depth=12, min_child_weight=5; accuracy: (test=0.970) average_precision: (test=0.999) f1: (test=0.969) roc_auc: (test=0.999) total time=  58.3s
+[CV 1/5] END max_depth=12, min_child_weight=6; accuracy: (test=0.947) average_precision: (test=0.994) f1: (test=0.945) roc_auc: (test=0.996) total time=  56.8s
+[CV 4/5] END max_depth=12, min_child_weight=6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  58.4s
+[CV 2/5] END gamma=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 1/5] END gamma=0.1; accuracy: (test=0.947) average_precision: (test=0.995) f1: (test=0.946) roc_auc: (test=0.996) total time=  45.1s
+[CV 2/5] END gamma=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  46.4s
+[CV 5/5] END gamma=0.1; accuracy: (test=0.956) average_precision: (test=0.997) f1: (test=0.954) roc_auc: (test=0.997) total time=  44.9s
+[CV 3/5] END gamma=0.2; accuracy: (test=0.969) average_precision: (test=0.999) f1: (test=0.968) roc_auc: (test=0.999) total time=  38.7s
+[CV 1/5] END gamma=0.3; accuracy: (test=0.943) average_precision: (test=0.994) f1: (test=0.941) roc_auc: (test=0.995) total time=  36.9s
+[CV 4/5] END gamma=0.3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  38.5s
+[CV 2/5] END gamma=0.4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  36.4s
+[CV 5/5] END gamma=0.4; accuracy: (test=0.947) average_precision: (test=0.995) f1: (test=0.946) roc_auc: (test=0.996) total time=  35.3s
+[CV 3/5] END gamma=0.5; accuracy: (test=0.970) average_precision: (test=0.999) f1: (test=0.969) roc_auc: (test=0.999) total time=  33.0s
+[CV 1/5] END gamma=0.6; accuracy: (test=0.934) average_precision: (test=0.993) f1: (test=0.931) roc_auc: (test=0.994) total time=  32.5s
+[CV 4/5] END gamma=0.6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  26.1s
+[CV 2/5] END colsample_bytree=0.6, subsample=0.6; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.3s
+[CV 1/5] END colsample_bytree=0.6, subsample=0.7; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time=  57.7s
+[CV 4/5] END colsample_bytree=0.6, subsample=0.7; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.9s
+[CV 2/5] END colsample_bytree=0.6, subsample=0.8; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END colsample_bytree=0.6, subsample=0.8; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.998) total time=  58.4s
+[CV 3/5] END colsample_bytree=0.6, subsample=0.9; accuracy: (test=0.966) average_precision: (test=0.999) f1: (test=0.965) roc_auc: (test=0.999) total time=  57.4s
+[CV 1/5] END colsample_bytree=0.7, subsample=0.6; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  58.1s
+[CV 3/5] END colsample_bytree=0.7, subsample=0.6; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time=  58.3s
+[CV 1/5] END colsample_bytree=0.7, subsample=0.7; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END colsample_bytree=0.7, subsample=0.7; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END colsample_bytree=0.7, subsample=0.8; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END colsample_bytree=0.7, subsample=0.8; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.998) total time= 1.0min
+[CV 3/5] END colsample_bytree=0.7, subsample=0.9; accuracy: (test=0.970) average_precision: (test=0.999) f1: (test=0.969) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END colsample_bytree=0.8, subsample=0.6; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END colsample_bytree=0.8, subsample=0.6; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END colsample_bytree=0.8, subsample=0.7; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.8, subsample=0.7; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time= 1.0min
+[CV 3/5] END colsample_bytree=0.8, subsample=0.8; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END colsample_bytree=0.8, subsample=0.9; accuracy: (test=0.953) average_precision: (test=0.995) f1: (test=0.951) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END colsample_bytree=0.8, subsample=0.9; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END colsample_bytree=0.9, subsample=0.6; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.9, subsample=0.6; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END colsample_bytree=0.9, subsample=0.7; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END colsample_bytree=0.9, subsample=0.8; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END colsample_bytree=0.9, subsample=0.8; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 1/5] END max_depth=10, min_child_weight=3; accuracy: (test=0.949) average_precision: (test=0.995) f1: (test=0.947) roc_auc: (test=0.996) total time=  59.6s
+[CV 3/5] END max_depth=10, min_child_weight=3; accuracy: (test=0.969) average_precision: (test=0.999) f1: (test=0.968) roc_auc: (test=0.999) total time=  58.4s
+[CV 1/5] END max_depth=10, min_child_weight=4; accuracy: (test=0.948) average_precision: (test=0.994) f1: (test=0.946) roc_auc: (test=0.996) total time=  57.0s
+[CV 4/5] END max_depth=10, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  59.2s
+[CV 2/5] END max_depth=10, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  56.7s
+[CV 5/5] END max_depth=10, min_child_weight=5; accuracy: (test=0.962) average_precision: (test=0.996) f1: (test=0.961) roc_auc: (test=0.997) total time=  54.2s
+[CV 3/5] END max_depth=10, min_child_weight=6; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  52.5s
+[CV 1/5] END max_depth=12, min_child_weight=1; accuracy: (test=0.949) average_precision: (test=0.995) f1: (test=0.948) roc_auc: (test=0.996) total time= 1.4min
+[CV 4/5] END max_depth=12, min_child_weight=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.4min
+[CV 3/5] END max_depth=12, min_child_weight=2; accuracy: (test=0.965) average_precision: (test=0.999) f1: (test=0.964) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END max_depth=12, min_child_weight=3; accuracy: (test=0.946) average_precision: (test=0.994) f1: (test=0.944) roc_auc: (test=0.996) total time= 1.1min
+[CV 3/5] END max_depth=12, min_child_weight=3; accuracy: (test=0.965) average_precision: (test=0.999) f1: (test=0.964) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END max_depth=12, min_child_weight=4; accuracy: (test=0.946) average_precision: (test=0.994) f1: (test=0.944) roc_auc: (test=0.995) total time= 1.0min
+[CV 4/5] END max_depth=12, min_child_weight=4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END max_depth=12, min_child_weight=5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END max_depth=12, min_child_weight=5; accuracy: (test=0.950) average_precision: (test=0.996) f1: (test=0.948) roc_auc: (test=0.997) total time=  58.2s
+[CV 3/5] END max_depth=12, min_child_weight=6; accuracy: (test=0.971) average_precision: (test=0.999) f1: (test=0.971) roc_auc: (test=0.999) total time=  56.3s
+[CV 1/5] END gamma=0; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.1min
+[CV 5/5] END gamma=0; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END gamma=0.1; accuracy: (test=0.970) average_precision: (test=0.999) f1: (test=0.969) roc_auc: (test=0.999) total time=  43.5s
+[CV 1/5] END gamma=0.2; accuracy: (test=0.946) average_precision: (test=0.994) f1: (test=0.943) roc_auc: (test=0.995) total time=  39.5s
+[CV 4/5] END gamma=0.2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  41.3s
+[CV 2/5] END gamma=0.3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  38.4s
+[CV 5/5] END gamma=0.3; accuracy: (test=0.948) average_precision: (test=0.995) f1: (test=0.946) roc_auc: (test=0.996) total time=  37.1s
+[CV 4/5] END gamma=0.4; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  36.5s
+[CV 2/5] END gamma=0.5; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  34.8s
+[CV 5/5] END gamma=0.5; accuracy: (test=0.939) average_precision: (test=0.993) f1: (test=0.936) roc_auc: (test=0.995) total time=  33.9s
+[CV 3/5] END gamma=0.6; accuracy: (test=0.967) average_precision: (test=0.998) f1: (test=0.966) roc_auc: (test=0.999) total time=  32.2s
+[CV 1/5] END colsample_bytree=0.6, subsample=0.6; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.997) total time=  56.9s
+[CV 5/5] END colsample_bytree=0.6, subsample=0.6; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time=  56.8s
+[CV 2/5] END colsample_bytree=0.6, subsample=0.7; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.8s
+[CV 1/5] END colsample_bytree=0.6, subsample=0.8; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.953) roc_auc: (test=0.996) total time=  58.1s
+[CV 4/5] END colsample_bytree=0.6, subsample=0.8; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END colsample_bytree=0.6, subsample=0.9; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END colsample_bytree=0.6, subsample=0.9; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time=  59.4s
+[CV 4/5] END colsample_bytree=0.7, subsample=0.6; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END colsample_bytree=0.7, subsample=0.7; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END colsample_bytree=0.7, subsample=0.7; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END colsample_bytree=0.7, subsample=0.8; accuracy: (test=0.969) average_precision: (test=0.999) f1: (test=0.968) roc_auc: (test=0.999) total time=  59.6s
+[CV 1/5] END colsample_bytree=0.7, subsample=0.9; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END colsample_bytree=0.7, subsample=0.9; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.996) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END colsample_bytree=0.8, subsample=0.6; accuracy: (test=0.996) average_precision: (test=1.000) f1: (test=0.996) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.8, subsample=0.6; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END colsample_bytree=0.8, subsample=0.7; accuracy: (test=0.975) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END colsample_bytree=0.8, subsample=0.8; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END colsample_bytree=0.8, subsample=0.8; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END colsample_bytree=0.8, subsample=0.9; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.8, subsample=0.9; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END colsample_bytree=0.9, subsample=0.6; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END colsample_bytree=0.9, subsample=0.7; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END colsample_bytree=0.9, subsample=0.7; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END colsample_bytree=0.9, subsample=0.8; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.9, subsample=0.8; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time= 1.1min参数的最佳取值：{'colsample_bytree': 0.9, 'subsample': 0.6}
+最佳模型得分:0.9987660369902228
+write rank test to csv!!!
+write over!!!
+Start prediction!!!
+Performance evaluation!!!
+AUC :  0.9831607315891474
+AUPR :  0.908281370720647
+acc: 0.9873558943845295
+total: 2689 	acc num: 2655 	TP: 105 	TN: 2550 	FP: 10 	FN: 24
+acc:  0.9873558943845295
+precision: 0.9130434782608695
+recall: 0.813953488372093
+F1-score: 0.860655737704918
+count:  2655
+acc:  0.9873558943845295
+Fitting 5 folds for each of 81 candidates, totalling 405 fits
+
+[CV 1/5] END colsample_bytree=0.9, subsample=0.9; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END colsample_bytree=0.9, subsample=0.9; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  51.9s
+[CV 2/5] END reg_alpha=0, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.2s
+[CV 1/5] END reg_alpha=0, reg_lambda=0.01; accuracy: (test=0.953) average_precision: (test=0.995) f1: (test=0.951) roc_auc: (test=0.996) total time=  57.1s
+[CV 3/5] END reg_alpha=0, reg_lambda=0.01; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  56.2s
+[CV 5/5] END reg_alpha=0, reg_lambda=0.01; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time=  56.4s
+[CV 3/5] END reg_alpha=0, reg_lambda=0.02; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time=  56.0s
+[CV 1/5] END reg_alpha=0, reg_lambda=0.05; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  56.5s
+[CV 4/5] END reg_alpha=0, reg_lambda=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.7s
+[CV 2/5] END reg_alpha=0, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.8s
+[CV 5/5] END reg_alpha=0, reg_lambda=0.1; accuracy: (test=0.962) average_precision: (test=0.997) f1: (test=0.961) roc_auc: (test=0.998) total time=  57.6s
+[CV 3/5] END reg_alpha=0, reg_lambda=0.5; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0, reg_lambda=1; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END reg_alpha=0, reg_lambda=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0, reg_lambda=2; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END reg_alpha=0, reg_lambda=3; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.01, reg_lambda=0; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time=  57.8s
+[CV 4/5] END reg_alpha=0.01, reg_lambda=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  59.7s
+[CV 2/5] END reg_alpha=0.01, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.8s
+[CV 5/5] END reg_alpha=0.01, reg_lambda=0.01; accuracy: (test=0.962) average_precision: (test=0.997) f1: (test=0.961) roc_auc: (test=0.997) total time=  58.1s
+[CV 3/5] END reg_alpha=0.01, reg_lambda=0.02; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time=  56.8s
+[CV 1/5] END reg_alpha=0.01, reg_lambda=0.05; accuracy: (test=0.954) average_precision: (test=0.996) f1: (test=0.952) roc_auc: (test=0.996) total time=  58.0s
+[CV 4/5] END reg_alpha=0.01, reg_lambda=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.9s
+[CV 2/5] END reg_alpha=0.01, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.01, reg_lambda=0.1; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.966) roc_auc: (test=0.998) total time=  58.8s
+[CV 3/5] END reg_alpha=0.01, reg_lambda=0.5; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.01, reg_lambda=1; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=0.01, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.01, reg_lambda=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.01, reg_lambda=2; accuracy: (test=0.967) average_precision: (test=0.997) f1: (test=0.966) roc_auc: (test=0.998) total time= 1.2min
+[CV 3/5] END reg_alpha=0.01, reg_lambda=3; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.02, reg_lambda=0; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.996) total time=  58.4s
+[CV 4/5] END reg_alpha=0.02, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=0.01; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=0.01; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.997) total time=  58.5s
+[CV 3/5] END reg_alpha=0.02, reg_lambda=0.02; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.972) roc_auc: (test=0.999) total time=  57.4s
+[CV 1/5] END reg_alpha=0.02, reg_lambda=0.05; accuracy: (test=0.957) average_precision: (test=0.995) f1: (test=0.956) roc_auc: (test=0.996) total time=  58.7s
+[CV 4/5] END reg_alpha=0.02, reg_lambda=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=0.1; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time=  59.3s
+[CV 3/5] END reg_alpha=0.02, reg_lambda=0.5; accuracy: (test=0.975) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.02, reg_lambda=1; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END reg_alpha=0.02, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=2; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.998) total time= 1.2min
+[CV 3/5] END reg_alpha=0.02, reg_lambda=3; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.05, reg_lambda=0; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.996) total time=  59.2s
+[CV 4/5] END reg_alpha=0.05, reg_lambda=0; accuracy: (test=0.996) average_precision: (test=1.000) f1: (test=0.996) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=0.01; accuracy: (test=0.996) average_precision: (test=1.000) f1: (test=0.996) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=0.01; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time=  60.0s
+[CV 3/5] END reg_alpha=0.05, reg_lambda=0.02; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  58.6s
+[CV 1/5] END reg_alpha=0.05, reg_lambda=0.05; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time= 1.0min
+[CV 2/5] END colsample_bytree=0.9, subsample=0.9; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END colsample_bytree=0.9, subsample=0.9; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.998) total time=  39.7s
+[CV 3/5] END reg_alpha=0, reg_lambda=0; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  57.1s
+[CV 4/5] END reg_alpha=0, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.2s
+[CV 4/5] END reg_alpha=0, reg_lambda=0.01; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.0s
+[CV 2/5] END reg_alpha=0, reg_lambda=0.02; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  59.0s
+[CV 5/5] END reg_alpha=0, reg_lambda=0.02; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time=  57.1s
+[CV 3/5] END reg_alpha=0, reg_lambda=0.05; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  55.9s
+[CV 5/5] END reg_alpha=0, reg_lambda=0.05; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.998) total time=  57.7s
+[CV 3/5] END reg_alpha=0, reg_lambda=0.1; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  56.6s
+[CV 1/5] END reg_alpha=0, reg_lambda=0.5; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END reg_alpha=0, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0, reg_lambda=1; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END reg_alpha=0, reg_lambda=2; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0, reg_lambda=3; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.01, reg_lambda=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  59.8s
+[CV 5/5] END reg_alpha=0.01, reg_lambda=0; accuracy: (test=0.962) average_precision: (test=0.996) f1: (test=0.961) roc_auc: (test=0.997) total time=  57.9s
+[CV 3/5] END reg_alpha=0.01, reg_lambda=0.01; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  57.1s
+[CV 1/5] END reg_alpha=0.01, reg_lambda=0.02; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  57.8s
+[CV 4/5] END reg_alpha=0.01, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  60.0s
+[CV 2/5] END reg_alpha=0.01, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.01, reg_lambda=0.05; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time=  58.8s
+[CV 3/5] END reg_alpha=0.01, reg_lambda=0.1; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  57.5s
+[CV 1/5] END reg_alpha=0.01, reg_lambda=0.5; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END reg_alpha=0.01, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.01, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.01, reg_lambda=1; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END reg_alpha=0.01, reg_lambda=2; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.01, reg_lambda=3; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0.01, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=0; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time=  58.6s
+[CV 3/5] END reg_alpha=0.02, reg_lambda=0.01; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  57.5s
+[CV 1/5] END reg_alpha=0.02, reg_lambda=0.02; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  58.5s
+[CV 4/5] END reg_alpha=0.02, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=0.05; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time=  59.1s
+[CV 3/5] END reg_alpha=0.02, reg_lambda=0.1; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time=  58.0s
+[CV 1/5] END reg_alpha=0.02, reg_lambda=0.5; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END reg_alpha=0.02, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=1; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END reg_alpha=0.02, reg_lambda=2; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.02, reg_lambda=3; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0.02, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=0; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time=  60.0s
+[CV 3/5] END reg_alpha=0.05, reg_lambda=0.01; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time=  58.7s
+[CV 1/5] END reg_alpha=0.05, reg_lambda=0.02; accuracy: (test=0.959) average_precision: (test=0.995) f1: (test=0.957) roc_auc: (test=0.996) total time= 1.0min
+[CV 4/5] END reg_alpha=0.05, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 3/5] END colsample_bytree=0.9, subsample=0.9; accuracy: (test=0.970) average_precision: (test=0.999) f1: (test=0.969) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0, reg_lambda=0; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time=  57.7s
+[CV 5/5] END reg_alpha=0, reg_lambda=0; accuracy: (test=0.964) average_precision: (test=0.996) f1: (test=0.963) roc_auc: (test=0.997) total time=  58.3s
+[CV 2/5] END reg_alpha=0, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  59.1s
+[CV 1/5] END reg_alpha=0, reg_lambda=0.02; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  56.9s
+[CV 4/5] END reg_alpha=0, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  58.8s
+[CV 2/5] END reg_alpha=0, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  58.8s
+[CV 1/5] END reg_alpha=0, reg_lambda=0.1; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time=  57.4s
+[CV 4/5] END reg_alpha=0, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.5s
+[CV 2/5] END reg_alpha=0, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0, reg_lambda=0.5; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=0, reg_lambda=1; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0, reg_lambda=2; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0, reg_lambda=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0, reg_lambda=3; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.01, reg_lambda=0; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  57.0s
+[CV 1/5] END reg_alpha=0.01, reg_lambda=0.01; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.996) total time=  57.9s
+[CV 4/5] END reg_alpha=0.01, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  59.9s
+[CV 2/5] END reg_alpha=0.01, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.01, reg_lambda=0.02; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.966) roc_auc: (test=0.997) total time=  58.2s
+[CV 3/5] END reg_alpha=0.01, reg_lambda=0.05; accuracy: (test=0.971) average_precision: (test=0.999) f1: (test=0.970) roc_auc: (test=0.999) total time=  57.1s
+[CV 1/5] END reg_alpha=0.01, reg_lambda=0.1; accuracy: (test=0.957) average_precision: (test=0.995) f1: (test=0.956) roc_auc: (test=0.996) total time=  58.4s
+[CV 4/5] END reg_alpha=0.01, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.01, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.01, reg_lambda=0.5; accuracy: (test=0.967) average_precision: (test=0.998) f1: (test=0.966) roc_auc: (test=0.998) total time= 1.0min
+[CV 3/5] END reg_alpha=0.01, reg_lambda=1; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0.01, reg_lambda=2; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0.01, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.01, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0.01, reg_lambda=3; accuracy: (test=0.962) average_precision: (test=0.997) f1: (test=0.961) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.02, reg_lambda=0; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.973) roc_auc: (test=0.999) total time=  57.1s
+[CV 1/5] END reg_alpha=0.02, reg_lambda=0.01; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.996) total time=  58.1s
+[CV 4/5] END reg_alpha=0.02, reg_lambda=0.01; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=0.02; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time=  58.6s
+[CV 3/5] END reg_alpha=0.02, reg_lambda=0.05; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  57.7s
+[CV 1/5] END reg_alpha=0.02, reg_lambda=0.1; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.996) total time=  58.9s
+[CV 4/5] END reg_alpha=0.02, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=0.5; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.0min
+[CV 3/5] END reg_alpha=0.02, reg_lambda=1; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0.02, reg_lambda=2; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0.02, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.02, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0.02, reg_lambda=3; accuracy: (test=0.967) average_precision: (test=0.997) f1: (test=0.966) roc_auc: (test=0.998) total time= 1.2min
+[CV 3/5] END reg_alpha=0.05, reg_lambda=0; accuracy: (test=0.975) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time=  58.4s
+[CV 1/5] END reg_alpha=0.05, reg_lambda=0.01; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  59.8s
+[CV 4/5] END reg_alpha=0.05, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=0.02; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.998) total time=  60.0s
+[CV 3/5] END reg_alpha=0.05, reg_lambda=0.05; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time=  59.2s
+[CV 1/5] END reg_alpha=0.05, reg_lambda=0.1; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.996) total time= 1.0min
+[CV 4/5] END reg_alpha=0.05, reg_lambda=0.05; accuracy: (test=0.996) average_precision: (test=1.000) f1: (test=0.996) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=0.1; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=0.05, reg_lambda=0.5; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.05, reg_lambda=1; accuracy: (test=0.957) average_precision: (test=0.995) f1: (test=0.956) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=0.05, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=2; accuracy: (test=0.959) average_precision: (test=0.997) f1: (test=0.958) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.05, reg_lambda=3; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=0; accuracy: (test=0.954) average_precision: (test=0.996) f1: (test=0.953) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=0; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=0.01; accuracy: (test=0.957) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time= 1.0min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=0.01; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=0.02; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=0.05; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=0.1; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.997) total time= 1.0min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=0.5; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.1min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=1; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=2; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=3; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time= 1.3min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=0; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=0.01; accuracy: (test=0.953) average_precision: (test=0.995) f1: (test=0.951) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=0.01; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=0.02; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=0.02; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=0.05; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=0.1; accuracy: (test=0.953) average_precision: (test=0.996) f1: (test=0.951) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=0.5; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=1; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.3min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=2; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.996) total time= 1.3min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.4min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.5min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=3; accuracy: (test=0.962) average_precision: (test=0.996) f1: (test=0.961) roc_auc: (test=0.997) total time= 1.4min
+[CV 4/5] END reg_alpha=1, reg_lambda=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=1, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=1, reg_lambda=0.01; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=1, reg_lambda=0.02; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=1, reg_lambda=0.05; accuracy: (test=0.952) average_precision: (test=0.995) f1: (test=0.950) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=1, reg_lambda=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=1, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=1, reg_lambda=0.1; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=1, reg_lambda=0.5; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=1, reg_lambda=1; accuracy: (test=0.953) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=1, reg_lambda=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=1, reg_lambda=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.4min
+[CV 5/5] END reg_alpha=1, reg_lambda=2; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.3min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=0.05; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=0.05, reg_lambda=0.1; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time=  59.7s
+[CV 1/5] END reg_alpha=0.05, reg_lambda=0.5; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END reg_alpha=0.05, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=1; accuracy: (test=0.963) average_precision: (test=0.997) f1: (test=0.962) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=0.05, reg_lambda=2; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=1.000) total time= 1.2min
+[CV 1/5] END reg_alpha=0.05, reg_lambda=3; accuracy: (test=0.961) average_precision: (test=0.996) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.3min
+[CV 4/5] END reg_alpha=0.05, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=0; accuracy: (test=0.968) average_precision: (test=0.997) f1: (test=0.968) roc_auc: (test=0.998) total time= 1.0min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=0.01; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=0.02; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time= 1.0min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=0.05; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=0.1; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=0.5; accuracy: (test=0.955) average_precision: (test=0.995) f1: (test=0.954) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=1; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.2min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=2; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=3; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time= 1.3min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=0; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=0.01; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=0.02; accuracy: (test=0.957) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=0.05; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=0.1; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=0.5; accuracy: (test=0.955) average_precision: (test=0.995) f1: (test=0.954) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=1; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.3min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=2; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.3min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=3; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.996) total time= 1.4min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.5min
+[CV 2/5] END reg_alpha=1, reg_lambda=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=1, reg_lambda=0; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=1, reg_lambda=0.01; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=1, reg_lambda=0.02; accuracy: (test=0.952) average_precision: (test=0.995) f1: (test=0.950) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=1, reg_lambda=0.02; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=1, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=1, reg_lambda=0.05; accuracy: (test=0.963) average_precision: (test=0.996) f1: (test=0.963) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=1, reg_lambda=0.1; accuracy: (test=0.982) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=1, reg_lambda=0.5; accuracy: (test=0.949) average_precision: (test=0.996) f1: (test=0.947) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=1, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=1, reg_lambda=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=1, reg_lambda=1; accuracy: (test=0.960) average_precision: (test=0.997) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=1, reg_lambda=2; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.3min
+[CV 1/5] END reg_alpha=1, reg_lambda=3; accuracy: (test=0.952) average_precision: (test=0.996) f1: (test=0.951) roc_auc: (test=0.996) total time= 1.4min
+[CV 4/5] END reg_alpha=0.05, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=0.5; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=0.5; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=0.05, reg_lambda=1; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0.05, reg_lambda=2; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0.05, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.05, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0.05, reg_lambda=3; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.963) roc_auc: (test=0.997) total time= 1.3min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=0.01; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=0.02; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=0.05; accuracy: (test=0.958) average_precision: (test=0.995) f1: (test=0.957) roc_auc: (test=0.996) total time= 1.0min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=0.1; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=0.5; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=0.1, reg_lambda=1; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=0.1, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.1, reg_lambda=2; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=0.1, reg_lambda=2; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time= 1.2min
+[CV 3/5] END reg_alpha=0.1, reg_lambda=3; accuracy: (test=0.984) average_precision: (test=0.999) f1: (test=0.984) roc_auc: (test=0.999) total time= 1.3min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=0; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.955) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=0; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=0.01; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=0.01; accuracy: (test=0.962) average_precision: (test=0.996) f1: (test=0.961) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=0.02; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=0.05; accuracy: (test=0.953) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=0.1; accuracy: (test=0.962) average_precision: (test=0.997) f1: (test=0.961) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=0.5; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=0.5, reg_lambda=1; accuracy: (test=0.949) average_precision: (test=0.995) f1: (test=0.947) roc_auc: (test=0.996) total time= 1.3min
+[CV 4/5] END reg_alpha=0.5, reg_lambda=1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=0.5, reg_lambda=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.4min
+[CV 5/5] END reg_alpha=0.5, reg_lambda=2; accuracy: (test=0.961) average_precision: (test=0.997) f1: (test=0.960) roc_auc: (test=0.997) total time= 1.4min
+[CV 3/5] END reg_alpha=0.5, reg_lambda=3; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.4min
+[CV 1/5] END reg_alpha=1, reg_lambda=0; accuracy: (test=0.945) average_precision: (test=0.995) f1: (test=0.943) roc_auc: (test=0.996) total time= 1.1min
+[CV 3/5] END reg_alpha=1, reg_lambda=0; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=1, reg_lambda=0.01; accuracy: (test=0.950) average_precision: (test=0.995) f1: (test=0.948) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=1, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=1, reg_lambda=0.02; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=1, reg_lambda=0.02; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=1, reg_lambda=0.05; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=1, reg_lambda=0.1; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.953) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=1, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=1, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=1, reg_lambda=0.5; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=1, reg_lambda=1; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=1, reg_lambda=2; accuracy: (test=0.956) average_precision: (test=0.995) f1: (test=0.954) roc_auc: (test=0.996) total time= 1.3min
+[CV 4/5] END reg_alpha=1, reg_lambda=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.4min
+[CV 2/5] END reg_alpha=1, reg_lambda=3; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.4min
+[CV 5/5] END reg_alpha=1, reg_lambda=3; accuracy: (test=0.960) average_precision: (test=0.996) f1: (test=0.959) roc_auc: (test=0.997) total time= 1.4min参数的最佳取值：{'reg_alpha': 0.02, 'reg_lambda': 0.02}
+最佳模型得分:0.9987694173270463
+write rank test to csv!!!
+write over!!!
+Start prediction!!!
+Performance evaluation!!!
+AUC :  0.983814801356589
+AUPR :  0.9044545510597503
+acc: 0.9854964670881369
+total: 2689 	acc num: 2650 	TP: 105 	TN: 2545 	FP: 15 	FN: 24
+acc:  0.9854964670881369
+precision: 0.875
+recall: 0.813953488372093
+F1-score: 0.8433734939759036
+count:  2650
+acc:  0.9854964670881369
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+参数的最佳取值：{'learning_rate': 0.1}
+最佳模型得分:0.9987694173270463
+write rank test to csv!!!
+write over!!!
+Start prediction!!!
+Performance evaluation!!!
+AUC :  0.983814801356589
+AUPR :  0.9044545510597503
+acc: 0.9854964670881369
+total: 2689 	acc num: 2650 	TP: 105 	TN: 2545 	FP: 15 	FN: 24
+acc:  0.9854964670881369
+precision: 0.875
+recall: 0.813953488372093
+F1-score: 0.8433734939759036
+count:  2650
+acc:  0.9854964670881369
+
+[CV 3/5] END reg_alpha=1, reg_lambda=3; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.3min
+[CV 1/5] END reg_alpha=2, reg_lambda=0; accuracy: (test=0.950) average_precision: (test=0.995) f1: (test=0.949) roc_auc: (test=0.996) total time= 1.1min
+[CV 2/5] END reg_alpha=2, reg_lambda=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 1/5] END reg_alpha=2, reg_lambda=0.01; accuracy: (test=0.944) average_precision: (test=0.994) f1: (test=0.942) roc_auc: (test=0.995) total time= 1.0min
+[CV 3/5] END reg_alpha=2, reg_lambda=0.01; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=2, reg_lambda=0.02; accuracy: (test=0.944) average_precision: (test=0.994) f1: (test=0.942) roc_auc: (test=0.995) total time= 1.0min
+[CV 4/5] END reg_alpha=2, reg_lambda=0.02; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=2, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=2, reg_lambda=0.05; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.954) roc_auc: (test=0.996) total time= 1.1min
+[CV 3/5] END reg_alpha=2, reg_lambda=0.1; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=2, reg_lambda=0.5; accuracy: (test=0.948) average_precision: (test=0.995) f1: (test=0.946) roc_auc: (test=0.996) total time= 1.1min
+[CV 4/5] END reg_alpha=2, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=2, reg_lambda=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=2, reg_lambda=1; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=2, reg_lambda=2; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=2, reg_lambda=3; accuracy: (test=0.947) average_precision: (test=0.994) f1: (test=0.945) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=2, reg_lambda=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.3min
+[CV 2/5] END reg_alpha=3, reg_lambda=0; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=3, reg_lambda=0; accuracy: (test=0.952) average_precision: (test=0.995) f1: (test=0.950) roc_auc: (test=0.996) total time=  59.7s
+[CV 3/5] END reg_alpha=3, reg_lambda=0.01; accuracy: (test=0.979) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time=  58.2s
+[CV 1/5] END reg_alpha=3, reg_lambda=0.02; accuracy: (test=0.947) average_precision: (test=0.994) f1: (test=0.945) roc_auc: (test=0.995) total time=  59.3s
+[CV 4/5] END reg_alpha=3, reg_lambda=0.02; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=3, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=3, reg_lambda=0.05; accuracy: (test=0.951) average_precision: (test=0.995) f1: (test=0.950) roc_auc: (test=0.996) total time=  59.9s
+[CV 3/5] END reg_alpha=3, reg_lambda=0.1; accuracy: (test=0.981) average_precision: (test=0.998) f1: (test=0.981) roc_auc: (test=0.999) total time=  58.2s
+[CV 1/5] END reg_alpha=3, reg_lambda=0.5; accuracy: (test=0.946) average_precision: (test=0.994) f1: (test=0.944) roc_auc: (test=0.995) total time= 1.0min
+[CV 4/5] END reg_alpha=3, reg_lambda=0.5; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=3, reg_lambda=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=3, reg_lambda=1; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.0min
+[CV 3/5] END reg_alpha=3, reg_lambda=2; accuracy: (test=0.982) average_precision: (test=0.999) f1: (test=0.982) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=3, reg_lambda=3; accuracy: (test=0.943) average_precision: (test=0.993) f1: (test=0.940) roc_auc: (test=0.995) total time= 1.1min
+[CV 4/5] END reg_alpha=3, reg_lambda=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time=  52.7s
+[CV 2/5] END learning_rate=0.001; accuracy: (test=0.939) average_precision: (test=0.970) f1: (test=0.938) roc_auc: (test=0.980) total time= 2.5min
+[CV 4/5] END learning_rate=0.001; accuracy: (test=0.949) average_precision: (test=0.968) f1: (test=0.949) roc_auc: (test=0.980) total time= 2.5min
+[CV 4/5] END learning_rate=0.01; accuracy: (test=0.989) average_precision: (test=0.998) f1: (test=0.989) roc_auc: (test=0.999) total time= 2.2min
+[CV 2/5] END learning_rate=0.05; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.4min
+[CV 4/5] END learning_rate=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.4min
+[CV 2/5] END learning_rate=0.07; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END learning_rate=0.07; accuracy: (test=0.966) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END learning_rate=0.1; accuracy: (test=0.973) average_precision: (test=0.999) f1: (test=0.972) roc_auc: (test=0.999) total time=  57.1s
+[CV 1/5] END learning_rate=0.2; accuracy: (test=0.950) average_precision: (test=0.994) f1: (test=0.949) roc_auc: (test=0.996) total time=  41.2s
+[CV 3/5] END learning_rate=0.2; accuracy: (test=0.975) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  40.9s
+[CV 1/5] END learning_rate=0.5; accuracy: (test=0.933) average_precision: (test=0.991) f1: (test=0.929) roc_auc: (test=0.993) total time=  28.0s
+[CV 4/5] END learning_rate=0.5; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time=  28.9s
+[CV 2/5] END learning_rate=0.75; accuracy: (test=0.988) average_precision: (test=0.999) f1: (test=0.988) roc_auc: (test=0.999) total time=  24.9s
+[CV 5/5] END learning_rate=0.75; accuracy: (test=0.918) average_precision: (test=0.989) f1: (test=0.913) roc_auc: (test=0.991) total time=  24.3s
+[CV 3/5] END learning_rate=1.0; accuracy: (test=0.930) average_precision: (test=0.992) f1: (test=0.926) roc_auc: (test=0.992) total time=  22.2s
+
+[CV 4/5] END reg_alpha=1, reg_lambda=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.4min
+[CV 3/5] END reg_alpha=2, reg_lambda=0; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time= 1.0min
+[CV 5/5] END reg_alpha=2, reg_lambda=0; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.953) roc_auc: (test=0.997) total time= 1.1min
+[CV 4/5] END reg_alpha=2, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=2, reg_lambda=0.02; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=2, reg_lambda=0.02; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=2, reg_lambda=0.05; accuracy: (test=0.977) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=2, reg_lambda=0.1; accuracy: (test=0.946) average_precision: (test=0.994) f1: (test=0.944) roc_auc: (test=0.995) total time= 1.1min
+[CV 4/5] END reg_alpha=2, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=2, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=2, reg_lambda=0.5; accuracy: (test=0.952) average_precision: (test=0.995) f1: (test=0.951) roc_auc: (test=0.996) total time= 1.1min
+[CV 3/5] END reg_alpha=2, reg_lambda=1; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END reg_alpha=2, reg_lambda=2; accuracy: (test=0.949) average_precision: (test=0.995) f1: (test=0.948) roc_auc: (test=0.996) total time= 1.2min
+[CV 4/5] END reg_alpha=2, reg_lambda=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=2, reg_lambda=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.3min
+[CV 5/5] END reg_alpha=2, reg_lambda=3; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END reg_alpha=3, reg_lambda=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=3, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=3, reg_lambda=0.01; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time= 1.0min
+[CV 3/5] END reg_alpha=3, reg_lambda=0.02; accuracy: (test=0.982) average_precision: (test=0.999) f1: (test=0.982) roc_auc: (test=0.999) total time=  58.2s
+[CV 1/5] END reg_alpha=3, reg_lambda=0.05; accuracy: (test=0.942) average_precision: (test=0.994) f1: (test=0.940) roc_auc: (test=0.995) total time=  59.8s
+[CV 3/5] END reg_alpha=3, reg_lambda=0.05; accuracy: (test=0.981) average_precision: (test=0.999) f1: (test=0.981) roc_auc: (test=0.999) total time=  58.6s
+[CV 1/5] END reg_alpha=3, reg_lambda=0.1; accuracy: (test=0.942) average_precision: (test=0.993) f1: (test=0.940) roc_auc: (test=0.994) total time= 1.0min
+[CV 4/5] END reg_alpha=3, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=3, reg_lambda=0.5; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 1/5] END reg_alpha=3, reg_lambda=1; accuracy: (test=0.946) average_precision: (test=0.994) f1: (test=0.944) roc_auc: (test=0.995) total time= 1.0min
+[CV 4/5] END reg_alpha=3, reg_lambda=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=3, reg_lambda=2; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=3, reg_lambda=2; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=3, reg_lambda=3; accuracy: (test=0.986) average_precision: (test=0.998) f1: (test=0.986) roc_auc: (test=0.999) total time= 1.1min
+[CV 1/5] END learning_rate=0.001; accuracy: (test=0.834) average_precision: (test=0.923) f1: (test=0.813) roc_auc: (test=0.958) total time= 2.5min
+[CV 1/5] END learning_rate=0.01; accuracy: (test=0.919) average_precision: (test=0.982) f1: (test=0.915) roc_auc: (test=0.988) total time= 2.2min
+[CV 2/5] END learning_rate=0.01; accuracy: (test=0.988) average_precision: (test=0.999) f1: (test=0.988) roc_auc: (test=0.999) total time= 2.2min
+[CV 5/5] END learning_rate=0.01; accuracy: (test=0.928) average_precision: (test=0.987) f1: (test=0.924) roc_auc: (test=0.990) total time= 2.2min
+[CV 5/5] END learning_rate=0.05; accuracy: (test=0.964) average_precision: (test=0.997) f1: (test=0.964) roc_auc: (test=0.997) total time= 1.4min
+[CV 3/5] END learning_rate=0.07; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.976) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END learning_rate=0.1; accuracy: (test=0.959) average_precision: (test=0.996) f1: (test=0.958) roc_auc: (test=0.997) total time=  58.8s
+[CV 4/5] END learning_rate=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END learning_rate=0.2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  42.7s
+[CV 5/5] END learning_rate=0.2; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time=  41.5s
+[CV 3/5] END learning_rate=0.5; accuracy: (test=0.963) average_precision: (test=0.998) f1: (test=0.962) roc_auc: (test=0.998) total time=  27.9s
+[CV 1/5] END learning_rate=0.75; accuracy: (test=0.911) average_precision: (test=0.985) f1: (test=0.904) roc_auc: (test=0.987) total time=  24.7s
+[CV 3/5] END learning_rate=0.75; accuracy: (test=0.948) average_precision: (test=0.995) f1: (test=0.946) roc_auc: (test=0.996) total time=  24.2s
+[CV 1/5] END learning_rate=1.0; accuracy: (test=0.879) average_precision: (test=0.974) f1: (test=0.867) roc_auc: (test=0.976) total time=  22.5s
+[CV 4/5] END learning_rate=1.0; accuracy: (test=0.982) average_precision: (test=0.996) f1: (test=0.983) roc_auc: (test=0.997) total time=  20.0s
+
+[CV 4/5] END reg_alpha=2, reg_lambda=0; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=2, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=2, reg_lambda=0.01; accuracy: (test=0.954) average_precision: (test=0.996) f1: (test=0.953) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=2, reg_lambda=0.02; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.977) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=2, reg_lambda=0.05; accuracy: (test=0.947) average_precision: (test=0.994) f1: (test=0.945) roc_auc: (test=0.995) total time= 1.0min
+[CV 4/5] END reg_alpha=2, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=2, reg_lambda=0.1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 5/5] END reg_alpha=2, reg_lambda=0.1; accuracy: (test=0.956) average_precision: (test=0.996) f1: (test=0.955) roc_auc: (test=0.997) total time= 1.1min
+[CV 3/5] END reg_alpha=2, reg_lambda=0.5; accuracy: (test=0.978) average_precision: (test=0.999) f1: (test=0.978) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=2, reg_lambda=1; accuracy: (test=0.944) average_precision: (test=0.994) f1: (test=0.942) roc_auc: (test=0.995) total time= 1.1min
+[CV 4/5] END reg_alpha=2, reg_lambda=1; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END reg_alpha=2, reg_lambda=2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=2, reg_lambda=2; accuracy: (test=0.958) average_precision: (test=0.996) f1: (test=0.957) roc_auc: (test=0.997) total time= 1.2min
+[CV 3/5] END reg_alpha=2, reg_lambda=3; accuracy: (test=0.983) average_precision: (test=0.999) f1: (test=0.983) roc_auc: (test=0.999) total time= 1.2min
+[CV 1/5] END reg_alpha=3, reg_lambda=0; accuracy: (test=0.941) average_precision: (test=0.994) f1: (test=0.938) roc_auc: (test=0.995) total time=  59.6s
+[CV 3/5] END reg_alpha=3, reg_lambda=0; accuracy: (test=0.983) average_precision: (test=0.999) f1: (test=0.983) roc_auc: (test=0.999) total time=  58.6s
+[CV 1/5] END reg_alpha=3, reg_lambda=0.01; accuracy: (test=0.940) average_precision: (test=0.992) f1: (test=0.938) roc_auc: (test=0.994) total time=  59.8s
+[CV 4/5] END reg_alpha=3, reg_lambda=0.01; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.0min
+[CV 2/5] END reg_alpha=3, reg_lambda=0.02; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=3, reg_lambda=0.02; accuracy: (test=0.952) average_precision: (test=0.996) f1: (test=0.951) roc_auc: (test=0.996) total time= 1.0min
+[CV 4/5] END reg_alpha=3, reg_lambda=0.05; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=3, reg_lambda=0.1; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END reg_alpha=3, reg_lambda=0.1; accuracy: (test=0.955) average_precision: (test=0.996) f1: (test=0.953) roc_auc: (test=0.996) total time= 1.0min
+[CV 3/5] END reg_alpha=3, reg_lambda=0.5; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.980) roc_auc: (test=0.999) total time=  59.1s
+[CV 5/5] END reg_alpha=3, reg_lambda=0.5; accuracy: (test=0.952) average_precision: (test=0.995) f1: (test=0.950) roc_auc: (test=0.996) total time= 1.0min
+[CV 3/5] END reg_alpha=3, reg_lambda=1; accuracy: (test=0.980) average_precision: (test=0.999) f1: (test=0.979) roc_auc: (test=0.999) total time= 1.0min
+[CV 1/5] END reg_alpha=3, reg_lambda=2; accuracy: (test=0.947) average_precision: (test=0.994) f1: (test=0.945) roc_auc: (test=0.995) total time= 1.1min
+[CV 4/5] END reg_alpha=3, reg_lambda=2; accuracy: (test=0.993) average_precision: (test=1.000) f1: (test=0.993) roc_auc: (test=1.000) total time= 1.1min
+[CV 2/5] END reg_alpha=3, reg_lambda=3; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.994) roc_auc: (test=1.000) total time= 1.2min
+[CV 5/5] END reg_alpha=3, reg_lambda=3; accuracy: (test=0.958) average_precision: (test=0.995) f1: (test=0.957) roc_auc: (test=0.997) total time=  39.7s
+[CV 3/5] END learning_rate=0.001; accuracy: (test=0.919) average_precision: (test=0.978) f1: (test=0.916) roc_auc: (test=0.982) total time= 2.5min
+[CV 5/5] END learning_rate=0.001; accuracy: (test=0.831) average_precision: (test=0.912) f1: (test=0.809) roc_auc: (test=0.928) total time= 2.4min
+[CV 3/5] END learning_rate=0.01; accuracy: (test=0.976) average_precision: (test=0.998) f1: (test=0.976) roc_auc: (test=0.998) total time= 2.2min
+[CV 1/5] END learning_rate=0.05; accuracy: (test=0.954) average_precision: (test=0.995) f1: (test=0.952) roc_auc: (test=0.996) total time= 1.4min
+[CV 3/5] END learning_rate=0.05; accuracy: (test=0.976) average_precision: (test=0.999) f1: (test=0.975) roc_auc: (test=0.999) total time= 1.3min
+[CV 1/5] END learning_rate=0.07; accuracy: (test=0.957) average_precision: (test=0.996) f1: (test=0.956) roc_auc: (test=0.997) total time= 1.2min
+[CV 4/5] END learning_rate=0.07; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.2min
+[CV 2/5] END learning_rate=0.1; accuracy: (test=0.995) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time= 1.0min
+[CV 5/5] END learning_rate=0.1; accuracy: (test=0.965) average_precision: (test=0.997) f1: (test=0.965) roc_auc: (test=0.998) total time=  58.5s
+[CV 4/5] END learning_rate=0.2; accuracy: (test=0.994) average_precision: (test=1.000) f1: (test=0.995) roc_auc: (test=1.000) total time=  42.8s
+[CV 2/5] END learning_rate=0.5; accuracy: (test=0.992) average_precision: (test=0.999) f1: (test=0.992) roc_auc: (test=1.000) total time=  28.9s
+[CV 5/5] END learning_rate=0.5; accuracy: (test=0.933) average_precision: (test=0.993) f1: (test=0.929) roc_auc: (test=0.994) total time=  28.2s
+[CV 4/5] END learning_rate=0.75; accuracy: (test=0.992) average_precision: (test=0.999) f1: (test=0.992) roc_auc: (test=1.000) total time=  24.9s
+[CV 2/5] END learning_rate=1.0; accuracy: (test=0.981) average_precision: (test=0.996) f1: (test=0.981) roc_auc: (test=0.997) total time=  22.9s
+[CV 5/5] END learning_rate=1.0; accuracy: (test=0.887) average_precision: (test=0.977) f1: (test=0.877) roc_auc: (test=0.979) total time=  18.5s
