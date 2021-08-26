@@ -1,3 +1,5 @@
+import numpy as np
 
-
-# preds = torch.cat(preds, dim=0).numpy()
+a = np.array([1, 2, 3])
+a = np.append(a, 1)
+print(a)
