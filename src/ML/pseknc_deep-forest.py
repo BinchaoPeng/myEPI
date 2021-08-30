@@ -1,5 +1,7 @@
 import copy
+import csv
 import math
+import os
 import time
 from inspect import signature
 from itertools import product
@@ -296,8 +298,8 @@ class MyGridSearchCV:
 
 def performance_result(clf, test_X, test_y):
     print("Start prediction!!!")
-    # best_model = clf.best_estimator_
-    best_model = clf
+    best_model = clf.best_estimator_
+    # best_model = clf
     y_pred = best_model.predict(test_X)
     y_pred_prob_temp = best_model.predict_proba(test_X)
     y_pred_prob = []
@@ -341,6 +343,41 @@ def performance_result(clf, test_X, test_y):
     print("acc: ", count / len(test_y))  # 输出测试集准确率
 
 
+def writeRank2csv(met_grid, clf, index=None):
+    print("write rank test to csv!!!")
+    csv_rows_list = []
+    header = []
+    for m in met_grid:
+        rank_test_score = 'rank_test_' + m
+        mean_test_score = 'mean_test_' + m
+        std_test_score = 'std_test_' + m
+        header.append(rank_test_score)
+        header.append(mean_test_score)
+        header.append(std_test_score)
+        csv_rows_list.append(clf.cv_results_[rank_test_score])
+        csv_rows_list.append(clf.cv_results_[mean_test_score])
+        csv_rows_list.append(clf.cv_results_[std_test_score])
+    csv_rows_list.append(clf.cv_results_['params'])
+    header.append('params')
+    results = list(zip(*csv_rows_list))
+    print("write over!!!")
+
+    ex_dir_name = '%s_%s_5flod_grid' % (feature_name, method_name)
+    if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
+        os.mkdir(r'../../ex/%s/' % ex_dir_name)
+        os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
+        print("created ex folder!!!")
+    file_name = r'../../ex/%s/rank/%s_%s_%s_rank_%s.csv' % (ex_dir_name, cell_name, feature_name, method_name, index)
+    if index is None:
+        file_name = r'../../ex/%s/rank/%s_%s_%s_rank.csv' % (ex_dir_name, cell_name, feature_name, method_name)
+
+    with open(file_name, 'wt', newline='')as f:
+        f_csv = csv.writer(f, delimiter=",")
+        f_csv.writerow(header)
+        f_csv.writerows(results)
+        f.close()
+
+
 """
 cell and feature choose
 """
@@ -348,8 +385,8 @@ names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NH
 cell_name = names[2]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
-method_names = ['svm', 'xgboost']
-method_name = method_names[1]
+method_names = ['svm', 'xgboost', 'deepforest']
+method_name = method_names[2]
 print("experiment: %s %s_%s" % (cell_name, feature_name, method_name))
 
 trainPath = r'../../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
@@ -381,33 +418,47 @@ params
 """
 parameters = [
     {
-        'n_estimators': [2, 4, 6, 8],
-        'n_trees': [x for x in range(50, 550, 50)],
+        'n_estimators': [2, 5, 8],
+        'n_trees': [50, 100, 150, 200],
         'predictors': ['xgboost', 'lightgbm', 'forest'],
         'max_layers': [20, 50, 80],
         'use_predictor': [True]
     },
     {
-        'n_estimators': [2, 4, 6, 8],
-        'n_trees': [x for x in range(50, 550, 50)],
-        'max_layers': [layer for layer in range(20, 110, 10)]
+        'n_estimators': [2, 5, 8],
+        'n_trees':  [50, 100, 150, 200],
+        'max_layers': [20, 50, 80]
     },
 ]
-parameters = [
-
-    {
-        'n_estimators': [2, 3],
-        # 'max_layers': [layer for layer in range(20, 40, 10)]
-    },
-
-]
+# parameters = [
+#
+#     {
+#         'n_estimators': [2, 5],
+#         'max_layers': [layer for layer in range(20, 40, 10)],
+#         'predictors': ['xgboost', 'lightgbm', 'forest'],
+#         'use_predictor': [True]
+#     },
+#
+# ]
+# parameters = [
+#
+#     {
+#         'n_estimators': [2],
+#         'max_layers': [30],
+#         'predictors': ['xgboost'],
+#         'use_predictor': [True]
+#     },
+#
+# ]
 # model = CascadeForestClassifier(use_predictor=True, random_state=1, n_jobs=5, predictor='forest')
 deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
 cv_params = {'predictor': ['xgboost', 'lightgbm', 'forest']}
 
-searchCV = MyGridSearchCV(train_X, train_y, deep_forest, parameters, met_grid, refit='roc_auc', n_jobs=3, cv=3)
+clf = MyGridSearchCV(train_X, train_y, deep_forest, parameters, met_grid, refit='roc_auc', n_jobs=3, cv=5)
+writeRank2csv(met_grid, clf)
+performance_result(clf, test_X, test_y)
 
 """
 param doc
