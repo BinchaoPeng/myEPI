@@ -559,7 +559,7 @@ class RunAndScore:
                                  'inconsistent results. Expected {} '
                                  'splits, got {}'
                                  .format(n_candidates, len(out)))
-            print("score_result_dict:", out)
+            # print("score_result_dict:", out)
             all_out.extend(out)
         return all_out
 
@@ -605,7 +605,7 @@ class RunAndScore:
             # sorted by mean
             obj = pd.Series(cv_results[item])
             c = obj.rank(ascending=False, method="min")
-            print(c.values.astype(int))
+            # print(c.values.astype(int))
             cv_results.update({"rank_test_%s" % item: c.values.astype(int)})
 
             # # sorted by mean and std
@@ -677,7 +677,7 @@ data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 
 deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
 
-met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
+met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 
 clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit="roc_auc", n_jobs=2)
 writeRank2csv(met_grid, clf, "fit_and_score")
