@@ -35,10 +35,12 @@ SVC参数解释
 cell and feature choose
 """
 names = ['PBC', 'pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[3]
+cell_name = names[6]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
-print("experiment:", cell_name)
+method_names = ['svm', 'xgboost', 'deepforest']
+method_name = method_names[0]
+print("experiment: %s %s_%s" % (cell_name, feature_name, method_name))
 trainPath = r'../../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
 train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
 X_en = train_data[train_data.files[0]]
@@ -135,8 +137,8 @@ csv_rows_list.append(clf.cv_results_['params'])
 header.append('params')
 results = list(zip(*csv_rows_list))
 
-ex_dir_name = 'pseknc_xgboost_5flod_grid'
-file_name = r'../../ex/%s/%s_%s_xgboost_rank.csv' % (ex_dir_name, cell_name, feature_name)
+ex_dir_name = 'pseknc_svm_5flod_grid'
+file_name = r'../../ex/%s/%s_%s_svm_rank.csv' % (ex_dir_name, cell_name, feature_name)
 with open(file_name, 'wt', newline='')as f:
     f_csv = csv.writer(f, delimiter=",")
     f_csv.writerow(header)

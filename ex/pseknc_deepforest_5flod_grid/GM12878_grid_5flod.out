@@ -1,0 +1,746 @@
+nohup: ignoring input
+experiment: GM12878 pseknc_deepforest
+trainSet len: 76020
+testSet len: 4431
+Fitting 5 folds for each of 144 candidates, totalling 720 fits
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.96min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.31min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.95min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  2.01min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.96min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  3.25min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.33min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  3.26min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  3.27min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.48min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.66min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.74min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.76min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.72min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.85min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  6.12min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.39min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.25min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  6.26min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.29min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.81min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.88min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.96min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.79min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.91min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  6.97min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  7.48min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.58min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.53min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.46min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  10.09min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  8.15min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.56min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  8.27min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.30min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.76min
+/home/pbc/anaconda3/envs/ml/lib/python3.6/site-packages/joblib/externals/loky/process_executor.py:691: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  "timeout or by a memory leak.", UserWarning
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.71min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  2.05min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.41min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.74min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  2.07min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.46min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  3.23min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.30min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  3.26min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  3.23min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.88min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.66min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.97min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.72min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.74min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.20min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  6.25min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.31min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.25min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  6.23min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.45min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.85min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.47min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.85min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.44min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  7.33min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.63min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.56min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.52min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  6.94min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  8.08min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.35min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  9.41min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  9.40min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  10.09min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  10.57min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.95min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.68min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  10.70min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  2.10min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  1.99min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.70min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  2.04min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.46min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  3.27min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  3.30min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.53min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  3.24min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.30min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.69min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.62min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.72min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.68min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.64min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  5.23min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  6.38min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  5.30min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  6.36min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  5.26min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.75min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.04min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.84min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.89min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.95min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.55min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.53min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  7.00min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  7.47min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.57min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  9.44min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  9.28min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  10.12min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  9.47min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  9.35min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  10.12min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  10.80min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.93min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.69min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  10.85min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.94min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.48min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.63min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.61min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  11.31min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.59min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.64min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  11.31min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  10.64min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  12.00min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  12.36min
+
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  9.99min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.71min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.64min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.55min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.79min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.94min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.64min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  10.72min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  11.33min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.51min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.48min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  11.11min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  11.88min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  13.84min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  10.81min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  10.17min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  10.65min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.05min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.66min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.66min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.78min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.49min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.57min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.67min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  11.29min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  10.77min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  11.54min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.58min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  13.87min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  12.22min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  11.90min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  12.36min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  12.54min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  16.00min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  12.57min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  14.06min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  13.94min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  15.12min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  15.82min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  14.00min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  14.10min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  11.74min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  15.82min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  16.40min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.94min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  16.00min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  15.29min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  2.32min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.89min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  2.05min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.97min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  2.04min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.97min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  1.97min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.45min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  3.17min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.27min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  3.24min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  3.23min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.89min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.64min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.75min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.69min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.60min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  5.13min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  6.12min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  5.16min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  6.17min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  5.03min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.77min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.01min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.82min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.84min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.97min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.46min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.51min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  7.04min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  7.43min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.48min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  9.36min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  9.36min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  10.18min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  8.30min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.33min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  16.13min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  15.30min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  15.81min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  16.47min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  2.14min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.45min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.69min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  2.05min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.40min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  3.22min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  3.23min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.48min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  3.23min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.28min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.71min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.71min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.94min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.68min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.86min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  6.08min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.25min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.10min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  6.09min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.16min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.82min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.82min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.97min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.81min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.82min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  6.98min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  7.46min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.53min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.56min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.40min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  10.02min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  8.20min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.45min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  9.47min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  9.34min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  16.37min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.76min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  16.28min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  2.08min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.38min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.69min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  3.22min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.26min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  3.24min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  3.25min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.47min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.64min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.79min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.64min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.65min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.74min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.05min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  6.07min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.17min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.11min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  6.18min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.46min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.80min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.44min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.82min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.43min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  7.39min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.55min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.51min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.47min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  7.00min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  7.94min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.37min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  9.32min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  9.40min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  10.09min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  10.56min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.77min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.61min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  10.01min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  10.69min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.83min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.65min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  10.86min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.86min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.53min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.37min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.17min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  10.15min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.72min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.69min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  10.26min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  9.69min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  10.76min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.44min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  12.70min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  12.61min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  10.54min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  14.41min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.01min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.54min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  14.60min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  13.68min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  2.13min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.92min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.97min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  1.97min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.80min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  1.85min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  1.76min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  2.86min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.98min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  2.94min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  2.95min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.19min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.17min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.30min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.26min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.51min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  10.80min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  10.15min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  10.74min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.07min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.61min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.66min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.57min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.00min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.03min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.88min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  10.59min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  9.87min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  10.60min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.72min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  13.02min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  11.35min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  10.70min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  11.30min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.41min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.70min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  14.78min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  14.10min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  14.60min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.35min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.39min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  1.97min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.23min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.54min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.872) average_precision: (test=0.926) f1: (test=0.854) roc_auc: (test=0.922) total time=  1.85min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.20min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  2.90min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.00min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  2.94min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  2.94min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.58min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.29min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.29min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.28min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  10.62min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  10.09min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.61min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.67min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.51min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.42min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.51min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.13min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  9.94min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  10.60min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.71min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.81min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  10.35min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  11.04min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  12.83min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.40min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  12.63min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  12.38min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  13.74min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  14.53min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.04min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.48min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  14.99min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.49min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.839) average_precision: (test=0.919) f1: (test=0.809) roc_auc: (test=0.914) total time=  1.87min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.16min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  2.94min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.988) f1: (test=0.914) roc_auc: (test=0.988) total time=  2.97min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.974) average_precision: (test=0.999) f1: (test=0.974) roc_auc: (test=0.999) total time=  3.19min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.910) average_precision: (test=0.988) f1: (test=0.901) roc_auc: (test=0.988) total time=  2.91min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.98min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.27min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.27min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.54min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.921) average_precision: (test=0.991) f1: (test=0.914) roc_auc: (test=0.991) total time=  4.20min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  4.25min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  5.69min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  5.72min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  4.72min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.25min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  3.44min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  5.63min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  5.69min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  5.57min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  5.63min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  4.58min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.44min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.67min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.50min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.42min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.58min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.99min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.00min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  6.50min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  6.87min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.05min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  8.59min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  8.54min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  9.21min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  7.49min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.72min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.90min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  9.93min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  9.28min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  9.82min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.15min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.26min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.24min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.45min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  5.94min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.08min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.75min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  10.56min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  10.00min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  10.66min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.75min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  12.90min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  11.35min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.948) average_precision: (test=0.996) f1: (test=0.945) roc_auc: (test=0.995) total time=  4.21min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=1.000) f1: (test=0.990) roc_auc: (test=1.000) total time=  4.77min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  5.78min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  5.66min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  5.60min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.955) average_precision: (test=0.997) f1: (test=0.953) roc_auc: (test=0.996) total time=  5.70min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.20min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.57min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.14min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.821) average_precision: (test=0.922) f1: (test=0.783) roc_auc: (test=0.922) total time=  3.59min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.989) average_precision: (test=0.995) f1: (test=0.989) roc_auc: (test=0.995) total time=  3.14min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  6.73min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.15min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.14min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  7.03min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  6.48min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  7.24min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.87min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  8.62min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  8.66min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  9.32min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  9.77min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.97min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.77min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  9.86min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  9.26min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.29min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.22min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.19min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.30min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.44min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  10.31min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.72min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.75min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  10.46min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  9.77min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  10.96min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.30min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  12.77min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.927) average_precision: (test=0.992) f1: (test=0.921) roc_auc: (test=0.992) total time=  5.61min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  5.66min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.55min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.43min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.65min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.50min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.854) average_precision: (test=0.886) f1: (test=0.829) roc_auc: (test=0.885) total time=  5.49min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.987) average_precision: (test=0.997) f1: (test=0.987) roc_auc: (test=0.997) total time=  6.44min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.845) average_precision: (test=0.906) f1: (test=0.816) roc_auc: (test=0.906) total time=  6.93min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.10min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.11min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.874) average_precision: (test=0.924) f1: (test=0.856) roc_auc: (test=0.924) total time=  6.80min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.967) average_precision: (test=1.000) f1: (test=0.966) roc_auc: (test=1.000) total time=  9.31min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.876) average_precision: (test=0.985) f1: (test=0.858) roc_auc: (test=0.985) total time=  7.57min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.81min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  8.51min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.931) average_precision: (test=0.990) f1: (test=0.926) roc_auc: (test=0.991) total time=  8.48min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.986) average_precision: (test=1.000) f1: (test=0.986) roc_auc: (test=1.000) total time=  9.23min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.880) average_precision: (test=0.989) f1: (test=0.865) roc_auc: (test=0.990) total time=  9.79min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.98min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.77min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.916) average_precision: (test=0.995) f1: (test=0.908) roc_auc: (test=0.996) total time=  10.08min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=xgboost, use_predictor=True; accuracy: (test=0.990) average_precision: (test=0.993) f1: (test=0.990) roc_auc: (test=0.993) total time=  5.38min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=0.815) average_precision: (test=0.876) f1: (test=0.774) roc_auc: (test=0.876) total time=  6.04min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.17min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  6.13min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=50, predictors=forest, use_predictor=True; accuracy: (test=0.840) average_precision: (test=0.926) f1: (test=0.810) roc_auc: (test=0.926) total time=  5.07min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=xgboost, use_predictor=True; accuracy: (test=0.986) average_precision: (test=0.997) f1: (test=0.986) roc_auc: (test=0.997) total time=  9.97min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=0.808) average_precision: (test=0.930) f1: (test=0.763) roc_auc: (test=0.930) total time=  10.60min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.74min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.82min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=100, predictors=forest, use_predictor=True; accuracy: (test=0.863) average_precision: (test=0.901) f1: (test=0.841) roc_auc: (test=0.901) total time=  10.29min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  11.04min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=xgboost, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  12.83min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.42min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.999) average_precision: (test=1.000) f1: (test=0.999) roc_auc: (test=1.000) total time=  12.60min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  12.50min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  13.78min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  14.45min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  10.84min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.873) average_precision: (test=0.972) f1: (test=0.854) roc_auc: (test=0.973) total time=  11.34min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.47min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.67min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  14.82min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  14.15min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  14.66min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.19min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=50; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  1.87min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=50; accuracy: (test=0.871) average_precision: (test=0.983) f1: (test=0.852) roc_auc: (test=0.981) total time=  1.97min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.89min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=100; accuracy: (test=0.895) average_precision: (test=0.999) f1: (test=0.882) roc_auc: (test=0.999) total time=  2.85min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=150; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  3.32min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=150; accuracy: (test=0.903) average_precision: (test=0.999) f1: (test=0.893) roc_auc: (test=0.999) total time=  4.06min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=200; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  4.34min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=50; accuracy: (test=0.836) average_precision: (test=0.994) f1: (test=0.804) roc_auc: (test=0.995) total time=  3.48min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=50; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  3.12min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=100; accuracy: (test=0.847) average_precision: (test=0.995) f1: (test=0.819) roc_auc: (test=0.996) total time=  6.57min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.95min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.45min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=150; accuracy: (test=0.913) average_precision: (test=0.999) f1: (test=0.905) roc_auc: (test=0.999) total time=  8.22min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=200; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  8.76min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=50; accuracy: (test=0.823) average_precision: (test=0.946) f1: (test=0.785) roc_auc: (test=0.944) total time=  6.44min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.16min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.72min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=100; accuracy: (test=0.862) average_precision: (test=0.996) f1: (test=0.840) roc_auc: (test=0.996) total time=  10.23min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=150; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  10.73min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=150; accuracy: (test=0.913) average_precision: (test=0.999) f1: (test=0.905) roc_auc: (test=0.999) total time=  12.43min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=200; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  13.56min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=50; accuracy: (test=0.845) average_precision: (test=0.983) f1: (test=0.816) roc_auc: (test=0.982) total time=  2.03min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.80min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.32min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.82min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=100; accuracy: (test=0.895) average_precision: (test=0.999) f1: (test=0.882) roc_auc: (test=0.999) total time=  2.83min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=150; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  3.36min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=150; accuracy: (test=0.903) average_precision: (test=0.999) f1: (test=0.893) roc_auc: (test=0.999) total time=  3.95min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=200; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  4.42min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=50; accuracy: (test=0.836) average_precision: (test=0.994) f1: (test=0.804) roc_auc: (test=0.995) total time=  3.48min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=50; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  3.17min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=100; accuracy: (test=0.847) average_precision: (test=0.995) f1: (test=0.819) roc_auc: (test=0.996) total time=  6.63min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.99min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.48min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=150; accuracy: (test=0.913) average_precision: (test=0.999) f1: (test=0.905) roc_auc: (test=0.999) total time=  8.18min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=200; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  8.82min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=50; accuracy: (test=0.823) average_precision: (test=0.946) f1: (test=0.785) roc_auc: (test=0.944) total time=  6.39min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=50; accuracy: (test=0.990) average_precision: (test=0.997) f1: (test=0.990) roc_auc: (test=0.997) total time=  5.53min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=lightgbm, use_predictor=True; accuracy: (test=0.904) average_precision: (test=0.983) f1: (test=0.894) roc_auc: (test=0.983) total time=  12.90min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=150, predictors=forest, use_predictor=True; accuracy: (test=0.988) average_precision: (test=0.998) f1: (test=0.988) roc_auc: (test=0.998) total time=  10.65min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=0.885) average_precision: (test=0.977) f1: (test=0.870) roc_auc: (test=0.978) total time=  14.54min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=xgboost, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.00min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.72min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  14.68min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.983) average_precision: (test=1.000) f1: (test=0.983) roc_auc: (test=1.000) total time=  13.68min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=50; accuracy: (test=0.845) average_precision: (test=0.983) f1: (test=0.816) roc_auc: (test=0.982) total time=  2.07min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.74min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.30min
+[CV 3/5] END max_layers=20, n_estimators=2, n_trees=100; accuracy: (test=0.978) average_precision: (test=1.000) f1: (test=0.977) roc_auc: (test=1.000) total time=  3.09min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=150; accuracy: (test=0.874) average_precision: (test=0.997) f1: (test=0.855) roc_auc: (test=0.998) total time=  3.99min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.12min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.41min
+[CV 5/5] END max_layers=20, n_estimators=2, n_trees=200; accuracy: (test=0.908) average_precision: (test=0.999) f1: (test=0.899) roc_auc: (test=0.999) total time=  5.24min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.53min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.92min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=100; accuracy: (test=0.880) average_precision: (test=0.998) f1: (test=0.864) roc_auc: (test=0.998) total time=  6.84min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=150; accuracy: (test=0.982) average_precision: (test=1.000) f1: (test=0.982) roc_auc: (test=1.000) total time=  9.11min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=200; accuracy: (test=0.855) average_precision: (test=0.998) f1: (test=0.831) roc_auc: (test=0.999) total time=  9.57min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.12min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.19min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=50; accuracy: (test=0.848) average_precision: (test=0.994) f1: (test=0.821) roc_auc: (test=0.994) total time=  4.97min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=100; accuracy: (test=0.988) average_precision: (test=1.000) f1: (test=0.988) roc_auc: (test=1.000) total time=  9.76min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=150; accuracy: (test=0.856) average_precision: (test=0.998) f1: (test=0.832) roc_auc: (test=0.999) total time=  10.74min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.45min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.42min
+[CV 5/5] END max_layers=20, n_estimators=8, n_trees=200; accuracy: (test=0.876) average_precision: (test=0.999) f1: (test=0.858) roc_auc: (test=1.000) total time=  14.87min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=100; accuracy: (test=0.866) average_precision: (test=0.997) f1: (test=0.845) roc_auc: (test=0.998) total time=  2.81min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.85min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.06min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=200; accuracy: (test=0.886) average_precision: (test=0.998) f1: (test=0.872) roc_auc: (test=0.999) total time=  5.27min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.43min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.55min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=50; accuracy: (test=0.853) average_precision: (test=0.917) f1: (test=0.828) roc_auc: (test=0.914) total time=  5.44min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=100; accuracy: (test=0.988) average_precision: (test=1.000) f1: (test=0.988) roc_auc: (test=1.000) total time=  6.42min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=150; accuracy: (test=0.858) average_precision: (test=0.998) f1: (test=0.834) roc_auc: (test=0.999) total time=  7.25min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.49min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.59min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=200; accuracy: (test=0.879) average_precision: (test=0.999) f1: (test=0.863) roc_auc: (test=1.000) total time=  9.76min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.16min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.69min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=100; accuracy: (test=0.862) average_precision: (test=0.996) f1: (test=0.840) roc_auc: (test=0.996) total time=  10.31min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=150; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  10.83min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=150; accuracy: (test=0.913) average_precision: (test=0.999) f1: (test=0.905) roc_auc: (test=0.999) total time=  12.59min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=200; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  13.66min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=lightgbm, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.93min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.55min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=200, predictors=forest, use_predictor=True; accuracy: (test=0.914) average_precision: (test=0.989) f1: (test=0.906) roc_auc: (test=0.989) total time=  15.17min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=100; accuracy: (test=0.866) average_precision: (test=0.997) f1: (test=0.845) roc_auc: (test=0.998) total time=  2.81min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.87min
+[CV 2/5] END max_layers=20, n_estimators=2, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.00min
+[CV 1/5] END max_layers=20, n_estimators=2, n_trees=200; accuracy: (test=0.886) average_precision: (test=0.998) f1: (test=0.872) roc_auc: (test=0.999) total time=  5.20min
+[CV 4/5] END max_layers=20, n_estimators=2, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.42min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.45min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=50; accuracy: (test=0.853) average_precision: (test=0.917) f1: (test=0.828) roc_auc: (test=0.914) total time=  5.37min
+[CV 3/5] END max_layers=20, n_estimators=5, n_trees=100; accuracy: (test=0.988) average_precision: (test=1.000) f1: (test=0.988) roc_auc: (test=1.000) total time=  6.36min
+[CV 1/5] END max_layers=20, n_estimators=5, n_trees=150; accuracy: (test=0.858) average_precision: (test=0.998) f1: (test=0.834) roc_auc: (test=0.999) total time=  7.13min
+[CV 4/5] END max_layers=20, n_estimators=5, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.49min
+[CV 2/5] END max_layers=20, n_estimators=5, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.58min
+[CV 5/5] END max_layers=20, n_estimators=5, n_trees=200; accuracy: (test=0.879) average_precision: (test=0.999) f1: (test=0.863) roc_auc: (test=1.000) total time=  9.80min
+[CV 3/5] END max_layers=20, n_estimators=8, n_trees=50; accuracy: (test=0.990) average_precision: (test=0.997) f1: (test=0.990) roc_auc: (test=0.997) total time=  5.50min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=100; accuracy: (test=0.814) average_precision: (test=0.989) f1: (test=0.773) roc_auc: (test=0.990) total time=  10.35min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.58min
+[CV 2/5] END max_layers=20, n_estimators=8, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  12.61min
+[CV 1/5] END max_layers=20, n_estimators=8, n_trees=200; accuracy: (test=0.854) average_precision: (test=0.998) f1: (test=0.829) roc_auc: (test=0.999) total time=  14.34min
+[CV 4/5] END max_layers=20, n_estimators=8, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.21min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=50; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  1.83min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=50; accuracy: (test=0.871) average_precision: (test=0.983) f1: (test=0.852) roc_auc: (test=0.981) total time=  1.77min
+[CV 3/5] END max_layers=50, n_estimators=2, n_trees=100; accuracy: (test=0.978) average_precision: (test=1.000) f1: (test=0.977) roc_auc: (test=1.000) total time=  3.01min
+[CV 1/5] END max_layers=50, n_estimators=2, n_trees=150; accuracy: (test=0.874) average_precision: (test=0.997) f1: (test=0.855) roc_auc: (test=0.998) total time=  3.97min
+[CV 4/5] END max_layers=50, n_estimators=2, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.00min
+[CV 2/5] END max_layers=50, n_estimators=2, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.36min
+[CV 5/5] END max_layers=50, n_estimators=2, n_trees=200; accuracy: (test=0.908) average_precision: (test=0.999) f1: (test=0.899) roc_auc: (test=0.999) total time=  5.28min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.51min
+[CV 2/5] END max_layers=50, n_estimators=5, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.89min
+[CV 5/5] END max_layers=50, n_estimators=5, n_trees=100; accuracy: (test=0.880) average_precision: (test=0.998) f1: (test=0.864) roc_auc: (test=0.998) total time=  6.74min
+[CV 3/5] END max_layers=50, n_estimators=5, n_trees=150; accuracy: (test=0.982) average_precision: (test=1.000) f1: (test=0.982) roc_auc: (test=1.000) total time=  9.02min
+[CV 1/5] END max_layers=50, n_estimators=5, n_trees=200; accuracy: (test=0.855) average_precision: (test=0.998) f1: (test=0.831) roc_auc: (test=0.999) total time=  9.49min
+[CV 4/5] END max_layers=50, n_estimators=5, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.03min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.22min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=50; accuracy: (test=0.848) average_precision: (test=0.994) f1: (test=0.821) roc_auc: (test=0.994) total time=  4.91min
+[CV 3/5] END max_layers=50, n_estimators=8, n_trees=100; accuracy: (test=0.988) average_precision: (test=1.000) f1: (test=0.988) roc_auc: (test=1.000) total time=  9.73min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=150; accuracy: (test=0.856) average_precision: (test=0.998) f1: (test=0.832) roc_auc: (test=0.999) total time=  10.69min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.41min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.26min
+[CV 5/5] END max_layers=50, n_estimators=8, n_trees=200; accuracy: (test=0.876) average_precision: (test=0.999) f1: (test=0.858) roc_auc: (test=1.000) total time=  14.95min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=100; accuracy: (test=0.866) average_precision: (test=0.997) f1: (test=0.845) roc_auc: (test=0.998) total time=  2.73min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.81min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.10min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=150; accuracy: (test=0.903) average_precision: (test=0.999) f1: (test=0.893) roc_auc: (test=0.999) total time=  4.01min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=200; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  4.33min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=50; accuracy: (test=0.836) average_precision: (test=0.994) f1: (test=0.804) roc_auc: (test=0.995) total time=  3.43min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=50; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  3.14min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=100; accuracy: (test=0.847) average_precision: (test=0.995) f1: (test=0.819) roc_auc: (test=0.996) total time=  6.59min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.96min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  8.42min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=150; accuracy: (test=0.913) average_precision: (test=0.999) f1: (test=0.905) roc_auc: (test=0.999) total time=  8.17min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=200; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  8.80min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=50; accuracy: (test=0.823) average_precision: (test=0.946) f1: (test=0.785) roc_auc: (test=0.944) total time=  6.50min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.22min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.65min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=100; accuracy: (test=0.862) average_precision: (test=0.996) f1: (test=0.840) roc_auc: (test=0.996) total time=  10.13min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=150; accuracy: (test=0.992) average_precision: (test=1.000) f1: (test=0.992) roc_auc: (test=1.000) total time=  10.78min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=150; accuracy: (test=0.913) average_precision: (test=0.999) f1: (test=0.905) roc_auc: (test=0.999) total time=  12.32min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=200; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  13.38min
+write rank test to csv!!!
+write over!!!
+Start prediction!!!
+Performance evaluation!!!
+AUC :  0.7768637272298466
+AUPR :  0.5757673737820924
+acc: 0.9758519521552697
+total: 4431 	acc num: 4325 	TP: 105 	TN: 4220 	FP: 0 	FN: 106
+acc:  0.9760776348454073
+precision: 1.0
+recall: 0.4976303317535545
+F1-score: 0.6645569620253164
+count:  4324
+acc:  0.9758519521552697
+
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=50; accuracy: (test=0.845) average_precision: (test=0.983) f1: (test=0.816) roc_auc: (test=0.982) total time=  2.15min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.74min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.21min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  2.80min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=100; accuracy: (test=0.895) average_precision: (test=0.999) f1: (test=0.882) roc_auc: (test=0.999) total time=  2.77min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=150; accuracy: (test=0.991) average_precision: (test=1.000) f1: (test=0.991) roc_auc: (test=1.000) total time=  3.37min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=200; accuracy: (test=0.886) average_precision: (test=0.998) f1: (test=0.872) roc_auc: (test=0.999) total time=  5.19min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.45min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  3.53min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=50; accuracy: (test=0.853) average_precision: (test=0.917) f1: (test=0.828) roc_auc: (test=0.914) total time=  5.40min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=100; accuracy: (test=0.988) average_precision: (test=1.000) f1: (test=0.988) roc_auc: (test=1.000) total time=  6.38min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=150; accuracy: (test=0.858) average_precision: (test=0.998) f1: (test=0.834) roc_auc: (test=0.999) total time=  7.06min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  7.71min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  9.67min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=200; accuracy: (test=0.879) average_precision: (test=0.999) f1: (test=0.863) roc_auc: (test=1.000) total time=  9.80min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=50; accuracy: (test=0.990) average_precision: (test=0.997) f1: (test=0.990) roc_auc: (test=0.997) total time=  5.61min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=100; accuracy: (test=0.814) average_precision: (test=0.989) f1: (test=0.773) roc_auc: (test=0.990) total time=  10.35min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.56min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  12.81min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=200; accuracy: (test=0.854) average_precision: (test=0.998) f1: (test=0.829) roc_auc: (test=0.999) total time=  14.40min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.07min
+
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=100; accuracy: (test=0.814) average_precision: (test=0.989) f1: (test=0.773) roc_auc: (test=0.990) total time=  10.30min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.57min
+[CV 2/5] END max_layers=50, n_estimators=8, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  12.64min
+[CV 1/5] END max_layers=50, n_estimators=8, n_trees=200; accuracy: (test=0.854) average_precision: (test=0.998) f1: (test=0.829) roc_auc: (test=0.999) total time=  14.42min
+[CV 4/5] END max_layers=50, n_estimators=8, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  15.30min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=50; accuracy: (test=0.990) average_precision: (test=0.999) f1: (test=0.990) roc_auc: (test=0.999) total time=  1.83min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=50; accuracy: (test=0.871) average_precision: (test=0.983) f1: (test=0.852) roc_auc: (test=0.981) total time=  1.76min
+[CV 3/5] END max_layers=80, n_estimators=2, n_trees=100; accuracy: (test=0.978) average_precision: (test=1.000) f1: (test=0.977) roc_auc: (test=1.000) total time=  2.99min
+[CV 1/5] END max_layers=80, n_estimators=2, n_trees=150; accuracy: (test=0.874) average_precision: (test=0.997) f1: (test=0.855) roc_auc: (test=0.998) total time=  3.97min
+[CV 4/5] END max_layers=80, n_estimators=2, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.06min
+[CV 2/5] END max_layers=80, n_estimators=2, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.31min
+[CV 5/5] END max_layers=80, n_estimators=2, n_trees=200; accuracy: (test=0.908) average_precision: (test=0.999) f1: (test=0.899) roc_auc: (test=0.999) total time=  5.28min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  4.51min
+[CV 2/5] END max_layers=80, n_estimators=5, n_trees=100; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  5.98min
+[CV 5/5] END max_layers=80, n_estimators=5, n_trees=100; accuracy: (test=0.880) average_precision: (test=0.998) f1: (test=0.864) roc_auc: (test=0.998) total time=  6.70min
+[CV 3/5] END max_layers=80, n_estimators=5, n_trees=150; accuracy: (test=0.982) average_precision: (test=1.000) f1: (test=0.982) roc_auc: (test=1.000) total time=  9.14min
+[CV 1/5] END max_layers=80, n_estimators=5, n_trees=200; accuracy: (test=0.855) average_precision: (test=0.998) f1: (test=0.831) roc_auc: (test=0.999) total time=  9.58min
+[CV 4/5] END max_layers=80, n_estimators=5, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  10.03min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=50; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  6.22min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=50; accuracy: (test=0.848) average_precision: (test=0.994) f1: (test=0.821) roc_auc: (test=0.994) total time=  5.01min
+[CV 3/5] END max_layers=80, n_estimators=8, n_trees=100; accuracy: (test=0.988) average_precision: (test=1.000) f1: (test=0.988) roc_auc: (test=1.000) total time=  9.65min
+[CV 1/5] END max_layers=80, n_estimators=8, n_trees=150; accuracy: (test=0.856) average_precision: (test=0.998) f1: (test=0.832) roc_auc: (test=0.999) total time=  10.65min
+[CV 4/5] END max_layers=80, n_estimators=8, n_trees=150; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  11.39min
+[CV 2/5] END max_layers=80, n_estimators=8, n_trees=200; accuracy: (test=1.000) average_precision: (test=1.000) f1: (test=1.000) roc_auc: (test=1.000) total time=  14.34min
+[CV 5/5] END max_layers=80, n_estimators=8, n_trees=200; accuracy: (test=0.876) average_precision: (test=0.999) f1: (test=0.858) roc_auc: (test=1.000) total time=  12.86min
+/home/pbc/anaconda3/envs/ml/lib/python3.6/site-packages/joblib/externals/loky/backend/resource_tracker.py:304: UserWarning: resource_tracker: /dev/shm/joblib_memmapping_folder_203268_53de60e024dd41cf9681f15a5c835ca0_8bee83942e5747f4afbab72cf109c2f8/203268-139897597652104-2bd9f5cd092f44e5bfbe5f35daf5d0b2.pkl: FileNotFoundError(2, 'No such file or directory')
+  'resource_tracker: %s: %r' % (name, e))

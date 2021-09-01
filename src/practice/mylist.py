@@ -17,3 +17,8 @@ print(type(v),
       isinstance(v, str))
 a = ["a", "b"]
 print(type(a), isinstance(a, list))
+
+# 2-dim
+
+a = np.array([[1, 2], [3, 4], [5, 6]])
+print(a[:, 1])
