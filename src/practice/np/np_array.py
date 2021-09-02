@@ -8,3 +8,6 @@ b = np.array([2])
 
 print(b.mean())
 print(b.std())
+
+b = np.array([[1, 4, 3], [4, 7, 6]])
+print(b.flatten())

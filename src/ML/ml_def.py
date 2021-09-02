@@ -72,6 +72,7 @@ def get_scoring_result(scoring, y, y_pred, y_prob, y_score=None, is_base_score=T
         recall = recall_score(y, y_pred)
         score_result_dict.update({"total": len(y), "TP": TP, "TN": TN, "FP": FP, "FN": FN, "precision": precision,
                                   "recall": recall})
+        process_msg += "total=%s, TP=%s, TN=%s, FP=%s, FN=%s\n" % (len(y), TP, TN, FP, FN)
     for k, v in score_dict.items():
         score_func = getattr(module_name, k)
         sig = signature(score_func)
@@ -129,7 +130,7 @@ def writeCVRank2csv(met_grid, clf, dir_name, index=None):
         f.close()
 
 
-def writeRank2csv(met_grid, clf, dir_name, index=None):
+def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index=None):
     print("write rank test to csv!!!")
     csv_rows_list = []
     header = []
@@ -443,7 +444,7 @@ class MyGridSearchCV:
 
 class RunAndScore:
 
-    def __init__(self, data_list_dict, estimator, parameters, scoring, refit, n_jobs, ):
+    def __init__(self, data_list_dict, estimator, parameters, scoring, refit, n_jobs):
         self.n_jobs = n_jobs
         self.estimator = estimator
         self.scoring = scoring
@@ -453,7 +454,7 @@ class RunAndScore:
 
         self.all_out = self.run_and_score()
         self.cv_results_ = self.get_cv_results()
-        self.best_estimator_params_ = self.get_best_estimator_params()
+        self.best_estimator_params_idx_, self.best_estimator_params_ = self.get_best_estimator_params()
         self.best_estimator_ = self.get_best_estimator()
 
     def model_fit(self, estimator, train_X, train_y):
@@ -530,7 +531,7 @@ class RunAndScore:
         process_msg += score_result_msg
         process_msg += time_since(start)
         print(process_msg)
-        print([params, score_result_dict])
+        # print([params, score_result_dict])
         return [params, score_result_dict]
 
     def run_and_score(self):
@@ -617,7 +618,7 @@ class RunAndScore:
     def get_best_estimator_params(self):
         if isinstance(self.refit, str):
             idx = list(self.cv_results_["rank_test_%s" % self.refit]).index(1)
-        return self.cv_results_["params"][idx]
+        return idx, self.cv_results_["params"][idx]
 
     def get_best_estimator(self):
         estimator = copy.deepcopy(self.estimator)
@@ -626,58 +627,61 @@ class RunAndScore:
         return estimator
 
 
-"""
-params
-"""
-parameters = [
-    {
-        'n_estimators': [2, 5, 8],
-        'n_trees': [50, 100, 150, 200],
-        'predictors': ['xgboost', 'lightgbm', 'forest'],
-        'max_layers': [20, 50, 80],
-        'use_predictor': [True]
-    },
-    {
-        'n_estimators': [2, 5, 8],
-        'n_trees': [50, 100, 150, 200],
-        'max_layers': [20, 50, 80]
-    },
-]
-parameters = [
+if __name__ == '__main__':
+    """
+    params
+    """
+    parameters = [
+        {
+            'n_estimators': [2, 5, 8],
+            'n_trees': [50, 100, 150, 200],
+            'predictors': ['xgboost', 'lightgbm', 'forest'],
+            'max_layers': [20, 50, 80],
+            'use_predictor': [True]
+        },
+        {
+            'n_estimators': [2, 5, 8],
+            'n_trees': [50, 100, 150, 200],
+            'max_layers': [20, 50, 80]
+        },
+    ]
+    parameters = [
 
-    {
-        'n_estimators': [2, 4],
-        # 'max_layers': [layer for layer in range(20, 40, 10)],
-        'predictors': ['xgboost', 'lightgbm', 'forest'],
-        'use_predictor': [True]
-    },
+        {
+            'n_estimators': [2, 4],
+            # 'max_layers': [layer for layer in range(20, 40, 10)],
+            'predictors': ['xgboost', 'lightgbm', 'forest'],
+            'use_predictor': [True]
+        },
 
-]
-# parameters = [
-#
-#     {
-#         'n_estimators': [2],
-#         'max_layers': [30],
-#         'predictors': ['xgboost'],
-#         'use_predictor': [True]
-#     },
-#
-# ]
+    ]
+    # parameters = [
+    #
+    #     {
+    #         'n_estimators': [2],
+    #         'max_layers': [30],
+    #         'predictors': ['xgboost'],
+    #         'use_predictor': [True]
+    #     },
+    #
+    # ]
 
-"""
-cell and feature choose
-"""
-names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[1]
-feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[0]
-method_names = ['svm', 'xgboost', 'deepforest']
-method_name = method_names[2]
-data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
+    """
+    cell and feature choose
+    """
+    names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
+    cell_name = names[1]
+    feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
+    feature_name = feature_names[0]
+    method_names = ['svm', 'xgboost', 'deepforest']
+    method_name = method_names[2]
+    dir_name = "run_and_score"
 
-deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
+    data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 
-met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
+    deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
 
-clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit="roc_auc", n_jobs=2)
-writeRank2csv(met_grid, clf, "fit_and_score")
+    met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
+
+    clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit="roc_auc", n_jobs=2)
+    writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)

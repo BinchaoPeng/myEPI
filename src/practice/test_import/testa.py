@@ -1,0 +1,2 @@
+def gg():
+    print("gg")
