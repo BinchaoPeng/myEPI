@@ -1,3 +1,5 @@
+import numpy as np
+
 score_dict = {'a': 2, 'd': 1, 'b': 2}
 score_dict = sorted(score_dict.items(), key=lambda x: x[0], reverse=False)
 score_dict = dict(score_dict)
@@ -14,3 +16,11 @@ b.clear()
 
 print(b)
 print(ATGC_base)
+
+score_dict = {"A": {'a': 2, 'd': 1, 'b': 2}}
+print(score_dict["A"]["d"])
+
+li = ['a', 'b']
+l = np.zeros(len(li))
+print(l)
+print(dict(zip(li, l)))

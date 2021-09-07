@@ -106,9 +106,9 @@ parameters = [
 #     }
 # ]
 
-svc = SVC(probability=True, n_jobs=6)  # 调参
+svc = SVC(probability=True, n_jobs=3)  # 调参
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy']
-clf = GridSearchCV(svc, parameters, cv=5, n_jobs=1, scoring=met_grid, refit='roc_auc', verbose=3)
+clf = GridSearchCV(svc, parameters, cv=5, n_jobs=2, scoring=met_grid, refit='roc_auc', verbose=3)
 print("Start Fit!!!")
 clf.fit(train_X, train_y)
 print("Found the BEST param!!!")

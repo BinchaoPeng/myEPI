@@ -10,8 +10,7 @@ import numpy as np
 import pandas as pd
 from deepforest import CascadeForestClassifier
 from joblib import Parallel, delayed
-from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score, f1_score, precision_score, \
-    confusion_matrix, plot_confusion_matrix, recall_score, balanced_accuracy_score
+from sklearn.metrics import precision_score, confusion_matrix, recall_score
 from sklearn.model_selection import ParameterGrid, StratifiedKFold
 
 
@@ -476,7 +475,7 @@ class RunAndScore:
         y_pred = model.predict(test_X)
         return y_pred
 
-    def model_predict_prob(self, model, test_X):
+    def model_predict_proba(self, model, test_X):
         """
         get y_prob_temp
         :param model:
@@ -511,9 +510,9 @@ class RunAndScore:
         start = time.time()
         deep_forest = copy.deepcopy(self.estimator)
         model = self.set_estimator_params(deep_forest, params)
-        model.fit(self.data_list_dict["train_X"], self.data_list_dict["train_y"])
-        y_pred = model.predict(self.data_list_dict["test_X"])
-        y_pred_prob_temp = model.predict_proba(self.data_list_dict["test_X"])
+        self.model_fit(model, self.data_list_dict["train_X"], self.data_list_dict["train_y"])
+        y_pred = self.model_predict(model, self.data_list_dict["test_X"])
+        y_pred_prob_temp = self.model_predict_proba(model, self.data_list_dict["test_X"])
         y_pred_prob = []
         if (y_pred[0] == 1 and y_pred_prob_temp[0][0] >= 0.5) or (y_pred[0] == 0 and y_pred_prob_temp[0][0] < 0.5):
             y_pred_prob = y_pred_prob_temp[:, 0]
@@ -655,16 +654,6 @@ if __name__ == '__main__':
         },
 
     ]
-    # parameters = [
-    #
-    #     {
-    #         'n_estimators': [2],
-    #         'max_layers': [30],
-    #         'predictors': ['xgboost'],
-    #         'use_predictor': [True]
-    #     },
-    #
-    # ]
 
     """
     cell and feature choose

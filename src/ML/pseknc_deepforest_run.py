@@ -4,13 +4,15 @@ root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
 
 from deepforest import CascadeForestClassifier
-from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore
+from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
+import time
 
+start_time = time.time()
 """
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[1]
+cell_name = names[5]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 method_names = ['svm', 'xgboost', 'deepforest']
@@ -64,7 +66,7 @@ writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
 print("best params found in line [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 2))
-
+print("total time spending:", time_since(start_time))
 """
 param doc
 {'n_bins': 255, 'bin_subsample': 200000, 'bin_type': 'percentile', 'max_layers': 20, 
