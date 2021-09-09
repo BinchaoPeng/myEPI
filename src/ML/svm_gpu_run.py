@@ -1,7 +1,9 @@
-import sys, os
-import warnings
+import os
+import sys
 
-warnings.filterwarnings("ignore")
+# import warnings
+#
+# warnings.filterwarnings("ignore")
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
 
@@ -45,7 +47,7 @@ feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', '
 feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[0]
-dir_names = ["run", "5fold_grid"]
+dir_names = ["run_and_score", "5fold_grid"]
 dir_name = dir_names[0]
 
 ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
@@ -83,11 +85,11 @@ parameters = [
 # ]
 
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
-svc = SVC(probability=True, n_jobs=3)  # 调参
+svc = SVC(probability=True, n_jobs=1)  # 调参
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 refit = "roc_auc"
-clf = RunAndScore(data_list_dict, svc, parameters, met_grid, refit=refit, n_jobs=1)
+clf = RunAndScore(data_list_dict, svc, parameters, met_grid, refit=refit, n_jobs=2)
 writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
