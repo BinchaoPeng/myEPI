@@ -110,11 +110,12 @@ en_fasta
 pr_fasta
 
 method:
-CKSNAP, K=[0,1,2,3,4,5]
+DPCP
+set_pc_list
 
 process:
-en_fasta [n,3000] ---> en_cksnap [n,96]
-pr_fasta [n,2000] ---> pr_cksnap [n,96]
+en_fasta [n,3000] ---> en_cksnap [n,336]
+pr_fasta [n,2000] ---> pr_cksnap [n,336]
 
 output:
 en_cksnap,pr_cksnap,y

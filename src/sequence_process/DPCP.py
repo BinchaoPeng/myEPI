@@ -17,7 +17,8 @@ class DPCP:
     - f(a)：二元组核苷酸频率
 
     即,格式为:
-    [PC_1_AA x f(AA),PC_1_AC x f(AA), ... , PC_1_TT x f(AA), ... , PC_n_AA x f(TT), ... , PC_n_TT x f(TT)]
+    [PC_1_AA x f(AA),PC_1_AC x f(AC), ... , PC_1_TT x f(TT), ... , PC_n_AA x f(AA), ... , PC_n_TT x f(TT)]
+    [N_sample, n x 16]
     """
 
     def __init__(self, kmer, set_pc_list, pc_dict, n_jobs):

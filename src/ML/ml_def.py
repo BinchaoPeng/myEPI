@@ -141,7 +141,6 @@ def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name,
     csv_rows_list.append(clf.cv_results_['params'])
     header.append('params')
     results = list(zip(*csv_rows_list))
-    print("write over!!!")
 
     ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
     if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
@@ -157,6 +156,7 @@ def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name,
         f_csv.writerow(header)
         f_csv.writerows(results)
         f.close()
+    print("write over!!!")
 
 
 def time_since(start):
@@ -181,7 +181,7 @@ class MyGridSearchCV:
         self.n_jobs = n_jobs
         self.cv = cv
         self.estimator = estimator
-        self.scoring = scoring
+        self.scoring = sorted(scoring)
         self.refit = refit
 
         self.data_list = self.get_CV_data(train_X, train_y)
@@ -446,7 +446,7 @@ class RunAndScore:
     def __init__(self, data_list_dict, estimator, parameters, scoring, refit, n_jobs):
         self.n_jobs = n_jobs
         self.estimator = estimator
-        self.scoring = scoring
+        self.scoring = sorted(scoring)
         self.refit = refit
         self.data_list_dict = data_list_dict
         self.candidate_params = self.get_candidate_params(parameters)
