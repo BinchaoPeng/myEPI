@@ -1,3 +1,10 @@
+import sys, os
+import warnings
+
+warnings.filterwarnings("ignore")
+root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
+sys.path.extend([root_path[0] + 'src'])
+
 import math
 
 from sklearnex import patch_sklearn
@@ -27,24 +34,25 @@ SVC参数解释
  ★predict()方法：基于以上的训练，对预测样本T进行类别预测，因此只需要接收一个测试集T，该函数返回一个数组表示个测试样本的类别。
 """
 
-import sys, os
-
 from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore
-
-root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
-sys.path.extend([root_path[0] + 'src'])
 
 """
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[0]
+cell_name = names[1]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
-method_name = method_names[1]
-dir_names = ["run_and_score", "5fold_grid"]
-dir_name = "run_and_score"
+method_name = method_names[0]
+dir_names = ["run", "5fold_grid"]
+dir_name = dir_names[0]
+
+ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
+if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
+    os.mkdir(r'../../ex/%s/' % ex_dir_name)
+    os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
+    print("created ex folder!!!")
 
 """
 params
