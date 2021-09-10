@@ -1,9 +1,9 @@
 import os
 import sys
 
-# import warnings
-#
-# warnings.filterwarnings("ignore")
+import warnings
+
+warnings.filterwarnings("ignore")
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
 

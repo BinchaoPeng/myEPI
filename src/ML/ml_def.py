@@ -70,9 +70,10 @@ def get_scoring_result(scoring, y, y_pred, y_prob, y_score=None, is_base_score=T
         TN, FP, FN, TP = confusion_matrix(y, y_pred).ravel()
         precision = precision_score(y, y_pred)
         recall = recall_score(y, y_pred)
-        score_result_dict.update({"total": len(y), "TP": TP, "TN": TN, "FP": FP, "FN": FN, "precision": precision,
+        score_result_dict.update({"Total": len(y), "TP": TP, "TN": TN, "FP": FP, "FN": FN, "precision": precision,
                                   "recall": recall})
-        process_msg += "total=%s, TP=%s, TN=%s, FP=%s, FN=%s\n" % (len(y), TP, TN, FP, FN)
+        process_msg += "total=%s, TP=%s, TN=%s, FP=%s, FN=%s; precision=%.3f, recall=%.3f\n" \
+                       % (len(y), TP, TN, FP, FN, precision, recall)
     for k, v in score_dict.items():
         score_func = getattr(module_name, k)
         sig = signature(score_func)
@@ -444,8 +445,9 @@ class MyGridSearchCV:
 
 class RunAndScore:
 
-    def __init__(self, data_list_dict, estimator, parameters, scoring, refit, n_jobs):
+    def __init__(self, data_list_dict, estimator, parameters, scoring, refit, n_jobs, verbose=0):
         self.n_jobs = n_jobs
+        self.verbose = verbose
         self.estimator = estimator
         self.scoring = sorted(scoring)
         self.refit = refit
@@ -456,6 +458,7 @@ class RunAndScore:
         self.cv_results_ = self.get_cv_results()
         self.best_estimator_params_idx_, self.best_estimator_params_ = self.get_best_estimator_params()
         self.best_estimator_ = self.get_best_estimator()
+        self.best_scoring_result = self.get_best_scoring_result()
 
     def model_fit(self, estimator, train_X, train_y):
         """
@@ -492,16 +495,18 @@ class RunAndScore:
         :param params:
         :return:
         """
-        print("set params:", params)
-        if isinstance(estimator,lightgbm.sklearn.LGBMClassifier):
+        if self.verbose > 0:
+            print("set params:", params)
+        if isinstance(estimator, lightgbm.sklearn.LGBMClassifier):
             estimator.set_params(**params)
         else:
             for k, v in params.items():
                 setattr(estimator, k, v)
-        if isinstance(estimator, lightgbm.sklearn.LGBMClassifier):
-            print(estimator.get_params())
-        else:
-            print(estimator.__dict__)
+        if self.verbose > 0:
+            if isinstance(estimator, lightgbm.sklearn.LGBMClassifier):
+                print(estimator.get_params())
+            else:
+                print(estimator.__dict__)
         return estimator
 
     def get_candidate_params(self, parameters):
@@ -632,6 +637,17 @@ class RunAndScore:
         estimator = self.set_estimator_params(estimator, self.best_estimator_params_)
         self.model_fit(estimator, self.data_list_dict["train_X"], self.data_list_dict["train_y"])
         return estimator
+
+    def get_best_scoring_result(self):
+        process_msg = "["
+        result = self.all_out[self.best_estimator_params_idx_ - 1]
+
+        for k, v in result[1].items():
+            if isinstance(v,int):
+                process_msg += "%s: (test=%d) " % (k, v)
+            else:
+                process_msg += "%s: (test=%.3f) " % (k, v)
+        return process_msg+"]"
 
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import warnings
+
 start_time = time.time()
 
 warnings.filterwarnings("ignore")
@@ -9,12 +10,13 @@ root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
 
 import lightgbm
-from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore,time_since
+from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
+
 """
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[1]
+cell_name = names[2]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
@@ -28,11 +30,13 @@ def lgb_grid_greedy(cv_params, other_params, index):
     print(base_lgb.get_params())
     refit = "roc_auc"
     met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
-    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=1)
+    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=1, verbose=0)
 
     print("clf.best_estimator_params:", clf.best_estimator_params_)
     print("best params found in fit [{1}] for metric [{0}] in rank file".format(refit,
                                                                                 clf.best_estimator_params_idx_ + 1))
+    print("clf.best_scoring_result:", clf.best_scoring_result)
+
     writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index)
 
     return clf.best_estimator_params_
@@ -73,8 +77,8 @@ data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 
 # 第一次：max_depth、num_leaves
 print("第一次")
-cv_params = {'max_depth': [-1, 0, 3, 4, 5, 6, 7, 8], 'num_leaves': range(21, 200, 10)}
-# cv_params = {'max_depth': range(3, 8, 4), 'num_leaves': range(5, 100, 45)}
+cv_params = {'max_depth': [-1, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 'num_leaves': range(221, 350, 10)}
+cv_params = {'max_depth': [-1], 'num_leaves': [191]}
 best_params = lgb_grid_greedy(cv_params, other_params, '1')
 other_params.update(best_params)
 
