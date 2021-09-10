@@ -6,6 +6,7 @@ import time
 from inspect import signature
 from itertools import product
 
+import lightgbm
 import numpy as np
 import pandas as pd
 from deepforest import CascadeForestClassifier
@@ -491,9 +492,16 @@ class RunAndScore:
         :param params:
         :return:
         """
-        # print("set params:", params)
-        for k, v in params.items():
-            setattr(estimator, k, v)
+        print("set params:", params)
+        if isinstance(estimator,lightgbm.sklearn.LGBMClassifier):
+            estimator.set_params(**params)
+        else:
+            for k, v in params.items():
+                setattr(estimator, k, v)
+        if isinstance(estimator, lightgbm.sklearn.LGBMClassifier):
+            print(estimator.get_params())
+        else:
+            print(estimator.__dict__)
         return estimator
 
     def get_candidate_params(self, parameters):

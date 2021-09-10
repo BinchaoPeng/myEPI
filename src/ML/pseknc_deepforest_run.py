@@ -1,4 +1,7 @@
 import sys, os
+import warnings
+
+warnings.filterwarnings("ignore")
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
@@ -12,7 +15,7 @@ start_time = time.time()
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[1]
+cell_name = names[2]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest']

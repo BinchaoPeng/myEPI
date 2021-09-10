@@ -89,7 +89,7 @@ svc = SVC(probability=True, n_jobs=1)  # 调参
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 refit = "roc_auc"
-clf = RunAndScore(data_list_dict, svc, parameters, met_grid, refit=refit, n_jobs=2)
+clf = RunAndScore(data_list_dict, svc, parameters, met_grid, refit=refit, n_jobs=1)
 writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
