@@ -1,31 +1,30 @@
 import sys, os
 import warnings
+import time
 
+start_time = time.time()
 warnings.filterwarnings("ignore")
-
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
 
 from deepforest import CascadeForestClassifier
 from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
-import time
 
-start_time = time.time()
 """
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[2]
+cell_name = names[3]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest']
 method_name = method_names[2]
 dir_name = "run_and_score"
-ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
-    os.mkdir(r'../../ex/%s/' % ex_dir_name)
-    os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
-    print("created ex folder!!!")
+# ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
+# if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
+#     os.mkdir(r'../../ex/%s/' % ex_dir_name)
+#     os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
+#     print("created ex folder!!!")
 """
 params
 """

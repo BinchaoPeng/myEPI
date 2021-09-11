@@ -1,8 +1,9 @@
 import os
 import sys
-
+import time
 import warnings
 
+start_time = time.time()
 warnings.filterwarnings("ignore")
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
@@ -36,7 +37,7 @@ SVC参数解释
  ★predict()方法：基于以上的训练，对预测样本T进行类别预测，因此只需要接收一个测试集T，该函数返回一个数组表示个测试样本的类别。
 """
 
-from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore
+from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 
 """
 cell and feature choose
@@ -50,11 +51,11 @@ method_name = method_names[0]
 dir_names = ["run_and_score", "5fold_grid"]
 dir_name = dir_names[0]
 
-ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
-    os.mkdir(r'../../ex/%s/' % ex_dir_name)
-    os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
-    print("created ex folder!!!")
+# ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
+# if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
+#     os.mkdir(r'../../ex/%s/' % ex_dir_name)
+#     os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
+#     print("created ex folder!!!")
 
 """
 params
@@ -94,3 +95,4 @@ writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
 print("best params found in fit [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 1))
+print("total time spending:", time_since(start_time))
