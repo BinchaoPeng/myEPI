@@ -42,6 +42,14 @@ parameters = [
         'max_layers': [20, 50, 80, 120, 150, 200],
     },
 ]
+# parameters = [
+#     {
+#         'n_estimators': [2, 6],
+#         # 'max_layers': [layer for layer in range(20, 40, 10)],
+#         'predictors': ['xgboost', 'lightgbm', 'forest'],
+#         'use_predictor': [True]
+#     },
+# ]
 
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
@@ -59,11 +67,12 @@ deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_job
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 refit = "roc_auc"
-clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit=refit, n_jobs=4)
+clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit=refit, n_jobs=3)
 writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
-print("best params found in fit [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 1))
+print("best params found in line [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 2))
+print("best params found in fit [{1}] for metric [{0}] in run_and_score file".format(refit, clf.best_estimator_params_idx_ + 1))
 print("total time spending:", time_since(start_time))
 """
 param doc

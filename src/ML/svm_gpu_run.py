@@ -94,5 +94,6 @@ clf = RunAndScore(data_list_dict, svc, parameters, met_grid, refit=refit, n_jobs
 writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
-print("best params found in fit [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 1))
+print("best params found in line [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 2))
+print("best params found in fit [{1}] for metric [{0}] in run_and_score file".format(refit, clf.best_estimator_params_idx_ + 1))
 print("total time spending:", time_since(start_time))

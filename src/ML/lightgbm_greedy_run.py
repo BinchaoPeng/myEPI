@@ -33,8 +33,10 @@ def lgb_grid_greedy(cv_params, other_params, index):
     clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=1, verbose=0)
 
     print("clf.best_estimator_params:", clf.best_estimator_params_)
-    print("best params found in fit [{1}] for metric [{0}] in rank file".format(refit,
-                                                                                clf.best_estimator_params_idx_ + 1))
+    print("best params found in line [{1}] for metric [{0}] in rank file".format(refit,
+                                                                                 clf.best_estimator_params_idx_ + 2))
+    print("best params found in fit [{1}] for metric [{0}] in run_and_score file".format(refit,
+                                                                                         clf.best_estimator_params_idx_ + 1))
     print("clf.best_scoring_result:", clf.best_scoring_result)
 
     writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index)
