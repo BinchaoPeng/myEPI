@@ -11,8 +11,6 @@ accuracy: (test=0.977) average_precision: (test=0.762) balanced_accuracy: (test=
 accuracy: (test=0.977) average_precision: (test=0.762) balanced_accuracy: (test=0.758) f1: (test=0.679) roc_auc: (test=0.911) 14.20min
 [fit 11/210] END max_layers=20, n_estimators=5, n_trees=200; total=4431, TP=108, TN=4220, FP=0, FN=103
 accuracy: (test=0.977) average_precision: (test=0.772) balanced_accuracy: (test=0.756) f1: (test=0.677) roc_auc: (test=0.927) 12.74min
-/home/pbc/anaconda3/envs/ml/lib/python3.6/site-packages/joblib/externals/loky/process_executor.py:691: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
-  "timeout or by a memory leak.", UserWarning
 [fit 3/210] END max_layers=20, n_estimators=2, n_trees=150; total=4431, TP=111, TN=4220, FP=0, FN=100
 accuracy: (test=0.977) average_precision: (test=0.735) balanced_accuracy: (test=0.763) f1: (test=0.689) roc_auc: (test=0.901) 5.18min
 [fit 6/210] END max_layers=20, n_estimators=2, n_trees=300; total=4431, TP=108, TN=4219, FP=1, FN=103
@@ -316,7 +314,8 @@ accuracy: (test=0.977) average_precision: (test=0.762) balanced_accuracy: (test=
 [fit 185/210] END max_layers=200, n_estimators=5, n_trees=150; total=4431, TP=107, TN=4219, FP=1, FN=104
 accuracy: (test=0.976) average_precision: (test=0.767) balanced_accuracy: (test=0.753) f1: (test=0.671) roc_auc: (test=0.924) 10.14min
 [fit 188/210] END max_layers=200, n_estimators=5, n_trees=300; total=4431, TP=111, TN=4220, FP=0, FN=100
-accuracy: (test=0.977) average_precision: (test=0.771) balanced_accuracy: (test=0.763) f1: (test=0.689) roc_auc: (test=0.925) 18.95min[fit 133/210] END max_layers=120, n_estimators=10, n_trees=400; total=4431, TP=112, TN=4220, FP=0, FN=99
+accuracy: (test=0.977) average_precision: (test=0.771) balanced_accuracy: (test=0.763) f1: (test=0.689) roc_auc: (test=0.925) 18.95min
+[fit 133/210] END max_layers=120, n_estimators=10, n_trees=400; total=4431, TP=112, TN=4220, FP=0, FN=99
 accuracy: (test=0.978) average_precision: (test=0.765) balanced_accuracy: (test=0.765) f1: (test=0.693) roc_auc: (test=0.915) 45.88min
 [fit 138/210] END max_layers=120, n_estimators=13, n_trees=250; total=4431, TP=107, TN=4220, FP=0, FN=104
 accuracy: (test=0.977) average_precision: (test=0.760) balanced_accuracy: (test=0.754) f1: (test=0.673) roc_auc: (test=0.906) 37.17min
@@ -372,7 +371,6 @@ accuracy: (test=0.976) average_precision: (test=0.764) balanced_accuracy: (test=
 accuracy: (test=0.978) average_precision: (test=0.765) balanced_accuracy: (test=0.765) f1: (test=0.693) roc_auc: (test=0.915) 46.02min
 [fit 208/210] END max_layers=200, n_estimators=13, n_trees=250; total=4431, TP=107, TN=4220, FP=0, FN=104
 accuracy: (test=0.977) average_precision: (test=0.760) balanced_accuracy: (test=0.754) f1: (test=0.673) roc_auc: (test=0.906) 37.32min
-
 [fit 191/210] END max_layers=200, n_estimators=8, n_trees=100; total=4431, TP=108, TN=4220, FP=0, FN=103
 accuracy: (test=0.977) average_precision: (test=0.761) balanced_accuracy: (test=0.756) f1: (test=0.677) roc_auc: (test=0.912) 10.55min
 [fit 193/210] END max_layers=200, n_estimators=8, n_trees=200; total=4431, TP=108, TN=4220, FP=0, FN=103
@@ -428,4 +426,4 @@ accuracy: (test=0.977) average_precision: (test=0.758) balanced_accuracy: (test=
 write rank test to csv!!!
 write over!!!
 clf.best_estimator_params: {'max_layers': 20, 'n_estimators': 5, 'n_trees': 200}
-best params found in line [12] for metric [roc_auc] in rank file
+best params found in fit [11] for metric [roc_auc] in rank file
