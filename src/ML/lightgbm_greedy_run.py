@@ -16,7 +16,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[3]
+cell_name = names[1]
 feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
@@ -30,7 +30,7 @@ def lgb_grid_greedy(cv_params, other_params, index):
     print(base_lgb.get_params())
     refit = "roc_auc"
     met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
-    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=1, verbose=0)
+    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=3, verbose=0)
 
     print("clf.best_estimator_params:", clf.best_estimator_params_)
     print("best params found in line [{1}] for metric [{0}] in rank file".format(refit,
@@ -67,12 +67,17 @@ Note: 为了启用 bagging, bagging_fraction 设置适当
 可以用来处理过拟合
 
 """
-other_params = {'num_leaves': 31, 'objective': None, 'learning_rate': 0.1, 'max_depth': -1, 'reg_alpha': 0.0,
-                'reg_lambda': 0.0, 'n_estimators': 100, 'boosting_type': 'gbdt', 'device': 'gpu',
-                'min_child_samples': 20, 'subsample': 1.0, 'subsample_freq': 0, 'colsample_bytree': 1.0,
+other_params = {'max_depth': -1, 'num_leaves': 31,
+                'min_child_samples': 20,
+                'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 0,
+                'reg_alpha': 0.0, 'reg_lambda': 0.0,
+                'min_split_gain': 0.0,
+                'objective': None, 'learning_rate': 0.1,
+                'n_estimators': 100, 'boosting_type': 'gbdt',
 
+                'device': 'gpu', 'n_jobs': 5,
                 'class_weight': None, 'importance_type': 'split',
-                'min_child_weight': 0.001, 'min_split_gain': 0.0, 'n_jobs': -1, 'random_state': None,
+                'min_child_weight': 0.001, 'random_state': None,
                 'subsample_for_bin': 200000, 'silent': True}
 
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
@@ -130,6 +135,23 @@ other_params.update(best_params)
 # 第六次
 print("第六次")
 cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0]}
+# cv_params = {'learning_rate': [0.01, 0.05, ]}
+best_params = lgb_grid_greedy(cv_params, other_params, '6')
+other_params.update(best_params)
+# print(other_params)
+
+# 第七次
+print("第七次")
+cv_params = {'boosting_type': ["rf", "dart", "goss"]}
+# cv_params = {'learning_rate': [0.01, 0.05, ]}
+best_params = lgb_grid_greedy(cv_params, other_params, '6')
+other_params.update(best_params)
+# print(other_params)
+
+
+# 第八次
+print("第八次")
+cv_params = {'n_estimators': [range(50, 250, 25)]}
 # cv_params = {'learning_rate': [0.01, 0.05, ]}
 best_params = lgb_grid_greedy(cv_params, other_params, '6')
 other_params.update(best_params)

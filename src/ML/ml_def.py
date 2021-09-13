@@ -640,14 +640,14 @@ class RunAndScore:
 
     def get_best_scoring_result(self):
         process_msg = "["
-        result = self.all_out[self.best_estimator_params_idx_ - 1]
+        result = self.all_out[self.best_estimator_params_idx_]
 
         for k, v in result[1].items():
-            if isinstance(v,int):
+            if isinstance(v, int):
                 process_msg += "%s: (test=%d) " % (k, v)
             else:
                 process_msg += "%s: (test=%.3f) " % (k, v)
-        return process_msg+"]"
+        return process_msg + "]"
 
 
 if __name__ == '__main__':
