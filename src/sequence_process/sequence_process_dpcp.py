@@ -10,7 +10,7 @@ sys.path.extend([root_path[0] + 'src'])
 
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
-cell_name = names[6]
+cell_name = names[2]
 feature_name = "dpcp"
 
 train_dir = '../../data/epivan/%s/train/' % cell_name

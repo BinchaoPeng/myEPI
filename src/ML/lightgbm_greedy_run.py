@@ -16,8 +16,8 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[1]
-feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
+cell_name = names[2]
+feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[0]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[3]
@@ -30,7 +30,7 @@ def lgb_grid_greedy(cv_params, other_params, index):
     print(base_lgb.get_params())
     refit = "roc_auc"
     met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
-    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=3, verbose=0)
+    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=4, verbose=0)
 
     print("clf.best_estimator_params:", clf.best_estimator_params_)
     print("best params found in line [{1}] for metric [{0}] in rank file".format(refit,
@@ -72,10 +72,10 @@ other_params = {'max_depth': -1, 'num_leaves': 31,
                 'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 0,
                 'reg_alpha': 0.0, 'reg_lambda': 0.0,
                 'min_split_gain': 0.0,
-                'objective': None, 'learning_rate': 0.1,
-                'n_estimators': 100, 'boosting_type': 'gbdt',
+                'objective': None,
+                'n_estimators': 100, 'learning_rate': 0.1,
 
-                'device': 'gpu', 'n_jobs': 5,
+                'device': 'gpu', 'n_jobs': 4, 'boosting_type': 'gbdt',
                 'class_weight': None, 'importance_type': 'split',
                 'min_child_weight': 0.001, 'random_state': None,
                 'subsample_for_bin': 200000, 'silent': True}
@@ -85,7 +85,7 @@ data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 # 第一次：max_depth、num_leaves
 print("第一次")
 cv_params = {'max_depth': [-1, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 'num_leaves': range(221, 350, 10)}
-cv_params = {'max_depth': [-1], 'num_leaves': [191]}
+# cv_params = {'max_depth': [-1], 'num_leaves': [191]}
 best_params = lgb_grid_greedy(cv_params, other_params, '1')
 other_params.update(best_params)
 
@@ -93,7 +93,6 @@ other_params.update(best_params)
 print("第二次")
 cv_params = {'max_bin': range(5, 256, 10), 'min_child_samples': range(10, 201, 10)}
 # cv_params = {'max_bin': range(5, 256, 100), 'min_child_samples': range(1, 102, 50)}
-# cv_params = {'max_depth': [3, 4, ], 'min_child_weight': [1, 2, ]}
 best_params = lgb_grid_greedy(cv_params, other_params, '2')
 other_params.update(best_params)
 # print(other_params)
@@ -134,28 +133,12 @@ other_params.update(best_params)
 
 # 第六次
 print("第六次")
-cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0]}
+cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0],'n_estimators': range(50, 251, 25)}
 # cv_params = {'learning_rate': [0.01, 0.05, ]}
 best_params = lgb_grid_greedy(cv_params, other_params, '6')
 other_params.update(best_params)
 # print(other_params)
 
-# 第七次
-print("第七次")
-cv_params = {'boosting_type': ["rf", "dart", "goss"]}
-# cv_params = {'learning_rate': [0.01, 0.05, ]}
-best_params = lgb_grid_greedy(cv_params, other_params, '6')
-other_params.update(best_params)
-# print(other_params)
-
-
-# 第八次
-print("第八次")
-cv_params = {'n_estimators': [range(50, 250, 25)]}
-# cv_params = {'learning_rate': [0.01, 0.05, ]}
-best_params = lgb_grid_greedy(cv_params, other_params, '6')
-other_params.update(best_params)
-# print(other_params)
 
 print("total time spending:", time_since(start_time))
 """

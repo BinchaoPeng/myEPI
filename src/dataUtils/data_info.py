@@ -10,6 +10,7 @@ import os
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
 cell_name = names[2]
+
 feature_name = "cksnap"
 
 train_dir = '../../data/epivan/%s/train/' % cell_name
@@ -23,20 +24,24 @@ else:
     os.mkdir(feature_dir)
     print("path created!")
 
-print('Experiment on %s dataset' % cell_name)
+print('Experiment on [%s] dataset' % cell_name)
 
 print('Loading seq data...')
 enhancers_tra = open(train_dir + '%s_enhancer.fasta' % cell_name, 'r').read().splitlines()[1::2]
 promoters_tra = open(train_dir + '%s_promoter.fasta' % cell_name, 'r').read().splitlines()[1::2]
 y_tra = np.loadtxt(train_dir + '%s_label.txt' % cell_name)
-
+print("enhancers_tra:", len(enhancers_tra))
+print("promoters_tra:", len(promoters_tra))
 im_enhancers_tra = open(imbltrain + '%s_enhancer.fasta' % cell_name, 'r').read().splitlines()[1::2]
 im_promoters_tra = open(imbltrain + '%s_promoter.fasta' % cell_name, 'r').read().splitlines()[1::2]
 y_imtra = np.loadtxt(imbltrain + '%s_label.txt' % cell_name)
-
+print("im_enhancers_tra:", len(im_enhancers_tra))
+print("im_promoters_tra:", len(im_promoters_tra))
 enhancers_tes = open(test_dir + '%s_enhancer_test.fasta' % cell_name, 'r').read().splitlines()[1::2]
 promoters_tes = open(test_dir + '%s_promoter_test.fasta' % cell_name, 'r').read().splitlines()[1::2]
 y_tes = np.loadtxt(test_dir + '%s_label_test.txt' % cell_name)
+print("enhancers_tes:", len(enhancers_tes))
+print("promoters_tes:", len(promoters_tes))
 
 print('平衡训练集')
 print('pos_samples:' + str(int(sum(y_tra))))
@@ -47,67 +52,3 @@ print('neg_samples:' + str(len(y_imtra) - int(sum(y_imtra))))
 print('测试集')
 print('pos_samples:' + str(int(sum(y_tes))))
 print('neg_samples:' + str(len(y_tes) - int(sum(y_tes))))
-
-
-# In[ ]:
-def get_data(enhancers, promoters):
-    X_en, X_pr, = [], []
-    for en, pr in zip(enhancers, promoters):
-        cksnap = CKSNAP(en)
-        en = cksnap.run_CKSNAP()
-        cksnap = CKSNAP(pr)
-        pr = cksnap.run_CKSNAP()
-        X_en.append(en)
-        X_pr.append(pr)
-
-    return np.array(X_en), np.array(X_pr)
-
-
-"""
-get and save
-"""
-X_en_tra, X_pr_tra = get_data(enhancers_tra, promoters_tra)
-np.savez(feature_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
-X_en_imtra, X_pr_imtra = get_data(im_enhancers_tra, im_promoters_tra)
-np.savez(feature_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
-X_en_tes, X_pr_tes = get_data(enhancers_tes, promoters_tes)
-np.savez(feature_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)
-
-"""
-a npz file has 3 np array
-
-read step:
-0. data = np.load(npz_file)
-1. data.files return an array key list
-2. use data[key] or data[data.files[index]] to get np array
-
-npz save:
-np.savez(file_path,key1=np_array1,key2=np_array2,)
-"""
-# np.savez(feature_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
-# np.savez(feature_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
-# np.savez(feature_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)
-
-print("save over!")
-
-"""
-NOTE!!!
-
-input: 
-en_fasta
-pr_fasta
-
-method:
-CKSNAP, K=[0,1,2,3,4,5]
-
-process:
-en_fasta [n,3000] ---> en_cksnap [n,96]
-pr_fasta [n,2000] ---> pr_cksnap [n,96]
-
-output:
-en_cksnap,pr_cksnap,y
-
-save:
-npz: three np.array include en_cksnap,pr_cksnap,y
-
-"""

@@ -15,7 +15,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[0]
+cell_name = names[2]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
@@ -72,12 +72,14 @@ other_params = {'learning_rate': 0.1, 'n_estimators': 500, 'max_depth': 5, 'min_
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 
 # 第一次：决策树的最佳数量也就是估计器的数目
+print("第一次")
 cv_params = {'n_estimators': list(range(50, 1050, 50))}
 # cv_params = {'n_estimators': list(range(50, 300, 50))}
 best_params = xgboost_grid_greedy(cv_params, other_params, '1')
 other_params.update(best_params)
 
 # 第二次
+print("第二次")
 cv_params = {'max_depth': [3, 4, 5, 6, 7, 8, 9, 10, 12], 'min_child_weight': [1, 2, 3, 4, 5, 6]}
 # cv_params = {'max_depth': [3, 4, ], 'min_child_weight': [1, 2, ]}
 best_params = xgboost_grid_greedy(cv_params, other_params, '2')
@@ -85,6 +87,7 @@ other_params.update(best_params)
 # print(other_params)
 
 # 第三次
+print("第三次")
 cv_params = {'gamma': [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]}
 # cv_params = {'gamma': [0.1, 0.2, 0.3,]}
 best_params = xgboost_grid_greedy(cv_params, other_params, '3')
@@ -92,6 +95,7 @@ other_params.update(best_params)
 # print(other_params)
 
 # 第四次
+print("第四次")
 cv_params = {'subsample': [0.6, 0.7, 0.8, 0.9], 'colsample_bytree': [0.6, 0.7, 0.8, 0.9]}
 # cv_params = {'subsample': [0.6, 0.7, ], 'colsample_bytree': [0.6, ]}
 best_params = xgboost_grid_greedy(cv_params, other_params, '4')
@@ -99,6 +103,7 @@ other_params.update(best_params)
 # print(other_params)
 
 # 第五次
+print("第五次")
 cv_params = {'reg_alpha': [0, 0.01, 0.02, 0.05, 0.1, 0.5, 1, 2, 3],
              'reg_lambda': [0, 0.01, 0.02, 0.05, 0.1, 0.5, 1, 2, 3]}
 # cv_params = {'reg_alpha': [0.05, ], 'reg_lambda': [0.05, 0.1, ]}
@@ -107,6 +112,7 @@ other_params.update(best_params)
 # print(other_params)
 
 # 第六次
+print("第六次")
 cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0]}
 # cv_params = {'learning_rate': [0.01, 0.05, ]}
 best_params = xgboost_grid_greedy(cv_params, other_params, '6')

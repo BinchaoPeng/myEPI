@@ -25,7 +25,7 @@ def get_data_np_dict(cell_name, feature_name, method_name):
     train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
     # print(type(self.X))
     train_y = train_data[train_data.files[2]]
-    print("trainSet len:", len(train_y))
+    print("trainSet len:[X=%s,y=%s]" % (len(train_y), len(train_X)))
 
     testPath = r'../../data/epivan/%s/features/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
     test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
@@ -35,7 +35,7 @@ def get_data_np_dict(cell_name, feature_name, method_name):
     test_X = np.array(test_X)
     # print(type(self.X))
     test_y = test_data[test_data.files[2]]
-    print("testSet len:", len(test_y))
+    print("testSet len:[X=%s,y=%s]" % (len(test_y), len(test_X)))
 
     train_X = np.array(train_X)
     train_y = np.array(train_y)
@@ -145,10 +145,16 @@ def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name,
     results = list(zip(*csv_rows_list))
 
     ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-    if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
-        os.mkdir(r'../../ex/%s/' % ex_dir_name)
-        os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
-        print("created ex folder!!!")
+    ex_dir_path = r'../../ex/%s/' % ex_dir_name
+    ex_rank_dir_path = r'../../ex/%s/rank' % ex_dir_name
+    if not os.path.exists(ex_dir_path):
+        os.mkdir(ex_dir_path)
+        print("created ex_dir folder!!!")
+
+    if not os.path.exists(ex_rank_dir_path):
+        os.mkdir(ex_rank_dir_path)
+        print("created ex_rank_dir folder!!!")
+
     file_name = r'../../ex/%s/rank/%s_%s_%s_rank_%s.csv' % (ex_dir_name, cell_name, feature_name, method_name, index)
     if index is None:
         file_name = r'../../ex/%s/rank/%s_%s_%s_rank.csv' % (ex_dir_name, cell_name, feature_name, method_name)
@@ -683,7 +689,7 @@ if __name__ == '__main__':
     cell and feature choose
     """
     names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-    cell_name = names[1]
+    cell_name = names[2]
     feature_names = ['pseknc', 'dnabert_6mer', 'longformer-hug', 'elmo']
     feature_name = feature_names[0]
     method_names = ['svm', 'xgboost', 'deepforest']
@@ -692,9 +698,9 @@ if __name__ == '__main__':
 
     data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 
-    deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
-
-    met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
-
-    clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit="roc_auc", n_jobs=2)
-    writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
+    # deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
+    #
+    # met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
+    #
+    # clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit="roc_auc", n_jobs=2)
+    # writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
