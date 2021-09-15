@@ -9,9 +9,8 @@ root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
 
 import math
-
-from sklearnex import patch_sklearn
 from thundersvm import SVC
+from sklearnex import patch_sklearn
 
 patch_sklearn()
 
@@ -43,9 +42,9 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[2]
+cell_name = names[1]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[1]
+feature_name = feature_names[2]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[0]
 dir_names = ["run_and_score", "5fold_grid"]
@@ -76,14 +75,6 @@ parameters = [
         'kernel': ['polynomial']
     }
 ]
-
-# parameters = [
-#
-#     {
-#         'C': [16, 32],
-#         'kernel': ['polynomial']
-#     }
-# ]
 
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 svc = SVC(probability=True, n_jobs=1)  # 调参
