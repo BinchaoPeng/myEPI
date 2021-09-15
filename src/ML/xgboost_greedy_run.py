@@ -17,7 +17,7 @@ cell and feature choose
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[2]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[1]
+feature_name = feature_names[2]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[1]
 dir_name = "run_and_score"

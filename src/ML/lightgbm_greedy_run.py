@@ -30,7 +30,7 @@ def lgb_grid_greedy(cv_params, other_params, index):
     print(base_lgb.get_params())
     refit = "roc_auc"
     met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
-    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=4, verbose=0)
+    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=7, verbose=0)
 
     print("clf.best_estimator_params:", clf.best_estimator_params_)
     print("best params found in line [{1}] for metric [{0}] in rank file".format(refit,
@@ -75,7 +75,7 @@ other_params = {'max_depth': -1, 'num_leaves': 31,
                 'objective': None,
                 'n_estimators': 100, 'learning_rate': 0.1,
 
-                'device': 'gpu', 'n_jobs': 4, 'boosting_type': 'gbdt',
+                'device': 'gpu', 'n_jobs': 2, 'boosting_type': 'gbdt',
                 'class_weight': None, 'importance_type': 'split',
                 'min_child_weight': 0.001, 'random_state': None,
                 'subsample_for_bin': 200000, 'silent': True}
@@ -133,7 +133,7 @@ other_params.update(best_params)
 
 # 第六次
 print("第六次")
-cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0],'n_estimators': range(50, 251, 25)}
+cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0], 'n_estimators': range(50, 251, 25)}
 # cv_params = {'learning_rate': [0.01, 0.05, ]}
 best_params = lgb_grid_greedy(cv_params, other_params, '6')
 other_params.update(best_params)
