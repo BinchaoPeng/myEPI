@@ -22,7 +22,13 @@ feature_name = feature_names[0]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[3]
 dir_name = "run_and_score"
-
+ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
+if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
+    os.mkdir(r'../../ex/%s/' % ex_dir_name)
+    print("created ex folder!!!")
+if not os.path.exists(r'../../ex/%s/rank' % ex_dir_name):
+    os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
+    print("created rank folder!!!")
 
 def lgb_grid_greedy(cv_params, other_params, index):
     base_lgb = lightgbm.sklearn.LGBMClassifier(device='gpu')
