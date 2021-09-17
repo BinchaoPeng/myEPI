@@ -9,6 +9,10 @@ class Kmer:
     Kmer：Kmer描述给定序列中k个相邻核酸的出现频率。
     可以将k=1，2，3，4，5，...，n等的特征向量拼接起来作为一个组合的特征向量使用,还可以设置步长step
     考虑**核酸组成(NAC)、二核酸组成(DNC)、三核酸组成(TNC)和四核酸组成(TeNC)**。
+    NAC、DNC、TNC、TENC分别生成4D、16D、64D和256D特征向量。随后，将这四个合成的特征向量连接起来，得到340D的特征向量。
+    format:
+    [N(A)/K1,N(C)/K1,N(G)/K1,N(T)/K1,N(AA)/K2,...,N(TT)/K2,N(AAA)/K3,...]
+    freq = N /K
     """
 
     def __init__(self, k=range(1, 5), n_jobs=1):

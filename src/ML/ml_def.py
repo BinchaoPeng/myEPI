@@ -9,7 +9,6 @@ from itertools import product
 import lightgbm
 import numpy as np
 import pandas as pd
-from deepforest import CascadeForestClassifier
 from joblib import Parallel, delayed
 from sklearn.metrics import precision_score, confusion_matrix, recall_score
 from sklearn.model_selection import ParameterGrid, StratifiedKFold
@@ -44,14 +43,14 @@ def get_data_np_dict(cell_name, feature_name, method_name):
     return {'train_X': train_X, 'train_y': train_y, 'test_X': test_X, 'test_y': test_y}
 
 
-def get_score_dict(scoring):
+def _get_score_dict(scoring):
     score_dict = {}
     if isinstance(scoring, str):
         score_dict.update({scoring + '_score': scoring})
     else:
         for item in scoring:
             score_dict.update({item + '_score': item})
-    score_dict = dict(sorted(score_dict.items(), key=lambda x: x[0], reverse=False))
+    # score_dict = dict(sorted(score_dict.items(), key=lambda x: x[0], reverse=False))
     # print(score_dict)
     return score_dict
 
@@ -62,7 +61,7 @@ def get_scoring_result(scoring, y, y_pred, y_prob, y_score=None, is_base_score=T
         y_score = y_prob
     module_name = __import__("sklearn.metrics", fromlist='*')
     # print('\n'.join(['%s:%s' % item for item in module_name.__dict__.items()]))
-    score_dict = get_score_dict(scoring)
+    score_dict = _get_score_dict(scoring)
     # print(score_dict)
     # start get_scoring_result
     score_result_dict = {}
@@ -75,9 +74,12 @@ def get_scoring_result(scoring, y, y_pred, y_prob, y_score=None, is_base_score=T
         process_msg += "total=%s, TP=%s, TN=%s, FP=%s, FN=%s; precision=%.3f, recall=%.3f\n" \
                        % (len(y), TP, TN, FP, FN, precision, recall)
     for k, v in score_dict.items():
+        # print("===", k)
         score_func = getattr(module_name, k)
         sig = signature(score_func)
+        # print(sig)
         y_flag = str(list(sig.parameters.keys())[1])
+        # print(y_flag)
         if y_flag == 'y_pred':
             y_flag = y_pred
         elif y_flag == 'y_prob':
@@ -92,7 +94,9 @@ def get_scoring_result(scoring, y, y_pred, y_prob, y_score=None, is_base_score=T
         # accuracy: (test=0.926)
         # print("%s: (test=%s)" % (v, score_result), end=" ")
         process_msg += "%s: (test=%.3f) " % (v, score_result)
+        # print("%s: (test=%.3f) ===" % (v, score_result))
         score_result_dict.update({v: score_result})
+    # print("score_result_dict:", score_result_dict)
     return process_msg, score_result_dict
 
 
@@ -524,14 +528,18 @@ class RunAndScore:
         return list(ParameterGrid(parameters))
 
     def fit_and_predict(self, cand_idx, params):
+        # print("==fit and predict==")
         n_candidates = len(self.candidate_params)
         process_msg = "[fit {}/{}] END ".format(cand_idx, n_candidates)
         start = time.time()
         deep_forest = copy.deepcopy(self.estimator)
         model = self.set_estimator_params(deep_forest, params)
         self.model_fit(model, self.data_list_dict["train_X"], self.data_list_dict["train_y"])
+        # print("==fit over,start predicting==")
         y_pred = self.model_predict(model, self.data_list_dict["test_X"])
+        # print("==predicted,start predict_proba==")
         y_pred_prob_temp = self.model_predict_proba(model, self.data_list_dict["test_X"])
+        # print("==predicted_proba==")
         y_pred_prob = []
         if (y_pred[0] == 1 and y_pred_prob_temp[0][0] >= 0.5) or (y_pred[0] == 0 and y_pred_prob_temp[0][0] < 0.5):
             y_pred_prob = y_pred_prob_temp[:, 0]
@@ -543,11 +551,12 @@ class RunAndScore:
             params_msg += "{}={}, ".format(k, v)
 
         process_msg += params_msg[: -2] + '; '
-
+        # print("==get_scoring_result==")
         [score_result_msg, score_result_dict] = get_scoring_result(self.scoring, self.data_list_dict["test_y"], y_pred,
                                                                    y_pred_prob)
         process_msg += score_result_msg
         process_msg += time_since(start)
+        # print("==getted_scoring_result==")
         print(process_msg)
         # print([params, score_result_dict])
         return [params, score_result_dict]
@@ -561,6 +570,7 @@ class RunAndScore:
         """
         n_candidates = len(self.candidate_params)
         print("Fitting, totalling {0} fits".format(n_candidates))
+        # if self.n_jobs > 1:
         parallel = Parallel(n_jobs=self.n_jobs)
         with parallel:
             all_out = []
@@ -580,6 +590,11 @@ class RunAndScore:
                                  .format(n_candidates, len(out)))
             # print("score_result_dict:", out)
             all_out.extend(out)
+        # elif self.n_jobs == 1:
+        #     all_out = []
+        #     for cand_idx, params in enumerate(self.candidate_params, 1):
+        #         out = self.fit_and_predict(cand_idx, params)
+        #         all_out.append(out)
         return all_out
 
     def _get_score_dict(self):

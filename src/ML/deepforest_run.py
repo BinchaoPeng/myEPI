@@ -14,7 +14,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[4]
+cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[2]
 method_names = ['svm', 'xgboost', 'deepforest']
@@ -56,7 +56,7 @@ parameters = [
 # labtop:2-6
 # 2080ti:5-3
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
-deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=6, predictor='forest', verbose=0)
+deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=5, predictor='forest', verbose=0)
 
 # import xgboost as xgb
 # import lightgbm as lgb
