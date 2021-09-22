@@ -15,9 +15,9 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[5]
+cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[2]
+feature_name = feature_names[0]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[1]
 dir_name = "run_and_score"
@@ -28,6 +28,7 @@ if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
 if not os.path.exists(r'../../ex/%s/rank' % ex_dir_name):
     os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
     print("created rank folder!!!")
+
 
 def xgboost_grid_greedy(cv_params, other_params, index):
     model = XGBClassifier(**other_params)
@@ -71,6 +72,7 @@ Note: 为了启用 bagging, bagging_fraction 设置适当
 可以用来处理过拟合
 
 """
+best_params_result = {}
 other_params = {'learning_rate': 0.1, 'n_estimators': 500, 'max_depth': 5, 'min_child_weight': 1, 'seed': 0,
                 'subsample': 0.8, 'colsample_bytree': 0.8, 'gamma': 0, 'reg_alpha': 0, 'reg_lambda': 1,
                 'use_label_encoder': False, 'eval_metric': 'logloss', 'tree_method': 'gpu_hist'}
@@ -83,6 +85,7 @@ cv_params = {'n_estimators': list(range(50, 1050, 50))}
 # cv_params = {'n_estimators': list(range(50, 300, 50))}
 best_params = xgboost_grid_greedy(cv_params, other_params, '1')
 other_params.update(best_params)
+best_params_result.update(best_params)
 
 # 第二次
 print("第二次")
@@ -91,6 +94,7 @@ cv_params = {'max_depth': [3, 4, 5, 6, 7, 8, 9, 10, 12], 'min_child_weight': [1,
 best_params = xgboost_grid_greedy(cv_params, other_params, '2')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第三次
 print("第三次")
@@ -99,6 +103,7 @@ cv_params = {'gamma': [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]}
 best_params = xgboost_grid_greedy(cv_params, other_params, '3')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第四次
 print("第四次")
@@ -107,6 +112,7 @@ cv_params = {'subsample': [0.6, 0.7, 0.8, 0.9], 'colsample_bytree': [0.6, 0.7, 0
 best_params = xgboost_grid_greedy(cv_params, other_params, '4')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第五次
 print("第五次")
@@ -116,6 +122,7 @@ cv_params = {'reg_alpha': [0, 0.01, 0.02, 0.05, 0.1, 0.5, 1, 2, 3],
 best_params = xgboost_grid_greedy(cv_params, other_params, '5')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第六次
 print("第六次")
@@ -124,8 +131,10 @@ cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0
 best_params = xgboost_grid_greedy(cv_params, other_params, '6')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 print("total time spending:", time_since(start_time))
+print("best_params_result:", best_params_result)
 """
 ### 针对 Leaf-wise (最佳优先) 树的参数优化
 

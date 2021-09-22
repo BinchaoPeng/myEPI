@@ -14,9 +14,9 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[5]
+cell_name = names[2]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[2]
+feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest']
 method_name = method_names[2]
 dir_name = "run_and_score"
@@ -56,10 +56,10 @@ parameters = [
 
 # njob
 # 3090:6-3
-# labtop:2-6
+# labtop:6-2
 # 2080ti:5-3
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
-deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=6, predictor='forest', verbose=0)
+deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=3, predictor='forest', verbose=0)
 
 # import xgboost as xgb
 # import lightgbm as lgb
@@ -74,12 +74,13 @@ deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_job
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 refit = "roc_auc"
-clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit=refit, n_jobs=3)
+clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit=refit, n_jobs=2)
 writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
 print("best params found in line [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 2))
-print("best params found in fit [{1}] for metric [{0}] in run_and_score file".format(refit, clf.best_estimator_params_idx_ + 1))
+print("best params found in fit [{1}] for metric [{0}] in run_and_score file".format(refit,
+                                                                                     clf.best_estimator_params_idx_ + 1))
 print("clf.best_scoring_result:", clf.best_scoring_result)
 print("total time spending:", time_since(start_time))
 
