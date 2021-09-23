@@ -22,3 +22,9 @@ print(type(a), isinstance(a, list))
 
 a = np.array([[1, 2], [3, 4], [5, 6]])
 print(a[:, 1])
+
+# extend
+a = [None, ]
+a.extend((range(1, 51)))
+
+print(a)

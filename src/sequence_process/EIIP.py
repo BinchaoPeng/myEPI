@@ -52,7 +52,7 @@ class EIIP:
                 v += self.EIIP_value_dict[s]
             k = ''.join(i)  # 把('A,A,A')转变成（AAA）形式
             EIIP_dict.update({k: v})
-        print(EIIP_dict)
+        # print(EIIP_dict)
         return np.array(list(EIIP_dict.values()))
 
     def get_EIIP(self, seq):
@@ -60,10 +60,10 @@ class EIIP:
         for k_item in self.k:
             EIIP_freq = self._get_EIIP_freq(seq, k_item)
             EIIP_value = self._get_EIIP_value(k_item)
-            print(EIIP_freq)
-            print(EIIP_value)
+            # print(EIIP_freq)
+            # print(EIIP_value)
             feature_item = [freq * value for freq, value in zip(EIIP_freq, EIIP_value)]
-            print(feature_item)
+            # print(feature_item)
             feature.extend(feature_item)
         return np.array(feature)
 
@@ -82,3 +82,4 @@ class EIIP:
 if __name__ == '__main__':
     eiip = EIIP()
     feature = eiip.get_EIIP("AGTCACGTN")
+    print(len(feature))
