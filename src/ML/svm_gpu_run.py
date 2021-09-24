@@ -42,9 +42,9 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[1]
-feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[2]
+cell_name = names[6]
+feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
+feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[0]
 dir_names = ["run_and_score", "5fold_grid"]
@@ -67,15 +67,15 @@ parameters = [
         'gamma': [math.pow(2, i) for i in range(-10, 15)],
         'kernel': ['rbf']
     },
-    {
-        'C': [math.pow(2, i) for i in range(-10, 15)],
-        'kernel': ['linear', 'polynomial', 'sigmoid', 'precomputed']
-    },
-    {
-        'C': [math.pow(2, i) for i in range(-10, 15)],
-        'degree': [2, 3, 4, 5, 6],
-        'kernel': ['polynomial']
-    }
+    # {
+    #     'C': [math.pow(2, i) for i in range(-10, 15)],
+    #     'kernel': ['linear', 'polynomial', 'sigmoid', 'precomputed']
+    # },
+    # {
+    #     'C': [math.pow(2, i) for i in range(-10, 15)],
+    #     'degree': [2, 3, 4, 5, 6],
+    #     'kernel': ['polynomial']
+    # }
 ]
 
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)

@@ -14,9 +14,9 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[2]
-feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[2]
+cell_name = names[1]
+feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
+feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest']
 method_name = method_names[2]
 dir_name = "run_and_score"
@@ -42,7 +42,8 @@ parameters = [
     {
         'n_estimators': [2, 5, 8, 10, 13],
         'n_trees': [50, 100, 150, 200, 250, 300, 400],
-        'max_layers': [10, 15, 20, 50, 80, 120],
+        # 'max_layers': [10, 15, 20, 50, 80, 120],
+        'max_layers': [10, 15, 20, 25],
     },
 ]
 # parameters = [
@@ -59,7 +60,7 @@ parameters = [
 # labtop:6-2
 # 2080ti:5-3
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
-deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=6, predictor='forest', verbose=0)
+deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=7, predictor='forest', verbose=0)
 
 # import xgboost as xgb
 # import lightgbm as lgb
@@ -74,7 +75,7 @@ deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_job
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 refit = "roc_auc"
-clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit=refit, n_jobs=3)
+clf = RunAndScore(data_list_dict, deep_forest, parameters, met_grid, refit=refit, n_jobs=2)
 writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
