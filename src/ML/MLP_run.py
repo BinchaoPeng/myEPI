@@ -46,7 +46,7 @@ feature_names = ['pseknc', 'cksnap', 'dpcp', 'dnabert_6mer', 'longformer-hug', '
 feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm', 'MLP']
 method_name = method_names[4]
-dir_names = ["run_and_score", "5fold_grid"]
+dir_names = ["run_and_score", "ensemble"]
 dir_name = dir_names[0]
 
 ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)

@@ -15,7 +15,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[6]
+cell_name = names[5]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm', 'rf']
@@ -50,7 +50,7 @@ def rf_grid_greedy(cv_params, other_params, index):
 
 
 best_params_result = {}
-other_params = {'n_estimators': 100, "n_jobs": 1, "max_depth": None, 'min_samples_split': 2, "min_samples_leaf": 1,
+other_params = {'n_estimators': 100, "n_jobs": 5, "max_depth": None, 'min_samples_split': 2, "min_samples_leaf": 1,
                 'max_features': 'auto'}
 
 data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)

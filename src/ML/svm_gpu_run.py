@@ -42,12 +42,12 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[6]
+cell_name = names[5]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[1]
+feature_name = feature_names[0]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[0]
-dir_names = ["run_and_score", "5fold_grid"]
+dir_names = ["run_and_score", "ensemble"]
 dir_name = dir_names[0]
 
 ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
@@ -63,8 +63,10 @@ params
 """
 parameters = [
     {
-        'C': [math.pow(2, i) for i in range(-10, 15)],
-        'gamma': [math.pow(2, i) for i in range(-10, 15)],
+        # 'C': [math.pow(2, i) for i in range(-10, 15)],
+        'C': [math.pow(2, i) for i in range(-4, 11)],
+        # 'gamma': [math.pow(2, i) for i in range(-10, 15)],
+        'gamma': [math.pow(2, i) for i in range(-4, 12)],
         'kernel': ['rbf']
     },
     # {
@@ -88,6 +90,7 @@ writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
 print("best params found in line [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 2))
-print("best params found in fit [{1}] for metric [{0}] in run_and_score file".format(refit, clf.best_estimator_params_idx_ + 1))
+print("best params found in fit [{1}] for metric [{0}] in run_and_score file".format(refit,
+                                                                                     clf.best_estimator_params_idx_ + 1))
 print("clf.best_scoring_result:", clf.best_scoring_result)
 print("total time spending:", time_since(start_time))
