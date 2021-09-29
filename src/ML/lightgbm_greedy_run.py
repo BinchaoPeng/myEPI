@@ -16,9 +16,9 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[2]
+cell_name = names[1]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[0]
+feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[3]
 dir_name = "run_and_score"
@@ -36,7 +36,7 @@ def lgb_grid_greedy(cv_params, other_params, index):
     print(base_lgb.get_params())
     refit = "roc_auc"
     met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
-    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=7, verbose=0)
+    clf = RunAndScore(data_list_dict, base_lgb, cv_params, met_grid, refit=refit, n_jobs=1, verbose=0)
 
     print("clf.best_estimator_params:", clf.best_estimator_params_)
     print("best params found in line [{1}] for metric [{0}] in rank file".format(refit,

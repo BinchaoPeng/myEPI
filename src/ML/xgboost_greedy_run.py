@@ -17,7 +17,7 @@ cell and feature choose
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[0]
+feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[1]
 dir_name = "run_and_score"
@@ -176,6 +176,4 @@ print("best_params_result:", best_params_result)
 - 使用更大的训练数据
 - 使用 `lambda_l1`, `lambda_l2` 和 `min_gain_to_split` 来使用正则
 - 尝试 `max_depth` 来避免生成过深的树
-
-
 """
