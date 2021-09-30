@@ -30,6 +30,7 @@ if not os.path.exists(r'../../ex/%s/rank' % ex_dir_name):
     os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
     print("created rank folder!!!")
 
+
 def lgb_grid_greedy(cv_params, other_params, index):
     base_lgb = lightgbm.sklearn.LGBMClassifier(device='gpu')
     base_lgb.set_params(**other_params)
@@ -73,6 +74,7 @@ Note: 为了启用 bagging, bagging_fraction 设置适当
 可以用来处理过拟合
 
 """
+best_params_result = {}
 other_params = {'max_depth': -1, 'num_leaves': 31,
                 'min_child_samples': 20,
                 'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 0,
@@ -94,7 +96,7 @@ cv_params = {'max_depth': [-1, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 'num_lea
 # cv_params = {'max_depth': [-1], 'num_leaves': [191]}
 best_params = lgb_grid_greedy(cv_params, other_params, '1')
 other_params.update(best_params)
-
+best_params_result.update(best_params)
 # 第二次
 print("第二次")
 cv_params = {'max_bin': range(5, 256, 10), 'min_child_samples': range(10, 201, 10)}
@@ -102,6 +104,7 @@ cv_params = {'max_bin': range(5, 256, 10), 'min_child_samples': range(10, 201, 1
 best_params = lgb_grid_greedy(cv_params, other_params, '2')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第三次
 print("第三次")
@@ -116,6 +119,7 @@ cv_params = {'colsample_bytree': [0.6, 0.7, 0.8, 0.9, 1.0],
 best_params = lgb_grid_greedy(cv_params, other_params, '3')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第四次
 print("第四次")
@@ -128,6 +132,7 @@ cv_params = {'reg_alpha': [1e-5, 1e-3, 1e-1, 0.0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0],
 best_params = lgb_grid_greedy(cv_params, other_params, '4')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第五次
 print("第五次")
@@ -136,6 +141,7 @@ cv_params = {'min_split_gain': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9
 best_params = lgb_grid_greedy(cv_params, other_params, '5')
 other_params.update(best_params)
 # print(other_params)
+best_params_result.update(best_params)
 
 # 第六次
 print("第六次")
@@ -144,9 +150,11 @@ cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0
 best_params = lgb_grid_greedy(cv_params, other_params, '6')
 other_params.update(best_params)
 # print(other_params)
-
+best_params_result.update(best_params)
 
 print("total time spending:", time_since(start_time))
+print("best_params_result:", best_params_result)
+
 """
 ### 针对 Leaf-wise (最佳优先) 树的参数优化
 
