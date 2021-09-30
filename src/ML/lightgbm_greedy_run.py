@@ -16,9 +16,9 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[1]
+cell_name = names[6 ]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[4]
+feature_name = feature_names[3]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[3]
 dir_name = "run_and_score"
@@ -83,7 +83,7 @@ other_params = {'max_depth': -1, 'num_leaves': 31,
                 'objective': None,
                 'n_estimators': 100, 'learning_rate': 0.1,
 
-                'device': 'gpu', 'n_jobs': 2, 'boosting_type': 'gbdt',
+                'device': 'gpu', 'n_jobs': 4, 'boosting_type': 'gbdt',
                 'class_weight': None, 'importance_type': 'split',
                 'min_child_weight': 0.001, 'random_state': None,
                 'subsample_for_bin': 200000, 'silent': True}
