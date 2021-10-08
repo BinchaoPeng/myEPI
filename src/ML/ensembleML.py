@@ -48,8 +48,8 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
         print("ensemble_ex_item:", ex_item)
         if ex_item.__contains__("HeLa-S3"):
             ex_item = "HeLa_S3" + "_" + feature_name + "_" + method_name
-        model_params = getattr(EPIconst.Params, ex_item)
-        base_params = getattr(EPIconst.BaseParams, method_name)
+        model_params = getattr(EPIconst.ModelParams, ex_item)
+        base_params = getattr(EPIconst.ModelBaseParams, method_name)
         estimator = estimators[method_name]()
         estimator.set_params(**base_params)
         estimator.set_params(**model_params)
@@ -111,6 +111,33 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
             'test_X': {"test_X_pred": test_X_pred, "test_X_prob": test_X_prob}, 'test_y': test_y}
 
 
+def set_base_estimators_params(cell_name, all_feature_names, all_method_names):
+    for item in product(all_feature_names, all_method_names):
+        ex_item = cell_name + "_" + "_".join(item)
+        feature_name = item[0]
+        method_name = item[1]
+        print("ensemble_ex_item:", ex_item)
+        if ex_item.__contains__("HeLa-S3"):
+            ex_item = "HeLa_S3" + "_" + feature_name + "_" + method_name
+        model_params = getattr(EPIconst.ModelParams, ex_item)
+        base_params = getattr(EPIconst.ModelBaseParams, method_name)
+        estimator = estimators[method_name]()
+        estimator.set_params(**base_params)
+        estimator.set_params(**model_params)
+        print(estimator)
+        data_value = get_data_np_dict(cell_name, feature_name, EPIconst.MethodName.ensemble)
+        estimator.fit(data_value["train_X"], data_value["train_y"])
+        # get base estimator scoring
+        y_pred = estimator.predict(data_value["test_X"])
+        y_pred_prob_temp = estimator.predict_proba(data_value["test_X"])
+        if (y_pred[0] == 1 and y_pred_prob_temp[0][0] >= 0.5) or (y_pred[0] == 0 and y_pred_prob_temp[0][0] < 0.5):
+            y_proba = y_pred_prob_temp[:, 0]
+        else:
+            y_proba = y_pred_prob_temp[:, 1]
+        scoring = sorted(['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy'])
+        process_msg, score_result_dict = get_scoring_result(scoring, data_value["test_y"], y_pred, y_proba)
+        print(ex_item, ":", process_msg, "\n")
+
 
 if __name__ == '__main__':
     EPIconst.MethodName.all.remove("rf")
@@ -124,5 +151,3 @@ if __name__ == '__main__':
     test_X = np.hstack((test_X_prob, test_X_pred))
     train_y = new_feature["train_y"]
     test_y = new_feature["test_y"]
-
-

@@ -1,0 +1,518 @@
+nohup: ignoring input
+Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-learn-intelex)
+experiment: NHEK kmer_svm
+trainSet len:[X=46280,y=46280]
+testSet len:[X=2689,y=2689]
+Fitting, totalling 240 fits
+Line search fails in two-class probability estimates
+[fit 1/240] END C=0.0625, gamma=0.0625, kernel=rbf; total=2689, TP=97, TN=915, FP=1645, FN=32; precision=0.056, recall=0.752
+accuracy: (test=0.376) average_precision: (test=0.069) balanced_accuracy: (test=0.555) f1: (test=0.104) roc_auc: (test=0.601) 25.46s
+[fit 2/240] END C=0.0625, gamma=0.125, kernel=rbf; total=2689, TP=90, TN=1209, FP=1351, FN=39; precision=0.062, recall=0.698
+accuracy: (test=0.483) average_precision: (test=0.070) balanced_accuracy: (test=0.585) f1: (test=0.115) roc_auc: (test=0.599) 25.31s
+[fit 3/240] END C=0.0625, gamma=0.25, kernel=rbf; total=2689, TP=91, TN=1198, FP=1362, FN=38; precision=0.063, recall=0.705
+accuracy: (test=0.479) average_precision: (test=0.069) balanced_accuracy: (test=0.587) f1: (test=0.115) roc_auc: (test=0.603) 25.68s
+[fit 4/240] END C=0.0625, gamma=0.5, kernel=rbf; total=2689, TP=90, TN=1227, FP=1333, FN=39; precision=0.063, recall=0.698
+accuracy: (test=0.490) average_precision: (test=0.071) balanced_accuracy: (test=0.588) f1: (test=0.116) roc_auc: (test=0.611) 26.08s
+[fit 5/240] END C=0.0625, gamma=1.0, kernel=rbf; total=2689, TP=89, TN=1314, FP=1246, FN=40; precision=0.067, recall=0.690
+accuracy: (test=0.522) average_precision: (test=0.075) balanced_accuracy: (test=0.602) f1: (test=0.122) roc_auc: (test=0.623) 26.22s
+[fit 6/240] END C=0.0625, gamma=2.0, kernel=rbf; total=2689, TP=86, TN=1384, FP=1176, FN=43; precision=0.068, recall=0.667
+accuracy: (test=0.547) average_precision: (test=0.083) balanced_accuracy: (test=0.604) f1: (test=0.124) roc_auc: (test=0.635) 26.52s
+[fit 7/240] END C=0.0625, gamma=4.0, kernel=rbf; total=2689, TP=87, TN=1445, FP=1115, FN=42; precision=0.072, recall=0.674
+accuracy: (test=0.570) average_precision: (test=0.093) balanced_accuracy: (test=0.619) f1: (test=0.131) roc_auc: (test=0.652) 26.73s
+[fit 8/240] END C=0.0625, gamma=8.0, kernel=rbf; total=2689, TP=89, TN=1505, FP=1055, FN=40; precision=0.078, recall=0.690
+accuracy: (test=0.593) average_precision: (test=0.123) balanced_accuracy: (test=0.639) f1: (test=0.140) roc_auc: (test=0.685) 26.64s
+[fit 9/240] END C=0.0625, gamma=16.0, kernel=rbf; total=2689, TP=93, TN=1618, FP=942, FN=36; precision=0.090, recall=0.721
+accuracy: (test=0.636) average_precision: (test=0.197) balanced_accuracy: (test=0.676) f1: (test=0.160) roc_auc: (test=0.738) 26.35s
+Line search fails in two-class probability estimates
+[fit 10/240] END C=0.0625, gamma=32.0, kernel=rbf; total=2689, TP=93, TN=1781, FP=779, FN=36; precision=0.107, recall=0.721
+accuracy: (test=0.697) average_precision: (test=0.268) balanced_accuracy: (test=0.708) f1: (test=0.186) roc_auc: (test=0.791) 25.72s
+[fit 11/240] END C=0.0625, gamma=64.0, kernel=rbf; total=2689, TP=92, TN=1995, FP=565, FN=37; precision=0.140, recall=0.713
+accuracy: (test=0.776) average_precision: (test=0.399) balanced_accuracy: (test=0.746) f1: (test=0.234) roc_auc: (test=0.846) 24.82s
+[fit 12/240] END C=0.0625, gamma=128.0, kernel=rbf; total=2689, TP=93, TN=2208, FP=352, FN=36; precision=0.209, recall=0.721
+accuracy: (test=0.856) average_precision: (test=0.555) balanced_accuracy: (test=0.792) f1: (test=0.324) roc_auc: (test=0.884) 24.74s
+Line search fails in two-class probability estimates
+[fit 13/240] END C=0.0625, gamma=256.0, kernel=rbf; total=2689, TP=101, TN=2339, FP=221, FN=28; precision=0.314, recall=0.783
+accuracy: (test=0.907) average_precision: (test=0.660) balanced_accuracy: (test=0.848) f1: (test=0.448) roc_auc: (test=0.903) 25.64s
+[fit 14/240] END C=0.0625, gamma=512.0, kernel=rbf; total=2689, TP=101, TN=2499, FP=61, FN=28; precision=0.623, recall=0.783
+accuracy: (test=0.967) average_precision: (test=0.747) balanced_accuracy: (test=0.880) f1: (test=0.694) roc_auc: (test=0.923) 26.06s
+[fit 15/240] END C=0.0625, gamma=1024.0, kernel=rbf; total=2689, TP=57, TN=2559, FP=1, FN=72; precision=0.983, recall=0.442
+accuracy: (test=0.973) average_precision: (test=0.832) balanced_accuracy: (test=0.721) f1: (test=0.610) roc_auc: (test=0.926) 26.12s
+[fit 16/240] END C=0.0625, gamma=2048.0, kernel=rbf; total=2689, TP=49, TN=2560, FP=0, FN=80; precision=1.000, recall=0.380
+accuracy: (test=0.970) average_precision: (test=0.846) balanced_accuracy: (test=0.690) f1: (test=0.551) roc_auc: (test=0.919) 26.14s
+[fit 17/240] END C=0.125, gamma=0.0625, kernel=rbf; total=2689, TP=125, TN=175, FP=2385, FN=4; precision=0.050, recall=0.969
+accuracy: (test=0.112) average_precision: (test=0.070) balanced_accuracy: (test=0.519) f1: (test=0.095) roc_auc: (test=0.600) 26.01s
+Line search fails in two-class probability estimates
+[fit 18/240] END C=0.125, gamma=0.125, kernel=rbf; total=2689, TP=91, TN=1201, FP=1359, FN=38; precision=0.063, recall=0.705
+accuracy: (test=0.480) average_precision: (test=0.069) balanced_accuracy: (test=0.587) f1: (test=0.115) roc_auc: (test=0.603) 26.18s
+[fit 19/240] END C=0.125, gamma=0.25, kernel=rbf; total=2689, TP=90, TN=1219, FP=1341, FN=39; precision=0.063, recall=0.698
+accuracy: (test=0.487) average_precision: (test=0.071) balanced_accuracy: (test=0.587) f1: (test=0.115) roc_auc: (test=0.610) 26.29s
+[fit 20/240] END C=0.125, gamma=0.5, kernel=rbf; total=2689, TP=88, TN=1298, FP=1262, FN=41; precision=0.065, recall=0.682
+accuracy: (test=0.515) average_precision: (test=0.075) balanced_accuracy: (test=0.595) f1: (test=0.119) roc_auc: (test=0.622) 26.59s
+[fit 21/240] END C=0.125, gamma=1.0, kernel=rbf; total=2689, TP=88, TN=1368, FP=1192, FN=41; precision=0.069, recall=0.682
+accuracy: (test=0.541) average_precision: (test=0.082) balanced_accuracy: (test=0.608) f1: (test=0.125) roc_auc: (test=0.635) 27.13s
+[fit 22/240] END C=0.125, gamma=2.0, kernel=rbf; total=2689, TP=91, TN=1427, FP=1133, FN=38; precision=0.074, recall=0.705
+accuracy: (test=0.565) average_precision: (test=0.093) balanced_accuracy: (test=0.631) f1: (test=0.135) roc_auc: (test=0.653) 27.41s
+[fit 23/240] END C=0.125, gamma=4.0, kernel=rbf; total=2689, TP=89, TN=1473, FP=1087, FN=40; precision=0.076, recall=0.690
+accuracy: (test=0.581) average_precision: (test=0.113) balanced_accuracy: (test=0.633) f1: (test=0.136) roc_auc: (test=0.679) 28.10s
+[fit 24/240] END C=0.125, gamma=8.0, kernel=rbf; total=2689, TP=91, TN=1610, FP=950, FN=38; precision=0.087, recall=0.705
+accuracy: (test=0.633) average_precision: (test=0.171) balanced_accuracy: (test=0.667) f1: (test=0.156) roc_auc: (test=0.725) 28.47s
+[fit 25/240] END C=0.125, gamma=16.0, kernel=rbf; total=2689, TP=92, TN=1748, FP=812, FN=37; precision=0.102, recall=0.713
+accuracy: (test=0.684) average_precision: (test=0.241) balanced_accuracy: (test=0.698) f1: (test=0.178) roc_auc: (test=0.781) 28.07s
+[fit 26/240] END C=0.125, gamma=32.0, kernel=rbf; total=2689, TP=94, TN=1963, FP=597, FN=35; precision=0.136, recall=0.729
+accuracy: (test=0.765) average_precision: (test=0.352) balanced_accuracy: (test=0.748) f1: (test=0.229) roc_auc: (test=0.840) 27.03s
+[fit 27/240] END C=0.125, gamma=64.0, kernel=rbf; total=2689, TP=100, TN=2172, FP=388, FN=29; precision=0.205, recall=0.775
+accuracy: (test=0.845) average_precision: (test=0.548) balanced_accuracy: (test=0.812) f1: (test=0.324) roc_auc: (test=0.898) 25.75s
+Line search fails in two-class probability estimates
+[fit 28/240] END C=0.125, gamma=128.0, kernel=rbf; total=2689, TP=108, TN=2386, FP=174, FN=21; precision=0.383, recall=0.837
+accuracy: (test=0.927) average_precision: (test=0.737) balanced_accuracy: (test=0.885) f1: (test=0.526) roc_auc: (test=0.926) 25.72s
+Line search fails in two-class probability estimates
+[fit 29/240] END C=0.125, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2457, FP=103, FN=24; precision=0.505, recall=0.814
+accuracy: (test=0.953) average_precision: (test=0.808) balanced_accuracy: (test=0.887) f1: (test=0.623) roc_auc: (test=0.927) 28.29s
+[fit 30/240] END C=0.125, gamma=512.0, kernel=rbf; total=2689, TP=107, TN=2498, FP=62, FN=22; precision=0.633, recall=0.829
+accuracy: (test=0.969) average_precision: (test=0.808) balanced_accuracy: (test=0.903) f1: (test=0.718) roc_auc: (test=0.925) 31.32s
+[fit 31/240] END C=0.125, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2551, FP=9, FN=29; precision=0.917, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.825) balanced_accuracy: (test=0.886) f1: (test=0.840) roc_auc: (test=0.926) 27.18s
+[fit 32/240] END C=0.125, gamma=2048.0, kernel=rbf; total=2689, TP=49, TN=2560, FP=0, FN=80; precision=1.000, recall=0.380
+accuracy: (test=0.970) average_precision: (test=0.846) balanced_accuracy: (test=0.690) f1: (test=0.551) roc_auc: (test=0.919) 26.36s
+Line search fails in two-class probability estimates
+[fit 33/240] END C=0.25, gamma=0.0625, kernel=rbf; total=2689, TP=98, TN=868, FP=1692, FN=31; precision=0.055, recall=0.760
+accuracy: (test=0.359) average_precision: (test=0.069) balanced_accuracy: (test=0.549) f1: (test=0.102) roc_auc: (test=0.603) 26.36s
+Line search fails in two-class probability estimates
+[fit 34/240] END C=0.25, gamma=0.125, kernel=rbf; total=2689, TP=91, TN=1212, FP=1348, FN=38; precision=0.063, recall=0.705
+accuracy: (test=0.485) average_precision: (test=0.071) balanced_accuracy: (test=0.589) f1: (test=0.116) roc_auc: (test=0.611) 26.58s
+[fit 35/240] END C=0.25, gamma=0.25, kernel=rbf; total=2689, TP=89, TN=1291, FP=1269, FN=40; precision=0.066, recall=0.690
+accuracy: (test=0.513) average_precision: (test=0.075) balanced_accuracy: (test=0.597) f1: (test=0.120) roc_auc: (test=0.621) 26.80s
+[fit 36/240] END C=0.25, gamma=0.5, kernel=rbf; total=2689, TP=88, TN=1363, FP=1197, FN=41; precision=0.068, recall=0.682
+accuracy: (test=0.540) average_precision: (test=0.082) balanced_accuracy: (test=0.607) f1: (test=0.124) roc_auc: (test=0.635) 27.15s
+[fit 37/240] END C=0.25, gamma=1.0, kernel=rbf; total=2689, TP=92, TN=1406, FP=1154, FN=37; precision=0.074, recall=0.713
+accuracy: (test=0.557) average_precision: (test=0.093) balanced_accuracy: (test=0.631) f1: (test=0.134) roc_auc: (test=0.652) 27.46s
+Line search fails in two-class probability estimates
+[fit 38/240] END C=0.25, gamma=2.0, kernel=rbf; total=2689, TP=92, TN=1457, FP=1103, FN=37; precision=0.077, recall=0.713
+accuracy: (test=0.576) average_precision: (test=0.108) balanced_accuracy: (test=0.641) f1: (test=0.139) roc_auc: (test=0.676) 29.14s
+[fit 39/240] END C=0.25, gamma=4.0, kernel=rbf; total=2689, TP=91, TN=1587, FP=973, FN=38; precision=0.086, recall=0.705
+accuracy: (test=0.624) average_precision: (test=0.133) balanced_accuracy: (test=0.663) f1: (test=0.153) roc_auc: (test=0.711) 29.85s
+[fit 40/240] END C=0.25, gamma=8.0, kernel=rbf; total=2689, TP=90, TN=1714, FP=846, FN=39; precision=0.096, recall=0.698
+accuracy: (test=0.671) average_precision: (test=0.197) balanced_accuracy: (test=0.684) f1: (test=0.169) roc_auc: (test=0.762) 29.61s
+[fit 41/240] END C=0.25, gamma=16.0, kernel=rbf; total=2689, TP=99, TN=1885, FP=675, FN=30; precision=0.128, recall=0.767
+accuracy: (test=0.738) average_precision: (test=0.286) balanced_accuracy: (test=0.752) f1: (test=0.219) roc_auc: (test=0.819) 29.22s
+Line search fails in two-class probability estimates
+[fit 42/240] END C=0.25, gamma=32.0, kernel=rbf; total=2689, TP=104, TN=2103, FP=457, FN=25; precision=0.185, recall=0.806
+accuracy: (test=0.821) average_precision: (test=0.461) balanced_accuracy: (test=0.814) f1: (test=0.301) roc_auc: (test=0.887) 28.36s
+Line search fails in two-class probability estimates
+[fit 43/240] END C=0.25, gamma=64.0, kernel=rbf; total=2689, TP=110, TN=2346, FP=214, FN=19; precision=0.340, recall=0.853
+accuracy: (test=0.913) average_precision: (test=0.703) balanced_accuracy: (test=0.885) f1: (test=0.486) roc_auc: (test=0.933) 27.71s
+[fit 44/240] END C=0.25, gamma=128.0, kernel=rbf; total=2689, TP=110, TN=2479, FP=81, FN=19; precision=0.576, recall=0.853
+accuracy: (test=0.963) average_precision: (test=0.835) balanced_accuracy: (test=0.911) f1: (test=0.688) roc_auc: (test=0.944) 29.19s
+[fit 45/240] END C=0.25, gamma=256.0, kernel=rbf; total=2689, TP=109, TN=2520, FP=40, FN=20; precision=0.732, recall=0.845
+accuracy: (test=0.978) average_precision: (test=0.856) balanced_accuracy: (test=0.915) f1: (test=0.784) roc_auc: (test=0.938) 35.05s
+[fit 46/240] END C=0.25, gamma=512.0, kernel=rbf; total=2689, TP=106, TN=2524, FP=36, FN=23; precision=0.746, recall=0.822
+accuracy: (test=0.978) average_precision: (test=0.849) balanced_accuracy: (test=0.904) f1: (test=0.782) roc_auc: (test=0.931) 45.73s
+[fit 47/240] END C=0.25, gamma=1024.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.833) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.927) 52.82s
+[fit 48/240] END C=0.25, gamma=2048.0, kernel=rbf; total=2689, TP=93, TN=2556, FP=4, FN=36; precision=0.959, recall=0.721
+accuracy: (test=0.985) average_precision: (test=0.840) balanced_accuracy: (test=0.860) f1: (test=0.823) roc_auc: (test=0.919) 36.75s
+[fit 49/240] END C=0.5, gamma=0.0625, kernel=rbf; total=2689, TP=91, TN=1211, FP=1349, FN=38; precision=0.063, recall=0.705
+accuracy: (test=0.484) average_precision: (test=0.071) balanced_accuracy: (test=0.589) f1: (test=0.116) roc_auc: (test=0.611) 26.63s
+[fit 50/240] END C=0.5, gamma=0.125, kernel=rbf; total=2689, TP=89, TN=1284, FP=1276, FN=40; precision=0.065, recall=0.690
+accuracy: (test=0.511) average_precision: (test=0.075) balanced_accuracy: (test=0.596) f1: (test=0.119) roc_auc: (test=0.621) 26.96s
+[fit 51/240] END C=0.5, gamma=0.25, kernel=rbf; total=2689, TP=89, TN=1342, FP=1218, FN=40; precision=0.068, recall=0.690
+accuracy: (test=0.532) average_precision: (test=0.082) balanced_accuracy: (test=0.607) f1: (test=0.124) roc_auc: (test=0.635) 27.19s
+[fit 52/240] END C=0.5, gamma=0.5, kernel=rbf; total=2689, TP=93, TN=1388, FP=1172, FN=36; precision=0.074, recall=0.721
+accuracy: (test=0.551) average_precision: (test=0.093) balanced_accuracy: (test=0.632) f1: (test=0.133) roc_auc: (test=0.651) 27.48s
+Line search fails in two-class probability estimates
+[fit 53/240] END C=0.5, gamma=1.0, kernel=rbf; total=2689, TP=91, TN=1450, FP=1110, FN=38; precision=0.076, recall=0.705
+accuracy: (test=0.573) average_precision: (test=0.105) balanced_accuracy: (test=0.636) f1: (test=0.137) roc_auc: (test=0.673) 29.43s
+[fit 54/240] END C=0.5, gamma=2.0, kernel=rbf; total=2689, TP=88, TN=1565, FP=995, FN=41; precision=0.081, recall=0.682
+accuracy: (test=0.615) average_precision: (test=0.122) balanced_accuracy: (test=0.647) f1: (test=0.145) roc_auc: (test=0.701) 30.69s
+[fit 55/240] END C=0.5, gamma=4.0, kernel=rbf; total=2689, TP=91, TN=1663, FP=897, FN=38; precision=0.092, recall=0.705
+accuracy: (test=0.652) average_precision: (test=0.151) balanced_accuracy: (test=0.678) f1: (test=0.163) roc_auc: (test=0.742) 31.67s
+Line search fails in two-class probability estimates
+[fit 56/240] END C=0.5, gamma=8.0, kernel=rbf; total=2689, TP=96, TN=1798, FP=762, FN=33; precision=0.112, recall=0.744
+accuracy: (test=0.704) average_precision: (test=0.225) balanced_accuracy: (test=0.723) f1: (test=0.195) roc_auc: (test=0.795) 31.47s
+[fit 57/240] END C=0.5, gamma=16.0, kernel=rbf; total=2689, TP=100, TN=2002, FP=558, FN=29; precision=0.152, recall=0.775
+accuracy: (test=0.782) average_precision: (test=0.345) balanced_accuracy: (test=0.779) f1: (test=0.254) roc_auc: (test=0.858) 30.74s
+[fit 58/240] END C=0.5, gamma=32.0, kernel=rbf; total=2689, TP=108, TN=2262, FP=298, FN=21; precision=0.266, recall=0.837
+accuracy: (test=0.881) average_precision: (test=0.583) balanced_accuracy: (test=0.860) f1: (test=0.404) roc_auc: (test=0.922) 30.64s
+[fit 59/240] END C=0.5, gamma=64.0, kernel=rbf; total=2689, TP=112, TN=2445, FP=115, FN=17; precision=0.493, recall=0.868
+accuracy: (test=0.951) average_precision: (test=0.789) balanced_accuracy: (test=0.912) f1: (test=0.629) roc_auc: (test=0.949) 32.10s
+[fit 60/240] END C=0.5, gamma=128.0, kernel=rbf; total=2689, TP=111, TN=2521, FP=39, FN=18; precision=0.740, recall=0.860
+accuracy: (test=0.979) average_precision: (test=0.862) balanced_accuracy: (test=0.923) f1: (test=0.796) roc_auc: (test=0.953) 36.72s
+[fit 61/240] END C=0.5, gamma=256.0, kernel=rbf; total=2689, TP=107, TN=2529, FP=31, FN=22; precision=0.775, recall=0.829
+accuracy: (test=0.980) average_precision: (test=0.866) balanced_accuracy: (test=0.909) f1: (test=0.801) roc_auc: (test=0.944) 45.24s
+[fit 62/240] END C=0.5, gamma=512.0, kernel=rbf; total=2689, TP=106, TN=2539, FP=21, FN=23; precision=0.835, recall=0.822
+accuracy: (test=0.984) average_precision: (test=0.854) balanced_accuracy: (test=0.907) f1: (test=0.828) roc_auc: (test=0.933) 55.17s
+[fit 63/240] END C=0.5, gamma=1024.0, kernel=rbf; total=2689, TP=104, TN=2549, FP=11, FN=25; precision=0.904, recall=0.806
+accuracy: (test=0.987) average_precision: (test=0.844) balanced_accuracy: (test=0.901) f1: (test=0.852) roc_auc: (test=0.928) 1.11min
+[fit 64/240] END C=0.5, gamma=2048.0, kernel=rbf; total=2689, TP=88, TN=2558, FP=2, FN=41; precision=0.978, recall=0.682
+accuracy: (test=0.984) average_precision: (test=0.841) balanced_accuracy: (test=0.841) f1: (test=0.804) roc_auc: (test=0.919) 1.08min
+[fit 65/240] END C=1.0, gamma=0.0625, kernel=rbf; total=2689, TP=89, TN=1280, FP=1280, FN=40; precision=0.065, recall=0.690
+accuracy: (test=0.509) average_precision: (test=0.074) balanced_accuracy: (test=0.595) f1: (test=0.119) roc_auc: (test=0.621) 27.07s
+[fit 66/240] END C=1.0, gamma=0.125, kernel=rbf; total=2689, TP=90, TN=1341, FP=1219, FN=39; precision=0.069, recall=0.698
+accuracy: (test=0.532) average_precision: (test=0.081) balanced_accuracy: (test=0.611) f1: (test=0.125) roc_auc: (test=0.635) 27.19s
+[fit 67/240] END C=1.0, gamma=0.25, kernel=rbf; total=2689, TP=94, TN=1382, FP=1178, FN=35; precision=0.074, recall=0.729
+accuracy: (test=0.549) average_precision: (test=0.092) balanced_accuracy: (test=0.634) f1: (test=0.134) roc_auc: (test=0.651) 27.50s
+[fit 68/240] END C=1.0, gamma=0.5, kernel=rbf; total=2689, TP=92, TN=1443, FP=1117, FN=37; precision=0.076, recall=0.713
+accuracy: (test=0.571) average_precision: (test=0.103) balanced_accuracy: (test=0.638) f1: (test=0.138) roc_auc: (test=0.672) 29.24s
+[fit 69/240] END C=1.0, gamma=1.0, kernel=rbf; total=2689, TP=88, TN=1547, FP=1013, FN=41; precision=0.080, recall=0.682
+accuracy: (test=0.608) average_precision: (test=0.117) balanced_accuracy: (test=0.643) f1: (test=0.143) roc_auc: (test=0.694) 31.49s
+[fit 70/240] END C=1.0, gamma=2.0, kernel=rbf; total=2689, TP=90, TN=1640, FP=920, FN=39; precision=0.089, recall=0.698
+accuracy: (test=0.643) average_precision: (test=0.130) balanced_accuracy: (test=0.669) f1: (test=0.158) roc_auc: (test=0.726) 32.69s
+Line search fails in two-class probability estimates
+[fit 71/240] END C=1.0, gamma=4.0, kernel=rbf; total=2689, TP=92, TN=1755, FP=805, FN=37; precision=0.103, recall=0.713
+accuracy: (test=0.687) average_precision: (test=0.173) balanced_accuracy: (test=0.699) f1: (test=0.179) roc_auc: (test=0.770) 31.86s
+[fit 72/240] END C=1.0, gamma=8.0, kernel=rbf; total=2689, TP=98, TN=1905, FP=655, FN=31; precision=0.130, recall=0.760
+accuracy: (test=0.745) average_precision: (test=0.255) balanced_accuracy: (test=0.752) f1: (test=0.222) roc_auc: (test=0.828) 32.33s
+[fit 73/240] END C=1.0, gamma=16.0, kernel=rbf; total=2689, TP=105, TN=2137, FP=423, FN=24; precision=0.199, recall=0.814
+accuracy: (test=0.834) average_precision: (test=0.434) balanced_accuracy: (test=0.824) f1: (test=0.320) roc_auc: (test=0.895) 31.96s
+[fit 74/240] END C=1.0, gamma=32.0, kernel=rbf; total=2689, TP=110, TN=2375, FP=185, FN=19; precision=0.373, recall=0.853
+accuracy: (test=0.924) average_precision: (test=0.697) balanced_accuracy: (test=0.890) f1: (test=0.519) roc_auc: (test=0.943) 35.36s
+[fit 75/240] END C=1.0, gamma=64.0, kernel=rbf; total=2689, TP=112, TN=2499, FP=61, FN=17; precision=0.647, recall=0.868
+accuracy: (test=0.971) average_precision: (test=0.833) balanced_accuracy: (test=0.922) f1: (test=0.742) roc_auc: (test=0.959) 40.84s
+[fit 76/240] END C=1.0, gamma=128.0, kernel=rbf; total=2689, TP=111, TN=2533, FP=27, FN=18; precision=0.804, recall=0.860
+accuracy: (test=0.983) average_precision: (test=0.871) balanced_accuracy: (test=0.925) f1: (test=0.831) roc_auc: (test=0.957) 47.91s
+[fit 77/240] END C=1.0, gamma=256.0, kernel=rbf; total=2689, TP=107, TN=2537, FP=23, FN=22; precision=0.823, recall=0.829
+accuracy: (test=0.983) average_precision: (test=0.866) balanced_accuracy: (test=0.910) f1: (test=0.826) roc_auc: (test=0.945) 52.16s
+[fit 78/240] END C=1.0, gamma=512.0, kernel=rbf; total=2689, TP=106, TN=2541, FP=19, FN=23; precision=0.848, recall=0.822
+accuracy: (test=0.984) average_precision: (test=0.855) balanced_accuracy: (test=0.907) f1: (test=0.835) roc_auc: (test=0.934) 1.01min
+[fit 79/240] END C=1.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.24min
+[fit 80/240] END C=1.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.42min
+[fit 81/240] END C=2.0, gamma=0.0625, kernel=rbf; total=2689, TP=90, TN=1333, FP=1227, FN=39; precision=0.068, recall=0.698
+accuracy: (test=0.529) average_precision: (test=0.081) balanced_accuracy: (test=0.609) f1: (test=0.124) roc_auc: (test=0.635) 27.34s
+[fit 82/240] END C=2.0, gamma=0.125, kernel=rbf; total=2689, TP=95, TN=1376, FP=1184, FN=34; precision=0.074, recall=0.736
+accuracy: (test=0.547) average_precision: (test=0.092) balanced_accuracy: (test=0.637) f1: (test=0.135) roc_auc: (test=0.650) 27.59s
+Line search fails in two-class probability estimates
+[fit 83/240] END C=2.0, gamma=0.25, kernel=rbf; total=2689, TP=90, TN=1435, FP=1125, FN=39; precision=0.074, recall=0.698
+accuracy: (test=0.567) average_precision: (test=0.104) balanced_accuracy: (test=0.629) f1: (test=0.134) roc_auc: (test=0.670) 29.47s
+[fit 84/240] END C=2.0, gamma=0.5, kernel=rbf; total=2689, TP=88, TN=1529, FP=1031, FN=41; precision=0.079, recall=0.682
+accuracy: (test=0.601) average_precision: (test=0.115) balanced_accuracy: (test=0.640) f1: (test=0.141) roc_auc: (test=0.690) 31.64s
+[fit 85/240] END C=2.0, gamma=1.0, kernel=rbf; total=2689, TP=86, TN=1623, FP=937, FN=43; precision=0.084, recall=0.667
+accuracy: (test=0.636) average_precision: (test=0.123) balanced_accuracy: (test=0.650) f1: (test=0.149) roc_auc: (test=0.716) 32.48s
+[fit 86/240] END C=2.0, gamma=2.0, kernel=rbf; total=2689, TP=92, TN=1714, FP=846, FN=37; precision=0.098, recall=0.713
+accuracy: (test=0.672) average_precision: (test=0.144) balanced_accuracy: (test=0.691) f1: (test=0.172) roc_auc: (test=0.750) 33.15s
+[fit 87/240] END C=2.0, gamma=4.0, kernel=rbf; total=2689, TP=95, TN=1830, FP=730, FN=34; precision=0.115, recall=0.736
+accuracy: (test=0.716) average_precision: (test=0.202) balanced_accuracy: (test=0.726) f1: (test=0.199) roc_auc: (test=0.800) 32.81s
+[fit 88/240] END C=2.0, gamma=8.0, kernel=rbf; total=2689, TP=101, TN=2023, FP=537, FN=28; precision=0.158, recall=0.783
+accuracy: (test=0.790) average_precision: (test=0.312) balanced_accuracy: (test=0.787) f1: (test=0.263) roc_auc: (test=0.860) 33.46s
+[fit 89/240] END C=2.0, gamma=16.0, kernel=rbf; total=2689, TP=109, TN=2261, FP=299, FN=20; precision=0.267, recall=0.845
+accuracy: (test=0.881) average_precision: (test=0.541) balanced_accuracy: (test=0.864) f1: (test=0.406) roc_auc: (test=0.922) 35.56s
+[fit 90/240] END C=2.0, gamma=32.0, kernel=rbf; total=2689, TP=112, TN=2433, FP=127, FN=17; precision=0.469, recall=0.868
+accuracy: (test=0.946) average_precision: (test=0.754) balanced_accuracy: (test=0.909) f1: (test=0.609) roc_auc: (test=0.954) 43.11s
+[fit 91/240] END C=2.0, gamma=64.0, kernel=rbf; total=2689, TP=108, TN=2526, FP=34, FN=21; precision=0.761, recall=0.837
+accuracy: (test=0.980) average_precision: (test=0.855) balanced_accuracy: (test=0.912) f1: (test=0.797) roc_auc: (test=0.965) 53.57s
+[fit 92/240] END C=2.0, gamma=128.0, kernel=rbf; total=2689, TP=106, TN=2541, FP=19, FN=23; precision=0.848, recall=0.822
+accuracy: (test=0.984) average_precision: (test=0.873) balanced_accuracy: (test=0.907) f1: (test=0.835) roc_auc: (test=0.957) 58.46s
+[fit 93/240] END C=2.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2541, FP=19, FN=24; precision=0.847, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.830) roc_auc: (test=0.946) 54.48s
+[fit 94/240] END C=2.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.03min
+[fit 95/240] END C=2.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.26min
+[fit 96/240] END C=2.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.46min
+[fit 97/240] END C=4.0, gamma=0.0625, kernel=rbf; total=2689, TP=94, TN=1376, FP=1184, FN=35; precision=0.074, recall=0.729
+accuracy: (test=0.547) average_precision: (test=0.091) balanced_accuracy: (test=0.633) f1: (test=0.134) roc_auc: (test=0.650) 27.71s
+Line search fails in two-class probability estimates
+[fit 98/240] END C=4.0, gamma=0.125, kernel=rbf; total=2689, TP=91, TN=1432, FP=1128, FN=38; precision=0.075, recall=0.705
+accuracy: (test=0.566) average_precision: (test=0.103) balanced_accuracy: (test=0.632) f1: (test=0.135) roc_auc: (test=0.669) 29.24s
+[fit 99/240] END C=4.0, gamma=0.25, kernel=rbf; total=2689, TP=87, TN=1524, FP=1036, FN=42; precision=0.077, recall=0.674
+accuracy: (test=0.599) average_precision: (test=0.115) balanced_accuracy: (test=0.635) f1: (test=0.139) roc_auc: (test=0.687) 31.69s
+[fit 100/240] END C=4.0, gamma=0.5, kernel=rbf; total=2689, TP=87, TN=1598, FP=962, FN=42; precision=0.083, recall=0.674
+accuracy: (test=0.627) average_precision: (test=0.118) balanced_accuracy: (test=0.649) f1: (test=0.148) roc_auc: (test=0.709) 32.80s
+[fit 101/240] END C=4.0, gamma=1.0, kernel=rbf; total=2689, TP=91, TN=1684, FP=876, FN=38; precision=0.094, recall=0.705
+accuracy: (test=0.660) average_precision: (test=0.133) balanced_accuracy: (test=0.682) f1: (test=0.166) roc_auc: (test=0.735) 34.40s
+[fit 102/240] END C=4.0, gamma=2.0, kernel=rbf; total=2689, TP=94, TN=1787, FP=773, FN=35; precision=0.108, recall=0.729
+accuracy: (test=0.700) average_precision: (test=0.164) balanced_accuracy: (test=0.713) f1: (test=0.189) roc_auc: (test=0.775) 33.04s
+[fit 103/240] END C=4.0, gamma=4.0, kernel=rbf; total=2689, TP=96, TN=1926, FP=634, FN=33; precision=0.132, recall=0.744
+accuracy: (test=0.752) average_precision: (test=0.230) balanced_accuracy: (test=0.748) f1: (test=0.224) roc_auc: (test=0.827) 33.47s
+[fit 104/240] END C=4.0, gamma=8.0, kernel=rbf; total=2689, TP=106, TN=2129, FP=431, FN=23; precision=0.197, recall=0.822
+accuracy: (test=0.831) average_precision: (test=0.382) balanced_accuracy: (test=0.827) f1: (test=0.318) roc_auc: (test=0.890) 35.17s
+[fit 105/240] END C=4.0, gamma=16.0, kernel=rbf; total=2689, TP=110, TN=2354, FP=206, FN=19; precision=0.348, recall=0.853
+accuracy: (test=0.916) average_precision: (test=0.634) balanced_accuracy: (test=0.886) f1: (test=0.494) roc_auc: (test=0.941) 43.40s
+[fit 106/240] END C=4.0, gamma=32.0, kernel=rbf; total=2689, TP=110, TN=2489, FP=71, FN=19; precision=0.608, recall=0.853
+accuracy: (test=0.967) average_precision: (test=0.803) balanced_accuracy: (test=0.912) f1: (test=0.710) roc_auc: (test=0.962) 57.46s
+[fit 107/240] END C=4.0, gamma=64.0, kernel=rbf; total=2689, TP=106, TN=2531, FP=29, FN=23; precision=0.785, recall=0.822
+accuracy: (test=0.981) average_precision: (test=0.871) balanced_accuracy: (test=0.905) f1: (test=0.803) roc_auc: (test=0.967) 1.17min
+[fit 108/240] END C=4.0, gamma=128.0, kernel=rbf; total=2689, TP=102, TN=2545, FP=15, FN=27; precision=0.872, recall=0.791
+accuracy: (test=0.984) average_precision: (test=0.873) balanced_accuracy: (test=0.892) f1: (test=0.829) roc_auc: (test=0.957) 1.09min
+[fit 109/240] END C=4.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 55.08s
+[fit 110/240] END C=4.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.02min
+[fit 111/240] END C=4.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.26min
+[fit 112/240] END C=4.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.46min
+[fit 113/240] END C=8.0, gamma=0.0625, kernel=rbf; total=2689, TP=91, TN=1431, FP=1129, FN=38; precision=0.075, recall=0.705
+accuracy: (test=0.566) average_precision: (test=0.103) balanced_accuracy: (test=0.632) f1: (test=0.135) roc_auc: (test=0.668) 29.17s
+Line search fails in two-class probability estimates
+[fit 114/240] END C=8.0, gamma=0.125, kernel=rbf; total=2689, TP=89, TN=1519, FP=1041, FN=40; precision=0.079, recall=0.690
+accuracy: (test=0.598) average_precision: (test=0.112) balanced_accuracy: (test=0.642) f1: (test=0.141) roc_auc: (test=0.684) 32.14s
+[fit 115/240] END C=8.0, gamma=0.25, kernel=rbf; total=2689, TP=87, TN=1594, FP=966, FN=42; precision=0.083, recall=0.674
+accuracy: (test=0.625) average_precision: (test=0.117) balanced_accuracy: (test=0.649) f1: (test=0.147) roc_auc: (test=0.705) 33.59s
+[fit 116/240] END C=8.0, gamma=0.5, kernel=rbf; total=2689, TP=89, TN=1669, FP=891, FN=40; precision=0.091, recall=0.690
+accuracy: (test=0.654) average_precision: (test=0.123) balanced_accuracy: (test=0.671) f1: (test=0.161) roc_auc: (test=0.726) 33.61s
+[fit 117/240] END C=8.0, gamma=1.0, kernel=rbf; total=2689, TP=92, TN=1751, FP=809, FN=37; precision=0.102, recall=0.713
+accuracy: (test=0.685) average_precision: (test=0.147) balanced_accuracy: (test=0.699) f1: (test=0.179) roc_auc: (test=0.757) 33.18s
+[fit 118/240] END C=8.0, gamma=2.0, kernel=rbf; total=2689, TP=95, TN=1861, FP=699, FN=34; precision=0.120, recall=0.736
+accuracy: (test=0.727) average_precision: (test=0.189) balanced_accuracy: (test=0.732) f1: (test=0.206) roc_auc: (test=0.799) 34.20s
+[fit 119/240] END C=8.0, gamma=4.0, kernel=rbf; total=2689, TP=99, TN=2008, FP=552, FN=30; precision=0.152, recall=0.767
+accuracy: (test=0.784) average_precision: (test=0.276) balanced_accuracy: (test=0.776) f1: (test=0.254) roc_auc: (test=0.855) 35.80s
+[fit 120/240] END C=8.0, gamma=8.0, kernel=rbf; total=2689, TP=109, TN=2236, FP=324, FN=20; precision=0.252, recall=0.845
+accuracy: (test=0.872) average_precision: (test=0.473) balanced_accuracy: (test=0.859) f1: (test=0.388) roc_auc: (test=0.916) 40.84s
+[fit 121/240] END C=8.0, gamma=16.0, kernel=rbf; total=2689, TP=109, TN=2411, FP=149, FN=20; precision=0.422, recall=0.845
+accuracy: (test=0.937) average_precision: (test=0.713) balanced_accuracy: (test=0.893) f1: (test=0.563) roc_auc: (test=0.953) 57.45s
+[fit 122/240] END C=8.0, gamma=32.0, kernel=rbf; total=2689, TP=109, TN=2514, FP=46, FN=20; precision=0.703, recall=0.845
+accuracy: (test=0.975) average_precision: (test=0.833) balanced_accuracy: (test=0.913) f1: (test=0.768) roc_auc: (test=0.966) 1.34min
+[fit 123/240] END C=8.0, gamma=64.0, kernel=rbf; total=2689, TP=105, TN=2538, FP=22, FN=24; precision=0.827, recall=0.814
+accuracy: (test=0.983) average_precision: (test=0.874) balanced_accuracy: (test=0.903) f1: (test=0.820) roc_auc: (test=0.965) 1.42min
+[fit 124/240] END C=8.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2545, FP=15, FN=26; precision=0.873, recall=0.798
+accuracy: (test=0.985) average_precision: (test=0.871) balanced_accuracy: (test=0.896) f1: (test=0.834) roc_auc: (test=0.957) 1.11min
+[fit 125/240] END C=8.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 55.11s
+[fit 126/240] END C=8.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.02min
+[fit 127/240] END C=8.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.26min
+[fit 128/240] END C=8.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.46min
+[fit 129/240] END C=16.0, gamma=0.0625, kernel=rbf; total=2689, TP=89, TN=1520, FP=1040, FN=40; precision=0.079, recall=0.690
+accuracy: (test=0.598) average_precision: (test=0.112) balanced_accuracy: (test=0.642) f1: (test=0.141) roc_auc: (test=0.684) 31.46s
+[fit 130/240] END C=16.0, gamma=0.125, kernel=rbf; total=2689, TP=85, TN=1585, FP=975, FN=44; precision=0.080, recall=0.659
+accuracy: (test=0.621) average_precision: (test=0.121) balanced_accuracy: (test=0.639) f1: (test=0.143) roc_auc: (test=0.701) 33.21s
+[fit 131/240] END C=16.0, gamma=0.25, kernel=rbf; total=2689, TP=89, TN=1648, FP=912, FN=40; precision=0.089, recall=0.690
+accuracy: (test=0.646) average_precision: (test=0.120) balanced_accuracy: (test=0.667) f1: (test=0.158) roc_auc: (test=0.719) 33.74s
+Line search fails in two-class probability estimates
+[fit 132/240] END C=16.0, gamma=0.5, kernel=rbf; total=2689, TP=92, TN=1720, FP=840, FN=37; precision=0.099, recall=0.713
+accuracy: (test=0.674) average_precision: (test=0.133) balanced_accuracy: (test=0.693) f1: (test=0.173) roc_auc: (test=0.745) 33.39s
+[fit 133/240] END C=16.0, gamma=1.0, kernel=rbf; total=2689, TP=94, TN=1828, FP=732, FN=35; precision=0.114, recall=0.729
+accuracy: (test=0.715) average_precision: (test=0.159) balanced_accuracy: (test=0.721) f1: (test=0.197) roc_auc: (test=0.777) 34.12s
+[fit 134/240] END C=16.0, gamma=2.0, kernel=rbf; total=2689, TP=94, TN=1922, FP=638, FN=35; precision=0.128, recall=0.729
+accuracy: (test=0.750) average_precision: (test=0.210) balanced_accuracy: (test=0.740) f1: (test=0.218) roc_auc: (test=0.824) 36.01s
+[fit 135/240] END C=16.0, gamma=4.0, kernel=rbf; total=2689, TP=106, TN=2105, FP=455, FN=23; precision=0.189, recall=0.822
+accuracy: (test=0.822) average_precision: (test=0.334) balanced_accuracy: (test=0.822) f1: (test=0.307) roc_auc: (test=0.885) 39.38s
+[fit 136/240] END C=16.0, gamma=8.0, kernel=rbf; total=2689, TP=112, TN=2324, FP=236, FN=17; precision=0.322, recall=0.868
+accuracy: (test=0.906) average_precision: (test=0.571) balanced_accuracy: (test=0.888) f1: (test=0.470) roc_auc: (test=0.937) 55.40s
+[fit 137/240] END C=16.0, gamma=16.0, kernel=rbf; total=2689, TP=110, TN=2461, FP=99, FN=19; precision=0.526, recall=0.853
+accuracy: (test=0.956) average_precision: (test=0.764) balanced_accuracy: (test=0.907) f1: (test=0.651) roc_auc: (test=0.959) 1.36min
+[fit 138/240] END C=16.0, gamma=32.0, kernel=rbf; total=2689, TP=107, TN=2522, FP=38, FN=22; precision=0.738, recall=0.829
+accuracy: (test=0.978) average_precision: (test=0.856) balanced_accuracy: (test=0.907) f1: (test=0.781) roc_auc: (test=0.967) 1.80min
+[fit 139/240] END C=16.0, gamma=64.0, kernel=rbf; total=2689, TP=102, TN=2535, FP=25, FN=27; precision=0.803, recall=0.791
+accuracy: (test=0.981) average_precision: (test=0.874) balanced_accuracy: (test=0.890) f1: (test=0.797) roc_auc: (test=0.964) 1.56min
+[fit 140/240] END C=16.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2545, FP=15, FN=26; precision=0.873, recall=0.798
+accuracy: (test=0.985) average_precision: (test=0.872) balanced_accuracy: (test=0.896) f1: (test=0.834) roc_auc: (test=0.957) 1.11min
+[fit 141/240] END C=16.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 54.74s
+[fit 142/240] END C=16.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.02min
+[fit 143/240] END C=16.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.26min
+[fit 144/240] END C=16.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.46min
+[fit 145/240] END C=32.0, gamma=0.0625, kernel=rbf; total=2689, TP=85, TN=1578, FP=982, FN=44; precision=0.080, recall=0.659
+accuracy: (test=0.618) average_precision: (test=0.118) balanced_accuracy: (test=0.638) f1: (test=0.142) roc_auc: (test=0.700) 33.08s
+[fit 146/240] END C=32.0, gamma=0.125, kernel=rbf; total=2689, TP=90, TN=1646, FP=914, FN=39; precision=0.090, recall=0.698
+accuracy: (test=0.646) average_precision: (test=0.118) balanced_accuracy: (test=0.670) f1: (test=0.159) roc_auc: (test=0.716) 34.82s
+[fit 147/240] END C=32.0, gamma=0.25, kernel=rbf; total=2689, TP=91, TN=1697, FP=863, FN=38; precision=0.095, recall=0.705
+accuracy: (test=0.665) average_precision: (test=0.125) balanced_accuracy: (test=0.684) f1: (test=0.168) roc_auc: (test=0.737) 33.77s
+[fit 148/240] END C=32.0, gamma=0.5, kernel=rbf; total=2689, TP=94, TN=1770, FP=790, FN=35; precision=0.106, recall=0.729
+accuracy: (test=0.693) average_precision: (test=0.143) balanced_accuracy: (test=0.710) f1: (test=0.186) roc_auc: (test=0.760) 34.13s
+[fit 149/240] END C=32.0, gamma=1.0, kernel=rbf; total=2689, TP=95, TN=1859, FP=701, FN=34; precision=0.119, recall=0.736
+accuracy: (test=0.727) average_precision: (test=0.174) balanced_accuracy: (test=0.731) f1: (test=0.205) roc_auc: (test=0.796) 35.55s
+[fit 150/240] END C=32.0, gamma=2.0, kernel=rbf; total=2689, TP=97, TN=2004, FP=556, FN=32; precision=0.149, recall=0.752
+accuracy: (test=0.781) average_precision: (test=0.251) balanced_accuracy: (test=0.767) f1: (test=0.248) roc_auc: (test=0.852) 40.44s
+[fit 151/240] END C=32.0, gamma=4.0, kernel=rbf; total=2689, TP=109, TN=2193, FP=367, FN=20; precision=0.229, recall=0.845
+accuracy: (test=0.856) average_precision: (test=0.414) balanced_accuracy: (test=0.851) f1: (test=0.360) roc_auc: (test=0.911) 50.87s
+[fit 152/240] END C=32.0, gamma=8.0, kernel=rbf; total=2689, TP=110, TN=2393, FP=167, FN=19; precision=0.397, recall=0.853
+accuracy: (test=0.931) average_precision: (test=0.661) balanced_accuracy: (test=0.894) f1: (test=0.542) roc_auc: (test=0.950) 1.36min
+[fit 153/240] END C=32.0, gamma=16.0, kernel=rbf; total=2689, TP=107, TN=2493, FP=67, FN=22; precision=0.615, recall=0.829
+accuracy: (test=0.967) average_precision: (test=0.809) balanced_accuracy: (test=0.902) f1: (test=0.706) roc_auc: (test=0.963) 2.03min
+[fit 154/240] END C=32.0, gamma=32.0, kernel=rbf; total=2689, TP=107, TN=2530, FP=30, FN=22; precision=0.781, recall=0.829
+accuracy: (test=0.981) average_precision: (test=0.861) balanced_accuracy: (test=0.909) f1: (test=0.805) roc_auc: (test=0.965) 2.21min
+[fit 155/240] END C=32.0, gamma=64.0, kernel=rbf; total=2689, TP=102, TN=2534, FP=26, FN=27; precision=0.797, recall=0.791
+accuracy: (test=0.980) average_precision: (test=0.872) balanced_accuracy: (test=0.890) f1: (test=0.794) roc_auc: (test=0.964) 1.57min
+[fit 156/240] END C=32.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2544, FP=16, FN=26; precision=0.866, recall=0.798
+accuracy: (test=0.984) average_precision: (test=0.872) balanced_accuracy: (test=0.896) f1: (test=0.831) roc_auc: (test=0.957) 1.10min
+[fit 157/240] END C=32.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 54.72s
+[fit 158/240] END C=32.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.02min
+[fit 159/240] END C=32.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.26min
+[fit 160/240] END C=32.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.45min
+[fit 161/240] END C=64.0, gamma=0.0625, kernel=rbf; total=2689, TP=89, TN=1644, FP=916, FN=40; precision=0.089, recall=0.690
+accuracy: (test=0.644) average_precision: (test=0.119) balanced_accuracy: (test=0.666) f1: (test=0.157) roc_auc: (test=0.713) 34.43s
+[fit 162/240] END C=64.0, gamma=0.125, kernel=rbf; total=2689, TP=91, TN=1684, FP=876, FN=38; precision=0.094, recall=0.705
+accuracy: (test=0.660) average_precision: (test=0.122) balanced_accuracy: (test=0.682) f1: (test=0.166) roc_auc: (test=0.731) 33.92s
+[fit 163/240] END C=64.0, gamma=0.25, kernel=rbf; total=2689, TP=90, TN=1743, FP=817, FN=39; precision=0.099, recall=0.698
+accuracy: (test=0.682) average_precision: (test=0.133) balanced_accuracy: (test=0.689) f1: (test=0.174) roc_auc: (test=0.749) 33.66s
+[fit 164/240] END C=64.0, gamma=0.5, kernel=rbf; total=2689, TP=95, TN=1820, FP=740, FN=34; precision=0.114, recall=0.736
+accuracy: (test=0.712) average_precision: (test=0.148) balanced_accuracy: (test=0.724) f1: (test=0.197) roc_auc: (test=0.776) 35.69s
+[fit 165/240] END C=64.0, gamma=1.0, kernel=rbf; total=2689, TP=95, TN=1920, FP=640, FN=34; precision=0.129, recall=0.736
+accuracy: (test=0.749) average_precision: (test=0.194) balanced_accuracy: (test=0.743) f1: (test=0.220) roc_auc: (test=0.819) 40.22s
+[fit 166/240] END C=64.0, gamma=2.0, kernel=rbf; total=2689, TP=105, TN=2083, FP=477, FN=24; precision=0.180, recall=0.814
+accuracy: (test=0.814) average_precision: (test=0.307) balanced_accuracy: (test=0.814) f1: (test=0.295) roc_auc: (test=0.880) 49.62s
+Line search fails in two-class probability estimates
+[fit 167/240] END C=64.0, gamma=4.0, kernel=rbf; total=2689, TP=112, TN=2293, FP=267, FN=17; precision=0.296, recall=0.868
+accuracy: (test=0.894) average_precision: (test=0.516) balanced_accuracy: (test=0.882) f1: (test=0.441) roc_auc: (test=0.932) 1.30min
+[fit 168/240] END C=64.0, gamma=8.0, kernel=rbf; total=2689, TP=111, TN=2436, FP=124, FN=18; precision=0.472, recall=0.860
+accuracy: (test=0.947) average_precision: (test=0.733) balanced_accuracy: (test=0.906) f1: (test=0.610) roc_auc: (test=0.956) 2.09min
+[fit 169/240] END C=64.0, gamma=16.0, kernel=rbf; total=2689, TP=108, TN=2516, FP=44, FN=21; precision=0.711, recall=0.837
+accuracy: (test=0.976) average_precision: (test=0.824) balanced_accuracy: (test=0.910) f1: (test=0.769) roc_auc: (test=0.965) 2.74min
+[fit 170/240] END C=64.0, gamma=32.0, kernel=rbf; total=2689, TP=106, TN=2530, FP=30, FN=23; precision=0.779, recall=0.822
+accuracy: (test=0.980) average_precision: (test=0.858) balanced_accuracy: (test=0.905) f1: (test=0.800) roc_auc: (test=0.964) 2.43min
+[fit 171/240] END C=64.0, gamma=64.0, kernel=rbf; total=2689, TP=102, TN=2534, FP=26, FN=27; precision=0.797, recall=0.791
+accuracy: (test=0.980) average_precision: (test=0.872) balanced_accuracy: (test=0.890) f1: (test=0.794) roc_auc: (test=0.964) 1.57min
+[fit 172/240] END C=64.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2544, FP=16, FN=26; precision=0.866, recall=0.798
+accuracy: (test=0.984) average_precision: (test=0.871) balanced_accuracy: (test=0.896) f1: (test=0.831) roc_auc: (test=0.957) 1.10min
+[fit 173/240] END C=64.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 54.67s
+[fit 174/240] END C=64.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.02min
+[fit 175/240] END C=64.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.26min
+[fit 176/240] END C=64.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.45min
+[fit 177/240] END C=128.0, gamma=0.0625, kernel=rbf; total=2689, TP=92, TN=1668, FP=892, FN=37; precision=0.093, recall=0.713
+accuracy: (test=0.655) average_precision: (test=0.120) balanced_accuracy: (test=0.682) f1: (test=0.165) roc_auc: (test=0.727) 33.84s
+[fit 178/240] END C=128.0, gamma=0.125, kernel=rbf; total=2689, TP=90, TN=1713, FP=847, FN=39; precision=0.096, recall=0.698
+accuracy: (test=0.671) average_precision: (test=0.127) balanced_accuracy: (test=0.683) f1: (test=0.169) roc_auc: (test=0.743) 34.02s
+Line search fails in two-class probability estimates
+[fit 179/240] END C=128.0, gamma=0.25, kernel=rbf; total=2689, TP=93, TN=1773, FP=787, FN=36; precision=0.106, recall=0.721
+accuracy: (test=0.694) average_precision: (test=0.134) balanced_accuracy: (test=0.707) f1: (test=0.184) roc_auc: (test=0.760) 36.13s
+[fit 180/240] END C=128.0, gamma=0.5, kernel=rbf; total=2689, TP=95, TN=1851, FP=709, FN=34; precision=0.118, recall=0.736
+accuracy: (test=0.724) average_precision: (test=0.159) balanced_accuracy: (test=0.730) f1: (test=0.204) roc_auc: (test=0.793) 40.19s
+Line search fails in two-class probability estimates
+[fit 181/240] END C=128.0, gamma=1.0, kernel=rbf; total=2689, TP=100, TN=1989, FP=571, FN=29; precision=0.149, recall=0.775
+accuracy: (test=0.777) average_precision: (test=0.233) balanced_accuracy: (test=0.776) f1: (test=0.250) roc_auc: (test=0.847) 49.86s
+[fit 182/240] END C=128.0, gamma=2.0, kernel=rbf; total=2689, TP=106, TN=2171, FP=389, FN=23; precision=0.214, recall=0.822
+accuracy: (test=0.847) average_precision: (test=0.379) balanced_accuracy: (test=0.835) f1: (test=0.340) roc_auc: (test=0.907) 1.18min
+[fit 183/240] END C=128.0, gamma=4.0, kernel=rbf; total=2689, TP=108, TN=2360, FP=200, FN=21; precision=0.351, recall=0.837
+accuracy: (test=0.918) average_precision: (test=0.608) balanced_accuracy: (test=0.880) f1: (test=0.494) roc_auc: (test=0.945) 2.20min
+[fit 184/240] END C=128.0, gamma=8.0, kernel=rbf; total=2689, TP=109, TN=2473, FP=87, FN=20; precision=0.556, recall=0.845
+accuracy: (test=0.960) average_precision: (test=0.781) balanced_accuracy: (test=0.905) f1: (test=0.671) roc_auc: (test=0.961) 3.40min
+[fit 185/240] END C=128.0, gamma=16.0, kernel=rbf; total=2689, TP=108, TN=2524, FP=36, FN=21; precision=0.750, recall=0.837
+accuracy: (test=0.979) average_precision: (test=0.837) balanced_accuracy: (test=0.912) f1: (test=0.791) roc_auc: (test=0.966) 3.78min
+[fit 186/240] END C=128.0, gamma=32.0, kernel=rbf; total=2689, TP=105, TN=2530, FP=30, FN=24; precision=0.778, recall=0.814
+accuracy: (test=0.980) average_precision: (test=0.855) balanced_accuracy: (test=0.901) f1: (test=0.795) roc_auc: (test=0.964) 2.55min
+[fit 187/240] END C=128.0, gamma=64.0, kernel=rbf; total=2689, TP=102, TN=2534, FP=26, FN=27; precision=0.797, recall=0.791
+accuracy: (test=0.980) average_precision: (test=0.872) balanced_accuracy: (test=0.890) f1: (test=0.794) roc_auc: (test=0.964) 1.57min
+[fit 188/240] END C=128.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2544, FP=16, FN=26; precision=0.866, recall=0.798
+accuracy: (test=0.984) average_precision: (test=0.871) balanced_accuracy: (test=0.896) f1: (test=0.831) roc_auc: (test=0.957) 1.10min
+[fit 189/240] END C=128.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 54.66s
+[fit 190/240] END C=128.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.02min
+[fit 191/240] END C=128.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.26min
+[fit 192/240] END C=128.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.45min
+[fit 193/240] END C=256.0, gamma=0.0625, kernel=rbf; total=2689, TP=89, TN=1708, FP=852, FN=40; precision=0.095, recall=0.690
+accuracy: (test=0.668) average_precision: (test=0.122) balanced_accuracy: (test=0.679) f1: (test=0.166) roc_auc: (test=0.737) 34.30s
+[fit 194/240] END C=256.0, gamma=0.125, kernel=rbf; total=2689, TP=91, TN=1745, FP=815, FN=38; precision=0.100, recall=0.705
+accuracy: (test=0.683) average_precision: (test=0.125) balanced_accuracy: (test=0.694) f1: (test=0.176) roc_auc: (test=0.750) 35.90s
+[fit 195/240] END C=256.0, gamma=0.25, kernel=rbf; total=2689, TP=94, TN=1800, FP=760, FN=35; precision=0.110, recall=0.729
+accuracy: (test=0.704) average_precision: (test=0.138) balanced_accuracy: (test=0.716) f1: (test=0.191) roc_auc: (test=0.774) 40.54s
+[fit 196/240] END C=256.0, gamma=0.5, kernel=rbf; total=2689, TP=94, TN=1902, FP=658, FN=35; precision=0.125, recall=0.729
+accuracy: (test=0.742) average_precision: (test=0.183) balanced_accuracy: (test=0.736) f1: (test=0.213) roc_auc: (test=0.814) 50.02s
+[fit 197/240] END C=256.0, gamma=1.0, kernel=rbf; total=2689, TP=103, TN=2061, FP=499, FN=26; precision=0.171, recall=0.798
+accuracy: (test=0.805) average_precision: (test=0.288) balanced_accuracy: (test=0.802) f1: (test=0.282) roc_auc: (test=0.875) 1.17min
+[fit 198/240] END C=256.0, gamma=2.0, kernel=rbf; total=2689, TP=107, TN=2264, FP=296, FN=22; precision=0.266, recall=0.829
+accuracy: (test=0.882) average_precision: (test=0.467) balanced_accuracy: (test=0.857) f1: (test=0.402) roc_auc: (test=0.928) 2.02min
+[fit 199/240] END C=256.0, gamma=4.0, kernel=rbf; total=2689, TP=110, TN=2418, FP=142, FN=19; precision=0.437, recall=0.853
+accuracy: (test=0.940) average_precision: (test=0.685) balanced_accuracy: (test=0.899) f1: (test=0.577) roc_auc: (test=0.954) 3.99min
+[fit 200/240] END C=256.0, gamma=8.0, kernel=rbf; total=2689, TP=109, TN=2489, FP=71, FN=20; precision=0.606, recall=0.845
+accuracy: (test=0.966) average_precision: (test=0.801) balanced_accuracy: (test=0.909) f1: (test=0.706) roc_auc: (test=0.964) 21.33min
+[fit 201/240] END C=256.0, gamma=16.0, kernel=rbf; total=2689, TP=107, TN=2521, FP=39, FN=22; precision=0.733, recall=0.829
+accuracy: (test=0.977) average_precision: (test=0.838) balanced_accuracy: (test=0.907) f1: (test=0.778) roc_auc: (test=0.964) 6.09min
+[fit 202/240] END C=256.0, gamma=32.0, kernel=rbf; total=2689, TP=105, TN=2529, FP=31, FN=24; precision=0.772, recall=0.814
+accuracy: (test=0.980) average_precision: (test=0.856) balanced_accuracy: (test=0.901) f1: (test=0.792) roc_auc: (test=0.964) 2.55min
+[fit 203/240] END C=256.0, gamma=64.0, kernel=rbf; total=2689, TP=102, TN=2534, FP=26, FN=27; precision=0.797, recall=0.791
+accuracy: (test=0.980) average_precision: (test=0.872) balanced_accuracy: (test=0.890) f1: (test=0.794) roc_auc: (test=0.964) 1.57min
+[fit 204/240] END C=256.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2544, FP=16, FN=26; precision=0.866, recall=0.798
+accuracy: (test=0.984) average_precision: (test=0.871) balanced_accuracy: (test=0.896) f1: (test=0.831) roc_auc: (test=0.957) 1.10min
+[fit 205/240] END C=256.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 54.89s
+[fit 206/240] END C=256.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.03min
+[fit 207/240] END C=256.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.27min
+[fit 208/240] END C=256.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.46min
+Line search fails in two-class probability estimates
+[fit 209/240] END C=512.0, gamma=0.0625, kernel=rbf; total=2689, TP=90, TN=1731, FP=829, FN=39; precision=0.098, recall=0.698
+accuracy: (test=0.677) average_precision: (test=0.120) balanced_accuracy: (test=0.687) f1: (test=0.172) roc_auc: (test=0.743) 36.66s
+Line search fails in two-class probability estimates
+[fit 210/240] END C=512.0, gamma=0.125, kernel=rbf; total=2689, TP=94, TN=1770, FP=790, FN=35; precision=0.106, recall=0.729
+accuracy: (test=0.693) average_precision: (test=0.127) balanced_accuracy: (test=0.710) f1: (test=0.186) roc_auc: (test=0.758) 41.31s
+[fit 211/240] END C=512.0, gamma=0.25, kernel=rbf; total=2689, TP=92, TN=1843, FP=717, FN=37; precision=0.114, recall=0.713
+accuracy: (test=0.720) average_precision: (test=0.150) balanced_accuracy: (test=0.717) f1: (test=0.196) roc_auc: (test=0.789) 50.86s
+[fit 212/240] END C=512.0, gamma=0.5, kernel=rbf; total=2689, TP=101, TN=1966, FP=594, FN=28; precision=0.145, recall=0.783
+accuracy: (test=0.769) average_precision: (test=0.223) balanced_accuracy: (test=0.775) f1: (test=0.245) roc_auc: (test=0.842) 1.19min
+[fit 213/240] END C=512.0, gamma=1.0, kernel=rbf; total=2689, TP=108, TN=2148, FP=412, FN=21; precision=0.208, recall=0.837
+accuracy: (test=0.839) average_precision: (test=0.359) balanced_accuracy: (test=0.838) f1: (test=0.333) roc_auc: (test=0.904) 1.89min
+[fit 214/240] END C=512.0, gamma=2.0, kernel=rbf; total=2689, TP=109, TN=2342, FP=218, FN=20; precision=0.333, recall=0.845
+accuracy: (test=0.911) average_precision: (test=0.562) balanced_accuracy: (test=0.880) f1: (test=0.478) roc_auc: (test=0.941) 5.15min
+[fit 215/240] END C=512.0, gamma=4.0, kernel=rbf; total=2689, TP=109, TN=2427, FP=133, FN=20; precision=0.450, recall=0.845
+accuracy: (test=0.943) average_precision: (test=0.703) balanced_accuracy: (test=0.897) f1: (test=0.588) roc_auc: (test=0.950) 9.72min
+[fit 216/240] END C=512.0, gamma=8.0, kernel=rbf; total=2689, TP=109, TN=2487, FP=73, FN=20; precision=0.599, recall=0.845
+accuracy: (test=0.965) average_precision: (test=0.794) balanced_accuracy: (test=0.908) f1: (test=0.701) roc_auc: (test=0.965) 10.27min
+[fit 217/240] END C=512.0, gamma=16.0, kernel=rbf; total=2689, TP=107, TN=2521, FP=39, FN=22; precision=0.733, recall=0.829
+accuracy: (test=0.977) average_precision: (test=0.834) balanced_accuracy: (test=0.907) f1: (test=0.778) roc_auc: (test=0.963) 7.95min
+[fit 218/240] END C=512.0, gamma=32.0, kernel=rbf; total=2689, TP=105, TN=2528, FP=32, FN=24; precision=0.766, recall=0.814
+accuracy: (test=0.979) average_precision: (test=0.856) balanced_accuracy: (test=0.901) f1: (test=0.789) roc_auc: (test=0.964) 2.57min
+[fit 219/240] END C=512.0, gamma=64.0, kernel=rbf; total=2689, TP=102, TN=2534, FP=26, FN=27; precision=0.797, recall=0.791
+accuracy: (test=0.980) average_precision: (test=0.872) balanced_accuracy: (test=0.890) f1: (test=0.794) roc_auc: (test=0.964) 1.58min
+[fit 220/240] END C=512.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2544, FP=16, FN=26; precision=0.866, recall=0.798
+accuracy: (test=0.984) average_precision: (test=0.871) balanced_accuracy: (test=0.896) f1: (test=0.831) roc_auc: (test=0.957) 1.10min
+[fit 221/240] END C=512.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 54.93s
+[fit 222/240] END C=512.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.03min
+[fit 223/240] END C=512.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.27min
+[fit 224/240] END C=512.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.46min
+Line search fails in two-class probability estimates
+[fit 225/240] END C=1024.0, gamma=0.0625, kernel=rbf; total=2689, TP=93, TN=1748, FP=812, FN=36; precision=0.103, recall=0.721
+accuracy: (test=0.685) average_precision: (test=0.120) balanced_accuracy: (test=0.702) f1: (test=0.180) roc_auc: (test=0.749) 41.83s
+[fit 226/240] END C=1024.0, gamma=0.125, kernel=rbf; total=2689, TP=92, TN=1797, FP=763, FN=37; precision=0.108, recall=0.713
+accuracy: (test=0.702) average_precision: (test=0.135) balanced_accuracy: (test=0.708) f1: (test=0.187) roc_auc: (test=0.771) 52.40s
+[fit 227/240] END C=1024.0, gamma=0.25, kernel=rbf; total=2689, TP=95, TN=1901, FP=659, FN=34; precision=0.126, recall=0.736
+accuracy: (test=0.742) average_precision: (test=0.179) balanced_accuracy: (test=0.740) f1: (test=0.215) roc_auc: (test=0.811) 1.19min
+Line search fails in two-class probability estimates
+[fit 228/240] END C=1024.0, gamma=0.5, kernel=rbf; total=2689, TP=104, TN=2057, FP=503, FN=25; precision=0.171, recall=0.806
+accuracy: (test=0.804) average_precision: (test=0.280) balanced_accuracy: (test=0.805) f1: (test=0.283) roc_auc: (test=0.873) 1.85min
+[fit 229/240] END C=1024.0, gamma=1.0, kernel=rbf; total=2689, TP=107, TN=2246, FP=314, FN=22; precision=0.254, recall=0.829
+accuracy: (test=0.875) average_precision: (test=0.440) balanced_accuracy: (test=0.853) f1: (test=0.389) roc_auc: (test=0.924) 3.91min
+[fit 230/240] END C=1024.0, gamma=2.0, kernel=rbf; total=2689, TP=109, TN=2339, FP=221, FN=20; precision=0.330, recall=0.845
+accuracy: (test=0.910) average_precision: (test=0.574) balanced_accuracy: (test=0.879) f1: (test=0.475) roc_auc: (test=0.935) 8.74min
+[fit 231/240] END C=1024.0, gamma=4.0, kernel=rbf; total=2689, TP=110, TN=2411, FP=149, FN=19; precision=0.425, recall=0.853
+accuracy: (test=0.938) average_precision: (test=0.681) balanced_accuracy: (test=0.897) f1: (test=0.567) roc_auc: (test=0.946) 7.85min
+[fit 232/240] END C=1024.0, gamma=8.0, kernel=rbf; total=2689, TP=109, TN=2492, FP=68, FN=20; precision=0.616, recall=0.845
+accuracy: (test=0.967) average_precision: (test=0.793) balanced_accuracy: (test=0.909) f1: (test=0.712) roc_auc: (test=0.959) 9.70min
+[fit 233/240] END C=1024.0, gamma=16.0, kernel=rbf; total=2689, TP=107, TN=2520, FP=40, FN=22; precision=0.728, recall=0.829
+accuracy: (test=0.977) average_precision: (test=0.833) balanced_accuracy: (test=0.907) f1: (test=0.775) roc_auc: (test=0.964) 8.01min
+[fit 234/240] END C=1024.0, gamma=32.0, kernel=rbf; total=2689, TP=105, TN=2528, FP=32, FN=24; precision=0.766, recall=0.814
+accuracy: (test=0.979) average_precision: (test=0.856) balanced_accuracy: (test=0.901) f1: (test=0.789) roc_auc: (test=0.964) 2.57min
+[fit 235/240] END C=1024.0, gamma=64.0, kernel=rbf; total=2689, TP=102, TN=2534, FP=26, FN=27; precision=0.797, recall=0.791
+accuracy: (test=0.980) average_precision: (test=0.872) balanced_accuracy: (test=0.890) f1: (test=0.794) roc_auc: (test=0.964) 1.58min
+[fit 236/240] END C=1024.0, gamma=128.0, kernel=rbf; total=2689, TP=103, TN=2544, FP=16, FN=26; precision=0.866, recall=0.798
+accuracy: (test=0.984) average_precision: (test=0.871) balanced_accuracy: (test=0.896) f1: (test=0.831) roc_auc: (test=0.957) 1.10min
+[fit 237/240] END C=1024.0, gamma=256.0, kernel=rbf; total=2689, TP=105, TN=2540, FP=20, FN=24; precision=0.840, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.867) balanced_accuracy: (test=0.903) f1: (test=0.827) roc_auc: (test=0.946) 54.86s
+[fit 238/240] END C=1024.0, gamma=512.0, kernel=rbf; total=2689, TP=105, TN=2542, FP=18, FN=24; precision=0.854, recall=0.814
+accuracy: (test=0.984) average_precision: (test=0.856) balanced_accuracy: (test=0.903) f1: (test=0.833) roc_auc: (test=0.934) 1.03min
+[fit 239/240] END C=1024.0, gamma=1024.0, kernel=rbf; total=2689, TP=100, TN=2552, FP=8, FN=29; precision=0.926, recall=0.775
+accuracy: (test=0.986) average_precision: (test=0.844) balanced_accuracy: (test=0.886) f1: (test=0.844) roc_auc: (test=0.929) 1.27min
+[fit 240/240] END C=1024.0, gamma=2048.0, kernel=rbf; total=2689, TP=86, TN=2558, FP=2, FN=43; precision=0.977, recall=0.667
+accuracy: (test=0.983) average_precision: (test=0.842) balanced_accuracy: (test=0.833) f1: (test=0.793) roc_auc: (test=0.920) 1.46min
+write rank test to csv!!!
+write over!!!
+clf.best_estimator_params: {'C': 16.0, 'gamma': 32.0, 'kernel': 'rbf'}
+best params found in line [139] for metric [roc_auc] in rank file
+best params found in fit [138] for metric [roc_auc] in run_and_score file
+clf.best_scoring_result: [Total: (test=2689) TP: (test=107.000) TN: (test=2522.000) FP: (test=38.000) FN: (test=22.000) precision: (test=0.738) recall: (test=0.829) accuracy: (test=0.978) average_precision: (test=0.856) balanced_accuracy: (test=0.907) f1: (test=0.781) roc_auc: (test=0.967) ]
+total time spending: 5h 8m 31s
