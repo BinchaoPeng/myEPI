@@ -44,7 +44,7 @@ def rf_grid_greedy(cv_params, other_params, index):
                                                                                          clf.best_estimator_params_idx_ + 1))
     print("clf.best_scoring_result:", clf.best_scoring_result)
 
-    writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index)
+    writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index=index)
 
     return clf.best_estimator_params_
 

@@ -15,8 +15,10 @@ from sklearn.model_selection import ParameterGrid, StratifiedKFold
 
 
 def get_data_np_dict(cell_name, feature_name, method_name):
-    print("experiment: %s %s_%s" % (cell_name, feature_name, method_name))
-
+    if method_name == "ensemble":
+        pass
+    else:
+        print("experiment: %s %s_%s" % (cell_name, feature_name, method_name))
     trainPath = r'../../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
     train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
     X_en = train_data[train_data.files[0]]
@@ -135,7 +137,7 @@ def writeCVRank2csv(met_grid, clf, dir_name, index=None):
         f.close()
 
 
-def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index=None):
+def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, is_ensemble=False, index=None):
     print("write rank test to csv!!!")
     csv_rows_list = []
     header = []
@@ -151,6 +153,9 @@ def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name,
     ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
     ex_dir_path = r'../../ex/%s/' % ex_dir_name
     ex_rank_dir_path = r'../../ex/%s/rank' % ex_dir_name
+    if is_ensemble:
+        ex_dir_path = r'../../ex_stacking/%s/' % ex_dir_name
+        ex_rank_dir_path = r'../../ex_stacking/%s/rank' % ex_dir_name
     if not os.path.exists(ex_dir_path):
         os.mkdir(ex_dir_path)
         print("created ex_dir folder!!!")
@@ -159,9 +164,9 @@ def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name,
         os.mkdir(ex_rank_dir_path)
         print("created ex_rank_dir folder!!!")
 
-    file_name = r'../../ex/%s/rank/%s_%s_%s_rank_%s.csv' % (ex_dir_name, cell_name, feature_name, method_name, index)
+    file_name = r'%s/%s_%s_%s_rank_%s.csv' % (ex_rank_dir_path, cell_name, feature_name, method_name, index)
     if index is None:
-        file_name = r'../../ex/%s/rank/%s_%s_%s_rank.csv' % (ex_dir_name, cell_name, feature_name, method_name)
+        file_name = r'%s/%s_%s_%s_rank.csv' % (ex_rank_dir_path, cell_name, feature_name, method_name)
 
     with open(file_name, 'wt', newline='')as f:
         f_csv = csv.writer(f, delimiter=",")

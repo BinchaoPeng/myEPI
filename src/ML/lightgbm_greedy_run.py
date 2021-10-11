@@ -16,7 +16,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 cell and feature choose
 """
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-cell_name = names[6 ]
+cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[3]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
@@ -46,7 +46,7 @@ def lgb_grid_greedy(cv_params, other_params, index):
                                                                                          clf.best_estimator_params_idx_ + 1))
     print("clf.best_scoring_result:", clf.best_scoring_result)
 
-    writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index)
+    writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index=index)
 
     return clf.best_estimator_params_
 

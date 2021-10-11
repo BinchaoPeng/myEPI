@@ -27,10 +27,7 @@ class EPIconst:
         all = sorted([lightgbm, rf, xgboost, svm, deepforest, ])
 
     class ModelBaseParams:
-        xgboost = {'learning_rate': 0.1, 'n_estimators': 500, 'max_depth': 5, 'min_child_weight': 1, 'seed': 0,
-                   'subsample': 0.8, 'colsample_bytree': 0.8, 'gamma': 0, 'reg_alpha': 0, 'reg_lambda': 1,
-                   'use_label_encoder': False, 'eval_metric': 'logloss', 'tree_method': 'gpu_hist'}
-        svm = {"n_jobs": 1, "probability": True}
+        deepforest = {"n_jobs": 13, "use_predictor": False, "random_state": 1, "predictor": 'forest', "verbose": 0}
         lightgbm = {"n_jobs": 5, 'max_depth': -1, 'num_leaves': 31,
                     'min_child_samples': 20,
                     'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 0,
@@ -45,7 +42,11 @@ class EPIconst:
                     'subsample_for_bin': 200000, 'silent': True}
         rf = {"n_jobs": 5, 'n_estimators': 100, "max_depth": None, 'min_samples_split': 2, "min_samples_leaf": 1,
               'max_features': 'auto'}
-        deepforest = {"n_jobs": 5, "use_predictor": False, "random_state": 1, "predictor": 'forest', "verbose": 0}
+        # svm = {"n_jobs": 1, "probability": True}
+        svm = {"probability": True}
+        xgboost = {'learning_rate': 0.1, 'n_estimators': 500, 'max_depth': 5, 'min_child_weight': 1, 'seed': 0,
+                   'subsample': 0.8, 'colsample_bytree': 0.8, 'gamma': 0, 'reg_alpha': 0, 'reg_lambda': 1,
+                   'use_label_encoder': False, 'eval_metric': 'logloss', 'tree_method': 'gpu_hist'}
 
     class ModelParams:
         GM12878_cksnap_deepforest = {"max_layers": 20, "n_estimators": 5, "n_trees": 250}
@@ -148,8 +149,8 @@ class EPIconst:
         HeLa_S3_kmer_rf = {'n_estimators': 240, 'max_depth': 77, 'min_samples_leaf': 2, 'min_samples_split': 2,
                            'max_features': 'sqrt'}
         HeLa_S3_kmer_svm = {'C': 256.0, 'gamma': 16.0, 'kernel': 'rbf'}
-        HeLa_S3_kmer_xgboost = {'n_estimators': 1000, 'max_depth': 8, 'min_child_weight': 3, 'gamma': 0,
-                                'colsample_bytree': 0.6, 'subsample': 0.6, 'reg_alpha': 0, 'reg_lambda': 1,
+        HeLa_S3_kmer_xgboost = {'n_estimators': 1000, 'max_depth': 8, 'min_child_weight': 1, 'gamma': 0,
+                                'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
                                 'learning_rate': 0.1}
 
         "----------------------------------------------"
@@ -268,8 +269,8 @@ class EPIconst:
         IMR90_kmer_rf = {'n_estimators': 280, 'max_depth': 79, 'min_samples_leaf': 2, 'min_samples_split': 3,
                          'max_features': 'auto'}
         IMR90_kmer_svm = {'C': 128.0, 'gamma': 8.0, 'kernel': 'rbf'}
-        IMR90_kmer_xgboost = {'n_estimators': 1000, 'max_depth': 10, 'min_child_weight': 1, 'gamma': 0,
-                              'colsample_bytree': 0.6, 'subsample': 0.6, 'reg_alpha': 0, 'reg_lambda': 1,
+        IMR90_kmer_xgboost = {'n_estimators': 1000, 'max_depth': 8, 'min_child_weight': 2, 'gamma': 0.2,
+                              'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
                               'learning_rate': 0.1}
 
         "----------------------------------------------"
@@ -327,8 +328,8 @@ class EPIconst:
         K562_kmer_rf = {'n_estimators': 290, 'max_depth': 137, 'min_samples_leaf': 10, 'min_samples_split': 7,
                         'max_features': None}
         K562_kmer_svm = {'C': 128.0, 'gamma': 16.0, 'kernel': 'rbf'}
-        K562_kmer_xgboost = {'n_estimators': 1000, 'max_depth': 10, 'min_child_weight': 1, 'gamma': 0,
-                             'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
+        K562_kmer_xgboost = {'n_estimators': 650, 'max_depth': 8, 'min_child_weight': 1, 'gamma': 0,
+                             'colsample_bytree': 0.8, 'subsample': 0.6, 'reg_alpha': 0.5, 'reg_lambda': 0,
                              'learning_rate': 0.1}
 
         "----------------------------------------------"
