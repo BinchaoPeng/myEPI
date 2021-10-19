@@ -28,3 +28,6 @@ print(a)
 print(b)
 c = np.hstack((a, b))
 print(c)
+
+a = np.array([0.51, 0.49])
+print(a.shape[0])

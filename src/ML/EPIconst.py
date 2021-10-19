@@ -27,7 +27,7 @@ class EPIconst:
         all = sorted([lightgbm, rf, xgboost, svm, deepforest, ])
 
     class ModelBaseParams:
-        deepforest = {"n_jobs": 13, "use_predictor": False, "random_state": 1, "predictor": 'forest', "verbose": 0}
+        deepforest = {"n_jobs": 16, "use_predictor": False, "random_state": 1, "predictor": 'forest', "verbose": 0}
         lightgbm = {"n_jobs": 5, 'max_depth': -1, 'num_leaves': 31,
                     'min_child_samples': 20,
                     'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 0,
@@ -42,8 +42,8 @@ class EPIconst:
                     'subsample_for_bin': 200000, 'silent': True}
         rf = {"n_jobs": 5, 'n_estimators': 100, "max_depth": None, 'min_samples_split': 2, "min_samples_leaf": 1,
               'max_features': 'auto'}
-        # svm = {"n_jobs": 1, "probability": True}
-        svm = {"probability": True}
+        svm = {"n_jobs": 5, "probability": True}
+        # svm = {"probability": True}
         xgboost = {'learning_rate': 0.1, 'n_estimators': 500, 'max_depth': 5, 'min_child_weight': 1, 'seed': 0,
                    'subsample': 0.8, 'colsample_bytree': 0.8, 'gamma': 0, 'reg_alpha': 0, 'reg_lambda': 1,
                    'use_label_encoder': False, 'eval_metric': 'logloss', 'tree_method': 'gpu_hist'}

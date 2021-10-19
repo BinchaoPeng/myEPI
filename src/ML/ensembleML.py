@@ -4,10 +4,7 @@ import time
 import warnings
 from itertools import product
 import numpy as np
-from sklearnex import patch_sklearn
 import math
-
-patch_sklearn()
 
 warnings.filterwarnings("ignore")
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
@@ -32,15 +29,16 @@ def get_all_data(cell_name, all_feature_names):
 
 
 def get_new_feature(cell_name, all_feature_names, all_method_names):
-    test_y_predict = []
+    test_y_pred = []
     test_y_proba = []
-    train_y_predict = []
+    train_y_pred = []
     train_y_proba = []
     data_value = {}
     if isinstance(all_method_names, str):
         all_method_names = [all_method_names]
     if isinstance(all_feature_names, str):
         all_feature_names = [all_feature_names]
+    data_value = {}
     for item in product(all_feature_names, all_method_names):
         start_time = time.time()
         ex_item = cell_name + "_" + "_".join(item)
@@ -55,16 +53,24 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
         estimator.set_params(**model_params)
         print(ex_item, ":", estimator)
         data_value = get_data_np_dict(cell_name, feature_name, EPIconst.MethodName.ensemble)
+        # print("data_value[\"train_y\"]:", data_value["train_y"][0:20])
         estimator.fit(data_value["train_X"], data_value["train_y"])
         # get new testSet
         y_pred = estimator.predict(data_value["test_X"])
         y_pred_prob_temp = estimator.predict_proba(data_value["test_X"])
+
         if (y_pred[0] == 1 and y_pred_prob_temp[0][0] >= 0.5) or (y_pred[0] == 0 and y_pred_prob_temp[0][0] < 0.5):
             y_proba = y_pred_prob_temp[:, 0]
         else:
             y_proba = y_pred_prob_temp[:, 1]
+
+        # print("y_pred:", y_pred[0:20])
+        # print("y_proba_temp:", y_pred_prob_temp[0:20, :])
+        # print("y_proba:", y_proba[0:20])
+        # y_pred_prob_temp = estimator.predict_proba(data_value["test_X"])
+        # print("y_proba_temp:", y_pred_prob_temp[0:20, :])
         # print(y_proba)
-        test_y_predict.append(y_pred)
+        test_y_pred.append(y_pred)
         test_y_proba.append(y_proba)
         scoring = sorted(['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy'])
         process_msg, score_result_dict = get_scoring_result(scoring, data_value["test_y"], y_pred, y_proba)
@@ -78,12 +84,12 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
         else:
             y_proba = y_pred_prob_temp[:, 1]
         # print(y_proba)
-        train_y_predict.append(y_pred)
+        train_y_pred.append(y_pred)
         train_y_proba.append(y_proba)
 
-    test_y_pred_np = np.array(test_y_predict)
+    test_y_pred_np = np.array(test_y_pred)
     test_y_prob_np = np.array(test_y_proba)
-    train_y_pred_np = np.array(train_y_predict)
+    train_y_pred_np = np.array(train_y_pred)
     train_y_prob_np = np.array(train_y_proba)
 
     train_y = data_value["train_y"]
@@ -95,24 +101,11 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
     train_X_pred = train_y_pred_np.T
     train_X_prob = train_y_prob_np.T
 
-    # print(test_y_pred_np[0:5, 0:5])
-    # print(test_X_pred[0:5, 0:5])
-    # print("\n")
-    # print(test_y_prob_np[0:5, 0:5])
-    # print(test_X_prob[0:5, 0:5])
-    # print("\n")
-    # print(train_y_pred_np[0:5, 0:5])
-    # print(train_X_pred[0:5, 0:5])
-    # print("\n")
-    # print(train_y_prob_np[0:5, 0:5])
-    # print(train_X_prob[0:5, 0:5])
-    # print("\n")
-
     return {'train_X': {"train_X_pred": train_X_pred, "train_X_prob": train_X_prob}, 'train_y': train_y,
             'test_X': {"test_X_pred": test_X_pred, "test_X_prob": test_X_prob}, 'test_y': test_y}
 
 
-def meta_grid(cell_name, new_feature, datatype, meta_estimator, cv_params, method_name, dir_name, index=None):
+def get_ensemble_data(new_feature, datatype):
     data_list_dict = {}
     if datatype == "pred":
         print("use pred feature !!!")
@@ -134,9 +127,14 @@ def meta_grid(cell_name, new_feature, datatype, meta_estimator, cv_params, metho
         test_y = new_feature["test_y"]
         data_list_dict = {'train_X': train_X, 'train_y': train_y,
                           'test_X': test_X, 'test_y': test_y}
+    return data_list_dict
+
+
+def meta_grid(cell_name, ensemble_data, meta_estimator, cv_params, method_name, dir_name, index=None):
     refit = "roc_auc"
     met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
-    clf = RunAndScore(data_list_dict, meta_estimator, cv_params, met_grid, refit=refit, n_jobs=1, verbose=0)
+
+    clf = RunAndScore(ensemble_data, meta_estimator, cv_params, met_grid, refit=refit, n_jobs=1, verbose=0)
 
     print("clf.best_estimator_params:", clf.best_estimator_params_)
     print("best params found in line [{1}] for metric [{0}] in rank file".format(refit,
@@ -145,9 +143,9 @@ def meta_grid(cell_name, new_feature, datatype, meta_estimator, cv_params, metho
                                                                                          clf.best_estimator_params_idx_ + 1))
     print("clf.best_scoring_result:", clf.best_scoring_result)
 
-    writeRank2csv(met_grid, clf, cell_name, datatype, method_name, dir_name, index=index, is_ensemble=True)
+    # writeRank2csv(met_grid, clf, cell_name, ensemble_feature_name, method_name, dir_name, index=index, is_ensemble=True)
 
-    return clf.best_estimator_params_
+    return clf.best_estimator_params_, clf.best_scoring_result
 
 
 def ensemble_final(method_name, cv_params, best_params_result=None, index=None):
@@ -157,10 +155,11 @@ def ensemble_final(method_name, cv_params, best_params_result=None, index=None):
     if best_params_result is not None:
         meta_estimator.set_params(**best_params_result)
     print("ensemble model params:", meta_estimator.get_params())
-    best_estimator_params = meta_grid(cell_name, new_feature, "prob_pred", meta_estimator, cv_params=cv_params,
-                                      method_name=method_name,
-                                      dir_name=dir_name, index=index)
-    return best_estimator_params
+    best_estimator_params, best_scoring_result = meta_grid(cell_name, ensemble_data, meta_estimator,
+                                                           cv_params=cv_params,
+                                                           method_name=method_name,
+                                                           dir_name=dir_name, index=index)
+    return best_estimator_params, best_scoring_result
 
 
 if __name__ == '__main__':
@@ -172,21 +171,26 @@ if __name__ == '__main__':
                   "lightgbm": LGBMClassifier}
     names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
     cell_name = names[3]
-    feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-    feature_name = feature_names[4]
-    method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm', 'rf']
-    method_name = method_names[0]
+    ensemble_feature_names = ['prob', 'pred', 'prob_pred']
+    ensemble_feature_name = ensemble_feature_names[0]
+
     dir_name = "ensemble"
-    ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-    if not os.path.exists(r'../../ex_stacking/%s/' % ex_dir_name):
-        os.mkdir(r'../../ex_stacking/%s/' % ex_dir_name)
-        print("created ex folder!!!")
-    if not os.path.exists(r'../../ex_stacking/%s/rank' % ex_dir_name):
-        os.mkdir(r'../../ex_stacking/%s/rank' % ex_dir_name)
-        print("created rank folder!!!")
+    for item in product(ensemble_feature_names, EPIconst.MethodName.all):
+        ensemble_feature, method_name = item
+        ex_dir_name = '%s_%s_%s' % (ensemble_feature, method_name, dir_name)
+        if not os.path.exists(r'../../ex_stacking/%s/' % ex_dir_name):
+            os.mkdir(r'../../ex_stacking/%s/' % ex_dir_name)
+            print("created ex folder!!!")
+        # if not os.path.exists(r'../../ex_stacking/%s/rank' % ex_dir_name):
+        #     os.mkdir(r'../../ex_stacking/%s/rank' % ex_dir_name)
+        #     print("created rank folder!!!")
+
     s_time = time.time()
+    EPIconst.MethodName.all.remove("deepforest")
+    EPIconst.MethodName.all.remove("svm")
     new_feature = get_new_feature(cell_name, EPIconst.FeatureName.all,
-                                  EPIconst.MethodName.all)
+                                  EPIconst.MethodName.rf)
+    ensemble_data = get_ensemble_data(new_feature, ensemble_feature_name)
     # train_X_prob = new_feature["train_X"]["train_X_prob"]
     # test_X_prob = new_feature["test_X"]["test_X_prob"]
     # train_X_pred = new_feature["train_X"]["train_X_pred"]
@@ -196,9 +200,12 @@ if __name__ == '__main__':
     # train_y = new_feature["train_y"]
     # test_y = new_feature["test_y"]
     print("\nfeature time: ", time_since(s_time), "\n")
+
+    final_best_score = {}
     ##############################################################
     # deepforest
     #############################################################
+    start_time = time.time()
     method_name = EPIconst.MethodName.deepforest
     deepforest_parameters = [
         {
@@ -208,7 +215,9 @@ if __name__ == '__main__':
             'max_layers': [10, 15, 20, 25],
         },
     ]
-    ensemble_final(method_name, deepforest_parameters)
+    best_estimator_params, best_scoring_result = ensemble_final(method_name, deepforest_parameters)
+    final_best_score.update({"deepforest": {"params": best_estimator_params, "scoring": best_scoring_result}})
+    print(method_name, "total time spending:", time_since(start_time), "\n")
     ##############################################################
     # lightgbm
     #############################################################
@@ -219,15 +228,13 @@ if __name__ == '__main__':
     print("第一次")
     cv_params = {'max_depth': [-1, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 'num_leaves': range(221, 350, 10)}
     # cv_params = {'max_depth': [-1], 'num_leaves': [191]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '1')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '1')
     best_params_result.update(best_params)
     # 第二次
     print("第二次")
     cv_params = {'max_bin': range(5, 256, 10), 'min_child_samples': range(10, 201, 10)}
     # cv_params = {'max_bin': range(5, 256, 100), 'min_child_samples': range(1, 102, 50)}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '2')
-    best_params_result.update(best_params)
-    # print( )
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '2')
     best_params_result.update(best_params)
 
     # 第三次
@@ -240,9 +247,7 @@ if __name__ == '__main__':
     #              'subsample': [0.6, 0.7, ],
     #              'subsample_freq': range(0, 81, 40)
     #              }
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '3')
-    best_params_result.update(best_params)
-    # print( )
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '3')
     best_params_result.update(best_params)
 
     # 第四次
@@ -253,18 +258,14 @@ if __name__ == '__main__':
     # cv_params = {'reg_alpha': [1e-5, 1e-3, ],
     #              'reg_lambda': [1e-5, 1e-3, ]
     #              }
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '4')
-    best_params_result.update(best_params)
-    # print( )
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '4')
     best_params_result.update(best_params)
 
     # 第五次
     print("第五次")
     cv_params = {'min_split_gain': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]}
     # cv_params = {'min_split_gain': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '5')
-    best_params_result.update(best_params)
-    # print( )
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '5')
     best_params_result.update(best_params)
 
     # 第六次
@@ -272,13 +273,13 @@ if __name__ == '__main__':
     cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0],
                  'n_estimators': range(50, 251, 25)}
     # cv_params = {'learning_rate': [0.01, 0.05, ]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '6')
-    best_params_result.update(best_params)
-    # print( )
+    best_params, best_scoring_result = ensemble_final(method_name, cv_params, best_params_result, '6')
     best_params_result.update(best_params)
 
-    print("total time spending:", time_since(start_time))
     print("best_params_result:", best_params_result)
+    final_best_score.update({"lightgbm": {"params": best_params_result, "scoring": best_scoring_result}})
+    print(method_name, "total time spending:", time_since(start_time), "\n")
+
     ##############################################################
     # rf
     #############################################################
@@ -289,7 +290,7 @@ if __name__ == '__main__':
     print("第一次")
     cv_params = {'n_estimators': list(range(10, 350, 10))}
     # cv_params = {'n_estimators': [120]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '1')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '1')
     best_params_result.update(best_params)
     # 第二次
     print("第二次")
@@ -297,7 +298,7 @@ if __name__ == '__main__':
     max_depth.extend((list(range(1, 150))))
     cv_params = {'max_depth': max_depth}
     # cv_params = {'max_depth': [99]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '2')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '2')
     # print( best_params_result)
     best_params_result.update(best_params)
 
@@ -305,7 +306,7 @@ if __name__ == '__main__':
     print("第三次")
     cv_params = {'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10], "min_samples_leaf": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
     # cv_params = {'gamma': [0.1, 0.2, 0.3,]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '3')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '3')
     # print( best_params_result)
     best_params_result.update(best_params)
 
@@ -313,16 +314,18 @@ if __name__ == '__main__':
     print("第四次")
     cv_params = {'max_features': ["auto", "sqrt", "log2", None]}
     # cv_params = {'max_features': [0.6, 0.7, ]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '4')
+    best_params, best_scoring_result = ensemble_final(method_name, cv_params, best_params_result, '4')
     # print( best_params_result)
     best_params_result.update(best_params)
 
-    print("total time spending:", time_since(start_time))
     print("best_params_result:", best_params_result)
+    final_best_score.update({method_name: {"params": best_params_result, "scoring": best_scoring_result}})
+    print(method_name, "total time spending:", time_since(start_time), "\n")
 
     ##############################################################
     # svm
     #############################################################
+    start_time = time.time()
     method_name = EPIconst.MethodName.svm
     svm_cv_params = [
         {
@@ -333,25 +336,27 @@ if __name__ == '__main__':
             'kernel': ['rbf']
         },
     ]
-    ensemble_final(method_name, svm_cv_params)
-
+    best_params_result, best_scoring_result = ensemble_final(method_name, svm_cv_params)
+    final_best_score.update({method_name: {"params": best_params_result, "scoring": best_scoring_result}})
+    print(method_name, "total time spending:", time_since(start_time), "\n")
     ##############################################################
     # xgboost
     #############################################################
     start_time = time.time()
+    method_name = EPIconst.MethodName.xgboost
     best_params_result = {}
     # 第一次：决策树的最佳数量也就是估计器的数目
     print("第一次")
     cv_params = {'n_estimators': list(range(50, 1050, 50))}
     # cv_params = {'n_estimators': list(range(50, 300, 50))}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '1')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '1')
     best_params_result.update(best_params)
 
     # 第二次
     print("第二次")
     cv_params = {'max_depth': [3, 4, 5, 6, 7, 8, 9, 10, 12], 'min_child_weight': [1, 2, 3, 4, 5, 6]}
     # cv_params = {'max_depth': [3, 4, ], 'min_child_weight': [1, 2, ]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '2')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '2')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -359,7 +364,7 @@ if __name__ == '__main__':
     print("第三次")
     cv_params = {'gamma': [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]}
     # cv_params = {'gamma': [0.1, 0.2, 0.3,]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '3')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '3')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -367,7 +372,7 @@ if __name__ == '__main__':
     print("第四次")
     cv_params = {'subsample': [0.6, 0.7, 0.8, 0.9], 'colsample_bytree': [0.6, 0.7, 0.8, 0.9]}
     # cv_params = {'subsample': [0.6, 0.7, ], 'colsample_bytree': [0.6, ]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '4')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '4')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -376,7 +381,7 @@ if __name__ == '__main__':
     cv_params = {'reg_alpha': [0, 0.01, 0.02, 0.05, 0.1, 0.5, 1, 2, 3],
                  'reg_lambda': [0, 0.01, 0.02, 0.05, 0.1, 0.5, 1, 2, 3]}
     # cv_params = {'reg_alpha': [0.05, ], 'reg_lambda': [0.05, 0.1, ]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '5')
+    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '5')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -384,9 +389,16 @@ if __name__ == '__main__':
     print("第六次")
     cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0]}
     # cv_params = {'learning_rate': [0.01, 0.05, ]}
-    best_params = ensemble_final(method_name, cv_params, best_params_result, '6')
+    best_params, best_scoring_result = ensemble_final(method_name, cv_params, best_params_result, '6')
     # print(best_params_result)
     best_params_result.update(best_params)
 
-    print("total time spending:", time_since(start_time))
     print("best_params_result:", best_params_result)
+    final_best_score.update({method_name: {"params": best_params_result, "scoring": best_scoring_result}})
+    print(method_name, "total time spending:", time_since(start_time), "\n")
+
+    ###############################
+    # ensemble result
+    ###############################
+    for k, v in final_best_score.items():
+        print("{0}:\nbest_params: {1}\nbest_scoring: {2}\n".format(k, v['params'], v['scoring']))

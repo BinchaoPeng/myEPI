@@ -15,10 +15,7 @@ from sklearn.model_selection import ParameterGrid, StratifiedKFold
 
 
 def get_data_np_dict(cell_name, feature_name, method_name):
-    if method_name == "ensemble":
-        pass
-    else:
-        print("experiment: %s %s_%s" % (cell_name, feature_name, method_name))
+
     trainPath = r'../../data/epivan/%s/features/%s/%s_train.npz' % (cell_name, feature_name, cell_name)
     train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
     X_en = train_data[train_data.files[0]]
@@ -26,7 +23,6 @@ def get_data_np_dict(cell_name, feature_name, method_name):
     train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
     # print(type(self.X))
     train_y = train_data[train_data.files[2]]
-    print("trainSet len:[X=%s,y=%s]" % (len(train_y), len(train_X)))
 
     testPath = r'../../data/epivan/%s/features/%s/%s_test.npz' % (cell_name, feature_name, cell_name)
     test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
@@ -36,7 +32,13 @@ def get_data_np_dict(cell_name, feature_name, method_name):
     test_X = np.array(test_X)
     # print(type(self.X))
     test_y = test_data[test_data.files[2]]
-    print("testSet len:[X=%s,y=%s]" % (len(test_y), len(test_X)))
+
+    if method_name == "ensemble":
+        pass
+    else:
+        print("experiment: %s %s_%s" % (cell_name, feature_name, method_name))
+        print("trainSet len:[X=%s,y=%s]" % (len(train_y), len(train_X)))
+        print("testSet len:[X=%s,y=%s]" % (len(test_y), len(test_X)))
 
     train_X = np.array(train_X)
     train_y = np.array(train_y)
