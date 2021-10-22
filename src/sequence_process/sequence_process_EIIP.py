@@ -1,5 +1,5 @@
 import sys, os
-from sequence_process.physicalChemical import PhysicalChemical, PhysicalChemicalPath
+from sequence_process.physicalChemical import PhysicalChemical, PhysicalChemicalType
 
 from sequence_process.EIIP import EIIP
 import numpy as np

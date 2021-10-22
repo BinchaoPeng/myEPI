@@ -3,7 +3,7 @@ from itertools import product
 import numpy as np
 from joblib import Parallel, delayed
 
-from sequence_process.physicalChemical import PhysicalChemical, PhysicalChemicalPath
+from sequence_process.physicalChemical import PhysicalChemical, PhysicalChemicalType
 
 
 class DPCP:
@@ -71,7 +71,7 @@ class DPCP:
 
 
 if __name__ == '__main__':
-    pc_dict = PhysicalChemical(PhysicalChemicalPath.DiDNA_standardized).pc_dict
+    pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
 
     set_pc_list = ["Base stacking", "Protein induced deformability", "B-DNA twist", "A-philicity", "Propeller twist",
                    "Duplex stability (freeenergy)", "Duplex stability (disruptenergy)", "DNA denaturation",

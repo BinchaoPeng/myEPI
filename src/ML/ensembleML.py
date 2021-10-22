@@ -170,9 +170,9 @@ if __name__ == '__main__':
                   "deepforest": CascadeForestClassifier,
                   "lightgbm": LGBMClassifier}
     names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
-    cell_name = names[3]
+    cell_name = names[6]
     ensemble_feature_names = ['prob', 'pred', 'prob_pred']
-    ensemble_feature_name = ensemble_feature_names[0]
+    ensemble_feature_name = ensemble_feature_names[2]
 
     dir_name = "ensemble"
     for item in product(ensemble_feature_names, EPIconst.MethodName.all):
@@ -186,10 +186,10 @@ if __name__ == '__main__':
         #     print("created rank folder!!!")
 
     s_time = time.time()
-    EPIconst.MethodName.all.remove("deepforest")
-    EPIconst.MethodName.all.remove("svm")
+    # EPIconst.MethodName.all.remove("deepforest")
+    # EPIconst.MethodName.all.remove("svm")
     new_feature = get_new_feature(cell_name, EPIconst.FeatureName.all,
-                                  EPIconst.MethodName.rf)
+                                  EPIconst.MethodName.all)
     ensemble_data = get_ensemble_data(new_feature, ensemble_feature_name)
     # train_X_prob = new_feature["train_X"]["train_X_prob"]
     # test_X_prob = new_feature["test_X"]["test_X_prob"]

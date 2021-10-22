@@ -1,7 +1,7 @@
 import openpyxl
 
 
-class PhysicalChemicalPath(object):
+class PhysicalChemicalType(object):
     DiDNA_original = r"./physicalchemical/original/DiDNA-original.xlsx"
     DiRNA_original = r"./physicalchemical/original/DiRNA-original.xlsx"
     MonoDNA_original = r"./physicalchemical/original/MonoDNA-original.xlsx"
@@ -48,7 +48,7 @@ class PhysicalChemical:
 
 
 if __name__ == '__main__':
-    pc_dict = PhysicalChemical(PhysicalChemicalPath.DiDNA_standardized).pc_dict
+    pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
     print(pc_dict)
     print(pc_dict['Propeller twist'])
     print(pc_dict['Propeller twist']['AT'])

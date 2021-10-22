@@ -1,18 +1,18 @@
 import sys, os
-from sequence_process.physicalChemical import PhysicalChemical, PhysicalChemicalType
-
-from sequence_process.DPCP import DPCP
 import numpy as np
 import os
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
 
+from sequence_process.PseKNC import PseDNC_II
+
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
-cell_name = names[2]
-feature_name = "dpcp"
-
+cell_name = names[1]
+feature_name = "psedc_II_lam6_w1"
+lam = 6
+W = 1
 train_dir = '../../data/epivan/%s/train/' % cell_name
 imbltrain = '../../data/epivan/%s/imbltrain/' % cell_name
 test_dir = '../../data/epivan/%s/test/' % cell_name
@@ -52,25 +52,90 @@ print('neg_samples:' + str(len(y_tes) - int(sum(y_tes))))
 # In[ ]:
 
 
-pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
-
-set_pc_list = ["Base stacking", "Protein induced deformability", "B-DNA twist", "A-philicity", "Propeller twist",
-               "Duplex stability (freeenergy)", "Duplex stability (disruptenergy)", "DNA denaturation",
-               "Bending stiffness", "Protein DNA twist", "Stabilising energy of Z-DNA", "Aida_BA_transition",
-               "Breslauer_dG", "Breslauer_dH", "Breslauer_dS", "Electron_interaction", "Hartman_trans_free_energy",
-               "Helix-Coil_transition", "Ivanov_BA_transition", "Lisser_BZ_transition", "Polar_interaction"]
-
-
-#
-# for idx, set_pc in enumerate(set_pc_list, 1):
-#     print(idx, set_pc_list[idx - 1], pc_dict[set_pc])
+set_pc_list = ["Base stacking",
+               "Protein induced deformability",
+               "B-DNA twist",
+               "A-philicity",
+               "Propeller twist",
+               "Duplex stability (freeenergy)",
+               "Duplex stability (disruptenergy)",
+               "DNA denaturation",
+               "Bending stiffness",
+               "Protein DNA twist",
+               "Stabilising energy of Z-DNA",
+               "Aida_BA_transition",
+               "Breslauer_dG",
+               "Breslauer_dH",
+               "Breslauer_dS",
+               "Electron_interaction",
+               "Hartman_trans_free_energy",
+               "Helix-Coil_transition",
+               "Ivanov_BA_transition",
+               "Lisser_BZ_transition",
+               "Polar_interaction",
+               "SantaLucia_dG",
+               "SantaLucia_dH",
+               "SantaLucia_dS",
+               "Sarai_flexibility",
+               "Stability",
+               "Stacking_energy",
+               "Sugimoto_dG",
+               "Sugimoto_dH",
+               "Sugimoto_dS",
+               "Watson-Crick_interaction",
+               "Twist",
+               "Tilt",
+               "Roll",
+               "Shift",
+               "Slide",
+               "Rise",
+               "Clash Strength",
+               "Twist (DNA-protein complex)",
+               "Tilt (DNA-protein complex)",
+               "Roll (DNA-protein complex)",
+               "Rise (DNA-protein complex)",
+               "Slide (DNA-protein complex)",
+               "Shift (DNA-protein complex)",
+               "Stacking energy",
+               "Bend",
+               "Tip",
+               "Inclination",
+               "Major Groove Width",
+               "Major Groove Depth",
+               "Major Groove Distance",
+               "Major Groove Size",
+               "Minor Groove Width",
+               "Minor Groove Depth",
+               "Minor Groove Distance",
+               "Minor Groove Size",
+               "Direction",
+               "Wedge",
+               "Flexibility_shift",
+               "Flexibility_slide",
+               "Persistance Length",
+               "Melting Temperature",
+               "Propeller Twist",
+               "Mobility to bend towards major groove",
+               "Mobility to bend towards minor groove",
+               "Probability contacting nucleosome core",
+               "Enthalpy",
+               "Entropy",
+               "Free energy",
+               "Adenine content",
+               "Cytosine content",
+               "GC content",
+               "Guanine content",
+               "Keto (GT) content",
+               "Purine (AG) content",
+               "Thymine content",
+               ]
 
 
 def get_data(enhancers, promoters):
-    dpcp = DPCP(2, set_pc_list, pc_dict, n_jobs=1)
-    X_en = dpcp.run_DPCP(enhancers)
-    # print(X_en)
-    X_pr = dpcp.run_DPCP(promoters)
+    psetnc = PseDNC_II(set_pc_list=set_pc_list, lam=lam, W=W)
+    X_en = psetnc.run_PseDNC_II(enhancers)
+    print(X_en.shape)
+    X_pr = psetnc.run_PseDNC_II(promoters)
     # print(X_pr)
     return np.array(X_en), np.array(X_pr)
 
@@ -110,12 +175,12 @@ en_fasta
 pr_fasta
 
 method:
-DPCP
+psednc
 set_pc_list
 
 process:
-en_fasta [n,3000] ---> en_cksnap [n,336]
-pr_fasta [n,2000] ---> pr_cksnap [n,336]
+en_fasta [n,3000] ---> en_cksnap [n,16+4*75]
+pr_fasta [n,2000] ---> pr_cksnap [n,316]
 
 output:
 en_cksnap,pr_cksnap,y
