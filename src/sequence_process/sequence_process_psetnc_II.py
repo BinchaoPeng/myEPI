@@ -9,9 +9,10 @@ import numpy as np
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
 cell_name = names[1]
-feature_name = "psednc_II_lam4_w0.5"
-lam = 7
-W = 0.5
+n_jobs = 8
+lam = 40
+W = 1
+feature_name = "psetnc_II_lam%s_w%s" % (lam, W)
 train_dir = '../../data/epivan/%s/train/' % cell_name
 imbltrain = '../../data/epivan/%s/imbltrain/' % cell_name
 test_dir = '../../data/epivan/%s/test/' % cell_name
@@ -55,25 +56,18 @@ set_pc_list = ["Bendability-DNAse",
                "Trinucleotide GC Content",
                "Nucleosome positioning",
                "Consensus_roll",
-               "Consensus_roll",
-               "Consensus_Rigid",
-               "Consensus_Rigid",
                "Dnase I",
                "Dnase I-Rigid",
                "MW-Daltons",
-               "MW-kg",
                "Nucleosome",
                "Nucleosome-Rigid",
                ]
 
 
-def get_data(enhancers, promoters):
-    psetnc = PseTNC_II(set_pc_list=set_pc_list, lam=lam, W=W)
+def get_data(enhancers, promoters, n_jobs=n_jobs):
+    psetnc = PseTNC_II(set_pc_list=set_pc_list, lam=lam, W=W, n_jobs=n_jobs)
     X_en = psetnc.run_PseTNC_II(enhancers)
-    print(X_en)
-    print(X_en.shape)
     X_pr = psetnc.run_PseTNC_II(promoters)
-    # print(X_pr)
     return np.array(X_en), np.array(X_pr)
 
 

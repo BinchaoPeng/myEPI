@@ -1,6 +1,7 @@
-import sys, os
-import numpy as np
 import os
+import sys
+
+import numpy as np
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
 sys.path.extend([root_path[0] + 'src'])
@@ -10,9 +11,10 @@ from sequence_process.PseKNC import PseDNC_II
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
 cell_name = names[1]
-feature_name = "psedc_II_lam6_w1"
+n_jobs = os.cpu_count() - 3
 lam = 6
 W = 1
+feature_name = "psedc_II_lam%s_w%s" % (lam, W)
 train_dir = '../../data/epivan/%s/train/' % cell_name
 imbltrain = '../../data/epivan/%s/imbltrain/' % cell_name
 test_dir = '../../data/epivan/%s/test/' % cell_name
@@ -50,8 +52,6 @@ print('pos_samples:' + str(int(sum(y_tes))))
 print('neg_samples:' + str(len(y_tes) - int(sum(y_tes))))
 
 # In[ ]:
-
-
 set_pc_list = ["Base stacking",
                "Protein induced deformability",
                "B-DNA twist",
@@ -131,12 +131,10 @@ set_pc_list = ["Base stacking",
                ]
 
 
-def get_data(enhancers, promoters):
-    psetnc = PseDNC_II(set_pc_list=set_pc_list, lam=lam, W=W)
+def get_data(enhancers, promoters, n_jobs=n_jobs):
+    psetnc = PseDNC_II(set_pc_list=set_pc_list, lam=lam, W=W, n_jobs=n_jobs)
     X_en = psetnc.run_PseDNC_II(enhancers)
-    print(X_en.shape)
     X_pr = psetnc.run_PseDNC_II(promoters)
-    # print(X_pr)
     return np.array(X_en), np.array(X_pr)
 
 

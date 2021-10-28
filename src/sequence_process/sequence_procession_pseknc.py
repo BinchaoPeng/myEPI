@@ -1,21 +1,31 @@
 import numpy as np
-from dataUtils.pseknc.PseKNC_II import PseKNC
+import sys
 import os
+
+root_path = os.path.abspath(os.path.dirname(__file__)).split('src')
+sys.path.extend([root_path[0] + 'src'])
+# from dataUtils.pseknc.PseKNC_II import PseKNC
+from sequence_process.PseKNC import PseKNC_II
 
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
-cell_name = names[2]
-feature_name = "pseknc"
+cell_name = names[1]
+n_jobs = os.cpu_count() - 2
+lam = 5
+W = 1
+k = 5
+n_pc = 2
+feature_name = "psetnc_II_lam%s_w1_k%s" % (lam, k)
 
 train_dir = '../../data/epivan/%s/train/' % cell_name
 imbltrain = '../../data/epivan/%s/imbltrain/' % cell_name
 test_dir = '../../data/epivan/%s/test/' % cell_name
-Data_dir = '../../data/epivan/%s/features/%s/' % (cell_name, feature_name)
+feature_dir = '../../data/epivan/%s/features/%s/' % (cell_name, feature_name)
 
-if os.path.exists(Data_dir):
+if os.path.exists(feature_dir):
     print("path exits!")
 else:
-    os.mkdir(Data_dir)
+    os.mkdir(feature_dir)
     print("path created!")
 
 print('Experiment on %s dataset' % cell_name)
@@ -43,27 +53,72 @@ print('测试集')
 print('pos_samples:' + str(int(sum(y_tes))))
 print('neg_samples:' + str(len(y_tes) - int(sum(y_tes))))
 
-
 # In[ ]:
-def get_data(enhancers, promoters):
-    X_en1, X_pr1, X_en2, X_pr2 = [], [], [], []
-    for en, pr in zip(enhancers, promoters):
-        pseknc = PseKNC(seq=en)
-        en1, en2 = pseknc()
-        pseknc = PseKNC(seq=pr)
-        pr1, pr2 = pseknc()
-        X_en1.append(en1)
-        X_pr1.append(pr1)
-        X_en2.append(en2)
-        X_pr2.append(pr2)
-        # print(en1)
-    return np.array(X_en1), np.array(X_pr1), np.array(X_en2), np.array(X_pr2)
+# def get_data(enhancers, promoters):
+#     X_en1, X_pr1, X_en2, X_pr2 = [], [], [], []
+#     for en, pr in zip(enhancers, promoters):
+#         pseknc = PseKNC(seq=en)
+#         en1, en2 = pseknc()
+#         pseknc = PseKNC(seq=pr)
+#         pr1, pr2 = pseknc()
+#         X_en1.append(en1)
+#         X_pr1.append(pr1)
+#         X_en2.append(en2)
+#         X_pr2.append(pr2)
+#         # print(en1)
+#     return np.array(X_en1), np.array(X_pr1), np.array(X_en2), np.array(X_pr2)
+# 
+# 
+# X_en_tra, X_pr_tra, _, _ = get_data(enhancers_tra, promoters_tra)
+# X_en_imtra, X_pr_imtra, _, _ = get_data(im_enhancers_tra, im_promoters_tra)
+# X_en_tes, X_pr_tes, _, _ = get_data(enhancers_tes, promoters_tes)
+
+if n_pc == 3:
+    set_pc_list = ["Bendability-DNAse", "Bendability-consensus", "Trinucleotide GC Content",
+                   "Nucleosome positioning", "Consensus_roll", "Dnase I", "Dnase I-Rigid",
+                   "MW-Daltons", "Nucleosome", "Nucleosome-Rigid",
+                   ]
+
+if n_pc == 2:
+    set_pc_list = ["Base stacking", "Protein induced deformability", "B-DNA twist", "A-philicity", "Propeller twist",
+                   "Duplex stability (freeenergy)", "Duplex stability (disruptenergy)", "DNA denaturation",
+                   "Bending stiffness", "Protein DNA twist",
+                   "Stabilising energy of Z-DNA", "Aida_BA_transition", "Breslauer_dG", "Breslauer_dH",
+                   "Breslauer_dS", "Electron_interaction", "Hartman_trans_free_energy", "Helix-Coil_transition",
+                   "Ivanov_BA_transition", "Lisser_BZ_transition", "Polar_interaction", "SantaLucia_dG",
+                   "SantaLucia_dH",
+                   "SantaLucia_dS", "Sarai_flexibility", "Stability", "Stacking_energy", "Sugimoto_dG", "Sugimoto_dH",
+                   "Sugimoto_dS", "Watson-Crick_interaction", "Twist", "Tilt", "Roll", "Shift", "Slide", "Rise",
+                   "Clash Strength", "Twist (DNA-protein complex)", "Tilt (DNA-protein complex)",
+                   "Roll (DNA-protein complex)", "Rise (DNA-protein complex)", "Slide (DNA-protein complex)",
+                   "Shift (DNA-protein complex)", "Stacking energy", "Bend", "Tip", "Inclination",
+                   "Major Groove Width", "Major Groove Depth",
+                   "Major Groove Distance", "Major Groove Size", "Minor Groove Width", "Minor Groove Depth",
+                   "Minor Groove Distance", "Minor Groove Size", "Direction", "Wedge", "Flexibility_shift",
+                   "Flexibility_slide", "Persistance Length", "Melting Temperature", "Propeller Twist",
+                   "Mobility to bend towards major groove", "Mobility to bend towards minor groove",
+                   "Probability contacting nucleosome core",
+                   "Enthalpy", "Entropy", "Free energy", "Adenine content", "Cytosine content",
+                   "GC content", "Guanine content", "Keto (GT) content", "Purine (AG) content", "Thymine content",
+                   ]
 
 
-X_en_tra, X_pr_tra, _, _ = get_data(enhancers_tra, promoters_tra)
-X_en_imtra, X_pr_imtra, _, _ = get_data(im_enhancers_tra, im_promoters_tra)
-X_en_tes, X_pr_tes, _, _ = get_data(enhancers_tes, promoters_tes)
+def get_data(enhancers, promoters, n_jobs=n_jobs):
+    psetnc = PseKNC_II(k_tuple=6, n_pc=n_pc, set_pc_list=set_pc_list, lam=lam, W=W, n_jobs=n_jobs)
+    X_en = psetnc.run_PseKNC_II(enhancers)
+    X_pr = psetnc.run_PseKNC_II(promoters)
+    return np.array(X_en), np.array(X_pr)
 
+
+"""
+get and save
+"""
+X_en_tra, X_pr_tra = get_data(enhancers_tra, promoters_tra)
+np.savez(feature_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
+X_en_imtra, X_pr_imtra = get_data(im_enhancers_tra, im_promoters_tra)
+np.savez(feature_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
+X_en_tes, X_pr_tes = get_data(enhancers_tes, promoters_tes)
+np.savez(feature_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)
 """
 a npz file has 3 np array
 
@@ -75,8 +130,8 @@ read step:
 npz save:
 np.savez(file_path,key1=np_array1,key2=np_array2,)
 """
-np.savez(Data_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
-np.savez(Data_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
-np.savez(Data_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)
+# np.savez(feature_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
+# np.savez(feature_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
+# np.savez(feature_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)
 
 print("save over!")

@@ -78,8 +78,8 @@ class PseKNC_II:
         self.k_tuple = k_tuple
         self.W = W
         self.lam = lam
-        self.set_pc_list = set_pc_list
         self.n_jobs = n_jobs
+        self.set_pc_list = set_pc_list
         self.Lambda = len(self.set_pc_list)
         self.seq_type = seq_type
         if n_pc is None and self.k_tuple <= 3:
@@ -88,6 +88,9 @@ class PseKNC_II:
             self.n_pc = n_pc
         else:
             raise ValueError(f"n_pc = {self.n_pc}, n_pc value is error")
+
+        self.pc_dict = self._get_pc_dict()
+        print("pc_dict:", self.pc_dict)
         # other param
         """
         du_len: the length of k-tuple occurrence frequency
@@ -128,6 +131,7 @@ class PseKNC_II:
 
     def run_PseKNC_II(self, seq_list: list, case_type="paper_case"):
         parallel = Parallel(n_jobs=self.n_jobs)
+        print("pseknc params:", self.__dict__)
         with parallel:
             all_out = []
             out = parallel(delayed(self.get_PseKNC_II)
@@ -227,23 +231,9 @@ class PseKNC_II:
         :param R_tip_right:
         :return:
         """
-        pc_dict = None
-        if self.n_pc == 2:
-            if self.seq_type == "DNA":
-                pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
-            elif self.seq_type == "RNA":
-                pc_dict = PhysicalChemical(PhysicalChemicalType.DiRNA_standardized).pc_dict
-        elif self.n_pc == 3:
-            if self.seq_type == "DNA":
-                pc_dict = PhysicalChemical(PhysicalChemicalType.TriDNA_standardized).pc_dict
-            elif self.seq_type == "RNA":
-                # todo: TriRNA
-                pc_dict = PhysicalChemical(PhysicalChemicalType.TriDNA_standardized).pc_dict
-        else:
-            raise ValueError(f"n_pc = {self.n_pc}, check n_pc value!!!")
 
         try:
-            PCValue = pc_dict[physicalchemical_name][R_tip_left] * pc_dict[physicalchemical_name][R_tip_right]
+            PCValue = self.pc_dict[physicalchemical_name][R_tip_left] * self.pc_dict[physicalchemical_name][R_tip_right]
             # print(physicalchemical_name, R_tip_left, pc_dict[physicalchemical_name][R_tip_left], R_tip_right,
             #       pc_dict[physicalchemical_name][R_tip_right])
         except KeyError:
@@ -332,6 +322,24 @@ class PseKNC_II:
             PseKNC_vector[index] = value / Sum
         return PseKNC_vector
 
+    def _get_pc_dict(self):
+        pc_dict = None
+        if self.n_pc == 2:
+            if self.seq_type == "DNA":
+                pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
+            elif self.seq_type == "RNA":
+                pc_dict = PhysicalChemical(PhysicalChemicalType.DiRNA_standardized).pc_dict
+        elif self.n_pc == 3:
+            if self.seq_type == "DNA":
+                pc_dict = PhysicalChemical(PhysicalChemicalType.TriDNA_standardized).pc_dict
+            elif self.seq_type == "RNA":
+                # todo: TriRNA
+                pc_dict = PhysicalChemical(PhysicalChemicalType.TriDNA_standardized).pc_dict
+        else:
+            raise ValueError(f"n_pc = {self.n_pc}, check n_pc value!!!")
+
+        return pc_dict
+
 
 class PseDNC_II(PseKNC_II):
     def __init__(self, set_pc_list, lam=5, W=0.5, n_pc=None, seq_type="DNA", n_jobs=1):
@@ -377,12 +385,16 @@ if __name__ == '__main__':
         "Shift",
         "Slide",
         "Rise"
-
     ]
     seq_list = ["ATGCATCATC", "ATGCATGNGCATC", "AGCTGGNATGCA", "GGAGGAGCACCGGT", "AATACAGGCGGAGCAGCAGA",
                 "CACAGGCTCTTAAAGA", "CCCAGATGGAGGTG", "CAGGGAGGAGTTTGG", "TGCATGNGCAT", "CCAGATGGAGGTGGGGA",
                 "AGGAGTTTGGAGAG", "GGCTCTTAAAG", "CGCTTCCCACACTCGCCG", "ATGCATCATNC", "ATGCATNGNGCATC", "AGCTGGNNATGCA",
-                "GGNAGGAGNCACCGGT", "AATACAGGNCGGAGCAGCAGA",
+                "GGNAGGAGNCACCGGT", "AATACAGGNCGGAGCAGCAGA", "CTTCCCACACTCGCCG", "CTTCCCACACTCGCCAAG",
+                "CTTCTTCCACACTCGCCG", "AGGNCGGAGCAGCA", "GGGAGGNCGGAGCAGCA", "AGGNCGGAGCAGCATTT", "AGGNCGGAGCAGCAGTA",
+                "AGGNCGGAGCAGCAGCC", "TCCCACACTCGNN", "TCCCACACTCGNTGA", "TCCCACACTCGNA", "NTGATCCCACACTCG",
+                "TCCCACACTCGTGGGG", "TCCCACACTCGAAG", "GAGGNNAGTTAAG", "GAGGNNAGTTTGN", "NTGGAGGNNAGTT",
+                "AGCTGAGGNNAGTT", "AGGGAGGAGTTTGGA", "ATGGAGGTGGGG", "AGAGGGNGAAGG", "CTTCCNCACACTCGC",
+                "CTTCCNCANCACTNCGC",
                 "CACANGGCTCTNTAAAGA", "CCCAGATGGNAGGTG", "CAGGGAGGNNAGTTTGG", "TGCNATGNGCAT", "CCAGATGNGAGGTGGGGA",
                 "AGGAGTTTGNGAGAG", "GGCTCTNTAAAG", "CGCTTCCNCACACTCGCCG",
                 "AAAGAGGGNGAAGGGG", "CCCAGATGGANGGTGGGGAGG",
@@ -390,15 +402,9 @@ if __name__ == '__main__':
                 "AAAGAGGGGAAGGGG", "CCCAGATGGAGGTGGGGAGG", "GGACCAGGGAGGAGTTTGGAGAGAA"]
     pseknc = PseKNC_II(set_pc_list, k_tuple=2)
     PseKNC_feature = pseknc(seq_list, case_type="paper_case")
-    print(PseKNC_feature)
 
-    # vector = pseknc.getPseKNC_II_paper_case("ATGCATGNGCATC")
-    # print(vector)
-    print("=" * 100)
     psednc = PseDNC_II(set_pc_list, n_jobs=5)
-    # v = psednc.get_PseDNC_II("ATGCATCATC")
-    # print(v)
-    # v = psednc.get_PseKNC_II("ATGCATCATC")
-    v = psednc(seq_list, case_type="paper_case")
-    print(v)
-    print("=" * 100)
+
+    psednc_feature = psednc(seq_list, case_type="paper_case")
+
+    print(PseKNC_feature - psednc_feature)

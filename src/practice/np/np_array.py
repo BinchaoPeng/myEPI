@@ -28,7 +28,7 @@ print(a)
 print(b)
 c = np.hstack((a, b))
 print(c)
-print("shape:",a.shape)
+print("shape:", a.shape)
 
 a = np.array([0.51, 0.49])
 print(a.shape[0])
@@ -37,3 +37,8 @@ a = np.array([1, 2, 3])
 b = np.array([4, 5, 6])
 c = np.append(a, b)
 print(c)
+
+# reduce
+a = np.array([[1, 1, 1], [3, 4, 5]])
+b = np.array([[1, 2, 3], [3, 4, 5]])
+print(a - b)
