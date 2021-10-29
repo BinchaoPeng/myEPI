@@ -1,27 +1,16 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import time, sys
+import time
 import numpy as np
 from testModel import testModel
 from trainModel import trainModel
-from utils import time_since, use_gpu_first
+from utils.utils_dl import time_since, use_gpu_first
 from torch.utils.data import DataLoader
 from draw_metrics import drawMetrics
 
 from EPIDataset import EPIDataset
-import model.modelBase as modelBase
-import model.model_gru3 as model_gru3
-import model.model_transformer as model_transformer
-import model.model_transformer_1 as model_transformer_1
-import model.model_transformer_2 as model_transformer_2
-import model.model_pseknc_1 as model_pseknc_1
-import model.model_pseknc_2 as model_pseknc_2
-import model.model_pseknc_3 as model_pseknc_3
-import model.model_longformer_gru as model_longformer_gru
-import model.model_longformer_lstm as model_longformer_lstm
 import model.model_elmo_1 as model_elmo_1
-import model.model_elmo_2 as model_elmo_2
 
 device, USE_GPU = use_gpu_first()
 print("device:", device)

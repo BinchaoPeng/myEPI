@@ -1,8 +1,5 @@
 import torch
-from sklearn.metrics import roc_auc_score, average_precision_score
-import itertools
-import time
-from utils import time_since, use_gpu_first
+from utils.utils_dl import time_since, use_gpu_first
 
 device, USE_GPU = use_gpu_first()
 

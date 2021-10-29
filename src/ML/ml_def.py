@@ -44,6 +44,7 @@ def get_data_np_dict(cell_name, feature_name, method_name):
     train_y = np.array(train_y)
     test_X = np.array(test_X)
     test_y = np.array(test_y)
+
     return {'train_X': train_X, 'train_y': train_y, 'test_X': test_X, 'test_y': test_y}
 
 

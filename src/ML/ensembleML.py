@@ -16,7 +16,8 @@ from sklearn.ensemble import RandomForestClassifier
 from deepforest import CascadeForestClassifier
 from lightgbm.sklearn import LGBMClassifier
 
-from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since, get_scoring_result
+from utils.utils_ml import shuffle_data_list_dict
+from ML.ml_def import get_data_np_dict, RunAndScore, time_since, get_scoring_result
 from ML.EPIconst import EPIconst
 
 
@@ -53,6 +54,10 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
         estimator.set_params(**model_params)
         print(ex_item, ":", estimator)
         data_value = get_data_np_dict(cell_name, feature_name, EPIconst.MethodName.ensemble)
+        """
+        shuffle data
+        """
+        data_value = shuffle_data_list_dict(data_value, seed=0)
         # print("data_value[\"train_y\"]:", data_value["train_y"][0:20])
         estimator.fit(data_value["train_X"], data_value["train_y"])
         # get new testSet
@@ -172,7 +177,7 @@ if __name__ == '__main__':
     names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
     cell_name = names[6]
     ensemble_feature_names = ['prob', 'pred', 'prob_pred']
-    ensemble_feature_name = ensemble_feature_names[2]
+    ensemble_feature_name = ensemble_feature_names[0]
 
     dir_name = "ensemble"
     for item in product(ensemble_feature_names, EPIconst.MethodName.all):

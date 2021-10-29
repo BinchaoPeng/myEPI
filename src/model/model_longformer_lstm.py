@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from transformers import LongformerModel, LongformerTokenizer, LongformerConfig
-from utils import use_gpu_first
+from utils.utils_dl import use_gpu_first
 
 EMBEDDING_DIM = 768
 max_value = 2708

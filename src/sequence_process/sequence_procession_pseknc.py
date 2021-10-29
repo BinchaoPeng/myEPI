@@ -10,12 +10,12 @@ from sequence_process.PseKNC import PseKNC_II
 # In[]:
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
 cell_name = names[1]
-n_jobs = os.cpu_count() - 2
+n_jobs = 9
 lam = 5
 W = 1
 k = 5
-n_pc = 2
-feature_name = "psetnc_II_lam%s_w1_k%s" % (lam, k)
+n_pc = 3
+feature_name = "pseknc_II_lam%s_w%s_k%s_n%s" % (lam, W, k, n_pc)
 
 train_dir = '../../data/epivan/%s/train/' % cell_name
 imbltrain = '../../data/epivan/%s/imbltrain/' % cell_name
@@ -104,7 +104,7 @@ if n_pc == 2:
 
 
 def get_data(enhancers, promoters, n_jobs=n_jobs):
-    psetnc = PseKNC_II(k_tuple=6, n_pc=n_pc, set_pc_list=set_pc_list, lam=lam, W=W, n_jobs=n_jobs)
+    psetnc = PseKNC_II(k_tuple=k, n_pc=n_pc, set_pc_list=set_pc_list, lam=lam, W=W, n_jobs=n_jobs)
     X_en = psetnc.run_PseKNC_II(enhancers)
     X_pr = psetnc.run_PseKNC_II(promoters)
     return np.array(X_en), np.array(X_pr)

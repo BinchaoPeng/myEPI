@@ -4,6 +4,7 @@ import time
 import warnings
 
 from ML.EPIconst import EPIconst
+from utils.utils_ml import shuffle_data_list_dict
 
 start_time = time.time()
 warnings.filterwarnings("ignore")
@@ -16,15 +17,21 @@ from ML.ml_def import get_data_np_dict, time_since, get_scoring_result
 cell_name = EPIconst.CellName.GM12878
 feature_names = ["psednc_II_lam3_w1", "psednc_II_lam4_w1", "psednc_II_lam5_w1", "psednc_II_lam6_w1",
                  "psetnc_II_lam3_w1", "psetnc_II_lam4_w1", "psetnc_II_lam5_w1", "psetnc_II_lam20_w1",
-                 "psetnc_II_lam40_w1"]
+                 "psetnc_II_lam40_w1", "pseknc_II_lam5_w1_k5_n2",
+                 "pseknc_II_lam5_w1_k5_n3",
+                 "pseknc_II_lam5_w1_k6_n2",
+                 "pseknc_II_lam5_w1_k6_n3", "pseknc"]
 method_name = EPIconst.MethodName.rf
 
 for feature_name in feature_names:
     data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
-
+    """
+            shuffle data
+            """
+    # data_list_dict = shuffle_data_list_dict(data_list_dict, seed=0)
     met_grid = sorted(['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy'])
 
-    clf = RandomForestClassifier(n_jobs=os.cpu_count() - 2)
+    clf = RandomForestClassifier(n_jobs=os.cpu_count() - 5)
     clf.fit(data_list_dict['train_X'], data_list_dict['train_y'])
     y_pred = clf.predict(data_list_dict['test_X'])
     y_pred_prob_temp = clf.predict_proba(data_list_dict['test_X'])
@@ -34,4 +41,6 @@ for feature_name in feature_names:
         y_proba = y_pred_prob_temp[:, 1]
 
     process_msg, score_result_dict = get_scoring_result(met_grid, data_list_dict["test_y"], y_pred, y_proba)
+    # print(clf.feature_importances_)
+    print(len(clf.feature_importances_))
     print("{0}_{1}: {2} End time={3}\n".format(cell_name, feature_name, process_msg, time_since(start_time)))

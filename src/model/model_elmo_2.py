@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from allennlp.modules.elmo import Elmo, batch_to_ids
 
-from utils import use_gpu_first
+from utils.utils_dl import use_gpu_first
 
 device, USE_GPU = use_gpu_first()
 
