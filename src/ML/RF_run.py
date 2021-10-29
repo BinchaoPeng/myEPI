@@ -17,7 +17,12 @@ cell and feature choose
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[1]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_names = ["psednc_II_lam3_w1", "psednc_II_lam4_w1", "psednc_II_lam5_w1"]
+feature_names =["psednc_II_lam3_w1", "psednc_II_lam4_w1", "psednc_II_lam5_w1", "psednc_II_lam6_w1",
+                 "psetnc_II_lam3_w1", "psetnc_II_lam4_w1", "psetnc_II_lam5_w1", "psetnc_II_lam20_w1",
+                 "psetnc_II_lam40_w1", "pseknc_II_lam5_w1_k5_n2",
+                 "pseknc_II_lam5_w1_k5_n3",
+                 "pseknc_II_lam5_w1_k6_n2",
+                 "pseknc_II_lam5_w1_k6_n3", "pseknc"]
 feature_name = feature_names[2]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm', 'rf']
 method_name = method_names[4]

@@ -69,6 +69,7 @@ class EIIP:
 
     def run_EIIP(self, seq_list: list):
         parallel = Parallel(n_jobs=self.n_jobs)
+        print("EIIP Params:", self.__dict__)
         with parallel:
             all_out = []
             out = parallel(delayed(self.get_EIIP)

@@ -55,6 +55,7 @@ class Kmer:
 
     def run_Kmer(self, seq_list: list):
         parallel = Parallel(n_jobs=self.n_jobs)
+        print("Kmer Params:", self.__dict__)
         with parallel:
             all_out = []
             out = parallel(delayed(self.get_Kmer)

@@ -21,10 +21,10 @@ class DPCP:
     [N_sample, n x 16]
     """
 
-    def __init__(self, kmer, set_pc_list, pc_dict, n_jobs):
+    def __init__(self, kmer, set_pc_list, n_jobs=1):
         self.n_jobs = n_jobs
         self.kmer = kmer
-        self.pc_dict = pc_dict
+        self.pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
         self.set_pc_list = set_pc_list
 
     # 提取核苷酸类型（排列组合）
@@ -60,6 +60,7 @@ class DPCP:
 
     def run_DPCP(self, seq_list: list):
         parallel = Parallel(n_jobs=self.n_jobs)
+        print("DPCP Params:", self.__dict__)
         with parallel:
             all_out = []
             out = parallel(delayed(self.get_DPCP)

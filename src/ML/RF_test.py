@@ -21,17 +21,20 @@ feature_names = ["psednc_II_lam3_w1", "psednc_II_lam4_w1", "psednc_II_lam5_w1", 
                  "pseknc_II_lam5_w1_k5_n3",
                  "pseknc_II_lam5_w1_k6_n2",
                  "pseknc_II_lam5_w1_k6_n3", "pseknc"]
+
 method_name = EPIconst.MethodName.rf
 
 for feature_name in feature_names:
     data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
     """
-            shuffle data
-            """
-    # data_list_dict = shuffle_data_list_dict(data_list_dict, seed=0)
+    shuffle data
+    """
+    data_list_dict = shuffle_data_list_dict(data_list_dict, seed=20)
+    # seed 0 20
     met_grid = sorted(['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy'])
 
-    clf = RandomForestClassifier(n_jobs=os.cpu_count() - 5)
+    # clf = RandomForestClassifier(n_jobs=os.cpu_count() - 5)
+    clf = RandomForestClassifier(n_jobs=5)
     clf.fit(data_list_dict['train_X'], data_list_dict['train_y'])
     y_pred = clf.predict(data_list_dict['test_X'])
     y_pred_prob_temp = clf.predict_proba(data_list_dict['test_X'])

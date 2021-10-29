@@ -42,3 +42,12 @@ print(c)
 a = np.array([[1, 1, 1], [3, 4, 5]])
 b = np.array([[1, 2, 3], [3, 4, 5]])
 print(a - b)
+
+a = [1, 2, 3]
+b = [11, 21, 31]
+b.extend(a)
+print(b)
+a = [[1, 1, 1], [3, 4, 5]]
+b = [[1, 2, 3], [3, 4, 5]]
+b.extend(a)
+print(b)

@@ -131,7 +131,7 @@ class PseKNC_II:
 
     def run_PseKNC_II(self, seq_list: list, case_type="paper_case"):
         parallel = Parallel(n_jobs=self.n_jobs)
-        print("pseknc params:", self.__dict__)
+        print("PseKNC_II params:", self.__dict__)
         with parallel:
             all_out = []
             out = parallel(delayed(self.get_PseKNC_II)

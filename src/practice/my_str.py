@@ -10,3 +10,7 @@
 a = "he;ll"
 
 print(a.__contains__("o"))
+
+a = 'aBc'
+print(str.upper(a))
+print(a.upper())
