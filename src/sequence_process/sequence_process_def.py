@@ -54,9 +54,8 @@ def get_cell_line_seq(data_source, cell_name, feature_name):
     print('测试集')
     print('pos_samples:' + str(int(sum(y_tes))))
     print('neg_samples:' + str(len(y_tes) - int(sum(y_tes))))
-    if data_source == "epivan":
-        return feature_dir, enhancers_tra, promoters_tra, y_tra, im_enhancers_tra, im_promoters_tra, y_imtra, enhancers_tes, promoters_tes, y_tes
-    return feature_dir, enhancers_tra, promoters_tra, y_tra, enhancers_tes, promoters_tes, y_tes
+
+    return feature_dir, enhancers_tra, promoters_tra, y_tra, im_enhancers_tra, im_promoters_tra, y_imtra, enhancers_tes, promoters_tes, y_tes
 
 
 if __name__ == '__main__':

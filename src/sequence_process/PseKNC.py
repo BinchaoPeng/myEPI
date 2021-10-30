@@ -79,8 +79,8 @@ class PseKNC_II:
         self.W = W
         self.lam = lam
         self.n_jobs = n_jobs
-        self.set_pc_list = set_pc_list
-        self.Lambda = len(self.set_pc_list)
+
+        self.Lambda = len(set_pc_list)
         self.seq_type = seq_type
         if n_pc is None and self.k_tuple <= 3:
             self.n_pc = self.k_tuple
@@ -88,7 +88,7 @@ class PseKNC_II:
             self.n_pc = n_pc
         else:
             raise ValueError(f"n_pc = {self.n_pc}, n_pc value is error")
-
+        self.set_pc_list = set_pc_list
         self.pc_dict = self._get_pc_dict()
         print("pc_dict:", self.pc_dict)
         # other param

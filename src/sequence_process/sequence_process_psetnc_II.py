@@ -8,13 +8,13 @@ from sequence_process.PseKNC import PseTNC_II
 import numpy as np
 
 # In[]:
-names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK']
-cell_name = names[1]
-n_jobs = 8
-lam = 40
+names = ['pbc_IMR90', 'GM12878', 'HeLa-S3', "HMEC", 'HUVEC', 'IMR90', 'K562', 'NHEK']
+cell_name = names[7]
+n_jobs = 1
+lam = 5
 W = 1
 feature_name = "psetnc_II_lam%s_w%s" % (lam, W)
-data_source = "epivan"
+data_source = "sept"
 
 feature_dir, \
 enhancers_tra, promoters_tra, y_tra, \
@@ -48,8 +48,9 @@ get and save
 """
 X_en_tra, X_pr_tra = get_data(enhancers_tra, promoters_tra)
 np.savez(feature_dir + '%s_train.npz' % cell_name, X_en_tra=X_en_tra, X_pr_tra=X_pr_tra, y_tra=y_tra)
-X_en_imtra, X_pr_imtra = get_data(im_enhancers_tra, im_promoters_tra)
-np.savez(feature_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
+if data_source == "epivan":
+    X_en_imtra, X_pr_imtra = get_data(im_enhancers_tra, im_promoters_tra)
+    np.savez(feature_dir + 'im_%s_train.npz' % cell_name, X_en_tra=X_en_imtra, X_pr_tra=X_pr_imtra, y_tra=y_imtra)
 X_en_tes, X_pr_tes = get_data(enhancers_tes, promoters_tes)
 np.savez(feature_dir + '%s_test.npz' % cell_name, X_en_tes=X_en_tes, X_pr_tes=X_pr_tes, y_tes=y_tes)
 
