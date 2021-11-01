@@ -14,6 +14,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 """
 cell and feature choose
 """
+datasource = "epivan"
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[1]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
@@ -23,10 +24,10 @@ feature_names = ["psednc_II_lam3_w1", "psednc_II_lam4_w1", "psednc_II_lam5_w1", 
                  "pseknc_II_lam5_w1_k5_n3",
                  "pseknc_II_lam5_w1_k6_n2",
                  "pseknc_II_lam5_w1_k6_n3", "pseknc"]
-feature_name = feature_names[12]
+feature_name = feature_names[10]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm', 'rf']
 method_name = method_names[4]
-dir_name = "run_and_score"
+dir_name = "base"
 ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
 if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
     os.mkdir(r'../../ex/%s/' % ex_dir_name)
@@ -60,7 +61,7 @@ other_params = {'n_estimators': 100, "n_jobs": os.cpu_count() - 2, "max_depth": 
                 "min_samples_leaf": 1,
                 'max_features': 'auto'}
 
-data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
+data_list_dict = get_data_np_dict(datasource, cell_name, feature_name, method_name)
 
 # 第一次：决策树的最佳数量也就是估计器的数目
 print("第一次")

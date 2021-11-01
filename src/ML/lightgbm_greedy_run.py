@@ -15,6 +15,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 """
 cell and feature choose
 """
+datasource = "epivan"
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
@@ -88,7 +89,7 @@ other_params = {'max_depth': -1, 'num_leaves': 31,
                 'min_child_weight': 0.001, 'random_state': None,
                 'subsample_for_bin': 200000, 'silent': True}
 
-data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
+data_list_dict = get_data_np_dict(datasource, cell_name, feature_name, method_name)
 
 # 第一次：max_depth、num_leaves
 print("第一次")

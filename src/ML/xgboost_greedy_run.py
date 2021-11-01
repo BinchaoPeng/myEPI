@@ -14,6 +14,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 """
 cell and feature choose
 """
+datasource = "epivan"
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
@@ -77,7 +78,7 @@ other_params = {'learning_rate': 0.1, 'n_estimators': 500, 'max_depth': 5, 'min_
                 'subsample': 0.8, 'colsample_bytree': 0.8, 'gamma': 0, 'reg_alpha': 0, 'reg_lambda': 1,
                 'use_label_encoder': False, 'eval_metric': 'logloss', 'tree_method': 'gpu_hist'}
 
-data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
+data_list_dict = get_data_np_dict(datasource, cell_name, feature_name, method_name)
 
 # 第一次：决策树的最佳数量也就是估计器的数目
 print("第一次")

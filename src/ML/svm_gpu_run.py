@@ -41,6 +41,7 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 """
 cell and feature choose
 """
+datasource = "epivan"
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
@@ -80,7 +81,7 @@ parameters = [
     # }
 ]
 
-data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
+data_list_dict = get_data_np_dict(datasource, cell_name, feature_name, method_name)
 svc = SVC(probability=True, n_jobs=-1)  # 调参
 
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']

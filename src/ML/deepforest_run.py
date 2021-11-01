@@ -13,13 +13,14 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 """
 cell and feature choose
 """
+datasource = "epivan"
 names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
 cell_name = names[4]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest', 'rf']
 method_name = method_names[2]
-dir_names = ["run_and_score", "ensemble"]
+dir_names = ["base", "meta"]
 dir_name = dir_names[0]
 
 ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
@@ -60,7 +61,7 @@ parameters = [
 # 3090:9-2
 # labtop:7-2
 # 2080ti:8-2
-data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
+data_list_dict = get_data_np_dict(datasource, cell_name, feature_name, method_name)
 deep_forest = CascadeForestClassifier(use_predictor=False, random_state=1, n_jobs=8, predictor='forest', verbose=0)
 
 # import xgboost as xgb
