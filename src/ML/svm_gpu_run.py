@@ -41,23 +41,24 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 """
 cell and feature choose
 """
-datasource = "epivan"
-names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
+datasources = ['epivan', 'sept']
+datasource = datasources[0]
+names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
 cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[0]
-dir_names = ["run_and_score", "ensemble"]
-dir_name = dir_names[0]
+ensemble_steps = ["base", "meta"]
+ensemble_step = ensemble_steps[0]
 
-ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
-    os.mkdir(r'../../ex/%s/' % ex_dir_name)
-    print("created ex folder!!!")
-if not os.path.exists(r'../../ex/%s/rank' % ex_dir_name):
-    os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
-    print("created rank folder!!!")
+ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (datasource, ensemble_step, feature_name, method_name, ensemble_step)
+if not os.path.exists(ex_dir_name):
+    os.mkdir(ex_dir_name)
+    print(ex_dir_name, "created !!!")
+if not os.path.exists(r'%s/rank' % ex_dir_name):
+    os.mkdir(r'%s/rank' % ex_dir_name)
+    print(ex_dir_name + "/rank", "created !!!")
 
 """
 params
@@ -87,7 +88,7 @@ svc = SVC(probability=True, n_jobs=-1)  # 调参
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 refit = "roc_auc"
 clf = RunAndScore(data_list_dict, svc, parameters, met_grid, refit=refit, n_jobs=1)
-writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name)
+writeRank2csv(met_grid, clf, ex_dir_name, cell_name)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
 print("best params found in line [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 2))

@@ -106,10 +106,17 @@ def get_scoring_result(scoring, y, y_pred, y_prob, y_score=None, is_base_score=T
     return process_msg, score_result_dict
 
 
-def writeCVRank2csv(met_grid, clf, dir_name, index=None):
+def writeCVRank2csv(met_grid, clf, ex_dir_path, cell_name, computer, index=None):
     print("write rank test to csv!!!")
     csv_rows_list = []
     header = []
+    csv_rows_list.append(clf.cv_results_['params'])
+    header.append('params')
+
+    for m in met_grid:
+        header.append(m)
+        csv_rows_list.append(clf.cv_results_[m])
+
     for m in met_grid:
         rank_test_score = 'rank_test_' + m
         mean_test_score = 'mean_test_' + m
@@ -120,64 +127,71 @@ def writeCVRank2csv(met_grid, clf, dir_name, index=None):
         csv_rows_list.append(clf.cv_results_[rank_test_score])
         csv_rows_list.append(clf.cv_results_[mean_test_score])
         csv_rows_list.append(clf.cv_results_[std_test_score])
-    csv_rows_list.append(clf.cv_results_['params'])
-    header.append('params')
-    results = list(zip(*csv_rows_list))
-    print("write over!!!")
 
-    ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-    if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
-        os.mkdir(r'../../ex/%s/' % ex_dir_name)
-        os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
-        print("created ex folder!!!")
-    file_name = r'../../ex/%s/rank/%s_%s_%s_rank_%s.csv' % (ex_dir_name, cell_name, feature_name, method_name, index)
+    results = list(zip(*csv_rows_list))
+
+    ex_rank_dir_path = r'%s/rank' % ex_dir_path
+    if not os.path.exists(ex_dir_path):
+        os.mkdir(ex_dir_path)
+        print(ex_dir_path, "created !!!")
+
+    if not os.path.exists(ex_rank_dir_path):
+        os.mkdir(ex_rank_dir_path)
+        print(ex_rank_dir_path, "created !!!")
+
+    feature_method_ensembleStep = ex_rank_dir_path.split('/')[-1]
+
+    file_name = r'%s/%s_%s_rank_%s_%s.csv' % (ex_rank_dir_path, cell_name, feature_method_ensembleStep, index, computer)
     if index is None:
-        file_name = r'../../ex/%s/rank/%s_%s_%s_rank.csv' % (ex_dir_name, cell_name, feature_name, method_name)
+        file_name = r'%s/%s_%s_rank_%s.csv' % (ex_rank_dir_path, cell_name, feature_method_ensembleStep, computer)
 
     with open(file_name, 'wt', newline='')as f:
         f_csv = csv.writer(f, delimiter=",")
         f_csv.writerow(header)
         f_csv.writerows(results)
         f.close()
+    print(file_name, "write over!!!")
 
 
-def writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, is_ensemble=False, index=None):
+def writeRank2csv(met_grid, clf, ex_dir_path, cell_name, computer, index=None):
     print("write rank test to csv!!!")
     csv_rows_list = []
     header = []
+    csv_rows_list.append(clf.cv_results_['params'])
+    header.append('params')
+
+    for m in met_grid:
+        header.append(m)
+        csv_rows_list.append(clf.cv_results_[m])
+
     for m in met_grid:
         rank_test_score = 'rank_test_' + m
         header.append(rank_test_score)
         csv_rows_list.append(clf.cv_results_[rank_test_score])
 
-    csv_rows_list.append(clf.cv_results_['params'])
-    header.append('params')
     results = list(zip(*csv_rows_list))
 
-    ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-    ex_dir_path = r'../../ex/%s/' % ex_dir_name
-    ex_rank_dir_path = r'../../ex/%s/rank' % ex_dir_name
-    if is_ensemble:
-        ex_dir_path = r'../../ex_stacking/%s/' % ex_dir_name
-        ex_rank_dir_path = r'../../ex_stacking/%s/rank' % ex_dir_name
+    ex_rank_dir_path = r'%s/rank' % ex_dir_path
     if not os.path.exists(ex_dir_path):
         os.mkdir(ex_dir_path)
-        print("created ex_dir folder!!!")
+        print(ex_dir_path, "created !!!")
 
     if not os.path.exists(ex_rank_dir_path):
         os.mkdir(ex_rank_dir_path)
-        print("created ex_rank_dir folder!!!")
+        print(ex_rank_dir_path, "created !!!")
 
-    file_name = r'%s/%s_%s_%s_rank_%s.csv' % (ex_rank_dir_path, cell_name, feature_name, method_name, index)
+    feature_method_ensembleStep = ex_rank_dir_path.split('/')[-1]
+
+    file_name = r'%s/%s_%s_rank_%s_%s.csv' % (ex_rank_dir_path, cell_name, feature_method_ensembleStep, index, computer)
     if index is None:
-        file_name = r'%s/%s_%s_%s_rank.csv' % (ex_rank_dir_path, cell_name, feature_name, method_name)
+        file_name = r'%s/%s_%s_rank_%s.csv' % (ex_rank_dir_path, cell_name, feature_method_ensembleStep, computer)
 
     with open(file_name, 'wt', newline='')as f:
         f_csv = csv.writer(f, delimiter=",")
         f_csv.writerow(header)
         f_csv.writerows(results)
         f.close()
-    print("write over!!!")
+    print(file_name, "write over!!!")
 
 
 def time_since(start):
@@ -599,16 +613,13 @@ class RunAndScore:
                                  .format(n_candidates, len(out)))
             # print("score_result_dict:", out)
             all_out.extend(out)
-        # elif self.n_jobs == 1:
-        #     all_out = []
-        #     for cand_idx, params in enumerate(self.candidate_params, 1):
-        #         out = self.fit_and_predict(cand_idx, params)
-        #         all_out.append(out)
+
         return all_out
 
     def _get_score_dict(self):
         """
-        score_dict: {"xxx_score":score,...}
+        score_dict: {"xxx_score":xxx,...}
+                    {"score_method_name":"score_name"}
         :return:
         """
         score_dict = {}
@@ -622,28 +633,32 @@ class RunAndScore:
         return score_dict
 
     def get_cv_results(self):
+        """
+        cv_results = {"params":[{sample1_params},{sample2_params}],
+                      "rank_test_xx1":[],"rank_test_xx2":[],}
+        :return:
+        """
         cv_results = {}
-        cv_score_temp = {}
-        # define attr of cv_results and cv_score_temp
-        score_dict = self._get_score_dict()
-        for k, v in score_dict.items():
-            cv_results.update({"rank_test_%s" % v: []})
-            cv_results.update({v: np.array([])})
         cv_results.update({"params": []})
 
-        # set data into cv_results
+        score_dict = self._get_score_dict()
+        for k, score_name in score_dict.items():
+            cv_results.update({"rank_test_%s" % score_name: []})
+            cv_results.update({score_name: np.array([])})
+
+        # set data into cv_results by column
         for cv_out in self.all_out:
             cv_results["params"].append(cv_out[0])
             cv_out_score = cv_out[1]
-            for k, v in score_dict.items():
-                cv_results[v] = np.append(cv_results[v], cv_out_score[v])
+            for k, score_name in score_dict.items():
+                cv_results[score_name] = np.append(cv_results[score_name], cv_out_score[score_name])
                 # cv_results[v].append(cv_out_score[v])
         # print("not rank:", cv_results)
-        cv_results = self.rank_cv_result(cv_results)
+        cv_results = self._rank_cv_result(cv_results)
         # print("ranked:", cv_results)
         return cv_results
 
-    def rank_cv_result(self, cv_results):
+    def _rank_cv_result(self, cv_results):
         for item in self.scoring:
             # sorted by mean
             obj = pd.Series(cv_results[item])
@@ -718,7 +733,7 @@ if __name__ == '__main__':
     feature_name = feature_names[0]
     method_names = ['svm', 'xgboost', 'deepforest']
     method_name = method_names[2]
-    dir_name = "run_and_score"
+    ensemble_step = "run_and_score"
 
     data_list_dict = get_data_np_dict(cell_name, feature_name, method_name)
 

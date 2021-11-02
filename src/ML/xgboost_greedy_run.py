@@ -14,21 +14,26 @@ from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
 """
 cell and feature choose
 """
-datasource = "epivan"
-names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
+datasources = ['epivan', 'sept']
+datasource = datasources[0]
+names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
 cell_name = names[6]
 feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
 feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[1]
-dir_name = "run_and_score"
-ex_dir_name = '%s_%s_%s' % (feature_name, method_name, dir_name)
-if not os.path.exists(r'../../ex/%s/' % ex_dir_name):
-    os.mkdir(r'../../ex/%s/' % ex_dir_name)
-    print("created ex folder!!!")
-if not os.path.exists(r'../../ex/%s/rank' % ex_dir_name):
-    os.mkdir(r'../../ex/%s/rank' % ex_dir_name)
-    print("created rank folder!!!")
+ensemble_steps = ["base", "meta"]
+ensemble_step = ensemble_steps[0]
+computers = ["2080ti", "3070", "3090"]
+computer = computers[2]
+
+ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (datasource, ensemble_step, feature_name, method_name, ensemble_step)
+if not os.path.exists(ex_dir_name):
+    os.mkdir(ex_dir_name)
+    print(ex_dir_name, "created !!!")
+if not os.path.exists(r'%s/rank' % ex_dir_name):
+    os.mkdir(r'%s/rank' % ex_dir_name)
+    print(ex_dir_name + "/rank", "created !!!")
 
 
 def xgboost_grid_greedy(cv_params, other_params, index):
@@ -45,7 +50,7 @@ def xgboost_grid_greedy(cv_params, other_params, index):
                                                                                          clf.best_estimator_params_idx_ + 1))
     print("clf.best_scoring_result:", clf.best_scoring_result)
 
-    writeRank2csv(met_grid, clf, cell_name, feature_name, method_name, dir_name, index=index)
+    writeRank2csv(met_grid, clf, ex_dir_name, cell_name, computer, index=index)
 
     return clf.best_estimator_params_
 

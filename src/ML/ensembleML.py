@@ -17,7 +17,7 @@ from deepforest import CascadeForestClassifier
 from lightgbm.sklearn import LGBMClassifier
 
 from utils.utils_ml import shuffle_data_list_dict
-from ML.ml_def import get_data_np_dict, RunAndScore, time_since, get_scoring_result
+from ML.ml_def import get_data_np_dict, RunAndScore, time_since, get_scoring_result, writeRank2csv
 from ML.EPIconst import EPIconst
 
 
@@ -135,7 +135,7 @@ def get_ensemble_data(new_feature, datatype):
     return data_list_dict
 
 
-def meta_grid(cell_name, ensemble_data, meta_estimator, cv_params, method_name, dir_name, index=None):
+def meta_grid(ex_dir_name, ensemble_data, meta_estimator, cv_params, index=None):
     refit = "roc_auc"
     met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 
@@ -148,22 +148,21 @@ def meta_grid(cell_name, ensemble_data, meta_estimator, cv_params, method_name, 
                                                                                          clf.best_estimator_params_idx_ + 1))
     print("clf.best_scoring_result:", clf.best_scoring_result)
 
-    # writeRank2csv(met_grid, clf, cell_name, ensemble_feature_name, method_name, dir_name, index=index, is_ensemble=True)
+    writeRank2csv(met_grid, clf, ex_dir_name, cell_name, computer, index=index)
 
     return clf.best_estimator_params_, clf.best_scoring_result
 
 
-def ensemble_final(method_name, cv_params, best_params_result=None, index=None):
+def ensemble_final(ex_dir_name, method_name, cv_params, best_params_result=None, index=None):
     meta_estimator = estimators[method_name]()
     base_params = getattr(EPIconst.ModelBaseParams, method_name)
     meta_estimator.set_params(**base_params)
     if best_params_result is not None:
         meta_estimator.set_params(**best_params_result)
     print("ensemble model params:", meta_estimator.get_params())
-    best_estimator_params, best_scoring_result = meta_grid(cell_name, ensemble_data, meta_estimator,
-                                                           cv_params=cv_params,
-                                                           method_name=method_name,
-                                                           dir_name=dir_name, index=index)
+    best_estimator_params, best_scoring_result = meta_grid(ex_dir_name, ensemble_data, meta_estimator, cv_params,
+                                                           index=index)
+
     return best_estimator_params, best_scoring_result
 
 
@@ -174,21 +173,27 @@ if __name__ == '__main__':
     estimators = {"xgboost": XGBClassifier, "svm": SVC, "rf": RandomForestClassifier,
                   "deepforest": CascadeForestClassifier,
                   "lightgbm": LGBMClassifier}
-    names = ['pbc_IMR90', 'GM12878', 'HUVEC', 'HeLa-S3', 'IMR90', 'K562', 'NHEK', 'all', 'all-NHEK']
+    datasources = ['epivan', 'sept']
+    datasource = datasources[0]
+    names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
     cell_name = names[6]
     ensemble_feature_names = ['prob', 'pred', 'prob_pred']
     ensemble_feature_name = ensemble_feature_names[0]
+    ensemble_steps = ["base", "meta"]
+    ensemble_step = ensemble_steps[1]
+    computers = ["2080ti", "3070", "3090"]
+    computer = computers[2]
 
-    dir_name = "ensemble"
     for item in product(ensemble_feature_names, EPIconst.MethodName.all):
         ensemble_feature, method_name = item
-        ex_dir_name = '%s_%s_%s' % (ensemble_feature, method_name, dir_name)
-        if not os.path.exists(r'../../ex_stacking/%s/' % ex_dir_name):
-            os.mkdir(r'../../ex_stacking/%s/' % ex_dir_name)
-            print("created ex folder!!!")
-        # if not os.path.exists(r'../../ex_stacking/%s/rank' % ex_dir_name):
-        #     os.mkdir(r'../../ex_stacking/%s/rank' % ex_dir_name)
-        #     print("created rank folder!!!")
+        ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (
+            datasource, ensemble_step, ensemble_feature, method_name, ensemble_step)
+        if not os.path.exists(ex_dir_name):
+            os.mkdir(ex_dir_name)
+            print(ex_dir_name, "created !!!")
+        if not os.path.exists(r'%s/rank' % ex_dir_name):
+            os.mkdir(r'%s/rank' % ex_dir_name)
+            print(ex_dir_name + "/rank", "created !!!")
 
     s_time = time.time()
     # EPIconst.MethodName.all.remove("deepforest")
@@ -212,6 +217,8 @@ if __name__ == '__main__':
     #############################################################
     start_time = time.time()
     method_name = EPIconst.MethodName.deepforest
+    ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (
+        datasource, ensemble_step, ensemble_feature_name, method_name, ensemble_step)
     deepforest_parameters = [
         {
             'n_estimators': [2, 5, 8, 10, 13],
@@ -220,7 +227,7 @@ if __name__ == '__main__':
             'max_layers': [10, 15, 20, 25],
         },
     ]
-    best_estimator_params, best_scoring_result = ensemble_final(method_name, deepforest_parameters)
+    best_estimator_params, best_scoring_result = ensemble_final(ex_dir_name, method_name, deepforest_parameters)
     final_best_score.update({"deepforest": {"params": best_estimator_params, "scoring": best_scoring_result}})
     print(method_name, "total time spending:", time_since(start_time), "\n")
     ##############################################################
@@ -228,18 +235,20 @@ if __name__ == '__main__':
     #############################################################
     start_time = time.time()
     method_name = EPIconst.MethodName.lightgbm
+    ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (
+        datasource, ensemble_step, ensemble_feature_name, method_name, ensemble_step)
     best_params_result = {}
     # 第一次：max_depth、num_leaves
     print("第一次")
     cv_params = {'max_depth': [-1, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 'num_leaves': range(221, 350, 10)}
     # cv_params = {'max_depth': [-1], 'num_leaves': [191]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '1')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '1')
     best_params_result.update(best_params)
     # 第二次
     print("第二次")
     cv_params = {'max_bin': range(5, 256, 10), 'min_child_samples': range(10, 201, 10)}
     # cv_params = {'max_bin': range(5, 256, 100), 'min_child_samples': range(1, 102, 50)}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '2')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '2')
     best_params_result.update(best_params)
 
     # 第三次
@@ -252,7 +261,7 @@ if __name__ == '__main__':
     #              'subsample': [0.6, 0.7, ],
     #              'subsample_freq': range(0, 81, 40)
     #              }
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '3')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '3')
     best_params_result.update(best_params)
 
     # 第四次
@@ -263,14 +272,14 @@ if __name__ == '__main__':
     # cv_params = {'reg_alpha': [1e-5, 1e-3, ],
     #              'reg_lambda': [1e-5, 1e-3, ]
     #              }
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '4')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '4')
     best_params_result.update(best_params)
 
     # 第五次
     print("第五次")
     cv_params = {'min_split_gain': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]}
     # cv_params = {'min_split_gain': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '5')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '5')
     best_params_result.update(best_params)
 
     # 第六次
@@ -278,7 +287,7 @@ if __name__ == '__main__':
     cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0],
                  'n_estimators': range(50, 251, 25)}
     # cv_params = {'learning_rate': [0.01, 0.05, ]}
-    best_params, best_scoring_result = ensemble_final(method_name, cv_params, best_params_result, '6')
+    best_params, best_scoring_result = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '6')
     best_params_result.update(best_params)
 
     print("best_params_result:", best_params_result)
@@ -290,12 +299,14 @@ if __name__ == '__main__':
     #############################################################
     start_time = time.time()
     method_name = EPIconst.MethodName.rf
+    ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (
+        datasource, ensemble_step, ensemble_feature_name, method_name, ensemble_step)
     best_params_result = {}
     # 第一次：决策树的最佳数量也就是估计器的数目
     print("第一次")
     cv_params = {'n_estimators': list(range(10, 350, 10))}
     # cv_params = {'n_estimators': [120]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '1')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '1')
     best_params_result.update(best_params)
     # 第二次
     print("第二次")
@@ -303,7 +314,7 @@ if __name__ == '__main__':
     max_depth.extend((list(range(1, 150))))
     cv_params = {'max_depth': max_depth}
     # cv_params = {'max_depth': [99]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '2')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '2')
     # print( best_params_result)
     best_params_result.update(best_params)
 
@@ -311,7 +322,7 @@ if __name__ == '__main__':
     print("第三次")
     cv_params = {'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10], "min_samples_leaf": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
     # cv_params = {'gamma': [0.1, 0.2, 0.3,]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '3')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '3')
     # print( best_params_result)
     best_params_result.update(best_params)
 
@@ -319,7 +330,7 @@ if __name__ == '__main__':
     print("第四次")
     cv_params = {'max_features': ["auto", "sqrt", "log2", None]}
     # cv_params = {'max_features': [0.6, 0.7, ]}
-    best_params, best_scoring_result = ensemble_final(method_name, cv_params, best_params_result, '4')
+    best_params, best_scoring_result = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '4')
     # print( best_params_result)
     best_params_result.update(best_params)
 
@@ -332,6 +343,8 @@ if __name__ == '__main__':
     #############################################################
     start_time = time.time()
     method_name = EPIconst.MethodName.svm
+    ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (
+        datasource, ensemble_step, ensemble_feature_name, method_name, ensemble_step)
     svm_cv_params = [
         {
             # 'C': [math.pow(2, i) for i in range(-10, 15)],
@@ -341,7 +354,7 @@ if __name__ == '__main__':
             'kernel': ['rbf']
         },
     ]
-    best_params_result, best_scoring_result = ensemble_final(method_name, svm_cv_params)
+    best_params_result, best_scoring_result = ensemble_final(ex_dir_name, method_name, svm_cv_params)
     final_best_score.update({method_name: {"params": best_params_result, "scoring": best_scoring_result}})
     print(method_name, "total time spending:", time_since(start_time), "\n")
     ##############################################################
@@ -349,19 +362,21 @@ if __name__ == '__main__':
     #############################################################
     start_time = time.time()
     method_name = EPIconst.MethodName.xgboost
+    ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (
+        datasource, ensemble_step, ensemble_feature_name, method_name, ensemble_step)
     best_params_result = {}
     # 第一次：决策树的最佳数量也就是估计器的数目
     print("第一次")
     cv_params = {'n_estimators': list(range(50, 1050, 50))}
     # cv_params = {'n_estimators': list(range(50, 300, 50))}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '1')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '1')
     best_params_result.update(best_params)
 
     # 第二次
     print("第二次")
     cv_params = {'max_depth': [3, 4, 5, 6, 7, 8, 9, 10, 12], 'min_child_weight': [1, 2, 3, 4, 5, 6]}
     # cv_params = {'max_depth': [3, 4, ], 'min_child_weight': [1, 2, ]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '2')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '2')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -369,7 +384,7 @@ if __name__ == '__main__':
     print("第三次")
     cv_params = {'gamma': [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]}
     # cv_params = {'gamma': [0.1, 0.2, 0.3,]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '3')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '3')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -377,7 +392,7 @@ if __name__ == '__main__':
     print("第四次")
     cv_params = {'subsample': [0.6, 0.7, 0.8, 0.9], 'colsample_bytree': [0.6, 0.7, 0.8, 0.9]}
     # cv_params = {'subsample': [0.6, 0.7, ], 'colsample_bytree': [0.6, ]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '4')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '4')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -386,7 +401,7 @@ if __name__ == '__main__':
     cv_params = {'reg_alpha': [0, 0.01, 0.02, 0.05, 0.1, 0.5, 1, 2, 3],
                  'reg_lambda': [0, 0.01, 0.02, 0.05, 0.1, 0.5, 1, 2, 3]}
     # cv_params = {'reg_alpha': [0.05, ], 'reg_lambda': [0.05, 0.1, ]}
-    best_params, _ = ensemble_final(method_name, cv_params, best_params_result, '5')
+    best_params, _ = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '5')
     # print(best_params_result)
     best_params_result.update(best_params)
 
@@ -394,7 +409,7 @@ if __name__ == '__main__':
     print("第六次")
     cv_params = {'learning_rate': [0.001, 0.01, 0.05, 0.07, 0.1, 0.2, 0.5, 0.75, 1.0]}
     # cv_params = {'learning_rate': [0.01, 0.05, ]}
-    best_params, best_scoring_result = ensemble_final(method_name, cv_params, best_params_result, '6')
+    best_params, best_scoring_result = ensemble_final(ex_dir_name, method_name, cv_params, best_params_result, '6')
     # print(best_params_result)
     best_params_result.update(best_params)
 
