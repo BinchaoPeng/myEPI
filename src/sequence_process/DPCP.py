@@ -21,11 +21,20 @@ class DPCP:
     [N_sample, n x 16]
     """
 
-    def __init__(self, kmer, set_pc_list, n_jobs=1):
+    def __init__(self, kmer, set_pc_list, seq_type="DNA", n_jobs=1):
         self.n_jobs = n_jobs
         self.kmer = kmer
-        self.pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
+        self.seq_type = seq_type
         self.set_pc_list = set_pc_list
+        self.pc_dict = self.get_pc_dict()
+
+    def get_pc_dict(self):
+        pc_dict = PhysicalChemical(PhysicalChemicalType.DiDNA_standardized).pc_dict
+        if self.seq_type == "RNA":
+            pc_dict = PhysicalChemical(PhysicalChemicalType.DiRNA_standardized).pc_dict
+        if self.kmer == 3:
+            pc_dict = PhysicalChemical(PhysicalChemicalType.TriDNA_standardized).pc_dict
+        return pc_dict
 
     # 提取核苷酸类型（排列组合）
     def nucleotide_type(self):

@@ -19,6 +19,9 @@ class Kmer:
         self.k = k
         self.n_jobs = n_jobs
 
+    def get_Params(self):
+        print("Kmer Params:", self.__dict__)
+
     # 提取核苷酸类型（排列组合）
     def nucleotide_type(self, k):
         z = []
@@ -55,7 +58,6 @@ class Kmer:
 
     def run_Kmer(self, seq_list: list):
         parallel = Parallel(n_jobs=self.n_jobs)
-        print("Kmer Params:", self.__dict__)
         with parallel:
             all_out = []
             out = parallel(delayed(self.get_Kmer)

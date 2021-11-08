@@ -17,21 +17,22 @@ cell and feature choose
 datasources = ['epivan', 'sept']
 datasource = datasources[0]
 names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
-cell_name = names[1]
-feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_names = ["psednc_II_lam3_w1", "psednc_II_lam4_w1", "psednc_II_lam5_w1", "psednc_II_lam6_w1",
-                 "psetnc_II_lam3_w1", "psetnc_II_lam4_w1", "psetnc_II_lam5_w1", "psetnc_II_lam20_w1",
-                 "psetnc_II_lam40_w1", "pseknc_II_lam5_w1_k5_n2",
-                 "pseknc_II_lam5_w1_k5_n3",
-                 "pseknc_II_lam5_w1_k6_n2",
-                 "pseknc_II_lam5_w1_k6_n3", "pseknc"]
-feature_name = feature_names[12]
+cell_name = names[7]
+feature_names = ['pseknc-new', 'tpcp', 'pseknc', 'cksnap', 'dpcp',
+                 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
+# feature_names = ["psednc_II_lam3_w1", "psednc_II_lam4_w1", "psednc_II_lam5_w1", "psednc_II_lam6_w1",
+#                  "psetnc_II_lam3_w1", "psetnc_II_lam4_w1", "psetnc_II_lam5_w1", "psetnc_II_lam20_w1",
+#                  "psetnc_II_lam40_w1", "pseknc_II_lam5_w1_k5_n2",
+#                  "pseknc_II_lam5_w1_k5_n3",
+#                  "pseknc_II_lam5_w1_k6_n2",
+#                  "pseknc_II_lam5_w1_k6_n3", "pseknc"]
+feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm', 'rf']
 method_name = method_names[4]
 ensemble_steps = ["base", "meta"]
 ensemble_step = ensemble_steps[0]
 computers = ["2080ti", "3070", "3090"]
-computer = computers[2]
+computer = computers[1]
 
 ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (datasource, ensemble_step, feature_name, method_name, ensemble_step)
 if not os.path.exists(ex_dir_name):
@@ -62,7 +63,7 @@ def rf_grid_greedy(cv_params, other_params, index):
 
 
 best_params_result = {}
-other_params = {'n_estimators': 100, "n_jobs": os.cpu_count() - 2, "max_depth": None, 'min_samples_split': 2,
+other_params = {'n_estimators': 100, "n_jobs": 5, "max_depth": None, 'min_samples_split': 2,
                 "min_samples_leaf": 1,
                 'max_features': 'auto'}
 

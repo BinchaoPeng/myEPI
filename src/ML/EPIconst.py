@@ -48,7 +48,7 @@ class EPIconst:
                    'subsample': 0.8, 'colsample_bytree': 0.8, 'gamma': 0, 'reg_alpha': 0, 'reg_lambda': 1,
                    'use_label_encoder': False, 'eval_metric': 'logloss', 'tree_method': 'gpu_hist'}
 
-    class ModelParams:
+    class ModelParams_epivan:
         GM12878_cksnap_deepforest = {"max_layers": 20, "n_estimators": 5, "n_trees": 250}
         GM12878_cksnap_lightgbm = {'max_depth': -1, 'num_leaves': 301, 'max_bin': 125, 'min_child_samples': 90,
                                    'colsample_bytree': 1.0, 'subsample': 0.7, 'subsample_freq': 0, 'reg_alpha': 1e-05,
@@ -404,6 +404,209 @@ class EPIconst:
                                'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0.01, 'reg_lambda': 0.02,
                                'learning_rate': 0.1}
 
+        # class ModelParams_sept:
+        #     GM12878_cksnap_deepforest =
+        #     GM12878_cksnap_lightgbm =
+        #     GM12878_cksnap_svm =
+        #     GM12878_cksnap_xgboost =
+        #     GM12878_cksnap_rf =
+        #     "----------------------------------------------"
+        #     GM12878_dpcp_deepforest =
+        #     GM12878_dpcp_lightgbm =
+        #     GM12878_dpcp_svm =
+        #     GM12878_dpcp_xgboost =
+        #     GM12878_dpcp_rf =
+        #     "----------------------------------------------"
+        #     GM12878_eiip_deepforest =
+        #     GM12878_eiip_lightgbm =
+        #     GM12878_eiip_rf =
+        #     GM12878_eiip_svm =
+        #     GM12878_eiip_xgboost =
+        #     "----------------------------------------------"
+        #     GM12878_kmer_deepforest =
+        #     GM12878_kmer_lightgbm =
+        #     GM12878_kmer_rf =
+        #     GM12878_kmer_svm =
+        #     GM12878_kmer_xgboost =
+        #     "----------------------------------------------"
+        #     GM12878_pseknc_deepforest =
+        #     GM12878_pseknc_lightgbm =
+        #     GM12878_pseknc_rf =
+        #     GM12878_pseknc_svm =
+        #     GM12878_pseknc_xgboost =
+        #
+        #     "=============================================="
+        #     HeLa_S3_cksnap_deepforest =
+        #     HeLa_S3_cksnap_lightgbm =
+        #     HeLa_S3_cksnap_svm =
+        #     HeLa_S3_cksnap_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HeLa_S3_dpcp_deepforest =
+        #     HeLa_S3_dpcp_lightgbm =
+        #     HeLa_S3_dpcp_rf =
+        #     HeLa_S3_dpcp_svm =
+        #     HeLa_S3_dpcp_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HeLa_S3_eiip_deepforest =
+        #     HeLa_S3_eiip_lightgbm =
+        #     HeLa_S3_eiip_rf =
+        #     HeLa_S3_eiip_svm =
+        #     HeLa_S3_eiip_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HeLa_S3_kmer_deepforest =
+        #     HeLa_S3_kmer_lightgbm =
+        #     HeLa_S3_kmer_rf =
+        #     HeLa_S3_kmer_svm =
+        #     HeLa_S3_kmer_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HeLa_S3_pseknc_deepforest =
+        #     HeLa_S3_pseknc_lightgbm =
+        #     HeLa_S3_pseknc_rf =
+        #     HeLa_S3_pseknc_svm =
+        #     HeLa_S3_pseknc_xgboost =
+        #
+        #     "=============================================="
+        #     HUVEC_cksnap_deepforest =
+        #     HUVEC_cksnap_lightgbm =
+        #     HUVEC_cksnap_rf =
+        #     HUVEC_cksnap_svm =
+        #     HUVEC_cksnap_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HUVEC_dpcp_deepforest =
+        #     HUVEC_dpcp_lightgbm =
+        #     HUVEC_dpcp_rf =
+        #     HUVEC_dpcp_svm =
+        #     HUVEC_dpcp_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HUVEC_eiip_deepforest =
+        #     HUVEC_eiip_lightgbm =
+        #     HUVEC_eiip_rf =
+        #     HUVEC_eiip_svm =
+        #     HUVEC_eiip_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HUVEC_kmer_deepforest =
+        #     HUVEC_kmer_lightgbm =
+        #     HUVEC_kmer_rf =
+        #     HUVEC_kmer_svm =
+        #     HUVEC_kmer_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     HUVEC_pseknc_deepforest =
+        #     HUVEC_pseknc_lightgbm =
+        #     HUVEC_pseknc_rf =
+        #     HUVEC_pseknc_svm =
+        #     HUVEC_pseknc_xgboost =
+        #
+        #     "=============================================="
+        #     IMR90_cksnap_deepforest =
+        #     IMR90_cksnap_lightgbm =
+        #     IMR90_cksnap_rf =
+        #     IMR90_cksnap_svm =
+        #     IMR90_cksnap_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     IMR90_dpcp_deepforest =
+        #     IMR90_dpcp_lightgbm =
+        #     IMR90_dpcp_rf =
+        #     IMR90_dpcp_svm =
+        #     IMR90_dpcp_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     IMR90_eiip_deepforest =
+        #     IMR90_eiip_lightgbm =
+        #     IMR90_eiip_rf =
+        #     IMR90_eiip_svm =
+        #     IMR90_eiip_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     IMR90_kmer_deepforest =
+        #     IMR90_kmer_lightgbm =
+        #     IMR90_kmer_rf =
+        #     IMR90_kmer_svm =
+        #     IMR90_kmer_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     IMR90_pseknc_deepforest =
+        #     IMR90_pseknc_lightgbm =
+        #     IMR90_pseknc_rf =
+        #     IMR90_pseknc_svm =
+        #     IMR90_pseknc_xgboost =
+        #
+        #     "=============================================="
+        #     K562_cksnap_deepforest =
+        #     K562_cksnap_lightgbm =
+        #     K562_cksnap_rf =
+        #     K562_cksnap_svm =
+        #     K562_cksnap_xgboost =
+        #     "----------------------------------------------"
+        #     K562_dpcp_deepforest =
+        #     K562_dpcp_lightgbm =
+        #     K562_dpcp_rf =
+        #     K562_dpcp_svm =
+        #     K562_dpcp_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     K562_eiip_deepforest =
+        #     K562_eiip_lightgbm =
+        #     K562_eiip_rf =
+        #     K562_eiip_svm =
+        #     K562_eiip_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     K562_kmer_deepforest =
+        #     K562_kmer_lightgbm =
+        #     K562_kmer_rf =
+        #     K562_kmer_svm =
+        #     K562_kmer_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     K562_pseknc_deepforest =
+        #     K562_pseknc_lightgbm =
+        #     K562_pseknc_rf =
+        #     K562_pseknc_svm =
+        #     K562_pseknc_xgboost =
+        #     "=============================================="
+        #     NHEK_cksnap_deepforest =
+        #     NHEK_cksnap_lightgbm =
+        #     NHEK_cksnap_rf =
+        #     NHEK_cksnap_svm =
+        #     NHEK_cksnap_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     NHEK_dpcp_deepforest =
+        #     NHEK_dpcp_lightgbm =
+        #     NHEK_dpcp_rf =
+        #     NHEK_dpcp_svm =
+        #     NHEK_dpcp_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     NHEK_eiip_deepforest =
+        #     NHEK_eiip_lightgbm =
+        #     NHEK_eiip_rf =
+        #     NHEK_eiip_svm =
+        #     NHEK_eiip_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     NHEK_kmer_deepforest =
+        #     NHEK_kmer_lightgbm =
+        #     NHEK_kmer_rf =
+        #     NHEK_kmer_svm =
+        #     NHEK_kmer_xgboost =
+        #
+        #     "----------------------------------------------"
+        #     NHEK_pseknc_deepforest =
+        #     NHEK_pseknc_lightgbm =
+        #     NHEK_pseknc_rf =
+        #     NHEK_pseknc_svm =
+        #     NHEK_pseknc_xgboost =
+
 
 if __name__ == '_main_':
-    print(getattr(EPIconst.ModelParams, "NHEK_pseknc_deepforest"))
+    print(getattr(EPIconst.ModelParams_epivan, "NHEK_pseknc_deepforest"))

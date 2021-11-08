@@ -44,13 +44,17 @@ cell and feature choose
 datasources = ['epivan', 'sept']
 datasource = datasources[0]
 names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
-cell_name = names[6]
-feature_names = ['pseknc', 'cksnap', 'dpcp', 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
-feature_name = feature_names[4]
+cell_name = names[2]
+feature_names = ['pseknc-new', 'tpcp', 'pseknc', 'cksnap', 'dpcp',
+                 'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug',
+                 'elmo']
+feature_name = feature_names[1]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[0]
 ensemble_steps = ["base", "meta"]
 ensemble_step = ensemble_steps[0]
+computers = ["2080ti", "3070", "3090"]
+computer = computers[1]
 
 ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (datasource, ensemble_step, feature_name, method_name, ensemble_step)
 if not os.path.exists(ex_dir_name):
@@ -88,7 +92,7 @@ svc = SVC(probability=True, n_jobs=-1)  # 调参
 met_grid = ['f1', 'roc_auc', 'average_precision', 'accuracy', 'balanced_accuracy']
 refit = "roc_auc"
 clf = RunAndScore(data_list_dict, svc, parameters, met_grid, refit=refit, n_jobs=1)
-writeRank2csv(met_grid, clf, ex_dir_name, cell_name)
+writeRank2csv(met_grid, clf, ex_dir_name, cell_name, computer)
 
 print("clf.best_estimator_params:", clf.best_estimator_params_)
 print("best params found in line [{1}] for metric [{0}] in rank file".format(refit, clf.best_estimator_params_idx_ + 2))

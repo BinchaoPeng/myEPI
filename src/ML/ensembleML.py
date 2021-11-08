@@ -47,13 +47,13 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
         method_name = item[1]
         if ex_item.__contains__("HeLa-S3"):
             ex_item = "HeLa_S3" + "_" + feature_name + "_" + method_name
-        model_params = getattr(EPIconst.ModelParams, ex_item)
+        model_params = getattr(EPIconst.ModelParams_epivan, ex_item)
         base_params = getattr(EPIconst.ModelBaseParams, method_name)
         estimator = estimators[method_name]()
         estimator.set_params(**base_params)
         estimator.set_params(**model_params)
         print(ex_item, ":", estimator)
-        data_value = get_data_np_dict(cell_name, feature_name, EPIconst.MethodName.ensemble)
+        data_value = get_data_np_dict(datasource, cell_name, feature_name, EPIconst.MethodName.ensemble)
         """
         shuffle data
         """
@@ -174,15 +174,15 @@ if __name__ == '__main__':
                   "deepforest": CascadeForestClassifier,
                   "lightgbm": LGBMClassifier}
     datasources = ['epivan', 'sept']
-    datasource = datasources[0]
+    datasource = datasources[1]
     names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
-    cell_name = names[6]
+    cell_name = names[7]
     ensemble_feature_names = ['prob', 'pred', 'prob_pred']
     ensemble_feature_name = ensemble_feature_names[0]
     ensemble_steps = ["base", "meta"]
     ensemble_step = ensemble_steps[1]
-    computers = ["2080ti", "3070", "3090"]
-    computer = computers[2]
+    computers = ["2080ti", "3070", "3090", "p400"]
+    computer = computers[3]
 
     for item in product(ensemble_feature_names, EPIconst.MethodName.all):
         ensemble_feature, method_name = item

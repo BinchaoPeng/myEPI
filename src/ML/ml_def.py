@@ -180,7 +180,7 @@ def writeRank2csv(met_grid, clf, ex_dir_path, cell_name, computer, index=None):
         os.mkdir(ex_rank_dir_path)
         print(ex_rank_dir_path, "created !!!")
 
-    feature_method_ensembleStep = ex_rank_dir_path.split('/')[-1]
+    feature_method_ensembleStep = ex_dir_path.split('/')[-1]
 
     file_name = r'%s/%s_%s_rank_%s_%s.csv' % (ex_rank_dir_path, cell_name, feature_method_ensembleStep, index, computer)
     if index is None:

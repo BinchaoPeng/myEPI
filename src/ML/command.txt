@@ -1,0 +1,5 @@
+nohup python -u RF_run.py > ../../ex/epivan/base/HUVEC_pseknc-new_rf_3070.out 2>&1 &
+
+nohup python -u deepforest_run.py > ../../ex/epivan/base/NHEK_pseknc-new_deepforest_2080ti.out 2>&1 &
+
+nohup python -u svm_gpu_run.py > ../../ex/epivan/base/IMR90_pseknc-new_svm_2080ti.out 2>&1 &

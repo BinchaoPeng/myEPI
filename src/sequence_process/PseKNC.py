@@ -90,7 +90,7 @@ class PseKNC_II:
             raise ValueError(f"n_pc = {self.n_pc}, n_pc value is error")
         self.set_pc_list = set_pc_list
         self.pc_dict = self._get_pc_dict()
-        print("pc_dict:", self.pc_dict)
+
         # other param
         """
         du_len: the length of k-tuple occurrence frequency

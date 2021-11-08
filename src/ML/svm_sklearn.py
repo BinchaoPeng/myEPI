@@ -52,7 +52,7 @@ for svm_item in product(EPIconst.CellName.all, EPIconst.FeatureName.all, [EPIcon
     if cell_name.__contains__("HeLa-S3"):
         cell_name_temp = "HeLa_S3" + "_" + feature_name + "_" + method_name
     # print(cell_name_temp)
-    model_params = getattr(EPIconst.ModelParams, cell_name_temp)
+    model_params = getattr(EPIconst.ModelParams_epivan, cell_name_temp)
 
     clf.set_params(**model_params)
     clf.fit(data_list_dict['train_X'], data_list_dict['train_y'])

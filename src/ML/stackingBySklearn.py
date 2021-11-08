@@ -46,7 +46,7 @@ for feature_item in EPIconst.FeatureName.all:
         method_name = item[1]
         if ex_item.__contains__("HeLa-S3"):
             ex_item = "HeLa_S3" + "_" + feature + "_" + method_name
-        model_params = getattr(EPIconst.ModelParams, ex_item)
+        model_params = getattr(EPIconst.ModelParams_epivan, ex_item)
         base_params = getattr(EPIconst.ModelBaseParams, method_name)
         estimator = estimators[method_name]()
         estimator.set_params(**base_params)
