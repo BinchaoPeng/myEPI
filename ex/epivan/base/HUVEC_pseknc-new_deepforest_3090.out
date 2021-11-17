@@ -1,0 +1,292 @@
+nohup: ignoring input
+experiment: HUVEC pseknc-new_deepforest
+trainSet len:[X=54800,y=54800]
+testSet len:[X=3192,y=3192]
+Fitting, totalling 140 fits
+[fit 1/140] END max_layers=10, n_estimators=2, n_trees=50; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.440) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.754) 1.70min
+[fit 2/140] END max_layers=10, n_estimators=2, n_trees=100; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.593) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.878) 2.12min
+[fit 3/140] END max_layers=10, n_estimators=2, n_trees=150; total=3192, TP=45, TN=3036, FP=4, FN=107; precision=0.918, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.601) balanced_accuracy: (test=0.647) f1: (test=0.448) roc_auc: (test=0.883) 3.13min
+[fit 4/140] END max_layers=10, n_estimators=2, n_trees=200; total=3192, TP=45, TN=3034, FP=6, FN=107; precision=0.882, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.611) balanced_accuracy: (test=0.647) f1: (test=0.443) roc_auc: (test=0.886) 3.99min
+[fit 5/140] END max_layers=10, n_estimators=2, n_trees=250; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.626) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.888) 5.06min
+[fit 6/140] END max_layers=10, n_estimators=2, n_trees=300; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.637) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.888) 5.94min
+[fit 7/140] END max_layers=10, n_estimators=2, n_trees=400; total=3192, TP=46, TN=3035, FP=5, FN=106; precision=0.902, recall=0.303
+accuracy: (test=0.965) average_precision: (test=0.633) balanced_accuracy: (test=0.650) f1: (test=0.453) roc_auc: (test=0.894) 7.59min
+[fit 8/140] END max_layers=10, n_estimators=5, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.406) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.692) 3.63min
+[fit 9/140] END max_layers=10, n_estimators=5, n_trees=100; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.860) 4.51min
+[fit 10/140] END max_layers=10, n_estimators=5, n_trees=150; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.587) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.865) 6.12min
+[fit 11/140] END max_layers=10, n_estimators=5, n_trees=200; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.582) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.855) 7.99min
+[fit 12/140] END max_layers=10, n_estimators=5, n_trees=250; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.589) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.863) 9.85min
+[fit 13/140] END max_layers=10, n_estimators=5, n_trees=300; total=3192, TP=47, TN=3033, FP=7, FN=105; precision=0.870, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.576) balanced_accuracy: (test=0.653) f1: (test=0.456) roc_auc: (test=0.857) 11.82min
+[fit 14/140] END max_layers=10, n_estimators=5, n_trees=400; total=3192, TP=48, TN=3033, FP=7, FN=104; precision=0.873, recall=0.316
+accuracy: (test=0.965) average_precision: (test=0.588) balanced_accuracy: (test=0.657) f1: (test=0.464) roc_auc: (test=0.867) 16.01min
+[fit 15/140] END max_layers=10, n_estimators=8, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.411) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.696) 5.50min
+[fit 16/140] END max_layers=10, n_estimators=8, n_trees=100; total=3192, TP=46, TN=3039, FP=1, FN=106; precision=0.979, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.539) balanced_accuracy: (test=0.651) f1: (test=0.462) roc_auc: (test=0.797) 7.38min
+[fit 17/140] END max_layers=10, n_estimators=8, n_trees=150; total=3192, TP=44, TN=3038, FP=2, FN=108; precision=0.957, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.516) balanced_accuracy: (test=0.644) f1: (test=0.444) roc_auc: (test=0.781) 12.22min
+[fit 18/140] END max_layers=10, n_estimators=8, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.561) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.840) 11.83min
+[fit 19/140] END max_layers=10, n_estimators=8, n_trees=250; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.848) 14.79min
+[fit 20/140] END max_layers=10, n_estimators=8, n_trees=300; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.585) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.854) 17.35min
+[fit 21/140] END max_layers=10, n_estimators=8, n_trees=400; total=3192, TP=45, TN=3033, FP=7, FN=107; precision=0.865, recall=0.296
+accuracy: (test=0.964) average_precision: (test=0.635) balanced_accuracy: (test=0.647) f1: (test=0.441) roc_auc: (test=0.895) 21.23min
+[fit 22/140] END max_layers=10, n_estimators=10, n_trees=50; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.401) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.693) 6.60min
+[fit 23/140] END max_layers=10, n_estimators=10, n_trees=100; total=3192, TP=46, TN=3038, FP=2, FN=106; precision=0.958, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.494) balanced_accuracy: (test=0.651) f1: (test=0.460) roc_auc: (test=0.760) 8.93min
+[fit 24/140] END max_layers=10, n_estimators=10, n_trees=150; total=3192, TP=44, TN=3039, FP=1, FN=108; precision=0.978, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.498) balanced_accuracy: (test=0.645) f1: (test=0.447) roc_auc: (test=0.755) 14.42min
+[fit 25/140] END max_layers=10, n_estimators=10, n_trees=200; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.530) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.797) 14.17min
+[fit 26/140] END max_layers=10, n_estimators=10, n_trees=250; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.625) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.884) 16.74min
+[fit 27/140] END max_layers=10, n_estimators=10, n_trees=300; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.581) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.847) 22.07min
+[fit 28/140] END max_layers=10, n_estimators=10, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.628) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.887) 25.62min
+[fit 29/140] END max_layers=10, n_estimators=13, n_trees=50; total=3192, TP=42, TN=3037, FP=3, FN=110; precision=0.933, recall=0.276
+accuracy: (test=0.965) average_precision: (test=0.388) balanced_accuracy: (test=0.638) f1: (test=0.426) roc_auc: (test=0.688) 9.47min
+[fit 30/140] END max_layers=10, n_estimators=13, n_trees=100; total=3192, TP=44, TN=3037, FP=3, FN=108; precision=0.936, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.453) balanced_accuracy: (test=0.644) f1: (test=0.442) roc_auc: (test=0.729) 11.93min
+[fit 31/140] END max_layers=10, n_estimators=13, n_trees=150; total=3192, TP=43, TN=3039, FP=1, FN=109; precision=0.977, recall=0.283
+accuracy: (test=0.966) average_precision: (test=0.465) balanced_accuracy: (test=0.641) f1: (test=0.439) roc_auc: (test=0.732) 19.86min
+[fit 32/140] END max_layers=10, n_estimators=13, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.504) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.768) 19.23min
+[fit 33/140] END max_layers=10, n_estimators=13, n_trees=250; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.510) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.773) 22.78min
+[fit 34/140] END max_layers=10, n_estimators=13, n_trees=300; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.618) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.878) 26.03min
+[fit 35/140] END max_layers=10, n_estimators=13, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.620) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.878) 32.67min
+[fit 36/140] END max_layers=15, n_estimators=2, n_trees=50; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.440) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.754) 1.64min
+[fit 37/140] END max_layers=15, n_estimators=2, n_trees=100; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.593) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.878) 2.15min
+[fit 38/140] END max_layers=15, n_estimators=2, n_trees=150; total=3192, TP=45, TN=3036, FP=4, FN=107; precision=0.918, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.601) balanced_accuracy: (test=0.647) f1: (test=0.448) roc_auc: (test=0.883) 3.27min
+[fit 39/140] END max_layers=15, n_estimators=2, n_trees=200; total=3192, TP=45, TN=3034, FP=6, FN=107; precision=0.882, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.611) balanced_accuracy: (test=0.647) f1: (test=0.443) roc_auc: (test=0.886) 4.17min
+[fit 40/140] END max_layers=15, n_estimators=2, n_trees=250; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.626) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.888) 4.97min
+[fit 41/140] END max_layers=15, n_estimators=2, n_trees=300; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.637) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.888) 5.78min
+[fit 42/140] END max_layers=15, n_estimators=2, n_trees=400; total=3192, TP=46, TN=3035, FP=5, FN=106; precision=0.902, recall=0.303
+accuracy: (test=0.965) average_precision: (test=0.633) balanced_accuracy: (test=0.650) f1: (test=0.453) roc_auc: (test=0.894) 7.95min
+[fit 43/140] END max_layers=15, n_estimators=5, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.406) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.692) 3.69min
+[fit 44/140] END max_layers=15, n_estimators=5, n_trees=100; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.860) 4.44min
+[fit 45/140] END max_layers=15, n_estimators=5, n_trees=150; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.587) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.865) 6.08min
+[fit 46/140] END max_layers=15, n_estimators=5, n_trees=200; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.582) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.855) 8.16min
+[fit 47/140] END max_layers=15, n_estimators=5, n_trees=250; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.589) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.863) 10.20min
+[fit 48/140] END max_layers=15, n_estimators=5, n_trees=300; total=3192, TP=47, TN=3033, FP=7, FN=105; precision=0.870, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.576) balanced_accuracy: (test=0.653) f1: (test=0.456) roc_auc: (test=0.857) 11.61min
+[fit 49/140] END max_layers=15, n_estimators=5, n_trees=400; total=3192, TP=48, TN=3033, FP=7, FN=104; precision=0.873, recall=0.316
+accuracy: (test=0.965) average_precision: (test=0.588) balanced_accuracy: (test=0.657) f1: (test=0.464) roc_auc: (test=0.867) 15.37min
+[fit 50/140] END max_layers=15, n_estimators=8, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.411) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.696) 5.39min
+[fit 51/140] END max_layers=15, n_estimators=8, n_trees=100; total=3192, TP=46, TN=3039, FP=1, FN=106; precision=0.979, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.539) balanced_accuracy: (test=0.651) f1: (test=0.462) roc_auc: (test=0.797) 7.81min
+[fit 52/140] END max_layers=15, n_estimators=8, n_trees=150; total=3192, TP=44, TN=3038, FP=2, FN=108; precision=0.957, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.516) balanced_accuracy: (test=0.644) f1: (test=0.444) roc_auc: (test=0.781) 11.30min
+[fit 53/140] END max_layers=15, n_estimators=8, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.561) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.840) 11.56min
+[fit 54/140] END max_layers=15, n_estimators=8, n_trees=250; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.848) 15.44min
+[fit 55/140] END max_layers=15, n_estimators=8, n_trees=300; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.585) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.854) 17.67min
+[fit 56/140] END max_layers=15, n_estimators=8, n_trees=400; total=3192, TP=45, TN=3033, FP=7, FN=107; precision=0.865, recall=0.296
+accuracy: (test=0.964) average_precision: (test=0.635) balanced_accuracy: (test=0.647) f1: (test=0.441) roc_auc: (test=0.895) 20.52min
+[fit 57/140] END max_layers=15, n_estimators=10, n_trees=50; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.401) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.693) 6.22min
+[fit 58/140] END max_layers=15, n_estimators=10, n_trees=100; total=3192, TP=46, TN=3038, FP=2, FN=106; precision=0.958, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.494) balanced_accuracy: (test=0.651) f1: (test=0.460) roc_auc: (test=0.760) 9.24min
+[fit 59/140] END max_layers=15, n_estimators=10, n_trees=150; total=3192, TP=44, TN=3039, FP=1, FN=108; precision=0.978, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.498) balanced_accuracy: (test=0.645) f1: (test=0.447) roc_auc: (test=0.755) 13.76min
+[fit 60/140] END max_layers=15, n_estimators=10, n_trees=200; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.530) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.797) 14.42min
+[fit 61/140] END max_layers=15, n_estimators=10, n_trees=250; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.625) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.884) 16.28min
+[fit 62/140] END max_layers=15, n_estimators=10, n_trees=300; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.581) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.847) 20.90min
+[fit 63/140] END max_layers=15, n_estimators=10, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.628) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.887) 24.31min
+[fit 64/140] END max_layers=15, n_estimators=13, n_trees=50; total=3192, TP=42, TN=3037, FP=3, FN=110; precision=0.933, recall=0.276
+accuracy: (test=0.965) average_precision: (test=0.388) balanced_accuracy: (test=0.638) f1: (test=0.426) roc_auc: (test=0.688) 8.99min
+[fit 65/140] END max_layers=15, n_estimators=13, n_trees=100; total=3192, TP=44, TN=3037, FP=3, FN=108; precision=0.936, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.453) balanced_accuracy: (test=0.644) f1: (test=0.442) roc_auc: (test=0.729) 11.45min
+[fit 66/140] END max_layers=15, n_estimators=13, n_trees=150; total=3192, TP=43, TN=3039, FP=1, FN=109; precision=0.977, recall=0.283
+accuracy: (test=0.966) average_precision: (test=0.465) balanced_accuracy: (test=0.641) f1: (test=0.439) roc_auc: (test=0.732) 18.13min
+[fit 67/140] END max_layers=15, n_estimators=13, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.504) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.768) 18.42min
+[fit 68/140] END max_layers=15, n_estimators=13, n_trees=250; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.510) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.773) 23.05min
+[fit 69/140] END max_layers=15, n_estimators=13, n_trees=300; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.618) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.878) 24.94min
+[fit 70/140] END max_layers=15, n_estimators=13, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.620) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.878) 30.90min
+[fit 71/140] END max_layers=20, n_estimators=2, n_trees=50; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.440) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.754) 1.73min
+[fit 72/140] END max_layers=20, n_estimators=2, n_trees=100; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.593) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.878) 2.17min
+[fit 73/140] END max_layers=20, n_estimators=2, n_trees=150; total=3192, TP=45, TN=3036, FP=4, FN=107; precision=0.918, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.601) balanced_accuracy: (test=0.647) f1: (test=0.448) roc_auc: (test=0.883) 3.09min
+[fit 74/140] END max_layers=20, n_estimators=2, n_trees=200; total=3192, TP=45, TN=3034, FP=6, FN=107; precision=0.882, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.611) balanced_accuracy: (test=0.647) f1: (test=0.443) roc_auc: (test=0.886) 3.83min
+[fit 75/140] END max_layers=20, n_estimators=2, n_trees=250; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.626) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.888) 4.58min
+[fit 76/140] END max_layers=20, n_estimators=2, n_trees=300; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.637) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.888) 5.65min
+[fit 77/140] END max_layers=20, n_estimators=2, n_trees=400; total=3192, TP=46, TN=3035, FP=5, FN=106; precision=0.902, recall=0.303
+accuracy: (test=0.965) average_precision: (test=0.633) balanced_accuracy: (test=0.650) f1: (test=0.453) roc_auc: (test=0.894) 7.79min
+[fit 78/140] END max_layers=20, n_estimators=5, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.406) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.692) 3.23min
+[fit 79/140] END max_layers=20, n_estimators=5, n_trees=100; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.860) 4.40min
+[fit 80/140] END max_layers=20, n_estimators=5, n_trees=150; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.587) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.865) 5.97min
+[fit 81/140] END max_layers=20, n_estimators=5, n_trees=200; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.582) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.855) 8.18min
+[fit 82/140] END max_layers=20, n_estimators=5, n_trees=250; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.589) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.863) 9.55min
+[fit 83/140] END max_layers=20, n_estimators=5, n_trees=300; total=3192, TP=47, TN=3033, FP=7, FN=105; precision=0.870, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.576) balanced_accuracy: (test=0.653) f1: (test=0.456) roc_auc: (test=0.857) 11.56min
+[fit 84/140] END max_layers=20, n_estimators=5, n_trees=400; total=3192, TP=48, TN=3033, FP=7, FN=104; precision=0.873, recall=0.316
+accuracy: (test=0.965) average_precision: (test=0.588) balanced_accuracy: (test=0.657) f1: (test=0.464) roc_auc: (test=0.867) 15.00min
+[fit 85/140] END max_layers=20, n_estimators=8, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.411) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.696) 5.10min
+[fit 86/140] END max_layers=20, n_estimators=8, n_trees=100; total=3192, TP=46, TN=3039, FP=1, FN=106; precision=0.979, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.539) balanced_accuracy: (test=0.651) f1: (test=0.462) roc_auc: (test=0.797) 7.30min
+[fit 87/140] END max_layers=20, n_estimators=8, n_trees=150; total=3192, TP=44, TN=3038, FP=2, FN=108; precision=0.957, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.516) balanced_accuracy: (test=0.644) f1: (test=0.444) roc_auc: (test=0.781) 11.74min
+[fit 88/140] END max_layers=20, n_estimators=8, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.561) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.840) 11.69min
+[fit 89/140] END max_layers=20, n_estimators=8, n_trees=250; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.848) 13.95min
+[fit 90/140] END max_layers=20, n_estimators=8, n_trees=300; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.585) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.854) 16.64min
+[fit 91/140] END max_layers=20, n_estimators=8, n_trees=400; total=3192, TP=45, TN=3033, FP=7, FN=107; precision=0.865, recall=0.296
+accuracy: (test=0.964) average_precision: (test=0.635) balanced_accuracy: (test=0.647) f1: (test=0.441) roc_auc: (test=0.895) 19.26min
+[fit 92/140] END max_layers=20, n_estimators=10, n_trees=50; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.401) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.693) 6.72min
+[fit 93/140] END max_layers=20, n_estimators=10, n_trees=100; total=3192, TP=46, TN=3038, FP=2, FN=106; precision=0.958, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.494) balanced_accuracy: (test=0.651) f1: (test=0.460) roc_auc: (test=0.760) 9.22min
+[fit 94/140] END max_layers=20, n_estimators=10, n_trees=150; total=3192, TP=44, TN=3039, FP=1, FN=108; precision=0.978, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.498) balanced_accuracy: (test=0.645) f1: (test=0.447) roc_auc: (test=0.755) 13.41min
+[fit 95/140] END max_layers=20, n_estimators=10, n_trees=200; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.530) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.797) 14.69min
+[fit 96/140] END max_layers=20, n_estimators=10, n_trees=250; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.625) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.884) 15.16min
+[fit 97/140] END max_layers=20, n_estimators=10, n_trees=300; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.581) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.847) 21.08min
+[fit 98/140] END max_layers=20, n_estimators=10, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.628) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.887) 23.66min
+[fit 99/140] END max_layers=20, n_estimators=13, n_trees=50; total=3192, TP=42, TN=3037, FP=3, FN=110; precision=0.933, recall=0.276
+accuracy: (test=0.965) average_precision: (test=0.388) balanced_accuracy: (test=0.638) f1: (test=0.426) roc_auc: (test=0.688) 9.40min
+[fit 100/140] END max_layers=20, n_estimators=13, n_trees=100; total=3192, TP=44, TN=3037, FP=3, FN=108; precision=0.936, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.453) balanced_accuracy: (test=0.644) f1: (test=0.442) roc_auc: (test=0.729) 12.53min
+[fit 101/140] END max_layers=20, n_estimators=13, n_trees=150; total=3192, TP=43, TN=3039, FP=1, FN=109; precision=0.977, recall=0.283
+accuracy: (test=0.966) average_precision: (test=0.465) balanced_accuracy: (test=0.641) f1: (test=0.439) roc_auc: (test=0.732) 18.14min
+[fit 102/140] END max_layers=20, n_estimators=13, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.504) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.768) 17.79min
+[fit 103/140] END max_layers=20, n_estimators=13, n_trees=250; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.510) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.773) 21.73min
+[fit 104/140] END max_layers=20, n_estimators=13, n_trees=300; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.618) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.878) 23.23min
+[fit 105/140] END max_layers=20, n_estimators=13, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.620) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.878) 30.56min
+[fit 106/140] END max_layers=25, n_estimators=2, n_trees=50; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.440) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.754) 1.65min
+[fit 107/140] END max_layers=25, n_estimators=2, n_trees=100; total=3192, TP=47, TN=3037, FP=3, FN=105; precision=0.940, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.593) balanced_accuracy: (test=0.654) f1: (test=0.465) roc_auc: (test=0.878) 2.20min
+[fit 108/140] END max_layers=25, n_estimators=2, n_trees=150; total=3192, TP=45, TN=3036, FP=4, FN=107; precision=0.918, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.601) balanced_accuracy: (test=0.647) f1: (test=0.448) roc_auc: (test=0.883) 3.32min
+[fit 109/140] END max_layers=25, n_estimators=2, n_trees=200; total=3192, TP=45, TN=3034, FP=6, FN=107; precision=0.882, recall=0.296
+accuracy: (test=0.965) average_precision: (test=0.611) balanced_accuracy: (test=0.647) f1: (test=0.443) roc_auc: (test=0.886) 4.28min
+[fit 110/140] END max_layers=25, n_estimators=2, n_trees=250; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.626) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.888) 4.68min
+[fit 111/140] END max_layers=25, n_estimators=2, n_trees=300; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.637) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.888) 5.39min
+[fit 112/140] END max_layers=25, n_estimators=2, n_trees=400; total=3192, TP=46, TN=3035, FP=5, FN=106; precision=0.902, recall=0.303
+accuracy: (test=0.965) average_precision: (test=0.633) balanced_accuracy: (test=0.650) f1: (test=0.453) roc_auc: (test=0.894) 7.57min
+[fit 113/140] END max_layers=25, n_estimators=5, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.406) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.692) 3.30min
+[fit 114/140] END max_layers=25, n_estimators=5, n_trees=100; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.860) 4.41min
+[fit 115/140] END max_layers=25, n_estimators=5, n_trees=150; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.587) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.865) 6.03min
+[fit 116/140] END max_layers=25, n_estimators=5, n_trees=200; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.582) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.855) 7.77min
+[fit 117/140] END max_layers=25, n_estimators=5, n_trees=250; total=3192, TP=47, TN=3034, FP=6, FN=105; precision=0.887, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.589) balanced_accuracy: (test=0.654) f1: (test=0.459) roc_auc: (test=0.863) 9.47min
+[fit 118/140] END max_layers=25, n_estimators=5, n_trees=300; total=3192, TP=47, TN=3033, FP=7, FN=105; precision=0.870, recall=0.309
+accuracy: (test=0.965) average_precision: (test=0.576) balanced_accuracy: (test=0.653) f1: (test=0.456) roc_auc: (test=0.857) 12.03min
+[fit 119/140] END max_layers=25, n_estimators=5, n_trees=400; total=3192, TP=48, TN=3033, FP=7, FN=104; precision=0.873, recall=0.316
+accuracy: (test=0.965) average_precision: (test=0.588) balanced_accuracy: (test=0.657) f1: (test=0.464) roc_auc: (test=0.867) 15.75min
+[fit 120/140] END max_layers=25, n_estimators=8, n_trees=50; total=3192, TP=44, TN=3035, FP=5, FN=108; precision=0.898, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.411) balanced_accuracy: (test=0.644) f1: (test=0.438) roc_auc: (test=0.696) 5.22min
+[fit 121/140] END max_layers=25, n_estimators=8, n_trees=100; total=3192, TP=46, TN=3039, FP=1, FN=106; precision=0.979, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.539) balanced_accuracy: (test=0.651) f1: (test=0.462) roc_auc: (test=0.797) 8.37min
+[fit 122/140] END max_layers=25, n_estimators=8, n_trees=150; total=3192, TP=44, TN=3038, FP=2, FN=108; precision=0.957, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.516) balanced_accuracy: (test=0.644) f1: (test=0.444) roc_auc: (test=0.781) 11.49min
+[fit 123/140] END max_layers=25, n_estimators=8, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.561) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.840) 12.89min
+[fit 124/140] END max_layers=25, n_estimators=8, n_trees=250; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.577) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.848) 15.42min
+[fit 125/140] END max_layers=25, n_estimators=8, n_trees=300; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.585) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.854) 18.53min
+[fit 126/140] END max_layers=25, n_estimators=8, n_trees=400; total=3192, TP=45, TN=3033, FP=7, FN=107; precision=0.865, recall=0.296
+accuracy: (test=0.964) average_precision: (test=0.635) balanced_accuracy: (test=0.647) f1: (test=0.441) roc_auc: (test=0.895) 20.85min
+[fit 127/140] END max_layers=25, n_estimators=10, n_trees=50; total=3192, TP=45, TN=3037, FP=3, FN=107; precision=0.938, recall=0.296
+accuracy: (test=0.966) average_precision: (test=0.401) balanced_accuracy: (test=0.648) f1: (test=0.450) roc_auc: (test=0.693) 6.64min
+[fit 128/140] END max_layers=25, n_estimators=10, n_trees=100; total=3192, TP=46, TN=3038, FP=2, FN=106; precision=0.958, recall=0.303
+accuracy: (test=0.966) average_precision: (test=0.494) balanced_accuracy: (test=0.651) f1: (test=0.460) roc_auc: (test=0.760) 10.30min
+[fit 129/140] END max_layers=25, n_estimators=10, n_trees=150; total=3192, TP=44, TN=3039, FP=1, FN=108; precision=0.978, recall=0.289
+accuracy: (test=0.966) average_precision: (test=0.498) balanced_accuracy: (test=0.645) f1: (test=0.447) roc_auc: (test=0.755) 14.32min
+[fit 130/140] END max_layers=25, n_estimators=10, n_trees=200; total=3192, TP=47, TN=3035, FP=5, FN=105; precision=0.904, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.530) balanced_accuracy: (test=0.654) f1: (test=0.461) roc_auc: (test=0.797) 15.02min
+[fit 131/140] END max_layers=25, n_estimators=10, n_trees=250; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.625) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.884) 17.00min
+[fit 132/140] END max_layers=25, n_estimators=10, n_trees=300; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.581) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.847) 21.13min
+[fit 133/140] END max_layers=25, n_estimators=10, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.628) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.887) 25.70min
+[fit 134/140] END max_layers=25, n_estimators=13, n_trees=50; total=3192, TP=42, TN=3037, FP=3, FN=110; precision=0.933, recall=0.276
+accuracy: (test=0.965) average_precision: (test=0.388) balanced_accuracy: (test=0.638) f1: (test=0.426) roc_auc: (test=0.688) 9.03min
+[fit 135/140] END max_layers=25, n_estimators=13, n_trees=100; total=3192, TP=44, TN=3037, FP=3, FN=108; precision=0.936, recall=0.289
+accuracy: (test=0.965) average_precision: (test=0.453) balanced_accuracy: (test=0.644) f1: (test=0.442) roc_auc: (test=0.729) 12.85min
+[fit 136/140] END max_layers=25, n_estimators=13, n_trees=150; total=3192, TP=43, TN=3039, FP=1, FN=109; precision=0.977, recall=0.283
+accuracy: (test=0.966) average_precision: (test=0.465) balanced_accuracy: (test=0.641) f1: (test=0.439) roc_auc: (test=0.732) 19.03min
+[fit 137/140] END max_layers=25, n_estimators=13, n_trees=200; total=3192, TP=47, TN=3036, FP=4, FN=105; precision=0.922, recall=0.309
+accuracy: (test=0.966) average_precision: (test=0.504) balanced_accuracy: (test=0.654) f1: (test=0.463) roc_auc: (test=0.768) 18.73min
+[fit 138/140] END max_layers=25, n_estimators=13, n_trees=250; total=3192, TP=48, TN=3037, FP=3, FN=104; precision=0.941, recall=0.316
+accuracy: (test=0.966) average_precision: (test=0.510) balanced_accuracy: (test=0.657) f1: (test=0.473) roc_auc: (test=0.773) 22.37min
+[fit 139/140] END max_layers=25, n_estimators=13, n_trees=300; total=3192, TP=46, TN=3032, FP=8, FN=106; precision=0.852, recall=0.303
+accuracy: (test=0.964) average_precision: (test=0.618) balanced_accuracy: (test=0.650) f1: (test=0.447) roc_auc: (test=0.878) 24.36min
+[fit 140/140] END max_layers=25, n_estimators=13, n_trees=400; total=3192, TP=44, TN=3033, FP=7, FN=108; precision=0.863, recall=0.289
+accuracy: (test=0.964) average_precision: (test=0.620) balanced_accuracy: (test=0.644) f1: (test=0.433) roc_auc: (test=0.878) 32.25min
+write rank test to csv!!!
+../../ex/epivan/base/pseknc-new_deepforest_base/rank/HUVEC_pseknc-new_deepforest_base_rank_3090.csv write over!!!
+clf.best_estimator_params: {'max_layers': 10, 'n_estimators': 8, 'n_trees': 400}
+best params found in line [22] for metric [roc_auc] in rank file
+best params found in fit [21] for metric [roc_auc] in run_and_score file
+clf.best_scoring_result: [Total: (test=3192) TP: (test=45.000) TN: (test=3033.000) FP: (test=7.000) FN: (test=107.000) precision: (test=0.865) recall: (test=0.296) accuracy: (test=0.964) average_precision: (test=0.635) balanced_accuracy: (test=0.647) f1: (test=0.441) roc_auc: (test=0.895) ]
+total time spending: 28h 30m 13s
