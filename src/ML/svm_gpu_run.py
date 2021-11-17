@@ -10,9 +10,9 @@ sys.path.extend([root_path[0] + 'src'])
 
 import math
 from thundersvm import SVC
-from sklearnex import patch_sklearn
-
-patch_sklearn()
+# from sklearnex import patch_sklearn
+#
+# patch_sklearn()
 
 """
 SVC参数解释
@@ -44,7 +44,7 @@ cell and feature choose
 datasources = ['epivan', 'sept']
 datasource = datasources[0]
 names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
-cell_name = names[2]
+cell_name = names[1]
 feature_names = ['pseknc-new', 'tpcp', 'pseknc', 'cksnap', 'dpcp',
                  'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug',
                  'elmo']
@@ -53,8 +53,8 @@ method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[0]
 ensemble_steps = ["base", "meta"]
 ensemble_step = ensemble_steps[0]
-computers = ["2080ti", "3070", "3090"]
-computer = computers[1]
+computers = ["2080ti_1", "3070", "3090"]
+computer = computers[0]
 
 ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (datasource, ensemble_step, feature_name, method_name, ensemble_step)
 if not os.path.exists(ex_dir_name):

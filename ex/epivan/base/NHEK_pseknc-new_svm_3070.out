@@ -1,0 +1,26 @@
+nohup: ignoring input
+Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-learn-intelex)
+experiment: NHEK pseknc-new_svm
+trainSet len:[X=46280,y=46280]
+testSet len:[X=2689,y=2689]
+Fitting, totalling 240 fits
+[fit 1/240] END C=0.0625, gamma=0.0625, kernel=rbf; total=2689, TP=104, TN=917, FP=1643, FN=25; precision=0.060, recall=0.806
+accuracy: (test=0.380) average_precision: (test=0.088) balanced_accuracy: (test=0.582) f1: (test=0.111) roc_auc: (test=0.630) 31.67s
+[fit 2/240] END C=0.0625, gamma=0.125, kernel=rbf; total=2689, TP=104, TN=925, FP=1635, FN=25; precision=0.060, recall=0.806
+accuracy: (test=0.383) average_precision: (test=0.088) balanced_accuracy: (test=0.584) f1: (test=0.111) roc_auc: (test=0.630) 31.20s
+[fit 3/240] END C=0.0625, gamma=0.25, kernel=rbf; total=2689, TP=104, TN=926, FP=1634, FN=25; precision=0.060, recall=0.806
+accuracy: (test=0.383) average_precision: (test=0.088) balanced_accuracy: (test=0.584) f1: (test=0.111) roc_auc: (test=0.630) 31.56s
+[fit 4/240] END C=0.0625, gamma=0.5, kernel=rbf; total=2689, TP=96, TN=1088, FP=1472, FN=33; precision=0.061, recall=0.744
+accuracy: (test=0.440) average_precision: (test=0.068) balanced_accuracy: (test=0.585) f1: (test=0.113) roc_auc: (test=0.595) 31.90s
+[fit 5/240] END C=0.0625, gamma=1.0, kernel=rbf; total=2689, TP=63, TN=1752, FP=808, FN=66; precision=0.072, recall=0.488
+accuracy: (test=0.675) average_precision: (test=0.087) balanced_accuracy: (test=0.586) f1: (test=0.126) roc_auc: (test=0.630) 32.16s
+[fit 6/240] END C=0.0625, gamma=2.0, kernel=rbf; total=2689, TP=81, TN=1466, FP=1094, FN=48; precision=0.069, recall=0.628
+accuracy: (test=0.575) average_precision: (test=0.090) balanced_accuracy: (test=0.600) f1: (test=0.124) roc_auc: (test=0.634) 31.80s
+[fit 7/240] END C=0.0625, gamma=4.0, kernel=rbf; total=2689, TP=88, TN=1428, FP=1132, FN=41; precision=0.072, recall=0.682
+accuracy: (test=0.564) average_precision: (test=0.090) balanced_accuracy: (test=0.620) f1: (test=0.130) roc_auc: (test=0.645) 31.99s
+[fit 8/240] END C=0.0625, gamma=8.0, kernel=rbf; total=2689, TP=88, TN=1451, FP=1109, FN=41; precision=0.074, recall=0.682
+accuracy: (test=0.572) average_precision: (test=0.098) balanced_accuracy: (test=0.624) f1: (test=0.133) roc_auc: (test=0.660) 31.82s
+[fit 9/240] END C=0.0625, gamma=16.0, kernel=rbf; total=2689, TP=83, TN=1484, FP=1076, FN=46; precision=0.072, recall=0.643
+accuracy: (test=0.583) average_precision: (test=0.112) balanced_accuracy: (test=0.612) f1: (test=0.129) roc_auc: (test=0.683) 31.70s
+[fit 10/240] END C=0.0625, gamma=32.0, kernel=rbf; total=2689, TP=88, TN=1608, FP=952, FN=41; precision=0.085, recall=0.682
+accuracy: (test=0.631) average_precision: (test=0.136) balanced_accuracy: (test=0.655) f1: (test=0.151) roc_auc: (test=0.721) 31.38s
