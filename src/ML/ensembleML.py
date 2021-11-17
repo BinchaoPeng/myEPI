@@ -57,7 +57,7 @@ def get_new_feature(cell_name, all_feature_names, all_method_names):
         """
         shuffle data
         """
-        data_value = shuffle_data_list_dict(data_value, seed=0)
+        # data_value = shuffle_data_list_dict(data_value, seed=0)
         # print("data_value[\"train_y\"]:", data_value["train_y"][0:20])
         estimator.fit(data_value["train_X"], data_value["train_y"])
         # get new testSet
@@ -174,7 +174,7 @@ if __name__ == '__main__':
                   "deepforest": CascadeForestClassifier,
                   "lightgbm": LGBMClassifier}
     datasources = ['epivan', 'sept']
-    datasource = datasources[1]
+    datasource = datasources[0]
     names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
     cell_name = names[7]
     ensemble_feature_names = ['prob', 'pred', 'prob_pred']
@@ -182,7 +182,7 @@ if __name__ == '__main__':
     ensemble_steps = ["base", "meta"]
     ensemble_step = ensemble_steps[1]
     computers = ["2080ti", "3070", "3090", "p400"]
-    computer = computers[3]
+    computer = computers[1]
 
     for item in product(ensemble_feature_names, EPIconst.MethodName.all):
         ensemble_feature, method_name = item
@@ -196,7 +196,7 @@ if __name__ == '__main__':
             print(ex_dir_name + "/rank", "created !!!")
 
     s_time = time.time()
-    # EPIconst.MethodName.all.remove("deepforest")
+    EPIconst.MethodName.all.remove("deepforest")
     # EPIconst.MethodName.all.remove("svm")
     new_feature = get_new_feature(cell_name, EPIconst.FeatureName.all,
                                   EPIconst.MethodName.all)
