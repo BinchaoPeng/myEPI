@@ -40,7 +40,4 @@ def time_since_test(start):
 if __name__ == '__main__':
     print(time_since_test(1))
     print(time.time())
-    X = np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3, ], [4, 4, 4], [5, 5, 5], [6, 6, 6], [7, 7, 7], [8, 8, 8]])
-    y = np.array([1, 1, 1, 1, 0, 0, 0, 0])
-    X, y = shuffleData(X, y, seed=1)
-    print(X, y)
+

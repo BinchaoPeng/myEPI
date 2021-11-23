@@ -21,7 +21,8 @@ def get_data_np_dict(datasource, cell_name, feature_name, method_name):
     train_data = np.load(trainPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
     X_en = train_data[train_data.files[0]]
     X_pr = train_data[train_data.files[1]]
-    train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+    # train_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+    train_X = [np.hstack((item1, item2, item1 - item2, item1 * item2)) for item1, item2 in zip(X_en, X_pr)]
     # print(type(self.X))
     train_y = train_data[train_data.files[2]]
 
@@ -29,17 +30,19 @@ def get_data_np_dict(datasource, cell_name, feature_name, method_name):
     test_data = np.load(testPath)  # ['X_en_tra', 'X_pr_tra', 'y_tra'] / ['X_en_tes', 'X_pr_tes', 'y_tes']
     X_en = test_data[test_data.files[0]]
     X_pr = test_data[test_data.files[1]]
-    test_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+    # test_X = [np.hstack((item1, item2)) for item1, item2 in zip(X_en, X_pr)]
+    test_X = [np.hstack((item1, item2, item1 - item2, item1 * item2)) for item1, item2 in zip(X_en, X_pr)]
     test_X = np.array(test_X)
     # print(type(self.X))
     test_y = test_data[test_data.files[2]]
 
-    if method_name == "ensemble":
+    if method_name == "meta":
         pass
     else:
         print("experiment: %s %s_%s" % (cell_name, feature_name, method_name))
         print("trainSet len:[X=%s,y=%s]" % (len(train_y), len(train_X)))
         print("testSet len:[X=%s,y=%s]" % (len(test_y), len(test_X)))
+        print(f"{feature_name} dim:", len(train_X[0]))
 
     train_X = np.array(train_X)
     train_y = np.array(train_y)

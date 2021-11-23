@@ -3,6 +3,8 @@ import sys
 import time
 import warnings
 
+from sklearn.feature_selection import RFE
+
 start_time = time.time()
 
 warnings.filterwarnings("ignore")
@@ -11,26 +13,27 @@ sys.path.extend([root_path[0] + 'src'])
 
 import lightgbm
 from ML.ml_def import get_data_np_dict, writeRank2csv, RunAndScore, time_since
+from utils.utils_data import scaler, standardScaler, feature_select_RFE
 
 """
 cell and feature choose
 """
 datasource = "epivan"
 names = ['pbc_IMR90', 'GM12878', 'HeLa-S3', "HMEC", 'HUVEC', 'IMR90', 'K562', 'NHEK']
-cell_name = names[7]
-feature_names = ['pseknc-new', 'tpcp', 'pseknc', 'cksnap', 'dpcp',
+cell_name = names[1]
+feature_names = ['tpcp', 'pseknc', 'cksnap', 'dpcp',
                  'eiip', 'kmer', 'dnabert_6mer', 'longformer-hug', 'elmo']
 # feature_names = ["pseknc_II_lam5_w1_k5_n2",
 #                  "pseknc_II_lam5_w1_k5_n3",
 #                  "pseknc_II_lam5_w1_k6_n2",
 #                  "pseknc_II_lam5_w1_k6_n3"]
-feature_name = feature_names[1]
+feature_name = feature_names[4]
 method_names = ['svm', 'xgboost', 'deepforest', 'lightgbm']
 method_name = method_names[3]
 ensemble_steps = ["base", "meta"]
 ensemble_step = ensemble_steps[0]
-computers = ["2080ti", "3070", "3090"]
-computer = computers[0]
+computers = ["2080ti", "3070", "3090", "p400"]
+computer = computers[2]
 
 ex_dir_name = '../../ex/%s/%s/%s_%s_%s' % (datasource, ensemble_step, feature_name, method_name, ensemble_step)
 if not os.path.exists(ex_dir_name):
@@ -93,12 +96,16 @@ other_params = {'max_depth': -1, 'num_leaves': 31,
                 'objective': None,
                 'n_estimators': 100, 'learning_rate': 0.1,
 
-                'device': 'gpu', 'n_jobs': 3, 'boosting_type': 'gbdt',
+                'device': 'gpu', 'n_jobs': 5, 'boosting_type': 'gbdt',
                 'class_weight': None, 'importance_type': 'split',
                 'min_child_weight': 0.001, 'random_state': None,
                 'subsample_for_bin': 200000, 'silent': True}
 
 data_list_dict = get_data_np_dict(datasource, cell_name, feature_name, method_name)
+lgb_select = lightgbm.sklearn.LGBMClassifier(device='gpu')
+data_list_dict = feature_select_RFE(data_list_dict, lgb_select)
+data_list_dict = standardScaler(data_list_dict)
+print("start searching params!!!")
 
 # 第一次：max_depth、num_leaves
 print("第一次")

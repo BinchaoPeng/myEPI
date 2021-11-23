@@ -17,7 +17,7 @@ class EPIconst:
         all = sorted([GM12878, HeLa_S3, HUVEC, IMR90, K562, NHEK])
 
     class MethodName:
-        ensemble = "ensemble"
+        ensemble = "meta"
         xgboost = "xgboost"
         svm = "svm"
         deepforest = "deepforest"
@@ -94,16 +94,27 @@ class EPIconst:
                                 'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
                                 'learning_rate': 0.1}
         "----------------------------------------------"
-        GM12878_pseknc_deepforest = {"max_layers": 20, "n_estimators": 5, "n_trees": 200}
-        GM12878_pseknc_lightgbm = {'max_depth': 0, 'num_leaves': 291, 'max_bin': 145, 'min_child_samples': 150,
-                                   'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 30, 'reg_alpha': 0.0,
-                                   'reg_lambda': 0.0, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 100}
-        GM12878_pseknc_rf = {'n_estimators': 130, 'max_depth': 54, 'min_samples_leaf': 1, 'min_samples_split': 6,
-                             'max_features': 'sqrt'}
+        GM12878_pseknc_deepforest = {'max_layers': 10, 'n_estimators': 2, 'n_trees': 400}
+        GM12878_pseknc_lightgbm = {'max_depth': 11, 'num_leaves': 291, 'max_bin': 185, 'min_child_samples': 80,
+                                   'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 40, 'reg_alpha': 0.0,
+                                   'reg_lambda': 0.0, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 150}
+        GM12878_pseknc_rf = {'n_estimators': 250, 'max_depth': 41, 'min_samples_leaf': 2, 'min_samples_split': 6,
+                             'max_features': 'log2'}
         GM12878_pseknc_svm = {'C': 0.5, 'gamma': 1024.0, 'kernel': 'rbf'}
-        GM12878_pseknc_xgboost = {'n_estimators': 900, 'max_depth': 9, 'min_child_weight': 2, 'gamma': 0,
-                                  'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
-                                  'learning_rate': 0.07}
+        GM12878_pseknc_xgboost = {'n_estimators': 950, 'max_depth': 6, 'min_child_weight': 1, 'gamma': 0.1,
+                                  'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 0.01,
+                                  'learning_rate': 0.1}
+        "----------------------------------------------"
+        GM12878_tpcp_deepforest = {'max_layers': 10, 'n_estimators': 8, 'n_trees': 400}
+        GM12878_tpcp_lightgbm = {'max_depth': -1, 'num_leaves': 321, 'max_bin': 175, 'min_child_samples': 80,
+                                 'colsample_bytree': 0.9, 'subsample': 1.0, 'subsample_freq': 20, 'reg_alpha': 0.0,
+                                 'reg_lambda': 0.0, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 250}
+        GM12878_tpcp_rf = {'n_estimators': 250, 'max_depth': 89, 'min_samples_leaf': 2, 'min_samples_split': 9,
+                           'max_features': None}
+        GM12878_tpcp_svm = {'C': 1.0, 'gamma': 64.0, 'kernel': 'rbf'}
+        GM12878_tpcp_xgboost = {'n_estimators': 1000, 'max_depth': 12, 'min_child_weight': 6, 'gamma': 0,
+                                'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
+                                'learning_rate': 0.1}
 
         "=============================================="
         HeLa_S3_cksnap_deepforest = {"max_layers": 20, "n_estimators": 2, "n_trees": 300}
@@ -154,16 +165,28 @@ class EPIconst:
                                 'learning_rate': 0.1}
 
         "----------------------------------------------"
-        HeLa_S3_pseknc_deepforest = {"max_layers": 20, "n_estimators": 2, "n_trees": 300}
-        HeLa_S3_pseknc_lightgbm = {'max_depth': -1, 'num_leaves': 301, 'max_bin': 5, 'min_child_samples': 110,
-                                   'colsample_bytree': 1.0, 'subsample': 0.7, 'subsample_freq': 0, 'reg_alpha': 0.0,
+        HeLa_S3_pseknc_deepforest = {'max_layers': 10, 'n_estimators': 5, 'n_trees': 400}
+        HeLa_S3_pseknc_lightgbm = {'max_depth': 12, 'num_leaves': 261, 'max_bin': 25, 'min_child_samples': 90,
+                                   'colsample_bytree': 1.0, 'subsample': 0.9, 'subsample_freq': 0, 'reg_alpha': 1e-05,
                                    'reg_lambda': 0.0, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 100}
-        HeLa_S3_pseknc_rf = {'n_estimators': 200, 'max_depth': 107, 'min_samples_leaf': 2, 'min_samples_split': 4,
-                             'max_features': 'sqrt'}
+        HeLa_S3_pseknc_rf = {'n_estimators': 330, 'max_depth': 118, 'min_samples_leaf': 1, 'min_samples_split': 8,
+                             'max_features': 'log2'}
         HeLa_S3_pseknc_svm = {'C': 1.0, 'gamma': 256.0, 'kernel': 'rbf'}
-        HeLa_S3_pseknc_xgboost = {'n_estimators': 850, 'max_depth': 5, 'min_child_weight': 1, 'gamma': 0,
-                                  'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
+        HeLa_S3_pseknc_xgboost = {'n_estimators': 750, 'max_depth': 8, 'min_child_weight': 2, 'gamma': 0,
+                                  'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0.1, 'reg_lambda': 2,
                                   'learning_rate': 0.1}
+
+        "----------------------------------------------"
+        HeLa_S3_tpcp_deepforest = {'max_layers': 10, 'n_estimators': 13, 'n_trees': 200}
+        HeLa_S3_tpcp_lightgbm = {'max_depth': 0, 'num_leaves': 341, 'max_bin': 45, 'min_child_samples': 10,
+                                 'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 0, 'reg_alpha': 0.0,
+                                 'reg_lambda': 1e-05, 'min_split_gain': 0.2, 'learning_rate': 0.1, 'n_estimators': 250}
+        HeLa_S3_tpcp_rf = {'n_estimators': 320, 'max_depth': 99, 'min_samples_leaf': 1, 'min_samples_split': 10,
+                           'max_features': 'sqrt'}
+        HeLa_S3_tpcp_svm = {'C': 128.0, 'gamma': 8.0, 'kernel': 'rbf'}
+        HeLa_S3_tpcp_xgboost = {'n_estimators': 1000, 'max_depth': 7, 'min_child_weight': 4, 'gamma': 0,
+                                'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
+                                'learning_rate': 0.1}
 
         "=============================================="
         HUVEC_cksnap_deepforest = {"max_layers": 10, "n_estimators": 10, "n_trees": 300}
@@ -214,16 +237,28 @@ class EPIconst:
                               'learning_rate': 0.1}
 
         "----------------------------------------------"
-        HUVEC_pseknc_deepforest = {'max_layers': 10, 'n_estimators': 2, 'n_trees': 250}
-        HUVEC_pseknc_lightgbm = {'max_depth': 12, 'num_leaves': 261, 'max_bin': 235, 'min_child_samples': 110,
-                                 'colsample_bytree': 0.9, 'subsample': 0.8, 'subsample_freq': 40, 'reg_alpha': 0.001,
-                                 'reg_lambda': 0.001, 'min_split_gain': 1.0, 'learning_rate': 0.1, 'n_estimators': 225}
-        HUVEC_pseknc_rf = {'n_estimators': 230, 'max_depth': 82, 'min_samples_leaf': 2, 'min_samples_split': 2,
+        HUVEC_pseknc_deepforest = {'max_layers': 10, 'n_estimators': 8, 'n_trees': 400}
+        HUVEC_pseknc_lightgbm = {'max_depth': -1, 'num_leaves': 311, 'max_bin': 115, 'min_child_samples': 190,
+                                 'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 70, 'reg_alpha': 1e-05,
+                                 'reg_lambda': 1e-05, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 175}
+        HUVEC_pseknc_rf = {'n_estimators': 310, 'max_depth': 42, 'min_samples_leaf': 2, 'min_samples_split': 7,
                            'max_features': 'sqrt'}
-        HUVEC_pseknc_svm = {'C': 0.5, 'gamma': 512.0, 'kernel': 'rbf'}
-        HUVEC_pseknc_xgboost = {'n_estimators': 950, 'max_depth': 6, 'min_child_weight': 2, 'gamma': 0,
+        HUVEC_pseknc_svm = {'C': 1.0, 'gamma': 256.0, 'kernel': 'rbf'}
+        HUVEC_pseknc_xgboost = {'n_estimators': 1000, 'max_depth': 10, 'min_child_weight': 2, 'gamma': 0,
                                 'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
                                 'learning_rate': 0.1}
+
+        "----------------------------------------------"
+        HUVEC_tpcp_deepforest = {'max_layers': 10, 'n_estimators': 2, 'n_trees': 150}
+        HUVEC_tpcp_lightgbm = {'max_depth': 0, 'num_leaves': 251, 'max_bin': 35, 'min_child_samples': 190,
+                               'colsample_bytree': 1.0, 'subsample': 0.6, 'subsample_freq': 0, 'reg_alpha': 1e-05,
+                               'reg_lambda': 1e-05, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 150}
+        HUVEC_tpcp_rf = {'n_estimators': 330, 'max_depth': 121, 'min_samples_leaf': 2, 'min_samples_split': 5,
+                         'max_features': None}
+        HUVEC_tpcp_svm = {'C': 2.0, 'gamma': 32.0, 'kernel': 'rbf'}
+        HUVEC_tpcp_xgboost = {'n_estimators': 1000, 'max_depth': 10, 'min_child_weight': 1, 'gamma': 0,
+                              'colsample_bytree': 0.9, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
+                              'learning_rate': 0.1}
 
         "=============================================="
         IMR90_cksnap_deepforest = {"max_layers": 20, "n_estimators": 2, "n_trees": 250}
@@ -274,16 +309,28 @@ class EPIconst:
                               'learning_rate': 0.1}
 
         "----------------------------------------------"
-        IMR90_pseknc_deepforest = {"max_layers": 20, "n_estimators": 5, "n_trees": 300}
-        IMR90_pseknc_lightgbm = {'max_depth': -1, 'num_leaves': 321, 'max_bin': 45, 'min_child_samples': 30,
-                                 'colsample_bytree': 0.9, 'subsample': 0.6, 'subsample_freq': 60, 'reg_alpha': 0.001,
-                                 'reg_lambda': 0.0, 'min_split_gain': 0.9, 'learning_rate': 0.1, 'n_estimators': 100}
-        IMR90_pseknc_rf = {'n_estimators': 280, 'max_depth': 28, 'min_samples_leaf': 4, 'min_samples_split': 7,
+        IMR90_pseknc_deepforest = {'max_layers': 10, 'n_estimators': 2, 'n_trees': 300}
+        IMR90_pseknc_lightgbm = {'max_depth': -1, 'num_leaves': 291, 'max_bin': 15, 'min_child_samples': 50,
+                                 'colsample_bytree': 1.0, 'subsample': 0.6, 'subsample_freq': 0, 'reg_alpha': 1e-05,
+                                 'reg_lambda': 1e-05, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 100}
+        IMR90_pseknc_rf = {'n_estimators': 240, 'max_depth': 96, 'min_samples_leaf': 3, 'min_samples_split': 4,
                            'max_features': 'auto'}
         IMR90_pseknc_svm = {'C': 512.0, 'gamma': 16.0, 'kernel': 'rbf'}
-        IMR90_pseknc_xgboost = {'n_estimators': 950, 'max_depth': 8, 'min_child_weight': 1, 'gamma': 0,
+        IMR90_pseknc_xgboost = {'n_estimators': 1000, 'max_depth': 8, 'min_child_weight': 1, 'gamma': 0.2,
                                 'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
                                 'learning_rate': 0.1}
+
+        "----------------------------------------------"
+        IMR90_tpcp_deepforest = {'max_layers': 10, 'n_estimators': 2, 'n_trees': 300}
+        IMR90_tpcp_lightgbm = {'max_depth': -1, 'num_leaves': 291, 'max_bin': 35, 'min_child_samples': 60,
+                               'colsample_bytree': 0.6, 'subsample': 0.9, 'subsample_freq': 0, 'reg_alpha': 0.0,
+                               'reg_lambda': 0.5, 'min_split_gain': 0.1, 'learning_rate': 0.1, 'n_estimators': 100}
+        IMR90_tpcp_rf = {'n_estimators': 290, 'max_depth': 71, 'min_samples_leaf': 5, 'min_samples_split': 4,
+                         'max_features': 'auto'}
+        IMR90_tpcp_svm = {'C': 1024.0, 'gamma': 2.0, 'kernel': 'rbf'}
+        IMR90_tpcp_xgboost = {'n_estimators': 950, 'max_depth': 7, 'min_child_weight': 5, 'gamma': 0,
+                              'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0.05, 'reg_lambda': 0.5,
+                              'learning_rate': 0.1}
 
         "=============================================="
         K562_cksnap_deepforest = {"max_layers": 20, "n_estimators": 2, "n_trees": 400}
@@ -333,16 +380,28 @@ class EPIconst:
                              'learning_rate': 0.1}
 
         "----------------------------------------------"
-        K562_pseknc_deepforest = {"max_layers": 20, "n_estimators": 5, "n_trees": 250}
-        K562_pseknc_lightgbm = {'max_depth': 0, 'num_leaves': 221, 'max_bin': 55, 'min_child_samples': 70,
-                                'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 70, 'reg_alpha': 1e-05,
-                                'reg_lambda': 1e-05, 'min_split_gain': 0.1, 'learning_rate': 0.1, 'n_estimators': 100}
-        K562_pseknc_rf = {'n_estimators': 320, 'max_depth': 63, 'min_samples_leaf': 6, 'min_samples_split': 2,
-                          'max_features': 'sqrt'}
+        K562_pseknc_deepforest = {'max_layers': 10, 'n_estimators': 2, 'n_trees': 400}
+        K562_pseknc_lightgbm = {'max_depth': -1, 'num_leaves': 241, 'max_bin': 65, 'min_child_samples': 200,
+                                'colsample_bytree': 1.0, 'subsample': 1.0, 'subsample_freq': 0, 'reg_alpha': 0.0,
+                                'reg_lambda': 0.0, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 150}
+        K562_pseknc_rf = {'n_estimators': 250, 'max_depth': 50, 'min_samples_leaf': 1, 'min_samples_split': 6,
+                          'max_features': 'log2'}
         K562_pseknc_svm = {'C': 0.5, 'gamma': 512.0, 'kernel': 'rbf'}
-        K562_pseknc_xgboost = {'n_estimators': 1000, 'max_depth': 10, 'min_child_weight': 5, 'gamma': 0,
-                               'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0, 'reg_lambda': 1,
+        K562_pseknc_xgboost = {'n_estimators': 1000, 'max_depth': 8, 'min_child_weight': 1, 'gamma': 0,
+                               'colsample_bytree': 0.7, 'subsample': 0.8, 'reg_alpha': 1, 'reg_lambda': 0.1,
                                'learning_rate': 0.1}
+
+        "----------------------------------------------"
+        K562_tpcp_deepforest = {'max_layers': 10, 'n_estimators': 10, 'n_trees': 400}
+        K562_tpcp_lightgbm = {'max_depth': -1, 'num_leaves': 241, 'max_bin': 105, 'min_child_samples': 130,
+                              'colsample_bytree': 1.0, 'subsample': 0.6, 'subsample_freq': 0, 'reg_alpha': 1e-05,
+                              'reg_lambda': 1e-05, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 200}
+        K562_tpcp_rf = {'n_estimators': 280, 'max_depth': 143, 'min_samples_leaf': 5, 'min_samples_split': 2,
+                        'max_features': 'sqrt'}
+        K562_tpcp_svm = {'C': 32.0, 'gamma': 16.0, 'kernel': 'rbf'}
+        K562_tpcp_xgboost = {'n_estimators': 1000, 'max_depth': 12, 'min_child_weight': 4, 'gamma': 0,
+                             'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 2, 'reg_lambda': 1,
+                             'learning_rate': 0.1}
 
         "=============================================="
         NHEK_cksnap_deepforest = {"max_layers": 20, "n_estimators": 5, "n_trees": 400}
@@ -391,19 +450,30 @@ class EPIconst:
         NHEK_kmer_xgboost = {'n_estimators': 850, 'max_depth': 9, 'min_child_weight': 1, 'gamma': 0,
                              'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 1, 'reg_lambda': 0.1,
                              'learning_rate': 0.1}
-
         "----------------------------------------------"
-        NHEK_pseknc_deepforest = {"max_layers": 20, "n_estimators": 13, "n_trees": 400}
-        NHEK_pseknc_lightgbm = {'max_depth': 12, 'num_leaves': 251, 'max_bin': 105, 'min_child_samples': 80,
-                                'colsample_bytree': 0.7, 'subsample': 0.6, 'subsample_freq': 0, 'reg_alpha': 0.7,
-                                'reg_lambda': 0.7, 'min_split_gain': 0.0, 'learning_rate': 0.1, 'n_estimators': 125}
-        NHEK_pseknc_rf = {'n_estimators': 40, 'max_depth': 62, 'min_samples_leaf': 6, 'min_samples_split': 8,
-                          'max_features': 'log2'}
-        NHEK_pseknc_svm = {'C': 2.0, 'gamma': 256.0, 'kernel': 'rbf'}
-        NHEK_pseknc_xgboost = {'n_estimators': 650, 'max_depth': 8, 'min_child_weight': 5, 'gamma': 0,
-                               'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0.01, 'reg_lambda': 0.02,
+        NHEK_pseknc_deepforest = {'max_layers': 10, 'n_estimators': 13, 'n_trees': 300}
+        NHEK_pseknc_lightgbm = {'max_depth': 12, 'num_leaves': 271, 'max_bin': 155, 'min_child_samples': 20,
+                                'colsample_bytree': 0.9, 'subsample': 0.8, 'subsample_freq': 60, 'reg_alpha': 0.1,
+                                'reg_lambda': 1e-05, 'min_split_gain': 0.7, 'learning_rate': 0.1, 'n_estimators': 75}
+        NHEK_pseknc_rf = {'n_estimators': 190, 'max_depth': 85, 'min_samples_leaf': 1, 'min_samples_split': 10,
+                          'max_features': 'auto'}
+        NHEK_pseknc_svm = {'C': 0.5, 'gamma': 512.0, 'kernel': 'rbf'}
+        NHEK_pseknc_xgboost = {'n_estimators': 950, 'max_depth': 6, 'min_child_weight': 3, 'gamma': 0,
+                               'colsample_bytree': 0.6, 'subsample': 0.6, 'reg_alpha': 0.1, 'reg_lambda': 3,
                                'learning_rate': 0.1}
 
+        "----------------------------------------------"
+        NHEK_tpcp_deepforest = {'max_layers': 10, 'n_estimators': 5, 'n_trees': 400}
+        NHEK_tpcp_lightgbm = {'max_depth': 0, 'num_leaves': 241, 'max_bin': 15, 'min_child_samples': 90,
+                              'colsample_bytree': 0.7, 'subsample': 0.8, 'subsample_freq': 40, 'reg_alpha': 0.001,
+                              'reg_lambda': 0.001, 'min_split_gain': 0.2, 'learning_rate': 0.1, 'n_estimators': 100}
+        NHEK_tpcp_rf = {'n_estimators': 120, 'max_depth': 115, 'min_samples_leaf': 1, 'min_samples_split': 4,
+                        'max_features': 'auto'}
+        NHEK_tpcp_svm = {'C': 8.0, 'gamma': 16.0, 'kernel': 'rbf'}
+        NHEK_tpcp_xgboost = {'n_estimators': 1000, 'max_depth': 7, 'min_child_weight': 6, 'gamma': 0,
+                             'colsample_bytree': 0.8, 'subsample': 0.8, 'reg_alpha': 0.01, 'reg_lambda': 0.01,
+                             'learning_rate': 0.1}
+        ##########@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###################################
         # class ModelParams_sept:
         #     GM12878_cksnap_deepforest =
         #     GM12878_cksnap_lightgbm =
@@ -429,11 +499,11 @@ class EPIconst:
         #     GM12878_kmer_svm =
         #     GM12878_kmer_xgboost =
         #     "----------------------------------------------"
-        #     GM12878_pseknc_deepforest =
-        #     GM12878_pseknc_lightgbm =
-        #     GM12878_pseknc_rf =
-        #     GM12878_pseknc_svm =
-        #     GM12878_pseknc_xgboost =
+        #     GM12878_tpcp_deepforest =
+        #     GM12878_tpcp_lightgbm =
+        #     GM12878_tpcp_rf =
+        #     GM12878_tpcp_svm =
+        #     GM12878_tpcp_xgboost =
         #
         #     "=============================================="
         #     HeLa_S3_cksnap_deepforest =
@@ -463,11 +533,11 @@ class EPIconst:
         #     HeLa_S3_kmer_xgboost =
         #
         #     "----------------------------------------------"
-        #     HeLa_S3_pseknc_deepforest =
-        #     HeLa_S3_pseknc_lightgbm =
-        #     HeLa_S3_pseknc_rf =
-        #     HeLa_S3_pseknc_svm =
-        #     HeLa_S3_pseknc_xgboost =
+        #     HeLa_S3_tpcp_deepforest =
+        #     HeLa_S3_tpcp_lightgbm =
+        #     HeLa_S3_tpcp_rf =
+        #     HeLa_S3_tpcp_svm =
+        #     HeLa_S3_tpcp_xgboost =
         #
         #     "=============================================="
         #     HUVEC_cksnap_deepforest =
@@ -498,11 +568,11 @@ class EPIconst:
         #     HUVEC_kmer_xgboost =
         #
         #     "----------------------------------------------"
-        #     HUVEC_pseknc_deepforest =
-        #     HUVEC_pseknc_lightgbm =
-        #     HUVEC_pseknc_rf =
-        #     HUVEC_pseknc_svm =
-        #     HUVEC_pseknc_xgboost =
+        #     HUVEC_tpcp_deepforest =
+        #     HUVEC_tpcp_lightgbm =
+        #     HUVEC_tpcp_rf =
+        #     HUVEC_tpcp_svm =
+        #     HUVEC_tpcp_xgboost =
         #
         #     "=============================================="
         #     IMR90_cksnap_deepforest =
@@ -533,11 +603,11 @@ class EPIconst:
         #     IMR90_kmer_xgboost =
         #
         #     "----------------------------------------------"
-        #     IMR90_pseknc_deepforest =
-        #     IMR90_pseknc_lightgbm =
-        #     IMR90_pseknc_rf =
-        #     IMR90_pseknc_svm =
-        #     IMR90_pseknc_xgboost =
+        #     IMR90_tpcp_deepforest =
+        #     IMR90_tpcp_lightgbm =
+        #     IMR90_tpcp_rf =
+        #     IMR90_tpcp_svm =
+        #     IMR90_tpcp_xgboost =
         #
         #     "=============================================="
         #     K562_cksnap_deepforest =
@@ -567,11 +637,11 @@ class EPIconst:
         #     K562_kmer_xgboost =
         #
         #     "----------------------------------------------"
-        #     K562_pseknc_deepforest =
-        #     K562_pseknc_lightgbm =
-        #     K562_pseknc_rf =
-        #     K562_pseknc_svm =
-        #     K562_pseknc_xgboost =
+        #     K562_tpcp_deepforest =
+        #     K562_tpcp_lightgbm =
+        #     K562_tpcp_rf =
+        #     K562_tpcp_svm =
+        #     K562_tpcp_xgboost =
         #     "=============================================="
         #     NHEK_cksnap_deepforest =
         #     NHEK_cksnap_lightgbm =
@@ -601,12 +671,12 @@ class EPIconst:
         #     NHEK_kmer_xgboost =
         #
         #     "----------------------------------------------"
-        #     NHEK_pseknc_deepforest =
-        #     NHEK_pseknc_lightgbm =
-        #     NHEK_pseknc_rf =
-        #     NHEK_pseknc_svm =
-        #     NHEK_pseknc_xgboost =
+        #     NHEK_tpcp_deepforest =
+        #     NHEK_tpcp_lightgbm =
+        #     NHEK_tpcp_rf =
+        #     NHEK_tpcp_svm =
+        #     NHEK_tpcp_xgboost =
 
 
 if __name__ == '_main_':
-    print(getattr(EPIconst.ModelParams_epivan, "NHEK_pseknc_deepforest"))
+    print(getattr(EPIconst.ModelParams_epivan, "NHEK_tpcp_deepforest"))

@@ -4,7 +4,7 @@ import time
 import warnings
 
 from ML.EPIconst import EPIconst
-from utils.utils_ml import shuffle_data_list_dict
+from utils.utils_data import shuffle_data_list_dict
 
 start_time = time.time()
 warnings.filterwarnings("ignore")

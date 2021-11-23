@@ -16,7 +16,7 @@ from sklearn.ensemble import RandomForestClassifier
 from deepforest import CascadeForestClassifier
 from lightgbm.sklearn import LGBMClassifier
 
-from utils.utils_ml import shuffle_data_list_dict
+from utils.utils_data import shuffle_data_list_dict
 from ML.ml_def import get_data_np_dict, RunAndScore, time_since, get_scoring_result, writeRank2csv
 from ML.EPIconst import EPIconst
 
@@ -176,13 +176,13 @@ if __name__ == '__main__':
     datasources = ['epivan', 'sept']
     datasource = datasources[0]
     names = ['pbc_IMR90', "GM12878", "HeLa-S3", "HMEC", "HUVEC", "IMR90", "K562", "NHEK", 'all', 'all-NHEK']
-    cell_name = names[7]
+    cell_name = names[1]
     ensemble_feature_names = ['prob', 'pred', 'prob_pred']
     ensemble_feature_name = ensemble_feature_names[0]
     ensemble_steps = ["base", "meta"]
     ensemble_step = ensemble_steps[1]
     computers = ["2080ti", "3070", "3090", "p400"]
-    computer = computers[1]
+    computer = computers[2]
 
     for item in product(ensemble_feature_names, EPIconst.MethodName.all):
         ensemble_feature, method_name = item
@@ -196,8 +196,16 @@ if __name__ == '__main__':
             print(ex_dir_name + "/rank", "created !!!")
 
     s_time = time.time()
+    # EPIconst.FeatureName.all.remove("dpcp")
+    # EPIconst.FeatureName.all.remove("cksnap")
+    # EPIconst.FeatureName.all.remove("kmer")
+    # EPIconst.FeatureName.all.remove("pseknc")
+    # EPIconst.FeatureName.all.remove("eiip")
     EPIconst.MethodName.all.remove("deepforest")
     # EPIconst.MethodName.all.remove("svm")
+    EPIconst.MethodName.all.remove("rf")
+    EPIconst.MethodName.all.remove("lightgbm")
+    EPIconst.MethodName.all.remove("xgboost")
     new_feature = get_new_feature(cell_name, EPIconst.FeatureName.all,
                                   EPIconst.MethodName.all)
     ensemble_data = get_ensemble_data(new_feature, ensemble_feature_name)

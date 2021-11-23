@@ -72,8 +72,8 @@ DPCP
 set_pc_list
 
 process:
-en_fasta [n,3000] ---> en_kmer [n,336]
-pr_fasta [n,2000] ---> pr_kmer [n,336]
+en_fasta [n,3000] ---> en_kmer [n,340]
+pr_fasta [n,2000] ---> pr_kmer [n,340]
 
 output:
 en_kmer,pr_kmer,y
